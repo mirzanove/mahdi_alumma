@@ -953,7 +953,8 @@ function HuginContext()
 			{	//Give GUI a chance to process messages.
 				context.bExecuting = false;
 				updateResultView();
-				setTimeout( "context.resume();", 1 );
+				//setTimeout( "context.resume();", 1 );
+				context.resume();
 				return;
 			}
 		}
