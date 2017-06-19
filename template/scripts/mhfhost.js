@@ -239,6 +239,7 @@ function doSearch()
 		
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
 		
