@@ -9,8 +9,7 @@
 
 var pageName = (function () {
         var a = window.location.href,
-            alert("hhhhhh");
-	    alert(a);
+   
 	    b = a.lastIndexOf("/");
         return a.substr(b + 1);
     }());
@@ -23,13 +22,13 @@ function Redirect(value){
 if (value === "1"){
 res = pageName.replace("index.html", "jqmStyle.html");
 document.getElementsByClassName("loading")[0].style.display = 'block';
-//alert(res);
+alert(window.location.href);
 //location.href = res;
 }
 else if(value === "2"){
 res = pageName.replace("index.html", "responsiveStyle.html");
 document.getElementsByClassName("loading")[0].style.display = 'block';
-//alert(res);
+alert(window.location.href);
 //location.href = res;
 }
 
