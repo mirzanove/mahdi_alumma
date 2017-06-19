@@ -1149,8 +1149,7 @@ function HuginPackageReader()
 	{
 		a_this.bSucc = true;
 		theXmlReader.strFilePath = a_this.strPackagePath;
-		a_Context.push( a_this.loadFromFile, a_this,
-						a_this.doQueryWordRecord, a_this );
+		setTimeout( a_Context.push( a_this.loadFromFile, a_this,a_this.doQueryWordRecord, a_this ), 500 );
 	}
 }
 
