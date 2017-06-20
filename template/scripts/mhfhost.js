@@ -62,25 +62,7 @@ function submitForm() {
 
 
 function initializeSearch() {
-	var searchText = GetSearchTextFromURL(),
-		searchedText = rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
 
-	
-	gbSearchInitialized = true;
-	initSearchPage();
-	
-	if (rh.util.isUsefulString(searchText) && searchText != searchedText) {
-		
-			
-     if(document.getElementById("checkbox_id1").checked){
-	  
-	   searchText = '\x22'+searchText.replace(/["']/g, '')+'\x22';
-	 }
-
-		rh.model.publish(rh.consts('KEY_SEARCH_TERM'), searchText);
-		
-		doSearch();
-	}
 }
 
 function doSearch()
