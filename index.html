@@ -34,6 +34,9 @@
  <link rel="stylesheet" type="text/css" href="template/styles/layout.min.css">
 <script type="text/javascript" src="template/scripts/mhfhost.js"></script>
 <script type="text/javascript" src="template/scripts/search.js"></script>
+
+<script type="text/javascript" src="clientscript/xregexp-all.js"></script>
+
 <script type="text/javascript" >
 gTopicFrameName = "rh_default_topic_frame_name";
 gDefaultTopic = "#index.php.htm";
@@ -52,6 +55,93 @@ gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 	gIdxLinkHtml = "<span  class=\"wIdxLinkText\">{%LINK_NAME%}</span>";
 	gIdxCategoryHtml = "<span  class=\"wIdxAlphabetText\">{%LINK_NAME%}</span>";
 </script>
+
+<style type="text/css">
+#text_div{
+display : none;
+}
+
+/* One radio button per line */
+label {
+  display: block;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+.loading2 {
+	background-image: url("template/resources/loading.gif")	 ! important ;
+	background-repeat: no-repeat	 ! important ;
+    display: none;
+	width: 100px;
+	height: 100px;
+	left: 55%;
+	top: 40%;
+	margin-left: -50px;
+	margin-top: -50px;
+	position:fixed;
+    _position:absolute;
+    _left: expression(eval(250+(document.body.scrollLeft)));
+    _top:expression(eval(150+(document.body.scrollTop)));
+	z-index :159;
+}
+/* The Modal (background) */
+.modal {
+    /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 999999; /* Sit on top */
+    display : none;
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    /*background-color: rgb(0,0,0); /* Fallback color */
+    background-color: grey; /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+
+}
+
+/* The Close Button */
+.close {
+    padding-left: 8px;
+    padding-right: 8px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #f1f1f1;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: black;
+	border-style: solid;
+    border-color: white;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}  
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+</style>
+
+<div class = "loading2"></div>
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+</div>
 </head>
 
 <body class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_DESKTOP; media-landscape: KEY_SCREEN_TABLET; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
@@ -153,7 +243,26 @@ gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 	<label class="wSearchAndLabelResults" data-if="KEY_FEATURE.andsearch" for="andsearch" data-class="active: @KEY_AND_SEARCH == '1'">
 		<span class="wSearchAND">عرض نتائج البحث لكل الكلمات</span>
 	</label>
-	
+	<label for="checkbox_id1">
+    <input type="radio" value="1" name="genderS" id="checkbox_id1" checked> 
+	<span>&nbsp;عرض نتائج البحث مطابق للكلمات&nbsp;&nbsp;</span>
+  </label>
+	<label for="checkbox_id0">
+    <input type="radio" value="0" name="genderS" id="checkbox_id0"> 
+	<span>&nbsp;عرض نتائج البحث لكل الكلمات&nbsp;&nbsp;</span>
+  </label>
+  <label for="checkbox_id2">
+    <input type="radio" value="2"  name="genderS" id="checkbox_id2"> 
+	<span>&nbsp;عرض نتائج البحث لأي من الكلمات&nbsp;&nbsp;</span>
+  </label>
+	 
+	 <label for="checkbox_id3">
+    <input type="checkbox" value="3"  name="genderS" id="checkbox_id3" checked> 
+	<span>&nbsp;تفعيل تعيين على الكلمات..&nbsp;&nbsp;</span>
+   </label>
+   
+   
+   
 	<div class="wSearchResults" id="searchresults">
 		<div class="wSearchResultSettings rh-hide">
 			<div class="wSearchHighlight">
