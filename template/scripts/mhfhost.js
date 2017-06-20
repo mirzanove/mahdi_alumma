@@ -91,8 +91,8 @@ function doSearch()
 	        {        
 	           
           
-		    var quotss = '"'+searchText.replace(/["']/g, '')+'"'; 
-			 alert(quotss);
+		    var quotss = '\x22'+searchText.replace(/["']/g, '')+'\x22'; 
+			alert(quotss);
 			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'),quotss, {sync: true});
 	
 	        }
