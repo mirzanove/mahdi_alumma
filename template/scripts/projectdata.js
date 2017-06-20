@@ -5,7 +5,7 @@ model = rh.model;
 
 rh.consts('DEFAULT_TOPIC', encodeURI("#index.php.htm".substring(1)));
 rh.consts('START_FILEPATH', encodeURI('index.html'));
-rh.consts('HELP_ID', '5114474F-E683-44D8-989E-00F552EF040C' || 'preview');
+rh.consts('HELP_ID', '20B41E3E-84AB-43EE-9C6F-10895B545E0A' || 'preview');
 rh.consts('LNG_STOP_WORDS', ["a", "about", "after", "against", "all", "also", "among", "an", "and", "are", "as", "at", "be", "became", "because", "been", "between", "but", "by", "can", "come", "do", "during", "each", "early", "for", "form", "found", "from", "had", "has", "have", "he", "her", "his", "however", "in", "include", "into", "is", "it", "its", "late", "later", "made", "many", "may", "me", "med", "more", "most", "near", "no", "non", "not", "of", "on", "only", "or", "other", "over", "several", "she", "some", "such", "than", "that", "the", "their", "then", "there", "these", "they", "this", "through", "to", "under", "until", "use", "was", "we", "were", "when", "where", "which", "who", "with", "you"]);
 rh.consts('LNG_SUBSTR_SEARCH', 0);
 

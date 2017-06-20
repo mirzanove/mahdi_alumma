@@ -36,31 +36,6 @@ var gstrSyn = "";
 
 var gbSearchInitialized = false;
 
-
-
-//jomart
-var genderS ;
-function findSelection(field) {
-    var test = document.getElementsByName(field);
-    var sizes = test.length;
-
-        for (i=0; i < sizes; i++) {
-            if (test[i].checked==true) {  
-            return test[i].value;
-        }
-    }
-}
-function submitForm() {
-
-    genderS =  findSelection("genderS");
-    //alert(genderS);
-    return false;
-}
-
-
-
-
-
 function initializeSearch() {
 	var searchText = GetSearchTextFromURL(),
 		searchedText = rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
@@ -76,28 +51,7 @@ function initializeSearch() {
 
 function doSearch()
 {
-	
-	//jomart
-	submitForm();
-	
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
-	
-	
-	/*if(genderS === "1")
-	{    alert("match"); 
-	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
-	           if(isquot === true){
-	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
-	           else{
-	           searchText =  '"'+searchText+'"'; 
-		       }
-	     
-		 
-	}*/
-	
-	
-	 searchText = "\""+searchText.replace(/["']/g, "")+ "\"";
-	
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
@@ -1625,7 +1579,7 @@ function SolNode(){}
 function RunesService()
 {
 	this.langSev = new LanguageService();
-			
+	
 	this.isOperator = function( a_str, a_nFrom )
 	{
 		var strOp = this.getWord( a_str, a_nFrom ).toLowerCase();
@@ -1677,17 +1631,11 @@ function RunesService()
 	this.getWord = function( a_str, a_nFrom )
 	{
 		var nLen = this.getLengthOfWord( a_str, a_nFrom );
-        
-		
 		return a_str.substr( a_nFrom, nLen );
 	}
 	
 	this.getTerm = function( a_Context, a_Rslt )
 	{
-		//alert(document.getElementById("checkbox_id1").checked);
-		//if (document.getElementById("checkbox_id1").checked)
-		//{
-		
 		if ( this.langSev.isQuote( a_Context.getCurChar() ) )
 		{
 			a_Context.nCur++;
@@ -1700,7 +1648,6 @@ function RunesService()
 			a_Rslt.strTerm = a_Context.strSrc.substr( a_Context.nCur, nLen );
 			a_Context.nCur += nLen + 1;
 		}
-	  //}   
 		else
 		{
 			var nLen = this.getLengthOfDefault( a_Context.strSrc, a_Context.nCur );
@@ -1819,7 +1766,7 @@ function RunesService()
 	this.parseTerm = function( a_Context, a_Result )
 	{
 		a_Context.nCur += this.getLengthOfWordBreak( a_Context.strSrc, a_Context.nCur );
-        //alert(a_Context);
+
 		var rslt = new Object;
 		if ( !this.getTerm( a_Context, rslt ) )
 		{
@@ -2775,11 +2722,9 @@ function HuginHunter()
 	this.evaluateExpression = function( a_Context, a_this )
 	{
 		if(gbANDSearch)
-		{ 
+		{
 			a_this.strQuery = trimString(a_this.strQuery);
-             a_this.strQuery = '"'+a_this.strQuery+'"';
-		   //a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
-			alert(a_this.strQuery);
+            a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
 		}
 			
 		a_this.queryExpression = parseQueryExpression( a_this.strQuery );

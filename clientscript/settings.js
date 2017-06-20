@@ -390,7 +390,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 } ////////////////////////////////////////////////////////////////
 else {
 	jQueryD_1_4_2(document).ready(function() {
-		alert("coool20");
+		alert("deskstop");
 		
 		  //var span = document.getElementsByClassName("close")[0];
 

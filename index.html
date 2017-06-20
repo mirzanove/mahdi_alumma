@@ -34,9 +34,6 @@
  <link rel="stylesheet" type="text/css" href="template/styles/layout.min.css">
 <script type="text/javascript" src="template/scripts/mhfhost.js"></script>
 <script type="text/javascript" src="template/scripts/search.js"></script>
-
-<script type="text/javascript" src="clientscript/xregexp-all.js"></script>
-
 <script type="text/javascript" >
 gTopicFrameName = "rh_default_topic_frame_name";
 gDefaultTopic = "#index.php.htm";
@@ -137,11 +134,6 @@ label {
 }
 </style>
 
-<div class = "loading2"></div>
-<div id="myModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="img01">
-</div>
 </head>
 
 <body class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_DESKTOP; media-landscape: KEY_SCREEN_TABLET; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
@@ -233,11 +225,11 @@ label {
 <!-- Search field -->
 <div class="searchbar left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="searchpage-mode, layout-visible: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content';">
 	<div class="mobileheader"><span data-text="@KEY_LNG.SearchPageTitle"></span><div class="totopic" data-if="@KEY_ACTIVE_TAB == 'fts'" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
-	<input id = "input_id" class="wSearchField" type="text" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	<input class="wSearchField" type="text" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
 	<a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">&nbsp;</a>
 </div>
-<!-- Search results [[-->
+<!-- Search results -->
 <div class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(true) | debounce: 50, delta: 100">
 	
 	<label class="wSearchAndLabelResults" data-if="KEY_FEATURE.andsearch" for="andsearch" data-class="active: @KEY_AND_SEARCH == '1'">
@@ -260,9 +252,6 @@ label {
     <input type="checkbox" value="3"  name="genderS" id="checkbox_id3" checked> 
 	<span>&nbsp;تفعيل تعيين على الكلمات..&nbsp;&nbsp;</span>
    </label>
-   
-   
-   
 	<div class="wSearchResults" id="searchresults">
 		<div class="wSearchResultSettings rh-hide">
 			<div class="wSearchHighlight">

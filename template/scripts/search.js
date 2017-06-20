@@ -220,14 +220,10 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	return "<div class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
 }
 function setResultsStringHTML(results_no, searchStr)
-{   
-	//searchStr = '&quot;'+searchStr+'&quot;';
-	//alert(searchStr);
+{
 	var msg = gResultsFoundString;
-	//alert(msg);
 	msg = msg.replace("%1", results_no);
 	msg = msg.replace("%2", "\'" + searchStr + "\'");
-	
 	displayMsg(msg);
 }
 function displayMsg(msg)
