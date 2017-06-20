@@ -3258,7 +3258,7 @@ function displayTopics( a_QueryResult )
 	}
 	
 	if( a_QueryResult.aTopics.length == 0 ) {
-		displayMsg(gsNoTopics);
+		//displayMsg(gsNoTopics);
 	}
 
 	changeResultView( sHTML );
