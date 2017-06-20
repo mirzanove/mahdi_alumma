@@ -1,4 +1,4 @@
-
+/*jomart*/
 var gTopicElemId = "";
 var gsPPath="";
 var gaPaths=new Array();
@@ -48,9 +48,8 @@ var gbBadUriError = false;
 var	EST_TERM		= 1;
 var	EST_PHRASE		= 2;
 var	EST_STEM		= 3;
-var gsGoToLayoutLabel = "Show";
-var gsGoToLayoutTooltip = "Show Navigation Component";
-var gsGoToLayoutFormat = "<div onClick='rh._.redirectToLayout()'style='cursor:pointer;  text-align: center;'>#{label}</div>";
+
+var enable_highlight = false;
 
 //Code for breadcrumb variable check for bookmark
 (function() {
@@ -82,54 +81,17 @@ function verifyEnvironment() {
 	loadScreens(SCR_NONE, gCommonRootRelPath);
 }
 
-
 function initializeTopic() {
-
-	
-publishTopicData();
-	
-//jomart
-
-window.parent.postMessage('checkbox_state', '*');
-var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-var eventer = window[eventMethod];
-var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-
-// Listen to message from child window
-eventer(messageEvent,function(e) {
-
-
-	if (e.data =='checkbox_true')
-    {   //alert('checked');
-           //document.getElementsByClassName("loading")[0].style.display = 'block';
-		   window.parent.postMessage(["loading", "strat"], "*");
-		   
-	
-	
-		   rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
-		                   setTimeout(applyHighlight, 50);
-           });
-       
-    }
-    else
-    {
-		if (e.data =='checkbox_false'){
-			//alert('unchecked');
-		}
-        
-        
-    }
-
-},false);
-	
-	/*rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
-		setTimeout(applyHighlight, 50);
-	});*/
-	
-	
-	
-	
-	
+	window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");
+	publishTopicData();
+	//rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
+		//if(enable_highlight == true){
+			//window.parent.postMessage(["loading", "strat"], "*");
+			//document.getElementsByClassName("loading")[0].style.display = 'block';
+			//setTimeout(applyHighlight, 50);
+		//}
+		
+	//});
 	loadParentDataForSyncing(gCommonRootRelPath, SCR_PARENT_TOCSYNC);
 }
 
@@ -290,9 +252,8 @@ function DomTextNode( a_Node, a_nFrom )
 	}
 
 	this.doHighlight = function( a_aRanges, a_nStart )
-	{   window.parent.postMessage(["loading", "stop"], "*");
-		//document.getElementsByClassName("loading")[0].style.display = 'none';	
-		
+	{  // window.parent.postMessage(["loading", "stop"], "*");
+	    document.getElementsByClassName("loading")[0].style.display = 'none';
 		s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
 		s_strHlEnd = "</font>";
 
@@ -446,7 +407,6 @@ function DomTexts()
 				term = term;
 			}
 			result += (result != '' ? '|' : '') + term;
-			
 			return result;
 		}, '');
 
@@ -463,15 +423,15 @@ function DomTexts()
 		var str = gaSearchTerms.reduce(function(result, value, index) {
 			var term = escapeRegExp(value.toLowerCase());
 			if (!(gsSubstrSrch || rh.util.hasNonAsciiChar(term))) {
-				term =  term ;
+				//term = '\\b' + term + '\\b';
 			}
 			result += (result != '' ? '|' : '') + term;
 			return result;
 		}, '');
 		
-		//alert(str);
 		//var regexp = new RegExp(str, "i");
 
+		
 		//jomart
 		var regex = /(\|)/g;
 		if (regex.test(str)) {
@@ -480,11 +440,6 @@ function DomTexts()
 		else{
 		var regexp =  XRegExp(createAccentRegexp(str).split(' ').join('[\\n\\r\\s\\p{P}\\p{S}\\p{Mn}\\u0640]+'), "i");
 		}
-		
-		
-		
-		
-		
 		
 		
 		var aWords ;
@@ -537,7 +492,6 @@ function DomTexts()
 
 	this.jump2FirstHighlightedWord = function()
 	{
-		
 		if (gnYPos > 51){
 			window.scrollTo(0, gnYPos-50);
 			window.parent.postMessage(["scrollTop", gnYPos-50], "*");
@@ -679,20 +633,24 @@ function highlightDocument()
 /////// start routine /////////
 function applyHighlight()
 {
-	readSetting(RHHIGHLIGHT, callbackHighlightSettingRead);
+	//readSetting(RHHIGHLIGHT, callbackHighlightSettingRead);
+	callbackHighlightSettingRead(true);
+	
 }
 function callbackHighlightSettingRead(bHighlight)
 {
 	if(bHighlight == TRUESTR)
-		readSetting(RHHIGHLIGHTTEXTCOLOR, callbackHighlightTxtColorRead);
+	//readSetting(RHHIGHLIGHTTEXTCOLOR, callbackHighlightTxtColorRead);
+	callbackHighlightTxtColorRead("#000000");
 }
 function callbackHighlightTxtColorRead(txtColor)
-{
+{  
 	gsTextColor = txtColor;
-	readSetting(RHHIGHLIGHTBGCOLOR, callbackHighlightBgColorRead);
+	//readSetting(RHHIGHLIGHTBGCOLOR, callbackHighlightBgColorRead);
+	callbackHighlightBgColorRead("#FCFF00");
 }
 function callbackHighlightBgColorRead(bgColor)
-{
+{   //alert(bgColor);
 	gsBkgndColor = bgColor;
 	StartHighLightSearch();
 }
@@ -1678,6 +1636,63 @@ function escapeRegExp(str)
 }
 
 
+
+
+
+
+
+
+if (_isMobile() == mobiletrue){
+	
+     jQueryM_v1_4_5(window).on("resize orientationchange", function(event) {
+       wrapperhight()
+    });
+    jQueryM_v1_4_5(window).load(function() {
+	   wrapperhight()		
+     });
+	
+}else{
+       jQueryD_1_4_2(window).resize(function() {
+			wrapperhight()
+		});
+		jQueryD_1_4_2(window).load(function() {
+			wrapperhight()		
+		});	
+}
+
+function wrapperhight() {
+	
+     if (_isMobile() == mobiletrue){	
+	
+	        if(window.location != window.parent.location){
+		      jQueryM_v1_4_5('#wrapper').height(jQueryM_v1_4_5(window).height());
+	        }else{
+              jQueryM_v1_4_5('#wrapper').height(jQueryM_v1_4_5(window).height() - 40);
+	        }
+	
+     }else{
+              
+			  if(window.location != window.parent.location){
+		        jQueryD_1_4_2('#wrapper').height(jQueryD_1_4_2(window).height());
+	          }else{
+		        jQueryD_1_4_2('#wrapper').height(jQueryD_1_4_2(window).height() - 40);
+	          }
+
+     }	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///////////////////////////jomart/////////////////////////////////
 
 function createAccentRegexp(characters) {
@@ -1804,3 +1819,31 @@ var charToAccentedCharClassMap = {
 'Y' : '[Yy\xdd\xfd\xff\u0176-\u0178\u0232\u0233\u02b8\u1e8e\u1e8f\u1e99\u1ef2-\u1ef9\u24b4\u24ce\u24e8\u33c9\uff39\uff59]',
 'Z' : '[Zz\u0179-\u017e\u01f1-\u01f3\u1dbb\u1e90-\u1e95\u2124\u2128\u24b5\u24cf\u24e9\u3390-\u3394\uff3a\uff5a]'
 };
+
+
+
+
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+eventer(messageEvent,function(e) {
+enable_highlight = true;
+var eventName = e.data[0];
+var data = e.data[1];
+	
+
+    switch(eventName) {
+      case 'get_ifram_location_href':
+         window.parent.postMessage(["get_ifram_location_href",location.href], "*");
+     break;
+     case 'check_highlight_state':
+          if (data =="true"){
+		  enable_highlight = true;
+		  document.getElementsByClassName("loading")[0].style.display = 'block';
+		  setTimeout(applyHighlight, 50);
+		  }
+		  else{enable_highlight = false;}
+     break;
+
+}	
+},false);

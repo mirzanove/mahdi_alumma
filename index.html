@@ -8,9 +8,8 @@
 
 
 var pageName = (function () {
-        var a = window.location.href,
-            b = a.lastIndexOf("/");
-        return a.substr(b + 1);
+        var a = window.location.href;
+        return a;
     }());
 
 
@@ -19,14 +18,31 @@ var res ;
 
 function Redirect(value){
 if (value === "1"){
-res = pageName.replace("index.html", "jqmStyle.html");
+
 document.getElementsByClassName("loading")[0].style.display = 'block';
+if (pageName.indexOf("index.html") !== -1){
+
+res = pageName.replace("index.html", "jqmStyle.html");
 location.href = res;
 }
+else{
+location.href = window.location.href+"/jqmStyle.html";
+
+}
+
+
+}
 else if(value === "2"){
-res = pageName.replace("index.html", "responsiveStyle.html");
 document.getElementsByClassName("loading")[0].style.display = 'block';
+if (pageName.indexOf("index.html") !== -1){
+
+res = pageName.replace("index.html", "responsiveStyle.html");
 location.href = res;
+}
+else{
+location.href = window.location.href+"/responsiveStyle.html";
+
+}
 }
 
 }      
