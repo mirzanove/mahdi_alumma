@@ -3258,7 +3258,8 @@ function displayTopics( a_QueryResult )
 	}
 	
 	if( a_QueryResult.aTopics.length == 0 ) {
-		//displayMsg(gsNoTopics);
+		displayMsg(gsNoTopics);
+		setTimeout(displayTopics( a_QueryResult ), 1000);
 	}
 
 	changeResultView( sHTML );
