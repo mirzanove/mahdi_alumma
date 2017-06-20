@@ -36,6 +36,31 @@ var gstrSyn = "";
 
 var gbSearchInitialized = false;
 
+
+
+//jomart
+var genderS ;
+function findSelection(field) {
+    var test = document.getElementsByName(field);
+    var sizes = test.length;
+
+        for (i=0; i < sizes; i++) {
+            if (test[i].checked==true) {  
+            return test[i].value;
+        }
+    }
+}
+function submitForm() {
+
+    genderS =  findSelection("genderS");
+    //alert(genderS);
+    return false;
+}
+
+
+
+
+
 function initializeSearch() {
 	var searchText = GetSearchTextFromURL(),
 		searchedText = rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
@@ -51,7 +76,26 @@ function initializeSearch() {
 
 function doSearch()
 {
+	
+	//jomart
+	submitForm();
+	
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+	
+	
+	if(genderS === "1")
+	{    alert("match"); 
+	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
+	           if(isquot === true){
+	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
+	           else{
+	           searchText =  '"'+searchText+'"'; 
+		       }
+	     
+		 
+	}
+	
+	
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});

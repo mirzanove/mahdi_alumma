@@ -443,8 +443,28 @@ function DomTexts()
 
 	this.jump2FirstHighlightedWord = function()
 	{
-		if (gnYPos > 51)
+		if (gnYPos > 51){
 			window.scrollTo(0, gnYPos-50);
+			window.parent.postMessage(["scrollTop", gnYPos-50], "*");
+			
+			if (_isMobile() == mobiletrue) {
+		     
+			     if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)) {
+			
+			         myScroll.scrollTo(0, -(gnYPos-50));
+		             myScroll.refresh();
+		         }
+		         else{
+			         jQueryM_v1_4_5("#wrapper").scrollTop(gnYPos-50);
+		         }
+	
+	        }
+	        else{
+			jQueryD_1_4_2("#wrapper").scrollTop(gnYPos-50);
+	        }
+			
+			
+		}
 	}
 }
 
