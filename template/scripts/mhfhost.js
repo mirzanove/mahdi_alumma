@@ -83,18 +83,22 @@ function doSearch()
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
 	if(document.getElementById("checkbox_id1").checked)
-	{          alert("maaaaaaaaaaatch17");
+	{          //alert("maaaaaaaaaaatch17");
 	           
 	  
 	        if(searchText) {
-		       
-			   var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
+		     
+			   var isquot =  /^".*"$/g.test(searchText);
 	           if(isquot === true){
 	           searchText = '"'+searchText.replace(/["']/g, "")+'"';
+			    alert(searchText+"hhhh");
 			   rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 			   }
 	           else{
-	           searchText =  '"'+searchText+'"'; 
+	           searchText = '"'+searchText.replace(/["']/g, "")+'"';
+			   
+			   
+			   alert(searchText+"jjjj");
 			   rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		       }
 
