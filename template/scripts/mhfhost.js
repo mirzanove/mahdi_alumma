@@ -76,12 +76,12 @@ function doSearch(lol)
 		//=var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
          var searchText = document.getElementById("input_id").value;          
 	    
-		alert(searchText+"kkk");
+		alert(searchText+"vvvvvv");
 		if(searchText) {
 		
 		if(document.getElementById("checkbox_id1").checked){
 
-	        searchText = '\x22'+searchText.replace(/["']/g, '')+'\x22';
+	        searchText = searchText.replace(/["']/g, '');
 			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 	     }
 		 else{
