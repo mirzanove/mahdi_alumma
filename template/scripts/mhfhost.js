@@ -83,29 +83,43 @@ function doSearch()
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
 	if(document.getElementById("checkbox_id1").checked)
-	{          alert("maaaaaaaaaaatch");
+	{          alert("maaaaaaaaaaatch3");
 	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
 	           if(isquot === true){
 	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
 	           else{
 	           searchText =  '"'+searchText+'"'; 
 		       }
-	     
+	  
+	        if(searchText) {
+		       rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+		       rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
+		       rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
+		       initSearchPage();
+		       readSetting(RHANDSEARCH, callbackAndSearchFlagRead);
+	         } else {
+		       rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), false, {sync: true});
+		       rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), null, {sync: true});
+	         }
 		 
 	}
-	
-	
-	if(searchText) {
+	else{
+		
+		if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
 		
 		initSearchPage();
 		readSetting(RHANDSEARCH, callbackAndSearchFlagRead);
-	} else {
+	    } else {
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), false, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), null, {sync: true});
+	    }
 	}
+	
+	
+	
 }
 
 function callbackAndSearchFlagRead(andFlag)
