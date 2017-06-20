@@ -65,17 +65,19 @@ function initializeSearch() {
 
 }
 
-function doSearch()
+function doSearch(lol)
 {
 	
 	//jomart
 	submitForm();
 	
-	    
+	  //alert(lol);  
 		
-		var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
-
-	    if(searchText) {
+		//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+         var searchText = document.getElementById("input_id").value;          
+	    
+		alert(searchText+"kkk");
+		if(searchText) {
 		
 		if(document.getElementById("checkbox_id1").checked){
 
