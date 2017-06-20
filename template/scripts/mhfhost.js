@@ -90,8 +90,8 @@ function doSearch()
 		    if(document.getElementById("checkbox_id1").checked)
 	        {        
 	           
-            alert("xxxxxxx");
-			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'),'"'+searchText.replace(/["']/g, "")+'"', {sync: true});
+            alert("qqqqqqqqqqqqqqq");
+			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'),searchText.replace(/["']/g, ""), {sync: true});
 		 
 	        }
 			else{
