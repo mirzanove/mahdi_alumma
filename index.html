@@ -9,8 +9,7 @@
 
 var pageName = (function () {
         var a = window.location.href,
-   
-	    b = a.lastIndexOf("/");
+            b = a.lastIndexOf("/");
         return a.substr(b + 1);
     }());
 
@@ -20,17 +19,13 @@ var res ;
 
 function Redirect(value){
 if (value === "1"){
-//res = pageName.replace("index.html", "jqmStyle.html");
+res = pageName.replace("index.html", "jqmStyle.html");
 document.getElementsByClassName("loading")[0].style.display = 'block';
-//alert(window.location.href);
-res ="https://mirzanove.github.io/mahdi_alumma/jqmStyle.html";
 location.href = res;
 }
 else if(value === "2"){
-//res = pageName.replace("index.html", "responsiveStyle.html");
+res = pageName.replace("index.html", "responsiveStyle.html");
 document.getElementsByClassName("loading")[0].style.display = 'block';
-//alert(window.location.href);
-res ="https://mirzanove.github.io/mahdi_alumma/responsiveStyle.html";
 location.href = res;
 }
 

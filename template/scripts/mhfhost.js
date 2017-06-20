@@ -31,7 +31,7 @@ var g_bServerResult=false;
 
 var gSearchDataFolderName =  "whxdata";
 var gFtsFileName = "whfts.xml";
-var gbANDSearch = 0;
+var gbANDSearch = 1;
 var gstrSyn = "";
 
 var gbSearchInitialized = false;
@@ -56,11 +56,7 @@ function submitForm() {
 }
 
 
-
 function initializeSearch() {
-	
-	
-	
 	var searchText = GetSearchTextFromURL(),
 		searchedText = rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
 	
@@ -78,7 +74,9 @@ function initializeSearch() {
 }
 
 function doSearch()
-{
+{   
+	gbANDSearch=1;
+	//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
 	//jomart
 	submitForm();
@@ -236,9 +234,9 @@ function doSearch()
 	     
 		 
 		 }
-		
+	rh.model.publish(".l.searchText_actual", searchText, {sync: true});
+	searchText=removeStopWordsFromInp(searchText);
 	if(searchText) {
-		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
@@ -251,12 +249,35 @@ function doSearch()
 	}
 }
 
+function removeStopWordsFromInp(searchText)
+{
+	var openingQuoteFound=false;
+	searchText=searchText.split(" ");
+	var stopWordsRemovedInp=[];
+	for(var i=0;i<searchText.length;i++)
+	{
+		if(openingQuoteFound==false && searchText[i][0]=='"' || searchText[i][0]=="'")
+			openingQuoteFound=true;
+		if(openingQuoteFound==true && searchText[i][searchText[i].length-1]=='"' ||  searchText[i][searchText[i].length-1]=="'")
+			gbANDSearch=0;
+		if((openingQuoteFound || !IsStopWord(searchText[i],gaFtsStop)) && searchText[i]!=="")
+			stopWordsRemovedInp.push(searchText[i]);
+		if(searchText[i]=="or" || searchText[i]=="OR")
+			gbANDSearch=0;
+	}
+	stopWordsRemovedInp=stopWordsRemovedInp.join(" ");
+	return stopWordsRemovedInp;
+}
+
 function callbackAndSearchFlagRead(andFlag)
 {
+	//gbANDSearch is made to 1 by default. It is made 0 only if we find an "or" in the input. 
+	/*
 	if(andFlag == TRUESTR)
 		gbANDSearch = 1;
 	else if(andFlag = FALSESTR)
 		gbANDSearch = 0;
+	*/
 	if(rh.model.get(rh.consts('KEY_SEARCHED_TERM')))
 	{
 		displaySearchProgressBar(0);
@@ -953,8 +974,7 @@ function HuginContext()
 			{	//Give GUI a chance to process messages.
 				context.bExecuting = false;
 				updateResultView();
-				//setTimeout( "context.resume();", 1 );
-				context.resume();
+				setTimeout( "context.resume();", 1 );
 				return;
 			}
 		}
@@ -1149,7 +1169,8 @@ function HuginPackageReader()
 	{
 		a_this.bSucc = true;
 		theXmlReader.strFilePath = a_this.strPackagePath;
-		setTimeout( a_Context.push( a_this.loadFromFile, a_this,a_this.doQueryWordRecord, a_this ), 500 );
+		a_Context.push( a_this.loadFromFile, a_this,
+						a_this.doQueryWordRecord, a_this );
 	}
 }
 
@@ -2912,30 +2933,18 @@ function HuginHunter()
 			a_this.strQuery = trimString(a_this.strQuery);
             a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
 		}*/
+		
+		
 		//jomart
-	    var hasBoth = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
+		var hasBoth = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
         if(genderS === "0" && hasBoth=== false)
 		{   //alert(genderS);
 			a_this.strQuery = trimString(a_this.strQuery);
             a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
 			//alert(a_this.strQuery);
 		}
+
 		
-		/*if(genderS === "1")
-	     {     
-	           var isquot = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
-	           if(isquot === true){
-	           a_this.strQuery = '"'+a_this.strQuery.replace(/["']/g, "")+'"';}
-	           else{
-	           a_this.strQuery =  '"'+a_this.strQuery+'"'; 
-		       }
-	    // alert(a_this.strQuery);
-		 
-		 }*/
-		
-		
-		//alert(a_this.strQuery);
-			
 		a_this.queryExpression = parseQueryExpression( a_this.strQuery );
 		if ( a_this.queryExpression == null )
 		{
@@ -3166,12 +3175,20 @@ function changeResultView( a_strHTML )
 	}
 }
 
+function navigateToTopic(topics, params){
+	if(topics.length >0){ 
+		var absUrl = window._getFullPath(rh._.parentPath(), topics[0].strUrl + params);
+		rh.model.publish(rh.consts('EVT_NAVIGATE_TO_URL'), {
+        absUrl: "" + absUrl
+      });
+	}
+}
 
 function displayTopics( a_QueryResult )
 {
 	var sHTML = "";
 	var sLine = "";
-	var szSearchStrings= rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
+	var szSearchStrings= rh.model.get(".l.searchText_actual");
 	var sHighlight = "CLRF=" + gsHLColorFront +
 					 ",CLRB=" + gsHLColorBackground + ",HL=";
 	
@@ -3236,6 +3253,7 @@ function displayTopics( a_QueryResult )
 			// New search widget workflow. Publish search results.
 			rh.model.publish(rh.consts('KEY_SEARCH_RESULT_PARAMS'), strParams);
 			rh.model.publish(rh.consts("KEY_SEARCH_RESULTS"), a_QueryResult.aTopics);
+			//navigateToTopic(a_QueryResult.aTopics, strParams);
 		}
 	}
 	
