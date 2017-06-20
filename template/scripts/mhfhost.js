@@ -64,12 +64,21 @@ function submitForm() {
 function initializeSearch() {
 	var searchText = GetSearchTextFromURL(),
 		searchedText = rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
+
 	
 	gbSearchInitialized = true;
 	initSearchPage();
 	
 	if (rh.util.isUsefulString(searchText) && searchText != searchedText) {
+		
+			
+     if(document.getElementById("checkbox_id1").checked){
+	  
+	   searchText = '\x22'+searchText.replace(/["']/g, '')+'\x22';
+	 }
+
 		rh.model.publish(rh.consts('KEY_SEARCH_TERM'), searchText);
+		
 		doSearch();
 	}
 }
@@ -80,27 +89,21 @@ function doSearch()
 	//jomart
 	submitForm();
 	
-	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
-	
-	
-	
-	
+	    
+		
+		var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+
 	    if(searchText) {
 		
-		    if(document.getElementById("checkbox_id1").checked)
-	        {        
-	           
-          
-		    var quotss = '\x22'+searchText.replace(/["']/g, '')+'\x22'; 
-			alert(quotss);
-			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'),quotss, {sync: true});
-	
-	        }
-			else{
+		if(document.getElementById("checkbox_id1").checked){
+
+	        searchText = '\x22'+searchText.replace(/["']/g, '')+'\x22';
 			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
-			}
-		
-		
+	     }
+		 else{
+			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true}); 
+		 }
+	
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
 		
@@ -1678,7 +1681,7 @@ function RunesService()
 	}
 
 	this.getWord = function( a_str, a_nFrom )
-	{
+	{   
 		var nLen = this.getLengthOfWord( a_str, a_nFrom );
 		return a_str.substr( a_nFrom, nLen );
 	}
@@ -1686,7 +1689,7 @@ function RunesService()
 	this.getTerm = function( a_Context, a_Rslt )
 	{
 		if ( this.langSev.isQuote( a_Context.getCurChar() ) )
-		{
+		{  // alert(a_Context.getCurChar());
 			a_Context.nCur++;
 
 			var nLen = this.getLengthOfPhrase( a_Context.strSrc, a_Context.nCur );
