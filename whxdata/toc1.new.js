@@ -1,0 +1,4 @@
+(function() {
+var toc =  [{"type":"book","name":"forum1","key":"toc2"},{"type":"book","name":"forum10","key":"toc3"},{"type":"book","name":"forum11","key":"toc4"},{"type":"book","name":"forum12","key":"toc5"},{"type":"book","name":"forum13","key":"toc6"},{"type":"book","name":"forum14","key":"toc7"},{"type":"book","name":"forum15","key":"toc8"},{"type":"book","name":"forum17","key":"toc9"},{"type":"book","name":"forum18","key":"toc10"},{"type":"book","name":"forum19","key":"toc11"},{"type":"book","name":"forum2","key":"toc12"},{"type":"book","name":"forum4","key":"toc13"},{"type":"book","name":"forum6","key":"toc14"},{"type":"book","name":"forum7","key":"toc15"},{"type":"book","name":"forum8","key":"toc16"},{"type":"book","name":"forum9","key":"toc17"},{"type":"book","name":"show_all","key":"toc18"}];
+window.rh.model.publish(rh.consts('KEY_TEMP_DATA'), toc, { sync:true });
+})();
