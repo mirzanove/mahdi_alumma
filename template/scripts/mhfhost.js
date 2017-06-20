@@ -85,25 +85,12 @@ function doSearch()
 	if(document.getElementById("checkbox_id1").checked)
 	{        
 	           
-	  
-	        if(searchText) {
-		     
-	           //searchText = searchText.replace(/["']/g, "");
-			   alert(searchText+"vvvvvvv");
-			   rh.model.publish(rh.consts('KEY_SEARCHED_TERM'),'"'+searchText+'"', {sync: true});
-		       rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
-		       rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
-		       initSearchPage();
-		       readSetting(RHANDSEARCH, callbackAndSearchFlagRead);
-	         } else {
-		       rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), false, {sync: true});
-		       rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), null, {sync: true});
-	         }
+            alert("hhhhhhhhhhhhhggggggggggggggggg");
 		 
 	}
-	else{
-		
-		if(searchText) {
+	
+	
+	    if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
@@ -114,8 +101,6 @@ function doSearch()
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), false, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), null, {sync: true});
 	    }
-	}
-	
 	
 	
 }
