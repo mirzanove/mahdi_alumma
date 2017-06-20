@@ -3185,7 +3185,7 @@ function navigateToTopic(topics, params){
 }
 
 function displayTopics( a_QueryResult )
-{
+{  
 	var sHTML = "";
 	var sLine = "";
 	var szSearchStrings= rh.model.get(".l.searchText_actual");
@@ -3259,7 +3259,9 @@ function displayTopics( a_QueryResult )
 	
 	if( a_QueryResult.aTopics.length == 0 ) {
 		displayMsg(gsNoTopics);
-		setTimeout(displayTopics( a_QueryResult ), 1000);
+		//doSearch();
+		setTimeout(displayTopics( a_QueryResult ), 3000);
+		
 	}
 
 	changeResultView( sHTML );
