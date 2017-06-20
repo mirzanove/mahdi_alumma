@@ -82,9 +82,8 @@ function doSearch()
 	
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
-	
-	if(genderS === "1")
-	{    alert("match"); 
+	if(document.getElementById("checkbox_id1").checked)
+	{          alert("maaaaaaaaaaatch");
 	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
 	           if(isquot === true){
 	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
