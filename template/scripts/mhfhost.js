@@ -88,8 +88,8 @@ function doSearch()
 	  
 	        if(searchText) {
 		     
-	           searchText = '"'+searchText.replace(/["']/g, "")+'"';
-			    alert(searchText+"lllllllllllllll");
+	           //searchText = '"'+searchText.replace(/["']/g, "")+'"';
+			   alert(searchText+"mmmmmmmmm");
 			   rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		       rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		       rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
