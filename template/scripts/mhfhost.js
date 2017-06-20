@@ -82,16 +82,23 @@ function doSearch()
 	
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
-	if(document.getElementById("checkbox_id1").checked)
-	{        
-	           
-            alert("hhhhhhhhhhhhhggggggggggggggggg");
-		 
-	}
+	
 	
 	
 	    if(searchText) {
-		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+		
+		    if(document.getElementById("checkbox_id1").checked)
+	        {        
+	           
+            alert("1");
+			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText.replace(/["']/g, ""), {sync: true});
+		 
+	        }
+			else{
+			rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+			}
+		
+		
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
 		
