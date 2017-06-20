@@ -1,0 +1,18 @@
+﻿#rh_default_topic_placeholder_id html {
+                                       height:100%;
+                                       overflow:hidden;
+                                       -webkit-overflow-scrolling:touch;
+                                       -webkit-transform:translate3d(0,0,0);
+}
+#rh_default_topic_placeholder_id {
+                                  height:100%;
+                                  overflow:hidden;
+                                  -webkit-overflow-scrolling:touch;
+                                  -webkit-transform:translate3d(0,0,0);
+}
+#rh_default_topic_placeholder_id #wrapper {
+                                           height:100%;
+                                           overflow-y:auto;
+                                           -webkit-transform:translate3d(0,0,0);
+                                           -webkit-overflow-scrolling:touch;
+}

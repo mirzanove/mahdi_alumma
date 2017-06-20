@@ -1,1 +1,1 @@
-gXMLBuffer="<?xml version=\"1.0\" encoding=\"utf-8\" ?><screens defaulturl=\"./index.html\" ><screen minwidth=\"0\" maxwidth=\"0\"  minheight=\"0\" maxheight=\"0\" browseragent=\"\" folder=\".\" defaulturl=\"./index.html\" default=\"1\" /></screens>";
+gXMLBuffer="<?xml version=\"1.0\" encoding=\"utf-8\" ?><screens defaulturl=\"phone/index.htm\" ><screen minwidth=\"0\" maxwidth=\"699\"  minheight=\"0\" maxheight=\"0\" browseragent=\"iPhone\" folder=\"phone\" defaulturl=\"phone/index.htm\" default=\"1\" /></screens>";
