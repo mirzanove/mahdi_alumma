@@ -36,7 +36,31 @@ var gstrSyn = "";
 
 var gbSearchInitialized = false;
 
+//jomart
+var genderS ;
+function findSelection(field) {
+    var test = document.getElementsByName(field);
+    var sizes = test.length;
+
+        for (i=0; i < sizes; i++) {
+            if (test[i].checked==true) {  
+            return test[i].value;
+        }
+    }
+}
+function submitForm() {
+
+    genderS =  findSelection("genderS");
+    //alert(genderS);
+    return false;
+}
+
+
+
 function initializeSearch() {
+	
+	
+	
 	var searchText = GetSearchTextFromURL(),
 		searchedText = rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
 	
@@ -45,13 +69,174 @@ function initializeSearch() {
 	
 	if (rh.util.isUsefulString(searchText) && searchText != searchedText) {
 		rh.model.publish(rh.consts('KEY_SEARCH_TERM'), searchText);
-		doSearch();
+		rh.model.subscribeOnce(rh.consts('EVT_PROJECT_LOADED'), function(value){
+			if (value && !rh.rhs.doSearch()) {
+	      		window.doSearch();
+	    	}
+		});
 	}
 }
 
 function doSearch()
 {
-	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+	
+	//jomart
+	submitForm();
+	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM')).replace(XRegExp("[\\p{Mn}\\u0640\\u200C]", 'gmi'),'').replace(XRegExp("[\\p{S}\\p{P}\\u06E9\\u06DE{}\"'()\\uFD3F\\uFD3E]", 'gmi'), ' ').replace(/\s\s+/gmi, ' ').replace(XRegExp("^\\s+|\\s+$", 'gmi'),"").replace(XRegExp("[أإآ\u0671]", 'gmi'),"ا").replace(XRegExp("\u0629", 'gmi'),"\u0647").replace(XRegExp("\u0624", 'gmi'),"\u0648").replace(XRegExp("\u0626", 'gmi'),"\u0649").replace(/[\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669]/g, function (m) {
+        return {
+        '\u0660': '0',
+        '\u0661': '1',
+		'\u0662': '2',
+		'\u0663': '3',
+		'\u0664': '4',
+		'\u0665': '5',
+		'\u0666': '6',
+		'\u0667': '7',
+		'\u0668': '8',
+		'\u0669': '9'	
+        }[m];
+        }).replace(/[\ﺀ\ﺁ\ﺂ\ﺃ\ﺄ\ﺅ\ﺆ\ﺇ\ﺈ\ﺉ\ﺊ\ﺋ\ﺌ\ﺍ\ﺎ\ﺏ\ﺐ\ﺑ\ﺒ\ﺓ\ﺔ\ﺕ\ﺖ\ﺗ\ﺘ\ﺙ\ﺚ\ﺛ\ﺜ\ﺝ\ﺞ\ﺟ\ﺠ\ﺡ\ﺢ\ﺣ\ﺤ\ﺥ\ﺦ\ﺧ\ﺨ\ﺩ\ﺪ\ﺫ\ﺬ\ﺭ\ﺮ\ﺯ\ﺰ\ﺱ\ﺲ\ﺳ\ﺴ\ﺵ\ﺶ\ﺷ\ﺸ\ﺹ\ﺺ\ﺻ\ﺼ\ﺽ\ﺾ\ﺿ\ﻀ\ﻁ\ﻂ\ﻃ\ﻄ\ﻅ\ﻆ\ﻇ\ﻈ\ﻉ\ﻊ\ﻋ\ﻌ\ﻍ\ﻎ\ﻏ\ﻐ\ﻑ\ﻒ\ﻓ\ﻔ\ﻕ\ﻖ\ﻗ\ﻘ\ﻙ\ﻚ\ﻛ\ﻜ\ﻝ\ﻞ\ﻟ\ﻠ\ﻡ\ﻢ\ﻣ\ﻤ\ﻥ\ﻦ\ﻧ\ﻨ\ﻱ\ﻲ\ﻳ\ﻴ\ﻩ\ﻪ\ﻫ\ﻬ\ﻭ\ﻮ\ﻯ\ﻰ\ﻵ\ﻶ\ﻷ\ﻸ\ﻹ\ﻺ\ﻻ\ﻼ]/g, function (m) {
+        return {
+        'ﺀ': 'ء',
+		'ﺁ': 'ا',
+		'ﺂ': 'ا',
+		'ﺃ': 'ا',
+		'ﺄ': 'ا',
+		'ﺅ': 'و',
+		'ﺆ': 'و',
+		'ﺇ': 'ا',
+		'ﺈ': 'ا',
+		'ﺉ': 'ى',
+		'ﺊ': 'ى',
+		'ﺋ': 'ى',
+		'ﺌ': 'ى',
+		'ﺍ': 'ا',
+		'ﺎ': 'ا',
+		'ﺏ': 'ب',
+		'ﺐ': 'ب',
+		'ﺑ': 'ب',
+		'ﺒ': 'ب',
+		'ﺓ': 'ه',
+		'ﺔ': 'ه',
+		'ﺕ': 'ت',
+		'ﺖ': 'ت',
+		'ﺗ': 'ت',
+		'ﺘ': 'ت',
+		'ﺙ': 'ث',
+		'ﺚ': 'ث',
+		'ﺛ': 'ث',
+		'ﺜ': 'ث',
+		'ﺝ': 'ج',
+		'ﺞ': 'ج',
+		'ﺟ': 'ج',
+		'ﺠ': 'ج',
+		'ﺡ': 'ح',
+		'ﺢ': 'ح',
+		'ﺣ': 'ح',
+		'ﺤ': 'ح',
+		'ﺥ': 'خ',
+		'ﺦ': 'خ',
+		'ﺧ': 'خ',
+		'ﺨ': 'خ',
+		'ﺩ': 'د',
+		'ﺪ': 'د',
+		'ﺫ': 'ذ',
+		'ﺬ': 'ذ',
+		'ﺭ': 'ر',
+		'ﺮ': 'ر',
+		'ﺯ': 'ز',
+		'ﺰ': 'ز',
+		'ﺱ': 'س',
+		'ﺲ': 'س',
+		'ﺳ': 'س',
+		'ﺴ': 'س',
+		'ﺵ': 'ش',
+		'ﺶ': 'ش',
+		'ﺷ': 'ش',
+		'ﺸ': 'ش',
+		'ﺹ': 'ص',
+		'ﺺ': 'ص',
+		'ﺻ': 'ص',
+		'ﺼ': 'ص',
+		'ﺽ': 'ض',
+		'ﺾ': 'ض',
+		'ﺿ': 'ض',
+		'ﻀ': 'ض',
+		'ﻁ': 'ط',
+		'ﻂ': 'ط',
+		'ﻃ': 'ط',
+		'ﻄ': 'ط',
+		'ﻅ': 'ظ',
+		'ﻆ': 'ظ',
+	    'ﻇ': 'ظ',
+		'ﻈ': 'ظ',
+		'ﻉ': 'ع',
+		'ﻊ': 'ع',
+		'ﻋ': 'ع',
+		'ﻌ': 'ع',
+		'ﻍ': 'غ',
+		'ﻎ': 'غ',
+	    'ﻏ': 'غ',
+		'ﻐ': 'غ',
+		'ﻑ': 'ف',
+		'ﻒ': 'ف',
+	    'ﻓ': 'ف',
+		'ﻔ': 'ف',
+		'ﻕ': 'ق',
+		'ﻖ': 'ق',
+	    'ﻗ': 'ق',
+		'ﻘ': 'ق',
+		'ﻙ': 'ك',
+		'ﻚ': 'ك',
+		'ﻛ': 'ك',
+		'ﻜ': 'ك',
+		'ﻝ': 'ل',
+		'ﻞ': 'ل',
+		'ﻟ': 'ل',
+		'ﻠ': 'ل',
+		'ﻡ': 'م',
+		'ﻢ': 'م',
+	    'ﻣ': 'م',
+		'ﻤ': 'م',
+		'ﻥ': 'ن',
+		'ﻦ': 'ن',
+	    'ﻧ': 'ن',
+		'ﻨ': 'ن',
+		'ﻱ': 'ي',
+		'ﻲ': 'ي',
+		'ﻳ': 'ي',
+		'ﻴ': 'ي',
+		'ﻩ': 'ه',
+		'ﻪ': 'ه',
+	    'ﻫ': 'ه',
+		'ﻬ': 'ه',
+		'ﻭ': 'و',
+		'ﻮ': 'و',
+	    'ﻯ': 'ى',
+		'ﻰ': 'ى',
+		'ﻵ': 'لا',
+		'ﻶ': 'لا',
+	    'ﻷ': 'لا',
+		'ﻸ': 'لا',
+		'ﻹ': 'لا',
+		'ﻺ': 'لا',
+		'ﻻ': 'لا',
+	    'ﻼ': 'لا'
+        }[m];
+        });
+	    //alert(searchText);
+		if(genderS === "1")
+	     {     
+	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
+	           if(isquot === true){
+	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
+	           else{
+	           searchText =  '"'+searchText+'"'; 
+		       }
+	     
+		 
+		 }
+		
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
@@ -2721,11 +2906,34 @@ function HuginHunter()
 
 	this.evaluateExpression = function( a_Context, a_this )
 	{
-		if(gbANDSearch)
+		/*if(gbANDSearch)
 		{
 			a_this.strQuery = trimString(a_this.strQuery);
             a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
+		}*/
+		//jomart
+	    var hasBoth = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
+        if(genderS === "0" && hasBoth=== false)
+		{   //alert(genderS);
+			a_this.strQuery = trimString(a_this.strQuery);
+            a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
+			//alert(a_this.strQuery);
 		}
+		
+		/*if(genderS === "1")
+	     {     
+	           var isquot = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
+	           if(isquot === true){
+	           a_this.strQuery = '"'+a_this.strQuery.replace(/["']/g, "")+'"';}
+	           else{
+	           a_this.strQuery =  '"'+a_this.strQuery+'"'; 
+		       }
+	    // alert(a_this.strQuery);
+		 
+		 }*/
+		
+		
+		//alert(a_this.strQuery);
 			
 		a_this.queryExpression = parseQueryExpression( a_this.strQuery );
 		if ( a_this.queryExpression == null )

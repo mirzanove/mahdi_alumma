@@ -1,7 +1,7 @@
 //Variables to override in settings
 var useTOC = true;
-var useGLO = true;
-var useIDX = true;
+var useGLO = false;
+var useIDX = false;
 var delayLoadIdx = true;
 var delayLoadGlo = true;
 var useFilter = true;
@@ -9,17 +9,13 @@ var useFacebook = false;
 var useTwitter = false;
 var useSocial = true;
 var defaultPane = 'toc';
-var mobileTocDrilldown = false;
+var mobileTocDrilldown = true;
 var useANDsearch = true;
 var maxResults = 15;	
 var desktopSidebarVisibleDefault = true;
 var searchLocationBoolean = true;
 var phone_max_width = 941;
 var tablet_max_width = 1295;
-var titleColor = "#dddddd";
-var backgroundColor = "#232323";
-var logo = "logo.png";
-var fontFamily = "\"Trebuchet MS\", Arial, sans-serif";
 
 (function() {
 	var mobileMenu, rh, features;
