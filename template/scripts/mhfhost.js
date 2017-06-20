@@ -83,11 +83,21 @@ function doSearch()
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
 	if(document.getElementById("checkbox_id1").checked)
-	{          alert("maaaaaaaaaaatch15");
-	          
+	{          alert("maaaaaaaaaaatch17");
+	           
 	  
 	        if(searchText) {
-		       rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+		       
+			   var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
+	           if(isquot === true){
+	           searchText = '"'+searchText.replace(/["']/g, "")+'"';
+			   rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+			   }
+	           else{
+	           searchText =  '"'+searchText+'"'; 
+			   rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
+		       }
+
 		       rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
 		       rh.model.publish(rh.consts('KEY_SEARCH_PROGRESS'), 0, {sync: true});
 		       initSearchPage();
