@@ -73,7 +73,7 @@ function doSearch(lol)
 	
 	  //alert(lol);  
 		
-		//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+		//=var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
          var searchText = document.getElementById("input_id").value;          
 	    
 		alert(searchText+"kkk");

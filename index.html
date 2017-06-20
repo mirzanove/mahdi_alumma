@@ -237,7 +237,7 @@ label {
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
 	<a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">&nbsp;</a>
 </div>
-<!-- Search results -->
+<!-- Search results [[-->
 <div class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(true) | debounce: 50, delta: 100">
 	
 	<label class="wSearchAndLabelResults" data-if="KEY_FEATURE.andsearch" for="andsearch" data-class="active: @KEY_AND_SEARCH == '1'">
