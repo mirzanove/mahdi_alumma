@@ -462,7 +462,7 @@ else {
 					 
 					 
 					 event.preventDefault();
-					 //alert(link);
+					 ////alert(link);
 					 if(window.location != window.parent.location){
 						 window.parent.postMessage(["modal_display", "show"], "*");
 						 window.parent.postMessage(["image_url", link], "*");
