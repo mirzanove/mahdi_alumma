@@ -45,13 +45,15 @@ function initializeSearch() {
 	
 	if (rh.util.isUsefulString(searchText) && searchText != searchedText) {
 		rh.model.publish(rh.consts('KEY_SEARCH_TERM'), searchText);
-		doSearch();
+		doSearch(rh.model.get(rh.consts('KEY_SEARCH_TERM')));
 	}
 }
 
-function doSearch()
+function doSearch(lol)
 {
-	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+	
+	alert(lol);
+	var searchText = lol;
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});

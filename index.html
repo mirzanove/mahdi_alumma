@@ -51,6 +51,20 @@ gGloTermHtml = "<span  class=\"wGloTermText\">{%LINK_NAME%}</span>";
 gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 	gIdxLinkHtml = "<span  class=\"wIdxLinkText\">{%LINK_NAME%}</span>";
 	gIdxCategoryHtml = "<span  class=\"wIdxAlphabetText\">{%LINK_NAME%}</span>";
+
+function gosearch(){
+
+var hh = document.getElementById("wSearchField").value;
+
+if(document.getElementById("checkbox_id1").checked){
+hh = '"'+hh.replace(/["']/g, "")+'"';	
+
+//document.getElementById("wSearchField").value == hh;
+}
+
+
+}	
+	
 </script>
 
 <style type="text/css">
@@ -225,8 +239,9 @@ label {
 <!-- Search field -->
 <div class="searchbar left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="searchpage-mode, layout-visible: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content';">
 	<div class="mobileheader"><span data-text="@KEY_LNG.SearchPageTitle"></span><div class="totopic" data-if="@KEY_ACTIVE_TAB == 'fts'" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
-	<input class="wSearchField" type="text" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	<input id = "wSearchField" class="wSearchField" type="text" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
+	
 	<a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">&nbsp;</a>
 </div>
 <!-- Search results -->
