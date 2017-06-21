@@ -129,7 +129,11 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			}
 			else{
 				   jQueryM_v1_4_5(document).scrollTop(jQueryM_v1_4_5(this).offset().top);
-			        jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+			       if(window.location != window.parent.location){
+				   jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+				   }else{
+				   jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop()-40);
+				   }
 			        window.parent.postMessage(["scrollTop", jQueryM_v1_4_5(this).offset().top], "*");
 			}
 		});
@@ -151,8 +155,13 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			}
 			else{
 				    jQueryM_v1_4_5(document).scrollTop(jQueryM_v1_4_5(this).offset().top);
-			        jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
-			        window.parent.postMessage(["scrollTop", jQueryM_v1_4_5(this).offset().top], "*");
+			        if(window.location != window.parent.location){
+					jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+				    }else{
+					jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop()-40);
+				    }
+			        
+					window.parent.postMessage(["scrollTop", jQueryM_v1_4_5(this).offset().top], "*");
 			}
 			
 		});
@@ -166,7 +175,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
 			 
 			 //alert(link);
-			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)) {
+			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost") == 0)) {
                         //alert(link.indexOf("file://"));
 						//alert("cool");
                          location.href = link;
@@ -183,7 +192,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 				location.href = link;
                 return false;
              }
-             else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)){
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
@@ -205,9 +214,15 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
                      document.selection.empty();
                      } 
 				    
+					 if(window.location != window.parent.location){
+						 window.parent.postMessage(["modal_display", "show"], "*");
+						 window.parent.postMessage(["image_url", link], "*");
+					 }
+					 else{
 					 jQueryM_v1_4_5(".modal").show(); 
                      jQueryM_v1_4_5("#wrapper,body,html").css({'overflow' : 'hidden'});	
-					 jQueryM_v1_4_5("#img01").attr("src",link);					 
+					 jQueryM_v1_4_5("#img01").attr("src",link); 
+					 }				 
 				  }
 			 }	
 					
@@ -218,7 +233,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		
 		jQueryM_v1_4_5(".close").on('vclick', function(event) {
 			  jQueryM_v1_4_5(".modal").hide();
-			  jQueryM_v1_4_5("#wrapper,body,html").css({'overflow' : 'auto'});
+			  jQueryM_v1_4_5("#wrapper").css({'overflow-y' : 'auto'});
 		})
 		
 		jQueryM_v1_4_5(".bbcode_img").on('vclick', function(event) {
@@ -435,7 +450,7 @@ else {
                 return false;
 				
              }
-             else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)){
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
@@ -444,11 +459,20 @@ else {
 					  
 				  }
 				  else{
+					 
+					 
 					 event.preventDefault();
 					 //alert(link);
+					 if(window.location != window.parent.location){
+						 window.parent.postMessage(["modal_display", "show"], "*");
+						 window.parent.postMessage(["image_url", link], "*");
+					 }
+					 else{
 					 jQueryD_1_4_2(".modal").show(); 
                      jQueryD_1_4_2("#wrapper,body,html").css({'overflow' : 'hidden'});	
-					 jQueryD_1_4_2("#img01").attr("src",link);					 
+					 jQueryD_1_4_2("#img01").attr("src",link); 
+					 }
+					 					 
 				  }
 			 }	
 					
@@ -459,7 +483,7 @@ else {
 		
 		jQueryD_1_4_2(".close").click(function(event) {
 			  jQueryD_1_4_2(".modal").hide();
-			  jQueryD_1_4_2("#wrapper,body,html").css({'overflow' : 'auto'});
+			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});
 		});
 		
 		
@@ -487,13 +511,19 @@ else {
 			jQueryD_1_4_2(event.currentTarget).children('.selected').selectText();
 			resize(jQueryD_1_4_2("html"));
 			
-			if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) {
-				//alert('IE8'); 
+			if (jQueryD_1_4_2.browser.msie) {
+			    if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) 
+			    {//alert('IE8'); 
 				jQueryD_1_4_2(document).scrollTop(jQueryD_1_4_2(this).offset().top - 25);
-			} else {
-				//alert('Non IE8');
+				}
+		   } else {
+				//alert('Non IE');
 				jQueryD_1_4_2(document).scrollTop(jQueryD_1_4_2(this).offset().top);
-				jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
+				if(window.location != window.parent.location){
+					jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
+				}else{
+					jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop()-40);
+				}
 			}
 			window.parent.postMessage(["scrollTop", jQueryD_1_4_2(this).offset().top], "*");
 		});
@@ -508,15 +538,22 @@ else {
 			jQueryD_1_4_2(event.currentTarget).parent().children('.hide_external_link').show();
 			jQueryD_1_4_2(event.currentTarget).children('.hide_param').selectText();
 			resize(jQueryD_1_4_2("html"));
-			if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) {
-				//alert('IE8'); 
+			
+			if (jQueryD_1_4_2.browser.msie) {
+			    if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) 
+			    {//alert('IE8'); 
 				jQueryD_1_4_2(document).scrollTop(jQueryD_1_4_2(this).offset().top - 25);
-			} else {
-				//alert('Non IE8');
+				}
+		    } else {
+				//alert('Non IE');
 				jQueryD_1_4_2(document).scrollTop(jQueryD_1_4_2(this).offset().top);
-				jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop())
+				if(window.location != window.parent.location){
+					jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
+				}else{
+					jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop()-40);
+				}
 			}
-			jQueryD_1_4_2(jQueryD_1_4_2("html"));
+			
 			window.parent.postMessage(["scrollTop", jQueryD_1_4_2(this).offset().top], "*");
 		});
 		jQueryD_1_4_2(".bbcode_img").click(function(event) {
