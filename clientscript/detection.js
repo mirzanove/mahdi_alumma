@@ -1,4 +1,4 @@
-var mobiletrue = true;
+var mobiletrue = false;
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
 //var isInIFrame = (window.location != window.parent.location);

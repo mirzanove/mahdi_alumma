@@ -175,7 +175,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
 			 
 			 //alert(link);
-			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost") == 0)) {
+			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)) {
                         //alert(link.indexOf("file://"));
 						//alert("cool");
                          location.href = link;
@@ -192,7 +192,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 				location.href = link;
                 return false;
              }
-            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)){
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
