@@ -450,7 +450,7 @@ else {
                 return false;
 				
              }
-            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)){
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0))||(link.indexOf("https://mirzanove.github.io/") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
