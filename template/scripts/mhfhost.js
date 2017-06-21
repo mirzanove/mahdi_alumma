@@ -31,10 +31,30 @@ var g_bServerResult=false;
 
 var gSearchDataFolderName =  "whxdata";
 var gFtsFileName = "whfts.xml";
-var gbANDSearch = 0;
+var gbANDSearch = 1;
 var gstrSyn = "";
 
 var gbSearchInitialized = false;
+
+//jomart
+var genderS ;
+function findSelection(field) {
+    var test = document.getElementsByName(field);
+    var sizes = test.length;
+
+        for (i=0; i < sizes; i++) {
+            if (test[i].checked==true) {  
+            return test[i].value;
+        }
+    }
+}
+function submitForm() {
+
+    genderS =  findSelection("genderS");
+    //alert(genderS);
+    return false;
+}
+
 
 function initializeSearch() {
 	var searchText = GetSearchTextFromURL(),
@@ -45,15 +65,44 @@ function initializeSearch() {
 	
 	if (rh.util.isUsefulString(searchText) && searchText != searchedText) {
 		rh.model.publish(rh.consts('KEY_SEARCH_TERM'), searchText);
-		doSearch(rh.model.get(rh.consts('KEY_SEARCH_TERM')));
+		rh.model.subscribeOnce(rh.consts('EVT_PROJECT_LOADED'), function(value){
+			if (value && !rh.rhs.doSearch()) {
+	      		window.doSearch(rh.model.get(rh.consts('KEY_SEARCH_TERM')));
+	    	}
+		});
 	}
 }
 
 function doSearch(lol)
-{
+{   
+	gbANDSearch=1;
+	//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
-	alert(lol);
+	//jomart
+	submitForm();
 	var searchText = lol;
+		//alert(searchText);
+		
+		
+	    //alert(searchText);
+		/*if(genderS === "1")
+	     {     
+	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
+	           if(isquot === true){
+	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
+	           else{
+	           searchText =  '"'+searchText+'"'; 
+		       }
+	     
+		 
+		 }*/
+		 
+		 
+		 
+		 
+		 
+	rh.model.publish(".l.searchText_actual", searchText, {sync: true});
+	searchText=removeStopWordsFromInp(searchText);
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
@@ -67,12 +116,35 @@ function doSearch(lol)
 	}
 }
 
+function removeStopWordsFromInp(searchText)
+{
+	var openingQuoteFound=false;
+	searchText=searchText.split(" ");
+	var stopWordsRemovedInp=[];
+	for(var i=0;i<searchText.length;i++)
+	{
+		if(openingQuoteFound==false && searchText[i][0]=='"' || searchText[i][0]=="'")
+			openingQuoteFound=true;
+		if(openingQuoteFound==true && searchText[i][searchText[i].length-1]=='"' ||  searchText[i][searchText[i].length-1]=="'")
+			gbANDSearch=0;
+		if((openingQuoteFound || !IsStopWord(searchText[i],gaFtsStop)) && searchText[i]!=="")
+			stopWordsRemovedInp.push(searchText[i]);
+		if(searchText[i]=="or" || searchText[i]=="OR")
+			gbANDSearch=0;
+	}
+	stopWordsRemovedInp=stopWordsRemovedInp.join(" ");
+	return stopWordsRemovedInp;
+}
+
 function callbackAndSearchFlagRead(andFlag)
 {
+	//gbANDSearch is made to 1 by default. It is made 0 only if we find an "or" in the input. 
+	/*
 	if(andFlag == TRUESTR)
 		gbANDSearch = 1;
 	else if(andFlag = FALSESTR)
 		gbANDSearch = 0;
+	*/
 	if(rh.model.get(rh.consts('KEY_SEARCHED_TERM')))
 	{
 		displaySearchProgressBar(0);
@@ -2723,12 +2795,23 @@ function HuginHunter()
 
 	this.evaluateExpression = function( a_Context, a_this )
 	{
-		if(gbANDSearch)
+		/*if(gbANDSearch)
 		{
 			a_this.strQuery = trimString(a_this.strQuery);
             a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
+		}*/
+		
+		
+		//jomart
+		var hasBoth = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
+        if(genderS === "0" && hasBoth=== false)
+		{   //alert(genderS);
+			a_this.strQuery = trimString(a_this.strQuery);
+            a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
+			//alert(a_this.strQuery);
 		}
-			
+
+		
 		a_this.queryExpression = parseQueryExpression( a_this.strQuery );
 		if ( a_this.queryExpression == null )
 		{
@@ -2959,12 +3042,20 @@ function changeResultView( a_strHTML )
 	}
 }
 
+function navigateToTopic(topics, params){
+	if(topics.length >0){ 
+		var absUrl = window._getFullPath(rh._.parentPath(), topics[0].strUrl + params);
+		rh.model.publish(rh.consts('EVT_NAVIGATE_TO_URL'), {
+        absUrl: "" + absUrl
+      });
+	}
+}
 
 function displayTopics( a_QueryResult )
 {
 	var sHTML = "";
 	var sLine = "";
-	var szSearchStrings= rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
+	var szSearchStrings= rh.model.get(".l.searchText_actual");
 	var sHighlight = "CLRF=" + gsHLColorFront +
 					 ",CLRB=" + gsHLColorBackground + ",HL=";
 	
@@ -3029,6 +3120,7 @@ function displayTopics( a_QueryResult )
 			// New search widget workflow. Publish search results.
 			rh.model.publish(rh.consts('KEY_SEARCH_RESULT_PARAMS'), strParams);
 			rh.model.publish(rh.consts("KEY_SEARCH_RESULTS"), a_QueryResult.aTopics);
+			//navigateToTopic(a_QueryResult.aTopics, strParams);
 		}
 	}
 	
