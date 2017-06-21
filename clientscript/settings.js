@@ -89,16 +89,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 					jQueryM_v1_4_5('.hide_external_link').hide();
 					jQueryM_v1_4_5('.hide_local_link').hide();
 					resize(jQueryM_v1_4_5("html"));
-					
-					if (window.getSelection) {
-                     if (window.getSelection().empty) {  // Chrome
-                           window.getSelection().empty();
-                     } else if (window.getSelection().removeAllRanges) {  // Firefox
-                           window.getSelection().removeAllRanges();
-                     }
-                     } else if (document.selection) {  // IE?
-                     document.selection.empty();
-                     }
+
 				 }
 				
 				
@@ -204,15 +195,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 					 event.preventDefault();
 					
 					 
-					 if (window.getSelection) {
-                     if (window.getSelection().empty) {  // Chrome
-                           window.getSelection().empty();
-                     } else if (window.getSelection().removeAllRanges) {  // Firefox
-                           window.getSelection().removeAllRanges();
-                     }
-                     } else if (document.selection) {  // IE?
-                     document.selection.empty();
-                     } 
+					  
 				    
 					 if(window.location != window.parent.location){
 						 window.parent.postMessage(["modal_display", "show"], "*");
