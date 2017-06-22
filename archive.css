@@ -42,10 +42,7 @@ thead,
 tr,
 th,
 td {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	font: inherit;
+	
 	direction: rtl;
 	
 }
@@ -53,7 +50,7 @@ td {
 .header_topic{
 
 height : 1.20em;
-font-size :20px;
+font-size :40px;
 text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: green;padding: 5px 5px;
 	
 }

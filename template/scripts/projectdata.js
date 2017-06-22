@@ -51,7 +51,7 @@ model.publish(rh.consts('KEY_HEADER_HTML'), "<div style = 'width: calc(100%);hei
     <img src='#{logo}87px.png' height=\"25\" width=\"25\" />\
   </div>\
   <div>\
-    <div  style=\" cursor: pointer; font-size: 1em;overflow: hidden ;position: absolute;top: 0.5em; right: 2em;left: 4em;\" title='#{tooltip}' onClick='rh._.redirectToLayout()'>\
+    <div  style=\" cursor: pointer;;overflow: hidden ;position: absolute;top: 0.5em; right: 2em;left: 4em;\" title='#{tooltip}' onClick='rh._.redirectToLayout()'>\
       <span>#{label}</span>\
     </div>\
   </div>\
