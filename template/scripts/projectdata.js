@@ -47,7 +47,7 @@ model.publish(rh.consts('KEY_HEADER_BACKGROUND_COLOR'), "");
 model.publish(rh.consts('KEY_HEADER_LOGO_PATH'), "");
 model.publish(rh.consts('KEY_LAYOUT_FONT_FAMILY'), "");
 model.publish(rh.consts('KEY_HEADER_HTML'), "<div style = 'width: calc(100%);height: 2.20em;position: fixed;left: 0;top: 0;font-family: 'Trebuchet MS', Arial, sans-serif;display: table;box-sizing: border-box;'>\
-      <img onclick=\"javascript:location.href='#{logo}index.php.htm'\" class = \"header_img\" src='#{logo}87px.png' height=\"25\" width=\"25\" />\
+      <img onclick=\"javascript:location.href='#{logo}index.php.htm'\" class = \"header_img\" src='#{logo}87px.png'  />\
 	  <span class = \"header_label\" onClick='rh._.redirectToLayout()'>#{label}</span>\
   </div>\
 ");
