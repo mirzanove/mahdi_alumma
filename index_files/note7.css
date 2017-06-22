@@ -1,0 +1,277 @@
+<vb:if condition="$stylevar['textdirection'] == 'rtl'">
+
+
+
+
+
+
+
+#zoom{
+direction:ltr;
+position: fixed;
+top:30px
+left:0px;
+z-index:1;
+}
+
+* html #zoom
+{ 
+direction:ltr;
+position: absolute;
+top: expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+30+"px" : body.scrollTop+30+"px");
+left:0px;
+z-index:1;
+
+}
+
+
+
+* html {overflow: hidden; }
+* html body {overflow: auto; }
+
+html, body {height: 100%; margin: 0; padding: 0; }
+#zoom {
+position: absolute; 
+left:0px;
+z-index:1; 
+}
+body>#zoom {position: fixed; }
+#zoom a {display: block; }
+
+#but{
+direction:ltr;
+position: fixed;
+top:170px;
+left:0px;
+z-index:1;
+}
+* html #but
+{ /*IE6 only rule, applied on top of the default above*/
+direction:ltr;
+position: absolute;
+top: expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+170+"px" : body.scrollTop+170+"px");
+left:0px;
+z-index:1;
+
+}
+#auto{
+direction:ltr;
+position: fixed;
+top:200px;
+left:0px;
+z-index:1;
+}
+* html #auto
+{ /*IE6 only rule, applied on top of the default above*/
+direction:ltr;
+position: absolute;
+top: expression(document.compatMode =="CSS1Compat"? document.documentElement.scrollTop+200+"px" : body.scrollTop+200+"px");
+left:0px;
+z-index:1;
+
+}
+
+
+#share{
+direction:ltr;
+position: fixed;
+top:0px;
+left:40px;
+z-index:1;
+background: green;
+}
+* html #share
+{ /*IE6 only rule, applied on top of the default above*/
+direction:ltr;
+position: absolute;
+top: expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+0+"px" : body.scrollTop+0+"px");
+left:40px;
+z-index:1;
+
+}
+
+#sharethis{
+direction:ltr;
+position: fixed;
+top:0px;
+left:27px;
+z-index:1;
+background: green;
+}
+* html #sharethis
+{ /*IE6 only rule, applied on top of the default above*/
+direction:ltr;
+position: absolute;
+top: expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+0+"px" : body.scrollTop+0+"px");
+left:27px;
+z-index:1;
+
+}
+
+
+.red { background: #d5dc91; }
+html 
+{
+            
+            color: rgb(56,56,56);
+           
+            background-attachment : fixed;
+            background-image : url("230.gif"/*tpa=http://localhost/vb/css/230.gif*/);
+}
+
+.off{
+background: green; 
+font-size: 23px;
+border: solid 1px #ffffff;
+color: gold;
+}
+.on{
+font-size: 23px;
+border: solid 1px #2B562B;
+background: #ffffcc;
+color: black;
+}
+	
+.butt
+{      
+    background: green;   
+}
+
+
+.butt a
+    {     font-size: 23px; 
+        border: solid 1px #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        color:gold;
+        display: block;
+        text-align:center;
+    }
+    
+.butt a:hover
+    {
+        text-decoration: none;
+		background-color: none;
+		color:none;
+    }
+
+	
+	
+.autoR
+{      
+    background: green;   
+}
+
+
+.autoR a
+    {     font-size: 23px; 
+        border: solid 1px #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        color:gold;
+        display: block;
+        text-align:center;
+    }
+    
+.autoR a:hover
+    {
+        text-decoration: none;
+		background-color: none;
+		color:none;
+    }
+	
+	
+	
+	
+	
+	
+
+
+.textresizer
+{   position: fixed; 
+    background: green;
+	left:0px;
+}
+
+
+.textresizer a
+    {   
+	    
+	    line-height:20px;
+        border: solid 1px #ffffff;
+        font-weight: bold;
+        text-decoration: none;
+        color:gold;
+        display: block;
+        text-align:center;
+    }
+    
+.textresizer a:hover
+    {    
+        background: #e5e5e5;
+        border: solid 1px #cccccc;
+    }
+
+#content2
+{   
+	font-size: 13px;
+}
+
+.textresizer a.textresizer-active
+{  
+	border: solid 1px #2B562B;
+	background: #ffffcc;
+	color: #000000;				
+}
+
+.s0
+{
+    font-size: 11px;
+}
+.s1
+{
+    font-size: 13px;
+}
+.s2
+{
+    font-size: 15px;
+}
+.s3
+{
+    font-size: 17px;
+}
+.s4
+{
+    font-size: 19px;
+}
+.s5
+{
+    font-size: 21px;
+}	
+.s6
+{
+    font-size: 23px;
+}	
+.s7
+{
+    font-size: 25px;
+}	
+.s8
+{
+    font-size: 27px;
+}
+
+
+
+
+
+
+
+
+
+
+
+</vb:if>
+
+
+
