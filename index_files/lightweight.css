@@ -12,16 +12,6 @@ body a
 {
 	color: #000000;
 }
-
-.N_replyes
-{
-color: grey;	
-}
-.header_img{
-cursor: pointer;	
-}
-
-
 .bodywrapping
 {
 	width:95%; 
@@ -249,13 +239,12 @@ cursor: pointer;
 	font-size: .9em; 
 }
 .forumold,.forumnew,.forumlink, .forumold_lock, .forumnew_lock
-{   background-color:white;
+{
 	padding:4px;
 	margin:auto;
 	border-left:1px solid #999999;
 	border-right:1px solid #999999;
 	border-bottom:1px solid #999999;
-	border-top:1px solid #999999;
 }
 .forumold a,.forumnew a,.forumlink a
 {
