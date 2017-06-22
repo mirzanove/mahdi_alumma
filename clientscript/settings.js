@@ -396,6 +396,7 @@ else {
     //modal.style.display = "none";
 //}
 		
+		
 		jQueryD_1_4_2(window).resize(function() {
 			resize(jQueryD_1_4_2("html"));
 			//getPageHeight(document)
@@ -405,60 +406,12 @@ else {
 			//getPageHeight(document)		
 		});
 		
-		jQueryD_1_4_2("a").click(function(event) {
-
-			 var classname= jQueryD_1_4_2(event.currentTarget).parent().attr('class');
-			 //alert(classname);
-			 var link = this.href;
-			
-			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
+	
+		
+		jQueryD_1_4_2(".header_topic").click(function(event) {
+              alert("gggg");
+			  return false;
 			 
-			 //alert(link);
-			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)) {
-                        //alert(link.indexOf("file://"));
-						//alert("cool");
-                         location.href = link;
-                         return false;
-			     }
-			 			 
-			 	
-			 }
-             else if(classname == "pda tooltip4"){
-				location.href = link;
-                return false;
-             }
-             else if(classname == "username"){
-				location.href = link;
-                return false;
-				
-             }
-            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)){
-				 
-			 if(checkURL(link) == true){
-				  if(classname == "imglink"){
-					 
-					 event.preventDefault(); 
-					  
-				  }
-				  else{
-					 
-					 
-					 event.preventDefault();
-					 ////alert(link);
-					 if(window.location != window.parent.location){
-						 window.parent.postMessage(["modal_display", "show"], "*");
-						 window.parent.postMessage(["image_url", link], "*");
-					 }
-					 else{
-					 jQueryD_1_4_2(".modal").show(); 
-                     jQueryD_1_4_2("#wrapper,body,html").css({'overflow' : 'hidden'});	
-					 jQueryD_1_4_2("#img01").attr("src",link); 
-					 }
-					 					 
-				  }
-			 }	
-					
-			 }			 
         });
 		
 	
@@ -470,6 +423,7 @@ else {
 		
 		
 		jQueryD_1_4_2(document).click(function(event) {
+	
 			if (event.which == 0 || event.which == 1) { //right click
 				event.stopPropagation();
 				jQueryD_1_4_2('.tooltiptext').hide();
@@ -481,116 +435,9 @@ else {
 				resize(jQueryD_1_4_2("html"));
 			}
 		});
-		jQueryD_1_4_2(".link_org").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			jQueryD_1_4_2('.tooltiptext').hide();
-			jQueryD_1_4_2('.tooltiptext2').hide();
-			jQueryD_1_4_2('.tooltiptext3').hide();
-			jQueryD_1_4_2('.tooltiptext4').hide();
-			jQueryD_1_4_2('.hide_external_link').hide();
-			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext').show();
-			jQueryD_1_4_2(event.currentTarget).children('.selected').selectText();
-			resize(jQueryD_1_4_2("html"));
-			
-			jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
-			
-			window.parent.postMessage(["scrollTop", jQueryD_1_4_2(this).offset().top], "*");
-		});
-		jQueryD_1_4_2(".imglink").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			jQueryD_1_4_2('.tooltiptext').hide();
-			jQueryD_1_4_2('.tooltiptext2').hide();
-			jQueryD_1_4_2('.tooltiptext3').hide();
-			jQueryD_1_4_2('.tooltiptext4').hide();
-			jQueryD_1_4_2('.hide_external_link').hide();
-			jQueryD_1_4_2(event.currentTarget).parent().children('.hide_external_link').show();
-			jQueryD_1_4_2(event.currentTarget).children('.hide_param').selectText();
-			resize(jQueryD_1_4_2("html"));
-			
-			jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
-			
-			window.parent.postMessage(["scrollTop", jQueryD_1_4_2(this).offset().top], "*");
-		});
-		jQueryD_1_4_2(".bbcode_img").click(function(event) {
-			jQueryD_1_4_2(event.currentTarget).selectText();
-		});
-		jQueryD_1_4_2("a.select_txt").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			jQueryD_1_4_2('.tooltiptext').hide();
-			jQueryD_1_4_2('.tooltiptext2').hide();
-			jQueryD_1_4_2('.tooltiptext3').hide();
-			jQueryD_1_4_2('.tooltiptext4').hide();
-			//jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').selectText();
-			var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
-            var i;
-            for (i = 0; i < c.length; i++) {
-       
-		    if (c[i].className == "posttext padd2") {
-		  
-		       select_all_and_copy(c[i]);
-		    }
-			
-
-			
 		
-    }
-			
-			
-		});
-		jQueryD_1_4_2("a.threadinfo").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			jQueryD_1_4_2('.tooltiptext').hide();
-			jQueryD_1_4_2('.tooltiptext2').hide();
-			jQueryD_1_4_2('.tooltiptext3').hide();
-			jQueryD_1_4_2('.tooltiptext4').hide();
-			jQueryD_1_4_2('.hide_external_link').hide();
-			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext3').show().selectText();
-		});
-		jQueryD_1_4_2("a.threadinfo2").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			jQueryD_1_4_2('.tooltiptext').hide();
-			jQueryD_1_4_2('.tooltiptext2').hide();
-			jQueryD_1_4_2('.tooltiptext3').hide();
-			jQueryD_1_4_2('.tooltiptext4').hide();
-			jQueryD_1_4_2('.hide_external_link').hide();
-			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext4').show().selectText();
-		});
-		jQueryD_1_4_2("a.postinfo").click(function(event) {
-			event.preventDefault();
-			event.stopPropagation();
-			jQueryD_1_4_2('.tooltiptext').hide();
-			jQueryD_1_4_2('.tooltiptext2').hide();
-			jQueryD_1_4_2('.tooltiptext3').hide();
-			jQueryD_1_4_2('.tooltiptext4').hide();
-			jQueryD_1_4_2('.hide_external_link').hide();
-			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext2').show().selectText();
-		});
 		
-	    jQueryD_1_4_2(".font-button").click(function(event) {
-				
-				var size = parseInt(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').css("font-size"));
-				
-				if (jQueryD_1_4_2(event.currentTarget).hasClass("plus")) {
-					size = size + 2;
-					resize(jQueryD_1_4_2("html"));
-				} else if (jQueryD_1_4_2(event.currentTarget).hasClass("zoom_def")) {
-					size = 20;
-					resize(jQueryD_1_4_2("html"));
-				} else {
-					size = size - 2;
-					if (size <= 10) {
-						size = 10;
-					}
-					
-				}
-				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').css("font-size", size);
-				
-		});
+	    
 		
 		jQueryD_1_4_2(".tooltiptext").click(function(event) {
 			event.stopPropagation();
