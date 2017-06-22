@@ -53,8 +53,8 @@ td {
 .header_topic{
 
 height : 1.20em;
-
-text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: red;padding: 5px 5px;
+font-size :20px;
+text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: green;padding: 5px 5px;
 	
 }
 
