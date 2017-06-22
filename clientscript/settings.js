@@ -464,8 +464,10 @@ else {
 	
 		
 		jQueryD_1_4_2(".close").click(function(event) {
-			  jQueryD_1_4_2(".modal").hide();
-			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});
+			   setTimeout(function() {jQueryD_1_4_2(".modal").hide();
+			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});}, 50);
+			  
+			  
 		});
 		
 		
