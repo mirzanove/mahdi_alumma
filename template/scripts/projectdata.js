@@ -47,16 +47,9 @@ model.publish(rh.consts('KEY_HEADER_BACKGROUND_COLOR'), "");
 model.publish(rh.consts('KEY_HEADER_LOGO_PATH'), "");
 model.publish(rh.consts('KEY_LAYOUT_FONT_FAMILY'), "");
 model.publish(rh.consts('KEY_HEADER_HTML'), "<div style = 'width: calc(100%);height: 2.20em;position: fixed;left: 0;top: 0;font-family: 'Trebuchet MS', Arial, sans-serif;display: table;box-sizing: border-box;'>\
-  <div style = 'max-height: 100%;display: block;' class='logo' onclick=\"javascript:location.href='#{logo}index.php.htm'\">\
-    <img src='#{logo}87px.png' height=\"25\" width=\"25\" />\
+      <img onclick=\"javascript:location.href='#{logo}index.php.htm'\" class = \"header_img\" src='#{logo}87px.png' height=\"25\" width=\"25\" />\
+	  <span class = \"header_label\" onClick='rh._.redirectToLayout()'>#{label}</span>\
   </div>\
-  <div>\
-    <div  style=\" cursor: pointer;;overflow: hidden ;position: absolute;top: 0.5em; right: 2em;left: 4em;\" title='#{tooltip}' onClick='rh._.redirectToLayout()'>\
-      <span>#{label}</span>\
-    </div>\
-  </div>\
-  </div>\
-<div class='topic-header-shadow'></div>\
 ");
 model.publish(rh.consts('KEY_HEADER_CSS'), ".topic-header { background-color: #{background-color}; color: #{color}; width: calc(100%); height: 3em; position: fixed; left: 0; top: 0; font-family: #{font-family}; display: table; box-sizing: border-box; }\
 .topic-header-shadow { height: 3em; width: 100%; }\
