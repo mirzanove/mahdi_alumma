@@ -1,24 +1,54 @@
-*{
-	
-	direction: rtl;
+pdf,
+up,
+div,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+a,
+abbr,
+acronym,
+del,
+font,
+img,
+ins,
+q,
+strike,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	margin: 0;
+	padding: 0;
 	font-size: 100%;
+	font: inherit;
+	direction: rtl;
 	
 }
-
-.header_topic{
-
-height : 0.8em;
-text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: greyy;padding: 5px 5px;
-	
-}
-.header_img{
-float: right;
-cursor: pointer;	
-}
-.header_label{
-cursor: pointer;	
-}
-
 
 html, body {height:100%; overflow:hidden; -webkit-overflow-scrolling: touch; -webkit-transform: translate3d(0,0,0);}
 
@@ -72,6 +102,7 @@ html, body {height:100%; overflow:hidden; -webkit-overflow-scrolling: touch; -we
     top: 0px;
     right: 0px;
     color: #f1f1f1;
+    font-size: 20px;
     font-weight: bold;
     background-color: black;
 	border-style: solid;
@@ -240,6 +271,7 @@ display: none;
 	
 }
 .up {
+	font: 12px verdana arial sans-serif;
 	background-color: #20B2AA;
    display: inline-block;
   padding-top: 7px;
@@ -299,6 +331,7 @@ display: none;
 	padding: 5px;
 	position: absolute;
 	font-weight: bold;
+	font: 15px verdana arial sans-serif;
 
 }
 .tooltip3 {
@@ -321,7 +354,8 @@ display: none;
 	text-align: left;
 	padding: 5px;
 	position: absolute;
-
+	font-weight: bold;
+	font: 15px verdana arial sans-serif;
 }
 .tooltip2 {
 	position: relative;
@@ -342,7 +376,8 @@ display: none;
 	text-align: left;
 	padding: 5px;
 	position: absolute;
-
+	font-weight: bold;
+	font: 15px verdana arial sans-serif;
 }
 .tooltiptext {
 	display: none;
@@ -393,14 +428,17 @@ font-weight: bold;
 li {
 	list-style-type: none;
 	list-style: none;
+	font-size: 10pt;
 	border: 1px solid #e6e6e6;
 	padding: 5px;
+	font: 15px times new roman;
 }
 .N_replyes {
 	color: #c0c0c0;
 }
 p.largefont {
 	text-align: left;
+	font-size: 10pt;
 	font-weight: bold;
 }
 div.pagebody {
@@ -417,10 +455,12 @@ div.pagebody {
 div.post {
 	border: 1px solid #c0c0c0;
 	padding: 1px;
+	font: 12px verdana arial sans-serif;
 	/*font-family: 'Droid Arabic Kufi', serif;*/
 }
 div.posttop {
 	background: #EEEEEE;
+	font: 12px ;
 	padding: 4px;
 	
 }
@@ -437,12 +477,14 @@ div.posttext {
 	background: #F9F9F9;
 	/*font: times new roman;*/
 	font-family: "Times New Roman", Times, serif;
+	font-size :20px;
 }
 div.highlight {
 	padding: 4px;
 	background: #FFFFCC;
 }
 span.small {
+	font-size: 10px;
 }
 #content {
 	margin-bottom: 8px;
@@ -464,8 +506,166 @@ span.small {
 }
 #copyright {
 	text-align: center;
+	font: 12px verdana arial sans-serif;
 }
 hr {
 	border-top: 1px solid #c0c0c0;
 }
-
+P.Preformatted {
+	line-height: normal;
+	margin-bottom: 14pt;
+	margin-top: 14pt;
+	x-text-tab-stops: repeat 1in;
+	white-space: nowrap;
+	font-family: monospace;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+P.Address {
+	margin-top: 0;
+	margin-bottom: 0;
+	font-style: italic;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Big {
+	font-weight: bolder;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Citation {
+	font-style: italic;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Code {
+	font-family: monospace;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Definition {
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Emphasize {
+	font-style: italic;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Keyboard {
+	font-weight: bold;
+	font-family: monospace;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.StrikeThrough {
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;text-decoration: line-through;
+}
+SPAN.Sample {
+	font-family: monospace;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Strong {
+	font-weight: bold;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.SubScript {
+	vertical-align: sub;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Superscript {
+	vertical-align: super;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.TeleType {
+	font-family: monospace;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Var {
+	font-style: italic;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+SPAN.Underline {
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;text-decoration: underline;
+}
+SPAN.Italic {
+	font-style: italic;
+	direction: rtl;
+	font: inherit;
+	font-size: 100%;
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
