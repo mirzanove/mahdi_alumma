@@ -1,153 +1,144 @@
-<!DOCTYPE HTML>
-<html dir = "rtl" style ="text-align: center;">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<head>
-
-    <script type="text/javascript" language="javascript">
-  
-
-
-var pageName = (function () {
-        var a = window.location.href;
-        return a;
-    }());
-
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="rtl" id="vbulletin_html" lang="ar"><head>
 	
-var res ;
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="HandheldFriendly" content="true">
+<meta name="MobileOptimized" content="device-width">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="http://localhost/vbulletin_4-2-3">
 
-function Redirect(value){
-if (value === "1"){
+<meta name="keywords" content="vbulletin,vBulletin Solutions,forum,bbs,discussion,bulletin board">
+<meta name="description" content="This is a discussion forum powered by vBulletin. To find out about vBulletin, go to http://www.vbulletin.com/ .">
 
-document.getElementsByClassName("loading")[0].style.display = 'block';
-if (pageName.indexOf("index.html") !== -1){
+<link rel="stylesheet" href="index_files/lightweight.css" type="text/css">
+<!-- base href="http://localhost/vbulletin_4-2-3/" -->
+<script type="text/javascript">
+/* This script and many more are available free online at
+The JavaScript Source!! http://javascript.internet.com
+Created by: Cat Arriola | http://astrodiva.journalspace.com/ */
 
-res = pageName.replace("index.html", "jqmStyle.html");
-location.href = res;
-}
-else{
-location.href = window.location.href+"jqmStyle.html";
-
-}
-
-
-}
-else if(value === "2"){
-document.getElementsByClassName("loading")[0].style.display = 'block';
-if (pageName.indexOf("index.html") !== -1){
-
-res = pageName.replace("index.html", "responsiveStyle.html");
-location.href = res;
-}
-else{
-location.href = window.location.href+"responsiveStyle.html";
-
-}
+function fixImgs(maxW) {
+  var pix=document.getElementsByTagName('img');
+  for (i=0; i<pix.length; i++) {
+    w=pix[i].width;
+    h=pix[i].height;
+    if (w > maxW) {
+      f=1-((w - maxW) / w);
+      pix[i].width=w * f;
+      pix[i].height=h * f;
+    }
+  }
 }
 
-}      
-	
-	</script>
-<noscript>
-enable javascript in your browser..
-<br>
-فعل الجافا سكربت في متصفحك
-		
-</noscript>
-
-<style>
-
-
-.loading {
-
-	background-image: url("template/Charcoal_Grey/loading.gif") !important;
-    background-repeat: no-repeat !important;
-     display :none;
-     position: absolute;
-        width: 100px; /*the image width*/
-        height: 100px; /*the image height*/
-        left: 55%;
-        top: 50%;
-        margin-left: -50px; /*half the image width*/
-        margin-top: -50px; /*half the image height*/
+// Multiple onload function created by: Simon Willison
+// http://simonwillison.net/2004/May/26/addLoadEvent/
+function addLoadEvent(func) {
+  var oldonload = window.onload;
+  if (typeof window.onload != 'function') {
+    window.onload = func;
+  } else {
+    window.onload = function() {
+      if (oldonload) {
+        oldonload();
+      }
+      func();
+    }
+  }
 }
 
+addLoadEvent(function() {
+  fixImgs(200);  // ('element ID', maximum width)
+});
 
-</style>
-
-
-<link rel="SHORTCUT ICON" href="ico36.36.png" />	
-<div class ="loading"></div>
+</script>
+	<title>المنتدى</title>
 </head>
 <body>
 
-<span style ="font-weight: bold; font-size: 130%; color : red">
-AR_mawso3a_mobile:
-<br>
-21/6/2017
-<br>
-</span>
-<br>
+<div class="bodywrapping">
 
-<span style ="font-weight: bold; font-size: 130%; color : green">
-السلام عليكم ورحمة الله وبركاته مرحبا بك في برنامج الكتاب الالكتروني للموبايلات لبيانات الإمام المهدي ناصر محمد اليماني.
-<br>
-</span>
-<br>
 
-<span style ="font-weight: bold; font-size: 130%;">
-اختر احد الخيارات في الاسفل نوع الستايل للكتاب الالكتروني الذي تراه مناسبا لمواصفات جهازك:<br>
-</span>
-<br>
-<select style ="font-size: 150%;" id="selectbox" name="" onchange="Redirect(this.value)">
-    <option value="">Select...</option>
+	<div class="logo" style="text-align:right;">
+		
+		
+			<a class="toplinks" href="http://localhost/vbulletin_4-2-3/login.php?do=logout&amp;logouthash=1498156675-7fb72741b8da29b999bb6d7d9f489c8284b170f8">تسجيل الخروج</a>
+		
+	</div>
 
-	<option value="1">jquery mobile style</option>
-    <option value="2">adobe responsive style</option>
-    
 
-</select>
-<br>
-<br>
-<span style ="font-size: 130%;">
-معلومات عن الستايلات :
-<br>
-</span>
-<br>
-<span style ="font-weight: bold; font-size: 130%;">Jquery Mobile Style</span>
-<br>
-<span style ="font-size: 130%;">هذا الستايل تم تصميمه باستخدام مكتبة جيكويري للموبايلات وهو ملائما لنسخ الاندرويد 2.1 فمافوق تم تجربة الستايل للكتاب على اندرويد 4 ويعمل بشكل جيد كما ان هذه المكتبة متوافقة مع اصدارات اخرى غير الاندرويد ولمزيد من المعلومات عن الاجهزة المدعمة لهذه المكتبة: 
-<br>
-<a href="https://jquerymobile.com/browser-support/1.4/">jquery mobile 1.4 browser support </a>
-</span>
-<br>
-<br>
-<span style ="font-weight: bold; font-size: 130%;">Adobe Robohelp Responsive html5 Style</span>
-<br>
-<span style ="font-size: 130%;">هذا الستايل الاصلي لبرنامج الكتاب الالكتروني وهو مصمم للاستجابة بحسب حجم شاشة الجهاز المستخدم ويعمل بشكل ممتاز على اندرويد 5 و 6 وايضا اندرويد 4.4 الذي يدعم المستعرض WebViews Chromium engine اما اقل من اندرويد 4,4 فلن يعمل الستايل بشكل جيد  فيفضل استخدام ستايل جيكويري موبايل للبرنامج الكتاب.. 
-<br>
-<a href="http://www.adobe.com/products/robohelp/features.html">Adobe Robohelp 2015</a>
-</span>
-<br>
-<br>
-<span style ="font-weight: bold; font-size: 130%;">ميزات برنامج الكتاب الالكتروني:</span>
-<span style ="font-size: 130%;">
-<br>
-*يمكن تغيير الستايلات مع الاصدار الجديد للكتاب ..
-<br>
-*سهولة البحث والتنقل في بيانات الموسوعة 
-<br>
-*نظام بحث متكامل يدعم اللغة العربية مع سكربت التسليط الضوء على الكلمات البحث.
-<br>
-<br>
 
-وأي اقتراحات او مشاكل فنية تتعلق بالبرنامج فارجوا اعلامي بها في موضوعي الخاص للكتب الالكترونية في منتديات البشرى الاسلامية 
-<br>
-<a href="http://www.mahdi-alumma.com/showthread.php?p=178331"> الكتب الإلكترونية لموسوعة بيانات الإمام ناصر محمد اليماني ...
-</a>
-<br>
-<br>
-وبهذا نرجوا من الله ان نكون قد وفقنا في هذا العمل وجزاكم الله كل خير والسلام عليكم ورحمة الله وبركاته 
-</span>
-</body>
-</html>
+
+
+
+<div class="navbar">
+
+<a href="http://localhost/vbulletin_4-2-3/forum.php">المنتدى</a>
+
+
+<a href="http://localhost/vbulletin_4-2-3/search.php?do=getnew">المشاركات الجديدة</a> <a href="http://localhost/vbulletin_4-2-3/usercp.php">لوحة التحكم</a>
+  
+
+
+<a href="http://localhost/vbulletin_4-2-3/search.php">البحث</a></div>
+
+
+<div></div>
+
+
+<div class="titlebg"><a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=1">۞ مجموعة بيانات الإمام المهدي ناصر محمد اليماني ۞</a></div>
+
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=2">۩ موسوعة بيانات الإمام المهدي المنتظر ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=4">۩ بيانات المهدي المنتظر بمايحدث في دول العالم ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=6">۩ الدعوة للحوار والإحتكام في كتاب الله ونبذ التفرقة والتطرف ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=7">۩ الفتواى العقيدية ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=8">۩ الفتواى الفقهية ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=9">۩ عقيدة الخلافة والإمامة وعلاماتها ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=10">۩ حقائق البعث و الملاحم والفتن ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=11">۩ مايتعلق بالأنبياء والرسل والصالحين والأمم في عصورهم في القران الحكيم ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=12">۩ عجائب الكون والخلق وأسرار الحساب في الكتاب ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=13">۩ سؤال وجواب لبيانات الامام ناصر محمد اليماني ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=14">۩ مايتعلق بعلوم القران الكريم والاحاديث ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=15">۩ كل مايتعلق بالأهلة وإدراك الشمس للقمر ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=17">۩ كل مايتعلق بالإمام والانصار والتوجيهات والنصائح ۩</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=18">۩ كل ماجمعه الأنصار من بيانات ۩</a></div>
+
+
+
+
+<div class="titlebg"><a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=5">منتدى مخفي</a></div>
+
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=3">**الفهرسة الموضوعية لموسوعة البيانات**</a></div>
+<div class="forumold"><img style="margin-top: 3px;margin-left: 6px;" src="index_files/forum_old-16.png" alt="" align="left">&nbsp;<a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?f=16">قسم البيانات منعت من الموسوعة</a></div>
+
+
+
+
+
+
+
+<div class="footlink"><a href="http://localhost/vbulletin_4-2-3/forumdisplay.php?do=markread&amp;markreadhash=1498156675-7fb72741b8da29b999bb6d7d9f489c8284b170f8" rel="nofollow">اجعل كافة الأقسام مقروءة</a></div>
+
+
+
+
+
+
+
+
+
+
+<!-- Do not remove this copyright notice -->
+ 
+<div class="footer">
+<!-- Do not remove this copyright notice -->
+	
+	<img src="index_files/cron.gif" alt="" width="1" border="0" height="1">
+	<div class="footer">Powered by <a href="http://www.vbulletin.com/" id="vbulletinlink">vBulletin®</a> Version 4.2.3 <br>Copyright © 2017 vBulletin Solutions, Inc. All rights reserved.  <br><a title="تعريب ضيف المهاجر" href="http://www.nabdh-alm3ani.net/"> Translate By 
+Almuhajir</a></div>
+
+	<div class="footer"><a class="footer" href="http://twf.com.au/" target="_blank">Mobile Style by Dartho</a>|<a href="http://localhost/vbulletin_4-2-3/?styleid=-1">Default Style</a></div>
+</div>
+</div>
+
+
+</body></html>
