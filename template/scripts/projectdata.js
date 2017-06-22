@@ -46,7 +46,7 @@ model.publish(rh.consts('KEY_HEADER_TITLE_COLOR'), "");
 model.publish(rh.consts('KEY_HEADER_BACKGROUND_COLOR'), "");
 model.publish(rh.consts('KEY_HEADER_LOGO_PATH'), "");
 model.publish(rh.consts('KEY_LAYOUT_FONT_FAMILY'), "");
-model.publish(rh.consts('KEY_HEADER_HTML'), "<div style = 'background-color: #025172;color: #ffffff;width: calc(100%);height: 2.20em;position: fixed;left: 0;top: 0;font-family: 'Trebuchet MS', Arial, sans-serif;display: table;box-sizing: border-box;'>\
+model.publish(rh.consts('KEY_HEADER_HTML'), "<div style = 'width: calc(100%);height: 2.20em;position: fixed;left: 0;top: 0;font-family: 'Trebuchet MS', Arial, sans-serif;display: table;box-sizing: border-box;'>\
   <div style = 'max-height: 100%;display: block;' class='logo' onclick=\"javascript:location.href='#{logo}index.php.htm'\">\
     <img src='#{logo}87px.png' height=\"25\" width=\"25\" />\
   </div>\
