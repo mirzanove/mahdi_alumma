@@ -48,7 +48,7 @@ var imglink_check = false;
 	
 	
 jQueryM_v1_4_5(document).ready(function() {
-	//alert("mobile");
+	alert("mobile");
 
 	
 jQueryM_v1_4_5("#wrapper").scroll( function() {
@@ -387,7 +387,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 } ////////////////////////////////////////////////////////////////
 else {
 	jQueryD_1_4_2(document).ready(function() {
-		//alert("deskstop");
+		alert("deskstop");
 		
 		  //var span = document.getElementsByClassName("close")[0];
 
