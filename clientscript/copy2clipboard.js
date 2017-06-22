@@ -17,7 +17,7 @@ function tooltip(el, message)
 		tooltip.style.opacity = 1;
 		tooltip.style.transition = "http://localhost/vbulletin_4-2-3/archive/clientscript/opacity 0.3s";
 		tooltip.style.width = "100px";
-		tooltip.style.height = "60px";
+		tooltip.style.height = "auto";
 		tooltip.style.marginLeft = "-50px";
 		tooltip.style.marginTop = "-50px";
 		tooltip.style.textAlign= "center";
