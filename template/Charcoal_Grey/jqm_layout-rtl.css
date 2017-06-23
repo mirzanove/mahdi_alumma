@@ -1,0 +1,114 @@
+
+.hide {
+
+display: none;
+  
+}
+
+
+
+html, body{
+ overflow: hidden;
+}
+
+ body.media-mobile.ios div.topic, body.media-landscape.ios div.topic {
+	-webkit-overflow-scrolling: touch;
+	overflow-y: scroll !important
+}
+
+div.toc-holder ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	
+}
+div.toc-holder ul a {
+    
+    margin: 0;
+    /*padding: 0;*/
+	white-space: normal !important;
+}
+
+div.toc-holder ul li.child:not(.show) {
+    display: none;
+
+}
+
+
+div.ui-li-static, div.ui-body-inherit,div.ui-last-child,
+div.toc-holder ul li.child.show {
+   /* background-color: red;*/
+	max-height: 50000em;
+    min-height: 0;
+    overflow-y: visible;
+  
+}
+
+
+div.toc-holder li.selected {
+	
+    border-right-color: black;
+	border-right: .4em solid;
+	border-left: .4em solid;
+	border-top: .4em solid;
+	border-bottom: .4em solid;
+}
+
+body.media-desktop div.drill-down.toc-holder li.inactive,
+body.media-mobile div.drill-down.toc-holder li.inactive,
+body.media-landscape div.drill-down.toc-holder li.inactive {
+display: none;   
+}
+
+li.inactive{
+	
+display: none;
+	
+}
+
+.loading {
+    background-image: url("loading.gif") !important;
+    min-height: 1.25in !important;
+    background-repeat: no-repeat !important;
+    background-position: center .25in !important;
+    background-size: 1in 1in !important
+}
+
+.wSearchResultItem {
+    margin: 1em 0
+}
+
+.wSearchResultItem a.nolink {
+    text-decoration: none
+}
+
+.wSearchResultItem a.nolink:active {
+    text-decoration: underline
+}
+
+.wSearchResultItem a.nolink  .wSearchResultTitle,
+.wSearchResultItem a.nolink  .wSearchResultTitleHover {
+    font-size: 1.25em;
+    margin-bottom: .25em;
+    word-wrap: break-word
+}
+
+.wSearchResultItem .wSearchContext {
+    font-size: 1em
+}
+
+.wSearchResultItem .wSearchURL
+{
+    margin-top: .5em;
+    /*font-size: .75em;*/
+    word-wrap: break-word
+}
+
+
+.wSearchResultItem {
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+    border-top-width: 0.1em;
+    border-top-style: solid;
+    border-top-color: #e6e6e6
+}
