@@ -215,7 +215,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		
 		jQueryM_v1_4_5(".close").on('vclick', function(event) {
 			   setTimeout(function() {jQueryM_v1_4_5(".modal").hide();
-			  jQueryM_v1_4_5("#wrapper").css({'overflow-y' : 'auto'});}, 150);
+			  jQueryM_v1_4_5("#wrapper").css({'overflow-y' : 'auto'});}, 250);
 		})
 		
 		jQueryM_v1_4_5(".bbcode_img").on('vclick', function(event) {
@@ -465,7 +465,7 @@ else {
 		
 		jQueryD_1_4_2(".close").click(function(event) {
 			  setTimeout(function() {jQueryD_1_4_2(".modal").hide();
-			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});}, 150);
+			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});}, 250);
 		});
 		
 		
