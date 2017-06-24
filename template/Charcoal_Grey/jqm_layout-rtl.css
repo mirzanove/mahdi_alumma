@@ -74,6 +74,11 @@ display: none;
     background-size: 1in 1in !important
 }
 
+div.topic-state {
+	position: absolute;
+	top: 25%;
+	width: 100%
+}
 .wSearchResultItem {
     margin: 1em 0
 }
