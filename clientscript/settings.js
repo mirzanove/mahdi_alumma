@@ -1,3 +1,5 @@
+window.parent.postMessage(["loading", "show"], "*");
+
 var myScroll;
 
 function checkURL(url) {
@@ -623,6 +625,14 @@ else {
 			}
 		});
 		jQueryD_1_4_2(window).hashchange();
+	
+	
+	
+	
+	window.parent.postMessage(["loading", "stop"], "*");
+	
+	
+	
 	}); //end 	
 	jQueryD_1_4_2.fn.selectText = function() {
 		var doc = document,
