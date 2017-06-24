@@ -1,4 +1,4 @@
-window.parent.postMessage(["loading", "show"], "*");
+document.getElementsByClassName("loading")[0].style.display = 'block';
 
 var myScroll;
 
@@ -629,7 +629,7 @@ else {
 	
 	
 	
-	window.parent.postMessage(["loading", "stop"], "*");
+	document.getElementsByClassName("loading")[0].style.display = 'none';
 	
 	
 	
