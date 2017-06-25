@@ -252,7 +252,7 @@ function DomTextNode( a_Node, a_nFrom )
 	}
 
 	this.doHighlight = function( a_aRanges, a_nStart )
-	{  // window.parent.postMessage(["loading", "stop"], "*");
+	{   window.parent.postMessage(["loading", "stop"], "*");
 	    document.getElementsByClassName("loading")[0].style.display = 'none';
 		s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
 		s_strHlEnd = "</font>";
@@ -1839,9 +1839,9 @@ var data = e.data[1];
      case 'check_highlight_state':
           if (data =="true"){
 		  enable_highlight = true;
-		  //document.getElementsByClassName("loading")[0].style.display = 'block';
-		  //setTimeout(applyHighlight, 50);
-		   window.parent.postMessage(["loading", "stop"], "*");
+		  document.getElementsByClassName("loading")[0].style.display = 'block';
+		  setTimeout(applyHighlight, 50);
+		   
 		  }
 		  else{enable_highlight = false;
 		  window.parent.postMessage(["loading", "stop"], "*");

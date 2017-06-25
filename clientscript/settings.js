@@ -386,6 +386,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 	};
 } ////////////////////////////////////////////////////////////////
 else {
+	
 	jQueryD_1_4_2(document).ready(function() {
 		//alert("deskstop");
 		
@@ -408,7 +409,7 @@ else {
 		});
 		
 		jQueryD_1_4_2("a").click(function(event) {
-             window.parent.postMessage(["loading", "show"], "*");
+            window.parent.postMessage(["loading", "show"], "*");
 			 var classname= jQueryD_1_4_2(event.currentTarget).parent().attr('class');
 			 //alert(classname);
 			 var link = this.href;
