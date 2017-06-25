@@ -1839,10 +1839,13 @@ var data = e.data[1];
      case 'check_highlight_state':
           if (data =="true"){
 		  enable_highlight = true;
-		  document.getElementsByClassName("loading")[0].style.display = 'block';
-		  setTimeout(applyHighlight, 50);
+		  //document.getElementsByClassName("loading")[0].style.display = 'block';
+		  //setTimeout(applyHighlight, 50);
+		   window.parent.postMessage(["loading", "stop"], "*");
 		  }
-		  else{enable_highlight = false;}
+		  else{enable_highlight = false;
+		  window.parent.postMessage(["loading", "stop"], "*");
+		  }
      break;
 
 }	

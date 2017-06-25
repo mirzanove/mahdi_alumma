@@ -402,11 +402,13 @@ else {
 		});
 		jQueryD_1_4_2(window).load(function() {
 			resize(jQueryD_1_4_2("html"));
-			//getPageHeight(document)		
+			//getPageHeight(document)
+            
+            			
 		});
 		
 		jQueryD_1_4_2("a").click(function(event) {
-
+             window.parent.postMessage(["loading", "show"], "*");
 			 var classname= jQueryD_1_4_2(event.currentTarget).parent().attr('class');
 			 //alert(classname);
 			 var link = this.href;
@@ -626,9 +628,12 @@ else {
 	
 	
 	
-	//window.parent.postMessage(["loading", "stop"], "*");
 	
-	}); //end 	
+	
+	}); //end 
+
+    
+	
 	jQueryD_1_4_2.fn.selectText = function() {
 		var doc = document,
 			element = this[0],
