@@ -158,7 +158,8 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			 
 			 //alert(link);
 			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)) {
-                        //alert(link.indexOf("file://"));
+                        document.getElementsByClassName("loading")[0].style.display = 'block';
+						//alert(link.indexOf("file://"));
 						//alert("cool");
                          location.href = link;
                          return false;
@@ -411,7 +412,7 @@ else {
 		
 		jQueryD_1_4_2("a").click(function(event) {
             //window.parent.postMessage(["loading", "show"], "*");
-			document.getElementsByClassName("loading")[0].style.display = 'block';
+			
 			 var classname= jQueryD_1_4_2(event.currentTarget).parent().attr('class');
 			 //alert(classname);
 			 var link = this.href;
@@ -420,7 +421,8 @@ else {
 			 
 			 //alert(link);
 			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)) {
-                        //alert(link.indexOf("file://"));
+                        document.getElementsByClassName("loading")[0].style.display = 'block';
+						//alert(link.indexOf("file://"));
 						//alert("cool");
                          location.href = link;
                          return false;
