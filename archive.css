@@ -229,25 +229,19 @@ display: none;
 .selection {
     background-color: rgba(255, 255, 0, 0.3);
 }
-
-
 .loading {
-	background-image: url("clientscript/images/loading.gif")/*tpa=http://localhost/vbulletin_4-2-3/archive/clientscript/images/loading.gif*/	 ! important ;
-	background-repeat: no-repeat	 ! important ;
-    display: none;
-	width: 100px;
-	height: 100px;
-	left: 55%;
-	top: 40%;
-	margin-left: -50px;
-	margin-top: -50px;
-	position:fixed;
-    _position:absolute;
-    _left: expression(eval(250+(document.body.scrollLeft)));
-    _top:expression(eval(150+(document.body.scrollTop)));
+	display:none;
+	background-image: url("clientscript/images/loading.gif")! important ;
+    min-height: 1.25in !important;
+    background-repeat: no-repeat !important;
+    background-position: center .25in !important;
+    background-size: 1in 1in !important;
+	position: absolute;
+	top: 25%;
+	width: 100%;
 	z-index :159;
   }
-  
+
 .container {
 	/*padding: 5px;*/
 }

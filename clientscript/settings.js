@@ -1,5 +1,3 @@
-document.getElementsByClassName("loading")[0].style.display = 'block';
-
 var myScroll;
 
 function checkURL(url) {
@@ -368,7 +366,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			}
 		}
 	}
-		
+	window.parent.postMessage(["loading", "stop"], "*");	
 	});
 	jQueryM_v1_4_5.fn.selectText = function() {
 		var doc = document,
@@ -628,10 +626,7 @@ else {
 	
 	
 	
-	
-	document.getElementsByClassName("loading")[0].style.display = 'none';
-	
-	
+	//window.parent.postMessage(["loading", "stop"], "*");
 	
 	}); //end 	
 	jQueryD_1_4_2.fn.selectText = function() {
