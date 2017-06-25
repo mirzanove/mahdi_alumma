@@ -49,7 +49,7 @@ var imglink_check = false;
 	
 jQueryM_v1_4_5(document).ready(function() {
 	//alert("mobile");
-
+document.getElementsByClassName("loading")[0].style.display = 'block';
 	
 jQueryM_v1_4_5("#wrapper").scroll( function() {
   if(jQueryM_v1_4_5(this).scrollTop() + jQueryM_v1_4_5(this).innerHeight() >= jQueryM_v1_4_5(this)[0].scrollHeight) {
