@@ -327,11 +327,11 @@ label {
 				<input id="highlightsearch" type="checkbox" checked="" class="wSearchHighlight" onclick="onToggleHighlightSearch()" />
 			</div>
 		</div>
-		<div class="wSearchMessage" data-if="!@EVT_SEARCH_IN_PROGRESS">
+		<div id ="wSearchMessage" class="wSearchMessage" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<span id="searchMsg" class="wSearchMessage"></span>
 		</div>
-		<div data-class="loading: EVT_SEARCH_IN_PROGRESS" data-if="EVT_SEARCH_IN_PROGRESS"></div>
-		<p class="progressbar" data-if="KEY_SEARCH_PROGRESS"><span data-text="KEY_SEARCH_PROGRESS"></span>%</p>
+		<div id ="loading" data-class="loading: EVT_SEARCH_IN_PROGRESS" data-if="EVT_SEARCH_IN_PROGRESS"></div>
+		<p style = "text-align:center" id = "progressbar" class="progressbar" data-if="KEY_SEARCH_PROGRESS"><span data-text="KEY_SEARCH_PROGRESS"></span>%<br><CENTER><P style = "cursor: pointer" class = "rh-hide" id ="stop" onclick="context.stop();">إلغاء</P></CENTER></p>
 		<div class="wSearchResultItemsBlock" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<div data-rhwidget="List: key: @.p.searchresults, spliton: index % @MAX_RESULTS == 14" data-config="loadmore: '.l.load_more_results', loaded: '.l.results_loaded'">
 				<div class="wSearchResultItem">
