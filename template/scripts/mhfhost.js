@@ -253,6 +253,8 @@ function initializeSearch() {
 
 function doSearch(lol)
 {   
+    removeClass(document.getElementById("stop"),"rh-hide");
+
 	gbANDSearch=1;
 	//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 	
@@ -1029,10 +1031,28 @@ function HuginContext()
 		context.bPause = true;
 	}
 	this.stop = function()
-	{
-		context.bCancel = true;
+	{   
+	   //$('#wSearchMessage').removeClass("rh-hide").removeAttr("hidden");
+	   document.getElementById("wSearchMessage").removeAttribute("hidden");
+	   removeClass(document.getElementById("wSearchMessage"),"rh-hide");
+	   document.getElementById("stop").className = "rh-hide";
+	   //document.getElementById("wSearchMessage").classList.remove("rh-hide");
+	   document.getElementById("progressbar").className = "rh-hide";
+	   context.bCancel = true;
+	 
+	    //document.getElementById("loading").removeAttribute("hidden");
+	   document.getElementById("loading").className = "rh-hide";
+	   document.getElementById("loading").setAttribute("hidden");
+	   
+	   //document.getElementById("wSearchMessage").className = "vvvvvvvvvvvvvv";
+	   
+	  
+		
 	}
 }
+
+function removeClass(e,c) {e.className = e.className.replace( new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');}
+
 
 // Base64.js------------------------------------
 
@@ -3358,15 +3378,21 @@ function updateResultView()
 		displaySearchProgressBar( goOdinHunter.nProgress );
 	else if ( g_CurState == ECS_FOUND ) {
 		displayTopics( goOdinHunter.queryResult );
+		document.getElementById("stop").className = "rh-hide";
 	}		
-	else if ( g_CurState == ECS_SEARCHFAILED )
+	else if ( g_CurState == ECS_SEARCHFAILED ){
 		displayErrorMsg( context.strMsg );
-		
-	else if ( g_CurState == ECS_FATALERROR )
+	    document.getElementById("stop").className = "rh-hide";
+	}	
+	else if ( g_CurState == ECS_FATALERROR ){
 		displayErrorMsg( context.strMsg );
+		document.getElementById("stop").className = "rh-hide";
+	}	
+    else if ( g_CurState == ECS_CANCELED ){
+	displayErrorMsg( gsCanceled );
+    document.getElementById("stop").className = "rh-hide";
+	}
 		
-	else if ( g_CurState == ECS_CANCELED )
-		displayErrorMsg( gsCanceled );
 		
 }
 
