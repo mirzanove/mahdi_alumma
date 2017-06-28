@@ -11,6 +11,28 @@ html, body{
  overflow: hidden;
 }
 
+
+
+
+
+
+
+ul li.book.loading-book{
+	background-image: url("loading.gif");
+	background-repeat: no-repeat;
+	background-position: 99% 0.8em;
+	background-size: 0.9375em 0.9375em;
+	background-image: url("loading.gif");
+	background-repeat: no-repeat;
+	background-position: right 0.6em top 0.8em;
+	background-size: 0.9375em 0.9375em;
+	background-size: 1em
+}
+
+
+
+
+
  body.media-mobile.ios div.topic, body.media-landscape.ios div.topic {
 	-webkit-overflow-scrolling: touch;
 	overflow-y: scroll !important
