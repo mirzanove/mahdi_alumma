@@ -1,4 +1,4 @@
-var myScroll;
+//var myScroll;
 
 function checkURL(url) {
     return(url.match(/\.(jpeg|jpg|gif|png|JPG|PNG|GIF|JPEG)$/) != null);
@@ -18,6 +18,7 @@ function getPageHeight(D) {
 	var setsize = Math.max(Math.max(D.body.scrollHeight, D.documentElement.scrollHeight), Math.max(D.body.offsetHeight, D.documentElement.offsetHeight), Math.max(D.body.clientHeight, D.documentElement.clientHeight));
 	window.parent.postMessage(["setsize", setsize], "*");
 	return setsize;
+	
 }
 
 function resize(elm) {
@@ -25,6 +26,61 @@ function resize(elm) {
 	window.parent.postMessage(["setsize", height], "*");
 }
 
+
+function txt_resize(event,type){
+
+var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
+            var i;
+            for (i = 0; i < c.length; i++) {
+       
+		    if (c[i].className == "posttext padd2") {
+		     //alert(c[i].style[ "font-size" ]);
+		       
+			 
+			 if(type=='inc'){
+                var cur =  parseInt(c[i].style[ "font-size" ]);
+				cur = cur +3; 
+			   c[i].style[ "font-size" ] = cur + "px";
+				
+			 }
+			 
+			 if(type=='dec'){
+                var cur =  parseInt(c[i].style[ "font-size" ]);
+				cur = cur-3; 
+			   c[i].style[ "font-size" ] = cur + "px";
+				
+			 }
+			 
+			 if(type=='rm'){
+                
+			   c[i].style[ "font-size" ] ="20px";
+				
+			 }
+			   
+		    }
+            }			
+
+
+
+document.documentElement.style.display='none';
+document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+document.documentElement.style.display='';
+
+			
+//document.getElementsByClassName("loading")[0].style.display = 'block';
+//document.documentElement.style.width = '99.9%';
+//document.documentElement.style.display='none';
+//document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+
+/*
+setTimeout(function() { 
+document.documentElement.style.width = '100%';
+document.getElementsByClassName("loading")[0].style.display = 'none'
+document.documentElement.style.display='';
+}, 0.5);*/			
+			
+			
+}
 
 
 
@@ -49,6 +105,14 @@ var imglink_check = false;
 	
 jQueryM_v1_4_5(document).ready(function() {
 	//alert("mobile");
+
+/*if (navigator.userAgent.match(detect_userAgent)) {
+	
+jQueryM_v1_4_5("#wrapper,html,body").css("-webkit-transform", "translate3d(0,0,0)");
+	
+}*/
+
+
 	
 jQueryM_v1_4_5("#wrapper").scroll( function() {
   if(jQueryM_v1_4_5(this).scrollTop() + jQueryM_v1_4_5(this).innerHeight() >= jQueryM_v1_4_5(this)[0].scrollHeight) {
@@ -65,14 +129,14 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		
 });	
 		
-   if(isInIFrame==true){
+   /*if(isInIFrame==true){
 			
 	    if (navigator.userAgent.match(detect_userAgent)) {
 
 		myScroll = new iScroll('wrapper', {});
 		
 		}
-	}	
+	}*/	
 			
 		
 		jQueryM_v1_4_5(document).on('vclick', function(event) {
@@ -85,18 +149,27 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 					jQueryM_v1_4_5('.tooltiptext2').hide();
 					jQueryM_v1_4_5('.tooltiptext3').hide();
 					jQueryM_v1_4_5('.tooltiptext4').hide();
+					jQueryM_v1_4_5('.tooltiptext5').hide();
 					jQueryM_v1_4_5('.hide_external_link').hide();
 					jQueryM_v1_4_5('.hide_local_link').hide();
-					resize(jQueryM_v1_4_5("html"));
+					//resize(jQueryM_v1_4_5("html"));
 					
-					
+					/*if (window.getSelection) {
+                     if (window.getSelection().empty) {  // Chrome
+                           window.getSelection().empty();
+                     } else if (window.getSelection().removeAllRanges) {  // Firefox
+                           window.getSelection().removeAllRanges();
+                     }
+                     } else if (document.selection) {  // IE?
+                     document.selection.empty();
+                     }*/
 				 }
 				
 				
 				 
-				if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)) {
+				/*if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)) {
 				myScroll.refresh();
-				}
+				}*/
 			}
 			imglink_check = false;
 		});
@@ -110,18 +183,29 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
 			jQueryM_v1_4_5('.hide_external_link').hide();
 			jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext').show();
 			jQueryM_v1_4_5(event.currentTarget).children('.selected').selectText();
-			resize(jQueryM_v1_4_5("html"));
-			if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)){
+			
+			
+			//resize(jQueryM_v1_4_5("html"));
+			
+			
+			/*if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)){
 			myScroll.scrollToElement(this,0);
 			myScroll.refresh();
 			}
 			else{
-				   jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+				   jQueryM_v1_4_5(document).scrollTop(jQueryM_v1_4_5(this).offset().top);
+			        jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
 			        window.parent.postMessage(["scrollTop", jQueryM_v1_4_5(this).offset().top], "*");
-			}
+			}*/
+			
+			jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+			
+			
+			
 		});
 		jQueryM_v1_4_5(".imglink").on('vclick', function(event) {
 			event.preventDefault();
@@ -131,19 +215,23 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
 			jQueryM_v1_4_5('.hide_external_link').hide();
 			jQueryM_v1_4_5(event.currentTarget).parent().children('.hide_external_link').show();
 			jQueryM_v1_4_5(event.currentTarget).children('.hide_param').selectText();
-			resize(jQueryM_v1_4_5("html"));
-			if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)){
+			//resize(jQueryM_v1_4_5("html"));
+			/*if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)){
 			myScroll.scrollToElement(this,0);
 			myScroll.refresh();
 			}
 			else{
-				    jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
-			        
-					window.parent.postMessage(["scrollTop", jQueryM_v1_4_5(this).offset().top], "*");
-			}
+				    jQueryM_v1_4_5(document).scrollTop(jQueryM_v1_4_5(this).offset().top);
+			        jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+			        window.parent.postMessage(["scrollTop", jQueryM_v1_4_5(this).offset().top], "*");
+			}*/
+			
+			jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+			
 			
 		});
 		
@@ -156,8 +244,9 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
 			 
 			 //alert(link);
-			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) {
-                        document.getElementsByClassName("loading")[0].style.display = 'block';
+			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) {
+                  //document.getElementsByClassName("loading")[0].style.display = 'block';
+
 						//alert(link.indexOf("file://"));
 						//alert("cool");
                          location.href = link;
@@ -174,7 +263,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 				location.href = link;
                 return false;
              }
-            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com") == 0)||(link.indexOf("https://bayan-noon.com") == 0)){
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
@@ -184,8 +273,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 				  }
 				  else{
 					 event.preventDefault();
-					
-					 
+
 					 if (window.getSelection) {
                      if (window.getSelection().empty) {  // Chrome
                            window.getSelection().empty();
@@ -214,8 +302,8 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 	
 		
 		jQueryM_v1_4_5(".close").on('vclick', function(event) {
-			   setTimeout(function() {jQueryM_v1_4_5(".modal").hide();
-			  jQueryM_v1_4_5("#wrapper").css({'overflow-y' : 'auto'});}, 350);
+			  setTimeout(function() {jQueryM_v1_4_5(".modal").hide();
+			  jQueryM_v1_4_5("#wrapper").css({'overflow-y' : 'auto'});}, 150);
 		})
 		
 		jQueryM_v1_4_5(".bbcode_img").on('vclick', function(event) {
@@ -228,6 +316,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
 			//jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').selectText();
 			
 			var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
@@ -249,6 +338,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
 			jQueryM_v1_4_5('.hide_external_link').hide();
 			jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext3').show().selectText();
 		});
@@ -259,6 +349,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
 			jQueryM_v1_4_5('.hide_external_link').hide();
 			jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext4').show().selectText();
 		});
@@ -269,9 +360,32 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
 			jQueryM_v1_4_5('.hide_external_link').hide();
 			jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext2').show().selectText();
 		});
+		
+		jQueryM_v1_4_5(".txt_resize").on('vclick', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			jQueryM_v1_4_5('.tooltiptext').hide();
+			jQueryM_v1_4_5('.tooltiptext2').hide();
+			jQueryM_v1_4_5('.tooltiptext3').hide();
+			jQueryM_v1_4_5('.tooltiptext4').hide();
+			jQueryM_v1_4_5('.tooltiptext5').hide();
+			jQueryM_v1_4_5('.hide_external_link').hide();
+			jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext5').show();
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		jQueryM_v1_4_5('.post_hash').on('vclick', function(event) {
 			/*jQueryM_v1_4_5('.posttop').removeAttr('style');
 			//jQueryM_v1_4_5(document).scrollTop( jQueryM_v1_4_5(this).offset().top );
@@ -285,7 +399,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			//myScroll.refresh();
 		});
 		
-		jQueryM_v1_4_5(".font-button").on("vclick", function() {
+		/*jQueryM_v1_4_5(".font-button").on("vclick", function() {
 			
 				var size = parseInt(jQueryM_v1_4_5(this).parent().parent().parent().children('.posttext').css("font-size"));
 				if (jQueryM_v1_4_5(this).hasClass("plus")) {
@@ -305,6 +419,39 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
                     if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)) {
 					myScroll.refresh();	
 					}					
+		});*/
+		
+		
+		// reset 
+		jQueryM_v1_4_5(".resetMe").on('vclick', function(event) {
+		var size = 20;
+		jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size',size);
+		document.documentElement.style.display='none';
+        document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+        document.documentElement.style.display='';
+		}); 
+		
+		
+		// Increase Font Size 
+		jQueryM_v1_4_5(".increase").on('vclick', function(event) {
+		var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'); 
+		var currentSize = parseFloat(currentSize)+3; 
+		jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
+		document.documentElement.style.display='none';
+        document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+        document.documentElement.style.display='';
+		return false; }); 
+		
+		
+		// Decrease Font Size 
+		jQueryM_v1_4_5(".decrease").on('vclick', function(event) {
+		var currentFontSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'); 
+		var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'); 
+		var currentSize = parseFloat(currentSize)-3; 
+		jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize); return false; 
+		document.documentElement.style.display='none';
+        document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+        document.documentElement.style.display='';
 		});
 		
 		jQueryM_v1_4_5(".tooltiptext").on('vclick', function(event) {
@@ -318,6 +465,9 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			event.stopPropagation();
 		});
 		jQueryM_v1_4_5(".tooltiptext4").on('vclick', function(event) {
+			event.stopPropagation();
+		});
+		jQueryM_v1_4_5(".tooltiptext5").on('vclick', function(event) {
 			event.stopPropagation();
 		});
 		jQueryM_v1_4_5(".hide_external_link").on('vclick', function(event) {
@@ -366,7 +516,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			}
 		}
 	}
-	window.parent.postMessage(["loading", "stop"], "*");	
+		
 	});
 	jQueryM_v1_4_5.fn.selectText = function() {
 		var doc = document,
@@ -386,9 +536,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 	};
 } ////////////////////////////////////////////////////////////////
 else {
-	
 	jQueryD_1_4_2(document).ready(function() {
-		
 		//alert("deskstop");
 		
 		  //var span = document.getElementsByClassName("close")[0];
@@ -404,14 +552,11 @@ else {
 		});
 		jQueryD_1_4_2(window).load(function() {
 			resize(jQueryD_1_4_2("html"));
-			//getPageHeight(document)
-            
-            			
+			//getPageHeight(document)		
 		});
 		
 		jQueryD_1_4_2("a").click(function(event) {
-            //window.parent.postMessage(["loading", "show"], "*");
-			
+
 			 var classname= jQueryD_1_4_2(event.currentTarget).parent().attr('class');
 			 //alert(classname);
 			 var link = this.href;
@@ -419,8 +564,9 @@ else {
 			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
 			 
 			 //alert(link);
-			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) {
-                        document.getElementsByClassName("loading")[0].style.display = 'block';
+			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) {
+                  //document.getElementsByClassName("loading")[0].style.display = 'block';
+
 						//alert(link.indexOf("file://"));
 						//alert("cool");
                          location.href = link;
@@ -438,7 +584,7 @@ else {
                 return false;
 				
              }
-            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com") == 0)||(link.indexOf("https://bayan-noon.com") == 0)){
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
@@ -450,7 +596,7 @@ else {
 					 
 					 
 					 event.preventDefault();
-					 ////alert(link);
+					 //alert(link);
 					 if(window.location != window.parent.location){
 						 window.parent.postMessage(["modal_display", "show"], "*");
 						 window.parent.postMessage(["image_url", link], "*");
@@ -471,7 +617,7 @@ else {
 		
 		jQueryD_1_4_2(".close").click(function(event) {
 			  setTimeout(function() {jQueryD_1_4_2(".modal").hide();
-			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});}, 350);
+			  jQueryD_1_4_2("#wrapper").css({'overflow-y' : 'auto'});}, 150);
 		});
 		
 		
@@ -482,9 +628,11 @@ else {
 				jQueryD_1_4_2('.tooltiptext2').hide();
 				jQueryD_1_4_2('.tooltiptext3').hide();
 				jQueryD_1_4_2('.tooltiptext4').hide();
+				jQueryD_1_4_2('.tooltiptext5').hide();
 				jQueryD_1_4_2('.hide_external_link').hide();
 				jQueryD_1_4_2('.hide_local_link').hide();
-				resize(jQueryD_1_4_2("html"));
+			
+				//resize(jQueryD_1_4_2("html"));
 			}
 		});
 		jQueryD_1_4_2(".link_org").click(function(event) {
@@ -494,14 +642,24 @@ else {
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
 			jQueryD_1_4_2('.hide_external_link').hide();
 			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext').show();
 			jQueryD_1_4_2(event.currentTarget).children('.selected').selectText();
-			resize(jQueryD_1_4_2("html"));
+		
 			
-			jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
-			
-			window.parent.postMessage(["scrollTop", jQueryD_1_4_2(this).offset().top], "*");
+			if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) {
+				//alert('IE8'); 
+				jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop()-20);
+			} else {
+				//alert('Non IE8');
+				jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
+				
+			}
+		
+		  
+
+		
 		});
 		jQueryD_1_4_2(".imglink").click(function(event) {
 			event.preventDefault();
@@ -510,14 +668,22 @@ else {
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
 			jQueryD_1_4_2('.hide_external_link').hide();
 			jQueryD_1_4_2(event.currentTarget).parent().children('.hide_external_link').show();
 			jQueryD_1_4_2(event.currentTarget).children('.hide_param').selectText();
-			resize(jQueryD_1_4_2("html"));
 			
-			jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
+			if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) {
+				//alert('IE8'); 
+				jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop()-20);
+			} else {
+				//alert('Non IE8');
+				jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD_1_4_2("#wrapper").scrollTop());
+			}
 			
-			window.parent.postMessage(["scrollTop", jQueryD_1_4_2(this).offset().top], "*");
+		
+		
+
 		});
 		jQueryD_1_4_2(".bbcode_img").click(function(event) {
 			jQueryD_1_4_2(event.currentTarget).selectText();
@@ -529,6 +695,7 @@ else {
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
 			//jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').selectText();
 			var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
             var i;
@@ -553,6 +720,7 @@ else {
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
 			jQueryD_1_4_2('.hide_external_link').hide();
 			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext3').show().selectText();
 		});
@@ -563,6 +731,7 @@ else {
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
 			jQueryD_1_4_2('.hide_external_link').hide();
 			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext4').show().selectText();
 		});
@@ -573,11 +742,23 @@ else {
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
 			jQueryD_1_4_2('.hide_external_link').hide();
 			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext2').show().selectText();
 		});
+		jQueryD_1_4_2(".txt_resize").click(function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			jQueryD_1_4_2('.tooltiptext').hide();
+			jQueryD_1_4_2('.tooltiptext2').hide();
+			jQueryD_1_4_2('.tooltiptext3').hide();
+			jQueryD_1_4_2('.tooltiptext4').hide();
+			jQueryD_1_4_2('.tooltiptext5').hide();
+			jQueryD_1_4_2('.hide_external_link').hide();
+			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext5').show();
+		});
 		
-	    jQueryD_1_4_2(".font-button").click(function(event) {
+	    /*jQueryD_1_4_2(".font-button").click(function(event) {
 				
 				var size = parseInt(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').css("font-size"));
 				
@@ -596,7 +777,41 @@ else {
 				}
 				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').css("font-size", size);
 				
+		});*/
+		
+		
+		// reset 
+		jQueryD_1_4_2(".resetMe").click(function(event){ 
+		var size = 20;
+		jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size',size);
+		document.documentElement.style.display='none';
+        document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+        document.documentElement.style.display='';
+		}); 
+		
+		// Increase Font Size 
+		jQueryD_1_4_2(".increase").click(function(event){ 
+		var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'); 
+		var currentSize = parseFloat(currentSize)+3; 
+		jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize); 
+		document.documentElement.style.display='none';
+        document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+        document.documentElement.style.display='';
+		return false; }); 
+		
+		// Decrease Font Size 
+		jQueryD_1_4_2(".decrease").click(function(event){ 
+		var currentFontSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'); 
+		var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'); 
+		var currentSize = parseFloat(currentSize)-3; 
+		jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize); return false; 
+		document.documentElement.style.display='none';
+        document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+        document.documentElement.style.display='';
 		});
+		
+		
+		
 		
 		jQueryD_1_4_2(".tooltiptext").click(function(event) {
 			event.stopPropagation();
@@ -608,6 +823,9 @@ else {
 			event.stopPropagation();
 		});
 		jQueryD_1_4_2(".tooltiptext4").click(function(event) {
+			event.stopPropagation();
+		});
+		jQueryD_1_4_2(".tooltiptext5").click(function(event) {
 			event.stopPropagation();
 		});
 		jQueryD_1_4_2(".hide_external_link").click(function(event) {
@@ -629,15 +847,7 @@ else {
 			}
 		});
 		jQueryD_1_4_2(window).hashchange();
-	
-	
-	
-	
-	
-	}); //end 
-
-    
-	
+	}); //end 	
 	jQueryD_1_4_2.fn.selectText = function() {
 		var doc = document,
 			element = this[0],

@@ -938,7 +938,7 @@ var XRegExp = (function(undefined) {
  *   {regex: /<a href="([^"]+)">/i, backref: 1},
  *   {regex: XRegExp('(?i)^https?://(?<domain>[^/?#]+)'), backref: 'domain'}
  * ]);
- * // -> ['http://localhost/vbulletin_4-2-3/archive/clientscript/xregexp.com', 'http://localhost/vbulletin_4-2-3/archive/clientscript/www.google.com']
+ * // -> ['http://localhost/vb_423/archive/clientscript/xregexp.com', 'http://localhost/vb_423/archive/clientscript/www.google.com']
  */
     self.matchChain = function(str, chain) {
         return (function recurseChain(values, level) {

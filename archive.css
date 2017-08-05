@@ -50,7 +50,6 @@ td {
 	
 }
 
-
 .header_topic{
 
 height: 20px;
@@ -83,15 +82,14 @@ line-height: normal;
 }
 
 
-
-
-html, body {height:100%; overflow:hidden; -webkit-overflow-scrolling: touch; -webkit-transform: translate3d(0,0,0);}
+html, body {height:100%; overflow:hidden; 
+-webkit-overflow-scrolling: touch; 
+}
 
 #wrapper {
      height:100%;
      overflow-y: auto;
 	 position: relative;
-    -webkit-transform: translate3d(0,0,0);
 	-webkit-overflow-scrolling: touch;
 
 }
@@ -166,7 +164,7 @@ word-wrap:break-word;
 
 
 .hide_external_link{
-display: none;
+/*display: none;*/
  -ms-word-break: break-all;
      word-break: break-all;
 
@@ -229,7 +227,21 @@ display: none;
 .selection {
     background-color: rgba(255, 255, 0, 0.3);
 }
+
+
 .loading {
+	/*background-image: url("clientscript/images/loading.gif")/*! important ;
+	background-repeat: no-repeat	 ! important ;
+    display: none;
+	left: 55%;
+	top: 40%;
+	margin-left: -50px;
+	margin-top: -50px;
+	position:fixed;
+    _position:absolute;
+    _left: expression(eval(250+(document.body.scrollLeft)));
+    _top:expression(eval(150+(document.body.scrollTop)));
+	z-index :159;*/
 	display:none;
 	background-image: url("clientscript/images/loading.gif")! important ;
     min-height: 1.25in !important;
@@ -240,8 +252,10 @@ display: none;
 	top: 25%;
 	width: 100%;
 	z-index :159;
+	
+	
   }
-
+  
 .container {
 	/*padding: 5px;*/
 }
@@ -291,6 +305,41 @@ display: none;
 	padding: 5px;
 	border: solid 1px #000000;
 }
+
+.new_qts {
+	color: #000000;
+	text-align: center;
+	
+	background-color: #F5F5DC;
+	padding: 5px;
+	border: solid 1px #000000;
+}
+
+.qts_link {
+	color: #000000;
+	text-align: center;
+	background-color: #efd332;
+	padding: 5px;
+	border: solid 1px #000000;
+}
+
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+
 .thread_title {
 	background: #F9F9F9;
 	border: 1px solid #c0c0c0;
@@ -317,27 +366,29 @@ display: none;
  
 }
 .font-button {
-	background-color: #0090CB;
-	width: 40px;
-	display: inline-block;
-	color: #ffffff;
-	text-align: center;
-	display: inline-block;
+  background-color: #0090CB;
+  width: 24px;
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  display: inline-block;
   padding-top: 7px;
   padding-bottom: 7px;
-  padding-right: 3px;
-  padding-left: 3px;
+  padding-right: 2px;
+  padding-left: 2px;
   font-family: helvetica, arial, sans-serif;
   font-weight: bold;
   color: #fff;
   vertical-align: middle;
   outline: none;
   cursor: pointer;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-khtml-user-select: none;
-	-webkit-user-select: none;
-	-webkit-touch-callout: none;
+	 -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 .tooltip4 {
 	position: relative;
@@ -363,6 +414,43 @@ display: none;
 	font: 15px verdana arial sans-serif;
 
 }
+.tooltip5 {
+	position: relative;
+	display: inline-block;
+	width: auto;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+.tooltip5 .tooltiptext5 {
+	display: none;
+	width: 120px;
+	background-color: #000000;
+	color: #ffffff;
+	border-radius: 6px;
+	padding: 5px 0;
+	top: 40px;
+	right: -2px;
+	text-align: center;
+	padding: 5px;
+	position: absolute;
+	font-weight: bold;
+	font: 15px verdana arial sans-serif;
+	 -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
 .tooltip3 {
 	position: relative;
 	display: inline-block;
@@ -697,4 +785,10 @@ SPAN.Italic {
 	border: 0;
 	padding: 0;
 	margin: 0;
+}
+
+.org, .tooltip2,.bbcode{
+	
+/*display:none;*/
+	
 }
