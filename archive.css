@@ -164,7 +164,7 @@ word-wrap:break-word;
 
 
 .hide_external_link{
-/*display: none;*/
+display: none;
  -ms-word-break: break-all;
      word-break: break-all;
 
