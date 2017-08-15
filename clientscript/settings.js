@@ -601,7 +601,7 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 } ////////////////////////////////////////////////////////////////
 else {
 jQueryD_1_4_2(document).ready(function() {
-		alert("deskstop");
+		//alert("deskstop");
         jQueryD_1_4_2('.loading').show();
 	
 
