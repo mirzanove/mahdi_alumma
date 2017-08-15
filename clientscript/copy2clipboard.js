@@ -11,11 +11,11 @@ function tooltip(el, message)
 		var tooltip = document.createElement('div');
 		tooltip.id = "copy_tooltip";
 		tooltip.style.position = "fixed";
-		
+		tooltip.style.position = "absolute"; /*ie6 and above*/
 		tooltip.style.border = "1px solid black";
 		tooltip.style.background = "#dbdb00";
 		tooltip.style.opacity = 1;
-		tooltip.style.transition = "http://localhost/vbulletin_4-2-3/archive/clientscript/opacity 0.3s";
+		tooltip.style.transition = "http://localhost/vb_423/archive/clientscript/opacity 0.3s";
 		tooltip.style.width = "100px";
 		tooltip.style.height = "auto";
 		tooltip.style.marginLeft = "-50px";
@@ -38,13 +38,14 @@ function tooltip(el, message)
 	tooltip.style.left = "45%";
 	tooltip.style.top = "30%";
     }else{	
+
 	tooltip.style.opacity = 1;
 	tooltip.style.left = "50%";
 	tooltip.style.top = "30%";	
 	}
 	
-	
-	
+	//var tooltip = document.getElementById("copy_tooltip");
+	tooltip.style.display = "block";
 	tooltip.innerHTML = message;
 	setTimeout(function() { tooltip.outerHTML = ""; delete tooltip; }, 3000);
 }

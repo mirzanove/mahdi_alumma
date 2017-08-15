@@ -50,6 +50,50 @@ td {
 	
 }
 
+
+
+
+body #copy_tooltip {
+   position:fixed !important;
+   position: absolute; /*ie6 and above*/
+   border: 1px solid black; 
+   background: rgb(219, 219, 0) none repeat scroll 0% 0%; 
+   opacity: 1; 
+   width: 100px; 
+   height: auto; 
+   margin-left: -50px; 
+   margin-top: -50px; 
+   text-align: center; 
+   padding: 4px; 
+   z-index: 9; 
+   left: 45%; 
+   top: 35%; 
+   display:none;
+}
+
+
+
+* html #wrapper {
+    /*hack IE6*/
+     width:100%;
+     position: absolute;
+    
+}
+
+
+html, body {height:100%; overflow:hidden; 
+-webkit-overflow-scrolling: touch; 
+}
+
+#wrapper {
+     height:100%;
+     overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+
+}
+
+
 .header_topic{
 
 height: 20px;
@@ -79,19 +123,6 @@ cursor: pointer;
 display: inline-block;
 vertical-align: middle;
 line-height: normal;	
-}
-
-
-html, body {height:100%; overflow:hidden; 
--webkit-overflow-scrolling: touch; 
-}
-
-#wrapper {
-     height:100%;
-     overflow-y: auto;
-	 position: relative;
-	-webkit-overflow-scrolling: touch;
-
 }
 
 
@@ -140,6 +171,7 @@ html, body {height:100%; overflow:hidden;
     background-color: black;
 	border-style: solid;
     border-color: white;
+	cursor:pointer;
 }
 
 .close:hover,
@@ -164,7 +196,7 @@ word-wrap:break-word;
 
 
 .hide_external_link{
-display: none;
+/*display: none;*/
  -ms-word-break: break-all;
      word-break: break-all;
 
@@ -243,7 +275,7 @@ display: none;
     _top:expression(eval(150+(document.body.scrollTop)));
 	z-index :159;*/
 	display:none;
-	background-image: url("clientscript/images/loading.gif")! important ;
+	background-image: url("clientscript/images/loading.gif")/*tpa=http://localhost/vb_423/archive/clientscript/images/loading.gif*/! important ;
     min-height: 1.25in !important;
     background-repeat: no-repeat !important;
     background-position: center .25in !important;
@@ -341,7 +373,8 @@ display: none;
 
 
 .thread_title {
-	background: #F9F9F9;
+	/*background: #F9F9F9;*/
+	background: #d5deed;
 	border: 1px solid #c0c0c0;
 	padding: 4px;
 	white-space: wrap;
@@ -787,7 +820,7 @@ SPAN.Italic {
 	margin: 0;
 }
 
-.org, .tooltip2,.bbcode{
+.org, .tooltip2,.bbcode,.tooltip3{
 	
 /*display:none;*/
 	
