@@ -22,11 +22,8 @@ function getPageHeight(D) {
 }
 
 function resize(elm) {
-	//var height = elm.position().top + elm.offset().top + elm.outerHeight(true);
-	//window.parent.postMessage(["setsize", height], "*");
-document.documentElement.style.display='none';
-document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-document.documentElement.style.display='';
+	var height = elm.position().top + elm.offset().top + elm.outerHeight(true);
+	window.parent.postMessage(["setsize", height], "*");
 }
 
 
@@ -107,7 +104,7 @@ var imglink_check = false;
 	
 	
 jQueryM_v1_4_5(document).ready(function() {
-	alert("mobile");
+	//alert("mobile");
 
 /*if (navigator.userAgent.match(detect_userAgent)) {
 	
@@ -115,16 +112,7 @@ jQueryM_v1_4_5("#wrapper,html,body").css("-webkit-transform", "translate3d(0,0,0
 	
 }*/
 
-var arrEdited = [];
-		 jQueryM_v1_4_5('.imglink').each(function(i){
-            jQueryM_v1_4_5(this).attr('id', 'id_'+(i+1));
-			
-			arrEdited.push({
-               id:jQueryM_v1_4_5(this).attr('id'),
-			   href: jQueryM_v1_4_5(this).parent().children('.hide_external_link').children('a').attr('href')
-               
-            });
-          });
+
 	
 jQueryM_v1_4_5("#wrapper").scroll( function() {
   if(jQueryM_v1_4_5(this).scrollTop() + jQueryM_v1_4_5(this).innerHeight() >= jQueryM_v1_4_5(this)[0].scrollHeight) {
@@ -153,18 +141,10 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		
 		jQueryM_v1_4_5(document).on('vclick', function(event) {
 			
-			 
-			
 			if (event.which == 0 || event.which == 1) { //right click
 				// event.stopPropagation();
 				//myScroll.disable();
-				    
-				
 				if (imglink_check == false) {
-					
-					jQueryM_v1_4_5(".tooltiptext_custom").remove();
-			        jQueryM_v1_4_5('.image_custom').remove();
-			        jQueryM_v1_4_5(".link_img").remove();
 					jQueryM_v1_4_5('.tooltiptext').hide();
 					jQueryM_v1_4_5('.tooltiptext2').hide();
 					jQueryM_v1_4_5('.tooltiptext3').hide();
@@ -172,7 +152,6 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 					jQueryM_v1_4_5('.tooltiptext5').hide();
 					jQueryM_v1_4_5('.hide_external_link').hide();
 					jQueryM_v1_4_5('.hide_local_link').hide();
-					
 					//resize(jQueryM_v1_4_5("html"));
 					
 					/*if (window.getSelection) {
@@ -194,30 +173,20 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			}
 			imglink_check = false;
 		});
-		jQueryM_v1_4_5('.tooltiptext').remove();
 		jQueryM_v1_4_5(".link_org").on('vclick', function(event) {
 			
 			imglink_check = true;
 			event.preventDefault();
 			//event.stopPropagation();
 			//myScroll.disable();
-			jQueryM_v1_4_5(".tooltiptext_custom").remove();
-			jQueryM_v1_4_5('.image_custom').remove();
-			jQueryM_v1_4_5(".link_img").remove();
 			jQueryM_v1_4_5('.tooltiptext').hide();
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
 			jQueryM_v1_4_5('.tooltiptext4').hide();
 			jQueryM_v1_4_5('.tooltiptext5').hide();
 			jQueryM_v1_4_5('.hide_external_link').hide();
-			
-			if(jQueryM_v1_4_5(".tooltiptext_custom").length == 0){
-			jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="tooltiptext_custom"><a style="display: inline; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word;" href="" target="_blank" class="padd linkstyle">الذهاب الى الرابط</a></span>');
-            jQueryM_v1_4_5(event.currentTarget).parent().children(".tooltiptext_custom").children('a').attr("href",jQueryM_v1_4_5(event.currentTarget).children().children('.selected').attr('href'));
-			}
-			
-			//jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext').show();
-			jQueryM_v1_4_5(event.currentTarget).children().children('.selected').selectText();
+			jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext').show();
+			jQueryM_v1_4_5(event.currentTarget).children('.selected').selectText();
 			
 			
 			//resize(jQueryM_v1_4_5("html"));
@@ -238,14 +207,10 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			
 			
 		});
-		jQueryM_v1_4_5('.hide_external_link').remove();
 		jQueryM_v1_4_5(".imglink").on('vclick', function(event) {
 			event.preventDefault();
 			//event.stopPropagation();
 			imglink_check = true;
-			jQueryM_v1_4_5(".tooltiptext_custom").remove();
-			jQueryM_v1_4_5('.image_custom').remove();
-			jQueryM_v1_4_5(".link_img").remove();
 			jQueryM_v1_4_5('.tooltiptext').hide();
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
@@ -254,25 +219,6 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			jQueryM_v1_4_5('.hide_external_link').hide();
 			jQueryM_v1_4_5(event.currentTarget).parent().children('.hide_external_link').show();
 			jQueryM_v1_4_5(event.currentTarget).children('.hide_param').selectText();
-			
-			if(jQueryM_v1_4_5(".link_img").length == 0){	
-		         for(var i=0; i<arrEdited.length; i++) {
-
-		              if(jQueryM_v1_4_5(event.currentTarget).attr('id')==arrEdited[i].id){
-			          //alert(arrEdited[i].href);
-			           jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="link_img"><a target="_blank" href=""><img style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 10px; margin: 5px;" class="cool" src="" height="200" width="200" alt=""></a><br></span>');
-			           jQueryM_v1_4_5(event.currentTarget).parent().children(".link_img").children('a').attr("href",arrEdited[i].href);
-			           jQueryM_v1_4_5(event.currentTarget).parent().children(".link_img").children('a').children('img').attr("src",arrEdited[i].href);
-			         }
-		         }
-		    }
-
-	
-		   if(jQueryM_v1_4_5(".image_custom").length == 0){
-			jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="image_custom"><a href="" target="_blank" style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 5px 5px;">رابط الصورة في الموقع</a><br></span>');
-			jQueryM_v1_4_5(event.currentTarget).parent().children('.image_custom').children('a').attr("href",jQueryM_v1_4_5(event.currentTarget).children('.hide_param').attr('href'));
-		   }
-			
 			//resize(jQueryM_v1_4_5("html"));
 			/*if ((navigator.userAgent.match(detect_userAgent))&&(isInIFrame==true)){
 			myScroll.scrollToElement(this,0);
@@ -289,16 +235,16 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 			
 		});
 		
-	    jQueryM_v1_4_5("#wrapper").on('vclick','a', function(event) {
-            
+	   jQueryM_v1_4_5("a").on('vclick', function(event) {
+
 			 var classname= jQueryM_v1_4_5(event.currentTarget).parent().attr('class');
 			 //alert(classname);
 			 var link = this.href;
 			
-			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")&&(classname != "link_img")){
+			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
 			 
 			 //alert(link);
-			if((link.indexOf("http://heserver/clientscript/images/") == 0)||(link.indexOf("../../clientscript/images/") == 0)||(link.indexOf("ghe://heserver/") == 0)||(link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) { 
+			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) {
                   //document.getElementsByClassName("loading")[0].style.display = 'block';
 
 						//alert(link.indexOf("file://"));
@@ -317,18 +263,17 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 				location.href = link;
                 return false;
              }
-			 else if((link.indexOf("http://heserver/clientscript/images/") == 0)||(link.indexOf("../../clientscript/images/") == 0)||(link.indexOf("ghe://heserver/") == 0)||(link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) { 
-
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)){
 				 
 			 if(checkURL(link) == true){
 				  if(classname == "imglink"){
-					 
+					 //alert(link);
 					 event.preventDefault(); 
 					  
-				  } 
+				  }
 				  else{
 					 event.preventDefault();
-                    
+
 					 if (window.getSelection) {
                      if (window.getSelection().empty) {  // Chrome
                            window.getSelection().empty();
@@ -389,9 +334,6 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		jQueryM_v1_4_5("a.threadinfo").on('vclick', function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryM_v1_4_5(".tooltiptext_custom").remove();
-			jQueryM_v1_4_5('.image_custom').remove();
-			jQueryM_v1_4_5(".link_img").remove();
 			jQueryM_v1_4_5('.tooltiptext').hide();
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
@@ -403,9 +345,6 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		jQueryM_v1_4_5("a.threadinfo2").on('vclick', function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryM_v1_4_5(".tooltiptext_custom").remove();
-			jQueryM_v1_4_5('.image_custom').remove();
-			jQueryM_v1_4_5(".link_img").remove();
 			jQueryM_v1_4_5('.tooltiptext').hide();
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
@@ -417,9 +356,6 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 		jQueryM_v1_4_5("a.postinfo").on('vclick', function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryM_v1_4_5(".tooltiptext_custom").remove();
-			jQueryM_v1_4_5('.image_custom').remove();
-			jQueryM_v1_4_5(".link_img").remove();
 			jQueryM_v1_4_5('.tooltiptext').hide();
 			jQueryM_v1_4_5('.tooltiptext2').hide();
 			jQueryM_v1_4_5('.tooltiptext3').hide();
@@ -600,21 +536,15 @@ jQueryM_v1_4_5("#wrapper").scroll( function() {
 	};
 } ////////////////////////////////////////////////////////////////
 else {
-jQueryD_1_4_2(document).ready(function() {
+	jQueryD_1_4_2(document).ready(function() {
 		//alert("deskstop");
-        jQueryD_1_4_2('.loading').show();
-	
+		
+		  //var span = document.getElementsByClassName("close")[0];
 
-		 var arrEdited = [];
-		 jQueryD_1_4_2('.imglink').each(function(i){
-            jQueryD_1_4_2(this).attr('id', 'id_'+(i+1));
-			
-			arrEdited.push({
-               id: jQueryD_1_4_2(this).attr('id'),
-			   href: jQueryD_1_4_2(this).parent().children('.hide_external_link').children('a').attr('href')
-               
-            });
-          });
+// When the user clicks on <span> (x), close the modal
+//span.onclick = function() { 
+    //modal.style.display = "none";
+//}
 		
 		jQueryD_1_4_2(window).resize(function() {
 			resize(jQueryD_1_4_2("html"));
@@ -622,34 +552,52 @@ jQueryD_1_4_2(document).ready(function() {
 		});
 		jQueryD_1_4_2(window).load(function() {
 			resize(jQueryD_1_4_2("html"));
-			//getPageHeight(document)
-            jQueryD_1_4_2('.loading').hide();			
+			//getPageHeight(document)		
 		});
 		
-		jQueryD_1_4_2("a").live("click", function(event) {
-             var classname= jQueryD_1_4_2(this).attr('class');
+		jQueryD_1_4_2("a").click(function(event) {
+
+			 var classname= jQueryD_1_4_2(event.currentTarget).parent().attr('class');
+			 //alert(classname);
 			 var link = this.href;
-	
-			if((link.indexOf("../../clientscript/images/") == 0)||(link.indexOf("ghe://heserver/") == 0)||(link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) { 
-			 
-			 var x = this.href;
-			 var c = window.location.href;
 			
-			 if (x.indexOf("#post") !== -1) {
-			 x = x.substring(0, x.indexOf("#post") - 0);
-			 }
-			 if (c.indexOf("#post") !== -1) {
-			 c = c.substring(0, c.indexOf("#post") - 0);
-			 }
+			 if((classname != "date")&&(classname != "link_org")&&(classname != "imglink")&&(classname != "hide_external_link")&&(classname != "tooltiptext")&&(classname != "alpom")&&(classname != "pda tooltip4")&&(classname != "pda tooltip4 org")&&(classname != "largefont tooltip3")&&(classname != "largefont tooltip2")&&(classname != "username")&&(classname != "bbcode_link")){
 			 
-			 if(c != x){
-		       jQueryD_1_4_2('.loading').show();
-			   //alert(c+x);
+			 //alert(link);
+			     if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)) {
+                  //document.getElementsByClassName("loading")[0].style.display = 'block';
+
+						//alert(link.indexOf("file://"));
+						//alert("cool");
+                         location.href = link;
+                         return false;
+			     }
+			 			 
+			 	
 			 }
-			 
-			 if(checkURL(link)){
-			      event.preventDefault();
-				  if(window.location != window.parent.location){
+             else if(classname == "pda tooltip4"){
+				location.href = link;
+                return false;
+             }
+             else if(classname == "username"){
+				location.href = link;
+                return false;
+				
+             }
+            else if((link.indexOf("file://") == 0)||(link.indexOf("http://localhost/") == 0)||(link.indexOf("https://mirzanove.github.io/") == 0)||(link.indexOf("http://bayan-noon.com/") == 0)||(link.indexOf("https://bayan-noon.com") == 0)){
+				 
+			 if(checkURL(link) == true){
+				  if(classname == "imglink"){
+					 
+					 event.preventDefault(); 
+					  
+				  }
+				  else{
+					 
+					 
+					 event.preventDefault();
+					 //alert(link);
+					 if(window.location != window.parent.location){
 						 window.parent.postMessage(["modal_display", "show"], "*");
 						 window.parent.postMessage(["image_url", link], "*");
 					 }
@@ -657,12 +605,12 @@ jQueryD_1_4_2(document).ready(function() {
 					 jQueryD_1_4_2(".modal").show(); 
                      jQueryD_1_4_2("#wrapper,body,html").css({'overflow' : 'hidden'});	
 					 jQueryD_1_4_2("#img01").attr("src",link); 
-			      }	
-			 }
-			}
-			 else{
-			      jQueryD_1_4_2(this).attr("href","heexternal://"+link).removeAttr('target');	
-			 }
+					 }
+					 					 
+				  }
+			 }	
+					
+			 }			 
         });
 		
 	
@@ -676,9 +624,6 @@ jQueryD_1_4_2(document).ready(function() {
 		jQueryD_1_4_2(document).click(function(event) {
 			if (event.which == 0 || event.which == 1) { //right click
 				event.stopPropagation();
-				jQueryD_1_4_2(".tooltiptext_custom").remove();
-				jQueryD_1_4_2('.image_custom').remove();
-				jQueryD_1_4_2(".link_img").remove();
 				jQueryD_1_4_2('.tooltiptext').hide();
 				jQueryD_1_4_2('.tooltiptext2').hide();
 				jQueryD_1_4_2('.tooltiptext3').hide();
@@ -690,27 +635,18 @@ jQueryD_1_4_2(document).ready(function() {
 				//resize(jQueryD_1_4_2("html"));
 			}
 		});
-		
-		jQueryD_1_4_2('.tooltiptext').remove();
 		jQueryD_1_4_2(".link_org").click(function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryD_1_4_2(".tooltiptext_custom").remove();
-			jQueryD_1_4_2('.image_custom').remove();
-			jQueryD_1_4_2(".link_img").remove();
 			jQueryD_1_4_2('.tooltiptext').hide();
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
 			jQueryD_1_4_2('.tooltiptext4').hide();
 			jQueryD_1_4_2('.tooltiptext5').hide();
 			jQueryD_1_4_2('.hide_external_link').hide();
-			//jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext').show();
-			jQueryD_1_4_2(event.currentTarget).children().children('.selected').selectText();
-		    if(jQueryD_1_4_2(".tooltiptext_custom").length == 0){
-			jQueryD_1_4_2(event.currentTarget).parent().append('<span class="tooltiptext_custom"><a style="display: inline; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word;" href="" target="_blank" class="padd linkstyle">الذهاب الى الرابط</a></span>');
-            jQueryD_1_4_2(event.currentTarget).parent().children(".tooltiptext_custom").children('a').attr("href",jQueryD_1_4_2(event.currentTarget).children().children('.selected').attr('href'));
-
-			}
+			jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext').show();
+			jQueryD_1_4_2(event.currentTarget).children('.selected').selectText();
+		
 			
 			if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) {
 				//alert('IE8'); 
@@ -725,14 +661,9 @@ jQueryD_1_4_2(document).ready(function() {
 
 		
 		});
-		
-		jQueryD_1_4_2('.hide_external_link').remove();
 		jQueryD_1_4_2(".imglink").click(function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryD_1_4_2(".tooltiptext_custom").remove();
-			jQueryD_1_4_2('.image_custom').remove();
-			jQueryD_1_4_2(".link_img").remove();
 			jQueryD_1_4_2('.tooltiptext').hide();
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
@@ -741,25 +672,6 @@ jQueryD_1_4_2(document).ready(function() {
 			jQueryD_1_4_2('.hide_external_link').hide();
 			jQueryD_1_4_2(event.currentTarget).parent().children('.hide_external_link').show();
 			jQueryD_1_4_2(event.currentTarget).children('.hide_param').selectText();
-			
-			if(jQueryD_1_4_2(".link_img").length == 0){	
-		         for(var i=0; i<arrEdited.length; i++) {
-
-		              if(jQueryD_1_4_2(event.currentTarget).attr('id')==arrEdited[i].id){
-			          //alert(arrEdited[i].href);
-			           jQueryD_1_4_2(event.currentTarget).parent().append('<span class="link_img"><a class ="link_img" target="_blank" href=""><img style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 10px; margin: 5px;" class="cool" src="" height="200" width="200" alt=""></a><br></span>');
-			           jQueryD_1_4_2(event.currentTarget).parent().children(".link_img").children('a').attr("href",arrEdited[i].href);
-			           jQueryD_1_4_2(event.currentTarget).parent().children(".link_img").children('a').children('img').attr("src",arrEdited[i].href);
-			         }
-		         }
-		    }
-
-	
-		if(jQueryD_1_4_2(".image_custom").length == 0){
-			jQueryD_1_4_2(event.currentTarget).parent().append('<span class="image_custom"><a href="" target="_blank" style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 5px 5px;">رابط الصورة في الموقع</a><br></span>');
-			jQueryD_1_4_2(event.currentTarget).parent().children('.image_custom').children('a').attr("href",jQueryD_1_4_2(event.currentTarget).children('.hide_param').attr('href'));
-		}
-			
 			
 			if (jQueryD_1_4_2.browser.msie && parseInt(jQueryD_1_4_2.browser.version, 10) === 8) {
 				//alert('IE8'); 
@@ -804,9 +716,6 @@ jQueryD_1_4_2(document).ready(function() {
 		jQueryD_1_4_2("a.threadinfo").click(function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryD_1_4_2(".tooltiptext_custom").remove();
-			jQueryD_1_4_2('.image_custom').remove();
-			jQueryD_1_4_2(".link_img").remove();
 			jQueryD_1_4_2('.tooltiptext').hide();
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
@@ -818,9 +727,6 @@ jQueryD_1_4_2(document).ready(function() {
 		jQueryD_1_4_2("a.threadinfo2").click(function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryD_1_4_2(".tooltiptext_custom").remove();
-			jQueryD_1_4_2('.image_custom').remove();
-			jQueryD_1_4_2(".link_img").remove();
 			jQueryD_1_4_2('.tooltiptext').hide();
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
@@ -832,9 +738,6 @@ jQueryD_1_4_2(document).ready(function() {
 		jQueryD_1_4_2("a.postinfo").click(function(event) {
 			event.preventDefault();
 			event.stopPropagation();
-			jQueryD_1_4_2(".tooltiptext_custom").remove();
-			jQueryD_1_4_2('.image_custom').remove();
-			jQueryD_1_4_2(".link_img").remove();
 			jQueryD_1_4_2('.tooltiptext').hide();
 			jQueryD_1_4_2('.tooltiptext2').hide();
 			jQueryD_1_4_2('.tooltiptext3').hide();
