@@ -445,7 +445,7 @@ gCommonRootRelPath = ".";
 
 <script>
 
-
+var link_disable = false;
 
 $(document).on( "pagecontainershow", function(){
 
@@ -513,13 +513,25 @@ $(".ui-content").height(content);
 	}
 }
 
+
+$("a").on('vclick', function(event) {
+		//alert(link_disable);
+	    if(link_disable == true){
+			return false;
+		}
+
+});
+
 $(document).ready(function(){
         $("div.toc-holder li").removeClass("ui-li-static").removeClass("ui-body-inherit").removeClass("ui-last-child");
 		
 		 $(".close").on("vclick", function(){
-		      //$(".modal").hide();
-			  setTimeout(function() {$(".modal").hide();}, 150);
-			  //$("body,html").css({'overflow' : 'auto'});
+		      $(".modal").hide();
+			  
+			  setTimeout(function() { 
+			  link_disable = false;
+			  document.getElementById('iframe').contentWindow.postMessage(["link_disable","false"], "*");
+			  }, 1000);
          });
 		
 		//$('a[data-icon=mapa]').addClass('.ui-icon-mapa');
@@ -555,9 +567,10 @@ eventer(messageEvent,function(e) {
     
 	case 'modal_display':
 	if(data == "show"){
-	
+	   link_disable = true;
+	   e.source.postMessage(["link_disable","true"], "*");
 	   $("#myModal").show() ;
-	   $("body,html").css({'overflow' : 'hidden'});
+	   $("body,html").css({'overflow' : 'hidden'});  
 	}
 	break;
 	case 'image_url':

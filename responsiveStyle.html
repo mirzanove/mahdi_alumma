@@ -387,7 +387,20 @@ label {
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
 <script>
+var link_disable = false;
 
+var elts = document.getElementsByTagName('div');
+var show = function() { 
+
+//alert(link_disable); 
+if(link_disable == true){
+			return false;
+		}
+
+}
+for (var i = elts.length - 1; i >= 0; --i) {
+    elts[i].onclick = show;
+}
 
 var toc = document.getElementById('toc');
 function scrollTo_up(){
@@ -403,8 +416,12 @@ setTimeout(function() { document.getElementsByClassName("loading2")[0].style.dis
 
 document.getElementsByClassName("close")[0].addEventListener("click", close_modal);
 function close_modal(){
-//document.getElementsByClassName("modal")[0].style.display = 'none';
-setTimeout(function() {document.getElementsByClassName("modal")[0].style.display = 'none';}, 150);
+document.getElementsByClassName("modal")[0].style.display = 'none';
+setTimeout(function() { 
+			  link_disable = false;
+			  document.getElementById('iframe').contentWindow.postMessage(["link_disable","false"], "*");
+			  }, 1000);
+
 //document.documentElement.style.overflow = "auto";
 //document.body.style.overflow = "auto";
 }
@@ -428,6 +445,9 @@ eventer(messageEvent,function(e) {
     
 	case 'modal_display':
 	if(data == "show"){
+	   
+	   link_disable = true;
+	   e.source.postMessage(["link_disable","true"], "*");
 	   document.getElementsByClassName("modal")[0].style.display = 'block';
 	   //$("#myModal").show() ;
 	   //$("body,html").css({'overflow' : 'hidden'});

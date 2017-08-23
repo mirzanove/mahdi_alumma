@@ -1,4 +1,6 @@
 /*jomart*/
+var link_disable = false;
+
 var gTopicElemId = "";
 var gsPPath="";
 var gaPaths=new Array();
@@ -1844,6 +1846,13 @@ var data = e.data[1];
 		  }
 		  else{enable_highlight = false;}
      break;
-
+     case 'link_disable':
+	 if (data =="true"){
+		
+		  link_disable = true;
+		  
+	 }else{
+		 link_disable = false;
+	 }
 }	
 },false);
