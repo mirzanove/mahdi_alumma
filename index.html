@@ -49,8 +49,11 @@ location.href = window.location.href+"responsiveStyle.html";
 }
 
 }      
+
+var data = '<div id="sfc4gjmmrdn7be924x7fzutcncysurn3edm"></div>';
+document.getElementById('counter').innerHTML = data;
 	
-	</script>
+</script>
 <noscript>
 enable javascript in your browser..
 <br>
@@ -90,7 +93,7 @@ div,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr
 <div class ="loading"></div>
 </head>
 <body>
-<div id="sfc4gjmmrdn7be924x7fzutcncysurn3edm"></div>
+<div id = "counter"></div>
 <script type="text/javascript" src="https://counter9.freecounter.ovh/private/counter.js?c=4gjmmrdn7be924x7fzutcncysurn3edm&down=async" async></script>
 <noscript><a href="https://www.freecounterstat.com" title="website counter"><img src="https://counter9.freecounter.ovh/private/freecounterstat.php?c=4gjmmrdn7be924x7fzutcncysurn3edm" border="0" title="website counter" alt="website counter"></a></noscript>
 <span style ="font-weight: bold; font-size: 130%; color : red">
@@ -162,4 +165,13 @@ AR_mawso3a_mobile:
 وبهذا نرجوا من الله ان نكون قد وفقنا في هذا العمل وجزاكم الله كل خير والسلام عليكم ورحمة الله وبركاته 
 </span>
 </body>
+<script>
+var link = window.location.href;
+//alert(link);
+var data = '<div id="sfc4gjmmrdn7be924x7fzutcncysurn3edm"></div>';
+if(link.indexOf("file://") != 0){
+document.getElementById('counter').innerHTML = data;
+}	
+</script>
+
 </html>
