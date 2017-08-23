@@ -23,6 +23,7 @@
 <plugin name="cordova-plugin-device" spec="1.1.2"/>
 <plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
 <plugin name="cordova-plugin-whitelist" spec="1.2.2"/>
+<plugin name="cordova-plugin-wkwebview-engine" spec="1.0.3"/>
 <platform  name="ios">
     <!-- below requires the splash screen plugin -->
     <!-- docs: https://github.com/apache/cordova-plugin-splashscreen -->
