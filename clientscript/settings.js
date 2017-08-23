@@ -65,7 +65,7 @@ if(_isMobile() == mobiletrue) {
 
 
     jQueryM_v1_4_5(document).ready(function() {
-        alert("mobile");
+        //alert("mobile");
         jQueryM_v1_4_5('.loading').show();
         /*if (navigator.userAgent.match(detect_userAgent)) {
         	
@@ -554,7 +554,7 @@ else {
 
 
     jQueryD_1_4_2(document).ready(function() {
-        alert("deskstop");
+        //alert("deskstop");
         jQueryD_1_4_2('.loading').show();
 
  
