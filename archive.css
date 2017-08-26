@@ -68,6 +68,7 @@ body #copy_tooltip {
    z-index: 9; 
    left: 45%; 
    top: 35%; 
+   display:none;
 }
 
 
