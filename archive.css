@@ -50,6 +50,49 @@ td {
 	
 }
 
+
+
+
+body #copy_tooltip {
+   position:fixed !important;
+   position: absolute; /*ie6 and above*/
+   border: 1px solid black; 
+   background: rgb(219, 219, 0) none repeat scroll 0% 0%; 
+   opacity: 1; 
+   width: 100px; 
+   height: auto; 
+   margin-left: -50px; 
+   margin-top: -50px; 
+   text-align: center; 
+   padding: 4px; 
+   z-index: 9; 
+   left: 45%; 
+   top: 35%; 
+}
+
+
+
+* html #wrapper {
+    /*hack IE6*/
+     width:100%;
+     position: absolute;
+    
+}
+
+
+html, body {height:100%; overflow:hidden; 
+-webkit-overflow-scrolling: touch; 
+}
+
+#wrapper {
+     height:100%;
+     overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+
+}
+
+
 .header_topic{
 
 height: 20px;
@@ -82,19 +125,6 @@ line-height: normal;
 }
 
 
-html, body {height:100%; overflow:hidden; 
--webkit-overflow-scrolling: touch; 
-}
-
-#wrapper {
-     height:100%;
-     overflow-y: auto;
-	 position: relative;
-	-webkit-overflow-scrolling: touch;
-
-}
-
-
 @media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0) 
 { @media {
    body { margin-right:2px; } 
@@ -114,6 +144,7 @@ html, body {height:100%; overflow:hidden;
     overflow: auto; /* Enable scroll if needed */
     /*background-color: rgb(0,0,0); /* Fallback color */
     background-color: grey; /* Black w/ opacity */
+	/*opacity: 0.5;*/
 }
 
 /* Modal Content (image) */
@@ -140,6 +171,7 @@ html, body {height:100%; overflow:hidden;
     background-color: black;
 	border-style: solid;
     border-color: white;
+	cursor:pointer;
 }
 
 .close:hover,
@@ -164,16 +196,13 @@ word-wrap:break-word;
 
 
 .hide_external_link{
-/*display: none;*/
- -ms-word-break: break-all;
-     word-break: break-all;
-
-     /* Non standard for WebKit */
-     word-break: break-word;
-
+display: none;
+-ms-word-break: break-all;
+word-break: break-all;
+word-break: break-word;
 -webkit-hyphens: auto;
-   -moz-hyphens: auto;
-        hyphens: auto;
+-moz-hyphens: auto;
+hyphens: auto;
 }
 
 .external_link:link,
@@ -228,6 +257,21 @@ word-wrap:break-word;
     background-color: rgba(255, 255, 0, 0.3);
 }
 
+body #loading {
+   position:fixed !important;
+   position: absolute; /*ie6 and above*/
+   background-image: url("clientscript/images/loading.gif")/*tpa=http://localhost/vb_423/archive/clientscript/images/loading.gif*/! important ;
+
+   width: 100px; 
+   height: 100px;  
+   text-align: center; 
+   padding: 4px; 
+   z-index: 9; 
+   left: 45%; 
+   top: 35%; 
+   display:none;
+}
+
 
 .loading {
 	/*background-image: url("clientscript/images/loading.gif")/*! important ;
@@ -243,10 +287,10 @@ word-wrap:break-word;
     _top:expression(eval(150+(document.body.scrollTop)));
 	z-index :159;*/
 	display:none;
-	background-image: url("clientscript/images/loading.gif")! important ;
+	background-image: url("clientscript/images/loading.gif")/*tpa=http://localhost/vb_423/archive/clientscript/images/loading.gif*/! important ;
     min-height: 1.25in !important;
     background-repeat: no-repeat !important;
-    background-position: center .25in !important;
+    background-position: center .30in !important;
     background-size: 1in 1in !important;
 	position: absolute;
 	top: 25%;
@@ -341,7 +385,8 @@ word-wrap:break-word;
 
 
 .thread_title {
-	background: #F9F9F9;
+	/*background: #F9F9F9;*/
+	background: #d5deed;
 	border: 1px solid #c0c0c0;
 	padding: 4px;
 	white-space: wrap;
@@ -595,6 +640,8 @@ div.posttext {
 	/*font: times new roman;*/
 	font-family: "Times New Roman", Times, serif;
 	font-size :20px;
+	/*word-break: break-all;*/
+  
 }
 div.highlight {
 	padding: 4px;
@@ -787,8 +834,8 @@ SPAN.Italic {
 	margin: 0;
 }
 
-.org, .tooltip2,.bbcode{
+.org, .tooltip2,.bbcode,.tooltip3{
 	
-/*display:none;*/
+display:none;
 	
 }
