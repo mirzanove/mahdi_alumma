@@ -65,7 +65,7 @@ if(_isMobile() == mobiletrue) {
 
 
     jQueryM_v1_4_5(document).ready(function() {
-        //alert("mobile");
+        alert("mobile");
         jQueryM_v1_4_5('.loading').show();
         /*if (navigator.userAgent.match(detect_userAgent)) {
         	
@@ -207,16 +207,21 @@ if(_isMobile() == mobiletrue) {
 
                     if(jQueryM_v1_4_5(event.currentTarget).attr('id') == arrEdited[i].id) {
                         //alert(arrEdited[i].href);
-                        jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="link_img"><a target="_blank" href=""><img style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 10px; margin: 5px;" class="cool" src="" height="200" width="200" alt=""></a><br></span>');
+                        jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="link_img"><a class="link_img2" target="_blank" href=""><img style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 10px; margin: 5px;" class="cool" src="" height="200" width="200" alt=""></a><br></span>');
                         jQueryM_v1_4_5(event.currentTarget).parent().children(".link_img").children('a').attr("href", arrEdited[i].href);
                         jQueryM_v1_4_5(event.currentTarget).parent().children(".link_img").children('a').children('img').attr("src", arrEdited[i].href);
+						jQueryM_v1_4_5(".link_img2").click(function(event) {
+                          
+							//event.stopPropagation();
+							
+                        });
                     }
                 }
             }
 
 
             if(jQueryM_v1_4_5(".image_custom").length == 0) {
-                jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="image_custom"><a href="" target="_blank" style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 5px 5px;">رابط الصورة في الموقع</a><br></span>');
+                jQueryM_v1_4_5(event.currentTarget).parent().append('<span class="image_custom"><a class="image_custom" href="" target="_blank" style="text-align: center; overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all; word-wrap:break-word; direction: rtl;outline: none;border-radius: 6px;color: #ffffff;background-color: #2b7b91;padding: 5px 5px;">رابط الصورة في الموقع</a><br></span>');
                 jQueryM_v1_4_5(event.currentTarget).parent().children('.image_custom').children('a').attr("href", jQueryM_v1_4_5(event.currentTarget).children('.hide_param').attr('href'));
                 jQueryM_v1_4_5(".image_custom").click(function(event) {
                     event.stopPropagation();
@@ -239,8 +244,10 @@ if(_isMobile() == mobiletrue) {
 
         });
 
-        jQueryM_v1_4_5("#wrapper").on('vclick', 'a', function(event) {
+        jQueryM_v1_4_5("#wrapper").on('vclick','a', function(event) {
 
+		
+		
 		if (typeof link_disable !== 'undefined') {
              //alert(link_disable);
 	         if(link_disable == true){
@@ -255,11 +262,12 @@ if(_isMobile() == mobiletrue) {
 		     }
         }
 		
-            var classname = jQueryM_v1_4_5(event.currentTarget).parent().attr('class');
+            var classname = jQueryM_v1_4_5(event.currentTarget).attr('class');
+			
             //alert(classname);
             var link = this.href;
 
-            if((classname != "date") && (classname != "link_org") && (classname != "imglink") && (classname != "hide_external_link") && (classname != "tooltiptext") && (classname != "alpom") && (classname != "pda tooltip4") && (classname != "pda tooltip4 org") && (classname != "largefont tooltip3") && (classname != "largefont tooltip2") && (classname != "username") && (classname != "bbcode_link") && (classname != "link_img")) {
+            if((classname != "date") && (classname != "link_org") && (classname != "imglink") && (classname != "hide_external_link") && (classname != "tooltiptext") && (classname != "alpom") && (classname != "pda tooltip4") && (classname != "pda tooltip4 org") && (classname != "largefont tooltip3") && (classname != "largefont tooltip2") && (classname != "username") && (classname != "bbcode_link") && (classname != "link_img")&&(classname != "link_img2")&&(classname != "image_custom")){
 
                 //alert(link);
                 if((link.indexOf("http://heserver/clientscript/images/") == 0) || (link.indexOf("../../clientscript/images/") == 0) || (link.indexOf("ghe://heserver/") == 0) || (link.indexOf("file://") == 0) || (link.indexOf("http://localhost/") == 0) || (link.indexOf("https://mirzanove.github.io/") == 0) || (link.indexOf("http://bayan-noon.com/") == 0) || (link.indexOf("https://bayan-noon.com") == 0)) {
@@ -291,8 +299,6 @@ if(_isMobile() == mobiletrue) {
                 location.href = link;
                 return false;
             } else if((link.indexOf("http://heserver/clientscript/images/") == 0) || (link.indexOf("../../clientscript/images/") == 0) || (link.indexOf("ghe://heserver/") == 0) || (link.indexOf("file://") == 0) || (link.indexOf("http://localhost/") == 0) || (link.indexOf("https://mirzanove.github.io/") == 0) || (link.indexOf("http://bayan-noon.com/") == 0) || (link.indexOf("https://bayan-noon.com") == 0)) {
-
-
                 if(checkURL(link) == true) {
                     if(classname == "imglink") {
 
@@ -428,9 +434,11 @@ if(_isMobile() == mobiletrue) {
         jQueryM_v1_4_5(".resetMe").on('vclick', function(event) {
             var size = 20;
             jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', size);
-            /*document.documentElement.style.display = 'none';
+            if (navigator.userAgent.match(/(chrome)/i)) {
+	        document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; 
-            document.documentElement.style.display = '';*/
+            document.documentElement.style.display = '';
+	        }
         });
 
 
@@ -439,9 +447,11 @@ if(_isMobile() == mobiletrue) {
             var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = parseFloat(currentSize) + 3;
             jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
-            /*document.documentElement.style.display = 'none';
+            if (navigator.userAgent.match(/(chrome)/i)) {
+	        document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; 
-            document.documentElement.style.display = '';*/
+            document.documentElement.style.display = '';
+	        }
             return false;
         });
 
@@ -452,10 +462,13 @@ if(_isMobile() == mobiletrue) {
             var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = parseFloat(currentSize) - 3;
             jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
-            return false;
-            /*document.documentElement.style.display = 'none';
+            if (navigator.userAgent.match(/(chrome)/i)) {
+	        document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; 
-            document.documentElement.style.display = '';*/
+            document.documentElement.style.display = '';
+	        }
+			return false;
+            
         });
 
         jQueryM_v1_4_5(".tooltiptext").on('vclick', function(event) {
@@ -554,7 +567,7 @@ else {
 
 
     jQueryD_1_4_2(document).ready(function() {
-       // alert("deskstop");
+        alert("deskstop");
         jQueryD_1_4_2('.loading').show();
 
  
@@ -829,9 +842,9 @@ else {
         jQueryD_1_4_2(".resetMe").click(function(event) {
             var size = 20;
             jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', size);
-            document.documentElement.style.display = 'none';
+            /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';
+            document.documentElement.style.display = '';*/
         });
 
         // Increase Font Size 
@@ -839,9 +852,9 @@ else {
             var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = parseFloat(currentSize) + 3;
             jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
-            document.documentElement.style.display = 'none';
+            /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';
+            document.documentElement.style.display = '';*/
             return false;
         });
 
@@ -855,9 +868,9 @@ else {
 			jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
 			}
             
-			document.documentElement.style.display = 'none';
+			/*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';
+            document.documentElement.style.display = '';*/
 			
 			return false;
             
