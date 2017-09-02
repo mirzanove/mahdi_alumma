@@ -248,7 +248,7 @@ if(_isMobile() == mobiletrue) {
                      event.stopPropagation();
 					if(window.location != window.parent.location) {
 			         if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			         }else{if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}  
+			         }else{if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}} 
                 });
 				
             }
@@ -276,8 +276,7 @@ if(_isMobile() == mobiletrue) {
 		
 		
         jQueryM_v1_4_5("#wrapper").on('vclick','a', function(event) {
-
-		    link_img_show = true;
+            link_img_show = true;
             //alert(link_disable);
 			
 			if(window.location != window.parent.location) {
@@ -285,34 +284,37 @@ if(_isMobile() == mobiletrue) {
 			}else{
 			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
 
-				
-			
-			
 
 			var classname = jQueryM_v1_4_5(this).attr('class');
             var link = this.href;
-            //alert();
-            if((link.indexOf("../../clientscript/images/") == 0) || (link.indexOf("ghe://heserver/") == 0) || (link.indexOf("file://") == 0) || (link.indexOf("http://localhost/") == 0) || (link.indexOf("https://mirzanove.github.io/") == 0) || (link.indexOf("http://bayan-noon.com/") == 0) || (link.indexOf("https://bayan-noon.com") == 0)) {
-
-                var x = this.href;
+            //alert(link);
+            
+			if( location.hostname === this.hostname || !this.hostname.length ) {
+                
+				//alert("curr");
+					 
+			    var x = this.href;
                 var c = window.location.href;
 
                 if(checkURL(x) == false) {
-                    if(x.indexOf("#post") !== -1) {
+                    
+				   if(x.indexOf("#post") !== -1) {
                         x = x.substring(0, x.indexOf("#post") - 0);
                     }
-                    if(c.indexOf("#post") !== -1) {
-                        c = c.substring(0, c.indexOf("#post") - 0);
-                    }
-                    if(c.indexOf("?random=") !== -1) {
+                   if(c.indexOf("#post") !== -1) {
+                        
+						c = c.substring(0, c.indexOf("#post") - 0);
+                   }
+				   if(c.indexOf("?random=") !== -1) {
 						c = c.substring(0, c.indexOf("?random=") - 0); 
-				    }
-                    if(c != x) {
+				   }
+                   if(c != x) {
                         jQueryM_v1_4_5('.loading').show();
-                        //alert(c+x);
-                    }
-					location.href = link;
-					return false;
+                        //alert(c+x);	
+                   }
+				   location.href = link;
+				   return false;
+					
                 }
                 if(checkURL(link)) {
 					/*for chromiem book remove next */
@@ -330,11 +332,15 @@ if(_isMobile() == mobiletrue) {
                         jQueryM_v1_4_5("#img01").attr("src", link);
                     }
                 }
-            } else {
+					 
+            }
+		    else{
                 /*for chromiem book add next */
 				//var res = link.replace("heexternal://", "");
-				//jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');	            
-				}
+				//jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');
+				 //alert("ext");
+            }
+			
         });
 
 
@@ -613,7 +619,7 @@ else {
 
 
     jQueryD_1_4_2(document).ready(function() {
-        //alert("deskstop");
+       // alert("deskstop");
         jQueryD_1_4_2('.loading').show();
 
  
@@ -644,10 +650,12 @@ else {
 			
 			var classname = jQueryD_1_4_2(this).attr('class');
             var link = this.href;
-            //alert();
-            if((link.indexOf("../../clientscript/images/") == 0) || (link.indexOf("ghe://heserver/") == 0) || (link.indexOf("file://") == 0) || (link.indexOf("http://localhost/") == 0) || (link.indexOf("https://mirzanove.github.io/") == 0) || (link.indexOf("http://bayan-noon.com/") == 0) || (link.indexOf("https://bayan-noon.com") == 0)) {
-
-                var x = this.href;
+			
+			
+			if( location.hostname === this.hostname || !this.hostname.length ) {
+             //alert("curr");
+			 
+			  var x = this.href;
                 var c = window.location.href;
 
                 if(checkURL(x) == false) {
@@ -678,11 +686,14 @@ else {
                         jQueryD_1_4_2("#img01").attr("src", link);
                     }
                 }
+			 
             } else {
-                /*for chromiem book add next */
+             //alert("ex");
+			     /*for chromiem book add next */
 				//var res = link.replace("heexternal://", "");
-				//jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');	            
-				}
+				//jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');
+            }
+
         });
 
 
