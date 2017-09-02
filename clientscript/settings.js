@@ -303,7 +303,9 @@ if(_isMobile() == mobiletrue) {
                     if(c.indexOf("#post") !== -1) {
                         c = c.substring(0, c.indexOf("#post") - 0);
                     }
-
+                    if(c.indexOf("?random=") !== -1) {
+						c = c.substring(0, c.indexOf("?random=") - 0); 
+				    }
                     if(c != x) {
                         jQueryM_v1_4_5('.loading').show();
                         //alert(c+x);
