@@ -265,7 +265,7 @@ if(_isMobile() == mobiletrue) {
 			  jQueryM_v1_4_5("#wrapper").css({'overflow-y' : 'auto'});
 			  setTimeout(function() {
 				  link_disable2 = false;
-			  }, 4000);
+			  }, 1000);
         })
 		
 		
