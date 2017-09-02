@@ -301,8 +301,10 @@ if(_isMobile() == mobiletrue) {
 						c = c.substring(0, c.indexOf("?random=") - 0); 
 				   }
                    if(c != x) {
-                        jQueryM_v1_4_5('.loading').show();
-                        //alert(c+x);	
+                        if(classname != "btn_print up") {
+						jQueryM_v1_4_5('.loading').show();
+                        //alert(c+x);
+						}
                    }
 				   location.href = link;
 				   return false;
@@ -659,8 +661,10 @@ else {
                     }
 
                     if(c != x) {
-                        jQueryD_1_4_2('.loading').show();
+                        if(classname != "btn_print up") {
+						jQueryD_1_4_2('.loading').show();
                         //alert(c+x);
+						}
                     }
                 }
                 if(checkURL(link)) {
