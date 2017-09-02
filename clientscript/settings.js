@@ -21,22 +21,14 @@ function checkURL(url) {
 
 function printDiv(divID) {
 
-if(window.location != window.parent.location) {
-if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-}else{
-if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
-
-var divToPrint = document.getElementById(divID); 
-var myWindow=window.open('','');
-myWindow.document.write(divToPrint.innerHTML);
-    
-myWindow.document.close();
-myWindow.focus();
-myWindow.print();
-myWindow.close();
- //if (navigator.appName != 'Microsoft Internet Explorer') newWin.window.close();
- 
- 
+var printContents = document.getElementById(divID).innerHTML;
+   document.write('<html><style> @media print{.no-print, .no-print *{display: none !important;}}</style><head><button class = "no-print" onclick="javascript:window.history.back();">back</button>');
+   document.write('</head><body >');
+   document.write(printContents);
+   document.write('</body></html>');
+   window.print(); 
+   location.reload();
+  
 }
 
 function getPageHeight(D) {
