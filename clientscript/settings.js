@@ -246,8 +246,9 @@ if(_isMobile() == mobiletrue) {
                 jQueryM_v1_4_5(event.currentTarget).parent().children('.image_custom').children('a').attr("href", jQueryM_v1_4_5(event.currentTarget).children('.hide_param').attr('href'))
                 .on('vclick', function(event) {
                      event.stopPropagation();
-					 if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-					 if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}  
+					if(window.location != window.parent.location) {
+			         if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			         }else{if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}  
                 });
 				
             }
