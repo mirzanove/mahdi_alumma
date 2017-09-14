@@ -300,6 +300,12 @@ if(_isMobile() == mobiletrue) {
 				   if(c.indexOf("?random=") !== -1) {
 						c = c.substring(0, c.indexOf("?random=") - 0); 
 				   }
+				   if(c.indexOf("?rhsyns=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
+                   }
+				   if(c.indexOf("?rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
+                   }
                    if(c != x) {
                         if(classname != "btn_print up") {
 						jQueryM_v1_4_5('.loading').show();
@@ -659,7 +665,14 @@ else {
                     if(c.indexOf("#post") !== -1) {
                         c = c.substring(0, c.indexOf("#post") - 0);
                     }
-
+                    if(c.indexOf("?rhsyns=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
+                    }
+					if(c.indexOf("?rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
+                    }
+												
+				   
                     if(c != x) {
                         if(classname != "btn_print up") {
 						jQueryD_1_4_2('.loading').show();

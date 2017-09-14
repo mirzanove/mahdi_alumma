@@ -1032,7 +1032,8 @@ function HuginContext()
 	}
 	this.stop = function()
 	{   
-	   //$('#wSearchMessage').removeClass("rh-hide").removeAttr("hidden");
+	  
+	     //$('#wSearchMessage').removeClass("rh-hide").removeAttr("hidden");
 	   document.getElementById("wSearchMessage").removeAttribute("hidden");
 	   removeClass(document.getElementById("wSearchMessage"),"rh-hide");
 	   document.getElementById("stop").className = "rh-hide";
@@ -1044,8 +1045,7 @@ function HuginContext()
 	   document.getElementById("loading").className = "rh-hide";
 	   document.getElementById("loading").setAttribute("hidden");
 	   
-	   //document.getElementById("wSearchMessage").className = "vvvvvvvvvvvvvv";
-	   
+	   //document.getElementById("wSearchMessage").className = "vvvvvvvvvvvvvv"; 
 	  
 		
 	}
