@@ -11,7 +11,9 @@ window.onload = function(){
 if (isIE () != 8) {
 resize(window);
 }
-setTimeout(function() {document.getElementById("loading").style.display = 'none';}, 0);
+setTimeout(function() {
+	document.getElementById("loading").style.display = 'none';
+	}, 0);
 
 };
 
@@ -30,6 +32,7 @@ var printContents = document.getElementById(divID).innerHTML;
    location.reload();
   
 }
+
 
 function getPageHeight(D) {
     var setsize = Math.max(Math.max(D.body.scrollHeight, D.documentElement.scrollHeight), Math.max(D.body.offsetHeight, D.documentElement.offsetHeight), Math.max(D.body.clientHeight, D.documentElement.clientHeight));
@@ -55,11 +58,11 @@ if(_isMobile() == mobiletrue) {
         resize(jQueryM_v1_4_5("html"));
         //getPageHeight(document)
     });
-    jQueryM_v1_4_5(window).load(function() {
+    /*jQueryM_v1_4_5(window).load(function() {
         resize(jQueryM_v1_4_5("html"));
         //getPageHeight(document)
         jQueryM_v1_4_5('.loading').hide();
-    });
+    });*/
 
 
 
@@ -74,6 +77,9 @@ if(_isMobile() == mobiletrue) {
         jQueryM_v1_4_5("#wrapper,html,body").css("-webkit-transform", "translate3d(0,0,0)");
         	
         }*/
+		
+		
+		
 
         var arrEdited = [];
         jQueryM_v1_4_5('.imglink').each(function(i) {
@@ -307,10 +313,10 @@ if(_isMobile() == mobiletrue) {
                         c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
                    }
                    if(c != x) {
-                        if(classname != "btn_print up") {
+                         if(classname != "btn_print up") {
 						jQueryM_v1_4_5('.loading').show();
                         //alert(c+x);
-						}
+						}	
                    }
 				   location.href = link;
 				   return false;
@@ -619,12 +625,11 @@ else {
 
 
     jQueryD_1_4_2(document).ready(function() {
-       // alert("deskstop");
+        //alert("deskstop");
         jQueryD_1_4_2('.loading').show();
 
- 
-
-
+		
+		
         var arrEdited = [];
         jQueryD_1_4_2('.imglink').each(function(i) {
             jQueryD_1_4_2(this).attr('id', 'id_' + (i + 1));
@@ -671,20 +676,23 @@ else {
 					if(c.indexOf("?rhhlterm=") !== -1) {
                         c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
                     }
-												
-				   
                     if(c != x) {
                         if(classname != "btn_print up") {
+						if(x.indexOf("heexternal://") == -1) {
 						jQueryD_1_4_2('.loading').show();
                         //alert(c+x);
+                        }
 						}
                     }
                 }
                 if(checkURL(link)) {
 					/*for chromiem book remove next */
 					link_disable2 = true;
-					event.preventDefault();
-					if(window.location != window.parent.location) {
+				if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			    else{
+			         event.preventDefault();
+				
+				     if(window.location != window.parent.location) {
                         window.parent.postMessage(["modal_display", "show"], "*");
                         window.parent.postMessage(["image_url", link], "*");
                     } else {
@@ -694,13 +702,14 @@ else {
                         });
                         jQueryD_1_4_2("#img01").attr("src", link);
                     }
+				}
                 }
 			 
             } else {
-             //alert("ex");
-			     /*for chromiem book add next */
-				//var res = link.replace("heexternal://", "");
-				//jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');
+               if (typeof enable_heexternal() !== 'undefined') {
+				var res = link.replace("heexternal://", "");
+				jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');
+				}
             }
 
         });
@@ -778,11 +787,13 @@ else {
             event.preventDefault();
             event.stopPropagation();
             
-			if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
-			
+			if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			link_img_show = false;
 			
 			jQueryD_1_4_2(".tooltiptext_custom").remove();
@@ -820,10 +831,13 @@ else {
             event.preventDefault();
             event.stopPropagation();
             
-			if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+			if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			
 			//alert(link_disable);
 			
@@ -866,10 +880,13 @@ else {
                 jQueryD_1_4_2(event.currentTarget).parent().children('.image_custom').children('a').attr("href", jQueryD_1_4_2(event.currentTarget).children('.hide_param').attr('href'))
                 .click(function(event) {
                     event.stopPropagation();
-					if(window.location != window.parent.location) {
-			        if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			        }else{
-			        if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+			if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
               });
             }
 
@@ -886,19 +903,25 @@ else {
 		
 		});
         jQueryD_1_4_2(".bbcode_img").click(function(event) {
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			jQueryD_1_4_2(event.currentTarget).selectText();
         });
         jQueryD_1_4_2("a.select_txt").click(function(event) {
             event.preventDefault();
             event.stopPropagation();
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			jQueryD_1_4_2('.tooltiptext').hide();
             jQueryD_1_4_2('.tooltiptext2').hide();
             jQueryD_1_4_2('.tooltiptext3').hide();
@@ -920,10 +943,13 @@ else {
         jQueryD_1_4_2("a.threadinfo").click(function(event) {
             event.preventDefault();
             event.stopPropagation();
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			jQueryD_1_4_2(".tooltiptext_custom").remove();
             jQueryD_1_4_2('.image_custom').remove();
             jQueryD_1_4_2(".link_img").remove();
@@ -938,10 +964,13 @@ else {
         jQueryD_1_4_2("a.threadinfo2").click(function(event) {
             event.preventDefault();
             event.stopPropagation();
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			jQueryD_1_4_2(".tooltiptext_custom").remove();
             jQueryD_1_4_2('.image_custom').remove();
             jQueryD_1_4_2(".link_img").remove();
@@ -956,10 +985,13 @@ else {
         jQueryD_1_4_2("a.postinfo").click(function(event) {
             event.preventDefault();
             event.stopPropagation();
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			jQueryD_1_4_2(".tooltiptext_custom").remove();
             jQueryD_1_4_2('.image_custom').remove();
             jQueryD_1_4_2(".link_img").remove();
@@ -974,10 +1006,13 @@ else {
         jQueryD_1_4_2(".txt_resize").click(function(event) {
             event.preventDefault();
             event.stopPropagation();
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			jQueryD_1_4_2('.tooltiptext').hide();
             jQueryD_1_4_2('.tooltiptext2').hide();
             jQueryD_1_4_2('.tooltiptext3').hide();
@@ -990,10 +1025,13 @@ else {
 
         // reset 
         jQueryD_1_4_2(".resetMe").click(function(event) {
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			var size = 20;
             jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', size);
             /*document.documentElement.style.display = 'none';
@@ -1003,10 +1041,13 @@ else {
 
         // Increase Font Size 
         jQueryD_1_4_2(".increase").click(function(event) {
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = parseFloat(currentSize) + 3;
             jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
@@ -1018,10 +1059,13 @@ else {
 
         // Decrease Font Size 
         jQueryD_1_4_2(".decrease").click(function(event) {
-            if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable2 = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
+			}
 			var currentFontSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = parseFloat(currentSize) - 3;
