@@ -253,7 +253,10 @@ function initializeSearch() {
 
 function doSearch(lol)
 {   
-    removeClass(document.getElementById("stop"),"rh-hide");
+    
+	if(lol) {
+     removeClass(document.getElementById("stop"),"rh-hide");
+	}
 
 	gbANDSearch=1;
 	//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
