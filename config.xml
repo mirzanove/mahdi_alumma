@@ -6,7 +6,7 @@
 	<gap:platform name="android"/>
 	<icon src="icon1.png"/>
 	<gap:splash src="splash1.png"/>
-	<gap:plugin name="com.phonegap.plugin.statusbar"/>
+	<plugin name="cordova-plugin-statusbar" />
 	<gap:config-file parent="UIStatusBarHidden" platform="ios">
 		<false/>
 	</gap:config-file>
