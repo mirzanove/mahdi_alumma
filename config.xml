@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget majorversion="5" minorversion="0" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:gap="http://phonegap.com/ns/1.0" id="Ar.mawso3a.mobile" version="0.0.1" versionCode="1">
+	<name>Ar_mawso3a_24_8_2017</name>
+	<description>Ar.mawso3a.24_8_2017</description>
+	<gap:platform name="ios"/>
+	<gap:platform name="android"/>
+	<icon src="icon1.png"/>
+	<gap:splash src="splash1.png"/>
+	<gap:plugin name="com.phonegap.plugin.statusbar"/>
+	<gap:config-file parent="UIStatusBarHidden" platform="ios">
+		<false/>
+	</gap:config-file>
+	<gap:config-file parent="UIViewControllerBasedStatusBarAppearance" platform="ios">
+		<false/>
+	</gap:config-file>
+	<preference name="StatusBarOverlaysWebView" value="true"/>
+	<preference name="permissions" value="none"/>
+	<preference name="android-targetSdkVersion" value="15"/>
+	<preference name="android-minSdkVersion" value="8"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/media"/>
+	<supports-screens android:anyDensity="true" android:largeScreens="true" android:normalScreens="true" android:resizeable="true" android:smallScreens="true" android:xlargeScreens="true"/>
+</widget>
