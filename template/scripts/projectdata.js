@@ -46,7 +46,10 @@ model.publish(rh.consts('KEY_HEADER_TITLE_COLOR'), "");
 model.publish(rh.consts('KEY_HEADER_BACKGROUND_COLOR'), "");
 model.publish(rh.consts('KEY_HEADER_LOGO_PATH'), "");
 model.publish(rh.consts('KEY_LAYOUT_FONT_FAMILY'), "");
-model.publish(rh.consts('KEY_HEADER_HTML'), "<img onclick=\"javascript:location.href='#{logo}index.php.htm'\" class ='header_img' align = 'right' src='#{logo}87px.png' height=\"15\" width=\"15\" />\<spsn onClick='rh._.redirectToLayout()' class ='header_label'>show full page</span>\
+
+//javascript:location.href='\"#{logo}index.php.htm\"
+
+model.publish(rh.consts('KEY_HEADER_HTML'), "<img onclick='rh._.main_page(\"#{logo}index.php.htm\")' class ='header_img' align = 'right' src='#{logo}87px.png' height=\"15\" width=\"15\" />\<spsn onClick='rh._.redirectToLayout()' class ='header_label'>show full page</span>\
 ");
 model.publish(rh.consts('KEY_HEADER_CSS'), ".topic-header { background-color: #{background-color}; color: #{color}; width: calc(100%); height: 3em; position: fixed; left: 0; top: 0; font-family: #{font-family}; display: table; box-sizing: border-box; }\
 .topic-header-shadow { height: 3em; width: 100%; }\
