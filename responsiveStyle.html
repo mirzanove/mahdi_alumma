@@ -240,17 +240,7 @@ label {
 
 
 <ul class="toc" data-rhwidget="List: .p.toc" data-controller="TocController: toc" data-click="$toc.onClick(event)">
-		<li data-rif="item.type === 'item' || item.type === 'remoteitem'" data-i-class="$toc.class(item)" data-class="inactive: @bookid != '#{@pid}'" data-childorder="#{childOrder}" data-rhtags="#{$toc.tags(item)}" data-itemid="#{@id}">
-			<a data-itext="item.name" data-i-href="$toc.url(item, '#{@id}')"></a>
-		</li>
-		<li class="book" data-rif="item.type === 'book'" data-class="active: @bookid == '#{@id}'; inactive: @bookid != '#{@pid}' &amp;&amp; @bookid != '#{@id}'" data-childorder="#{childOrder}"
-			data-itemkey="#{$toc.key(item.absRef, item.key)}" data-itemid="#{@id}" data-itemlevel="#{@level}" data-rhtags="#{$toc.tags(item)}">
-			<a data-itext="item.name" data-i-href="$toc.url(item, '#{@id}')"></a>
-		</li>
-		<li class="child max-height-transition" data-rif="item.key" data-class="show: @show_child#{@id}" data-childorder="#{childOrder}">
-		  <ul class="child" data-child="$toc.key(item.absRef, item.key)"></ul>
-		</li>
-	</ul>
+	
 </div>
 <!-- Index -->
 <div class="idx-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; layout-visible: @KEY_ACTIVE_TAB == 'idx'; ">
