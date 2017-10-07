@@ -1,5 +1,5 @@
 //Variables to override in settings
-var useTOC = true;
+var useTOC = false;
 var useGLO = false;
 var useIDX = false;
 var delayLoadIdx = true;
