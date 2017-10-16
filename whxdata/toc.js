@@ -1,1 +1,0 @@
-gXMLBuffer ="<?xml version=\"1.0\" encoding=\"utf-8\" ?><data ><item name=\"المنتدى\" url=\"index.php.htm\" /><book name=\"index.php\" src=\"toc1.js\" /></data>";
