@@ -222,13 +222,20 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 function setResultsStringHTML(results_no, searchStr)
 {
 	var msg = gResultsFoundString;
+	searchStr = document.getElementById("wSearchField").value;
+	
 	msg = msg.replace("%1", results_no);
 	msg = msg.replace("%2", "\'" + searchStr + "\'");
+	
+	
 	displayMsg(msg);
 }
 function displayMsg(msg)
 {
 	var spanNode = document.getElementById(gSearchMsgId);
+	
+	//alert(msg);
+	
 	if(spanNode != null && spanNode != 'undefined')
 		spanNode.innerHTML = msg;
 }
