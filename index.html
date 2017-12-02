@@ -22,7 +22,8 @@ var res ;
 function Redirect(value){
 if (value === "1"){
 
-document.getElementsByClassName("loading")[0].style.display = 'block';
+document.getElementById("loading").style.display = 'block';
+
 if (pageName.indexOf("index.html") !== -1){
 
 res = pageName.replace("index.html", "jqmStyle.html");
@@ -36,7 +37,7 @@ location.href = window.location.href+"jqmStyle.html";
 
 }
 else if(value === "2"){
-document.getElementsByClassName("loading")[0].style.display = 'block';
+document.getElementById("loading").style.display = 'block';
 if (pageName.indexOf("index.html") !== -1){
 
 res = pageName.replace("index.html", "responsiveStyle.html");
@@ -76,18 +77,17 @@ div,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr
 	width: 100%;
 	height:100%;
 	top: 30%;
-   /* left: 47%;*/
+    left: 0%;
 	background-position: center 0in !important;
 	z-index :9999;
-	display :none;
+	display:none;
+
 }
-
-
 </style>
 
 
 <link rel="SHORTCUT ICON" href="87px.png" />	
-<div class ="loading"></div>
+<div class ="loading" id ="loading"></div>
 </head>
 <body>
 
