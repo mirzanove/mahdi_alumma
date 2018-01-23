@@ -80,6 +80,7 @@ function printDiv(divID) {
 	  }
 	  
 	  var contents = document.getElementById(divID).innerHTML;
+	  alert();
 		//var contents = jQueryD_1_4_2('#'+divID).parent().html();
 		var wrapper = document.createElement('div');
 	    wrapper.innerHTML = contents;
