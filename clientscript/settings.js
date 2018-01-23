@@ -79,7 +79,7 @@ function printDiv(divID) {
 		 jQueryD_1_4_2('font').removeAttr("size");
 	  }
 	  
-	  var contents = document.getElementById(divID).outerHTML;
+	  var contents = document.getElementById(divID).innerHTML;
 		//var contents = jQueryD_1_4_2('#'+divID).parent().html();
 		var wrapper = document.createElement('div');
 	    wrapper.innerHTML = contents;
