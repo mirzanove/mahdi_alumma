@@ -13,7 +13,10 @@ function getbooleanindexopage(){
 return "1";
 }
 function MyFunction(){
-    str = document.location.href;
+    
+	document.getElementsByClassName("loading2")[0].style.display = 'block';
+	
+	str = document.location.href;
 	str =str.replace("/jqmStyle.html", "/index.html");
 	
 	document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",str], "*");
@@ -24,7 +27,7 @@ function MyFunction(){
 }
 function get_link_url(){
 
-//alert(document.location.href);
+document.getElementsByClassName("loading2")[0].style.display = 'block';
 document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
 }
 </script>
