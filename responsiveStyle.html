@@ -16,20 +16,15 @@ return "2";
 }
 
 function MyFunction(){
-
+    document.getElementsByClassName("loading2")[0].style.display = 'block';
     str = document.location.href;
 	str =str.replace("/responsiveStyle.html", "/index.html");
 	
 	document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",str], "*");
 	
-	//location.href =str.replace("/jqmStyle.html", "/index.html");
-
-//location.href = "index.html";
-
-
 }
 function get_link_url(){
-//alert(document.location.href);
+document.getElementsByClassName("loading2")[0].style.display = 'block';
 document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
 }
 	
