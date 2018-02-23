@@ -48,16 +48,16 @@ model.publish(rh.consts('KEY_HEADER_LOGO_PATH'), "");
 model.publish(rh.consts('KEY_LAYOUT_FONT_FAMILY'), "");
 
 //javascript:location.href='\"#{logo}index.php.htm\"
+//<button onClick='rh._.redirectToLayout()' class ='header_label'>Styles</button>
 
-model.publish(rh.consts('KEY_HEADER_HTML'), "<img onclick='rh._.main_page(\"#{logo}index.php.htm\")' class ='header_img' align = 'right' src='#{logo}87px.png' height=\"15\" width=\"15\" />\<spsn onClick='rh._.redirectToLayout()' class ='header_label'>show full page</span>\
+
+model.publish(rh.consts('KEY_HEADER_HTML'), "<img onclick='rh._.main_page(\"#{logo}index.php.htm\")' class ='header_img' align = 'right' src='#{logo}87px.png' height=\"15\" width=\"15\" /><button onClick='rh._.go_ReHTML()' type=\"button\" class ='header_label'>ReHTML Style</button><button onClick='rh._.go_jqm()' type=\"button\" class ='header_label'>JQM Style</button>\
 ");
-model.publish(rh.consts('KEY_HEADER_CSS'), ".topic-header { background-color: #{background-color}; color: #{color}; width: calc(100%); height: 3em; position: fixed; left: 0; top: 0; font-family: #{font-family}; display: table; box-sizing: border-box; }\
-.topic-header-shadow { height: 3em; width: 100%; }\
-.logo { cursor: pointer; padding: 0.2em; height: calc(100% - 0.4em); text-align: center; display: table-cell; vertical-align: middle; }\
-.logo img { max-height: 100%; display: block; }\
-.nav { width: 100%; display: table-cell; }\
-.title { width: 40%; height: 100%; float: left; line-height: 3em; cursor: pointer; }\
-.gotohome { width: 60%; float: left; text-align: right; height: 100%; line-height: 3em; cursor: pointer; }\
-.title span, .gotohome span { padding: 0em 1em; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block; }");
-
+model.publish(rh.consts('KEY_HEADER_CSS'), ".topic-header {}\
+.logo {}\
+.logo img {}\
+.nav {}\
+.title {}\
+.gotohome {}\
+.title span, .gotohome span { }");
 })();

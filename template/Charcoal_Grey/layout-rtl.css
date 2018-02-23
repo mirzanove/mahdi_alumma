@@ -3,8 +3,11 @@ body.media-mobile div.filter-holder ul, body.media-landscape div.filter-holder u
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	-o-user-select: none;
-	user-select: none
+	user-select: none;
+
 }
+
+
 div.toc-holder ul {
 	list-style: none;
 	margin: 0;
@@ -745,8 +748,13 @@ div.searchbar .mobile_filter {
 div.searchresults {
 	background-color: #fff
 }
+body.media-mobile div.topic{
+	margin: 3px 3px 3px 3px;
+}
+
 div.topic {
-	background-color: #fff
+	background-color: #fff;
+	
 }
 div.topic div.functionholder {
 	display: none

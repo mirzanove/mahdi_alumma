@@ -13,10 +13,19 @@ function getbooleanindexopage(){
 return "1";
 }
 function MyFunction(){
-location.href = "index.html";
+    str = document.location.href;
+	str =str.replace("/jqmStyle.html", "/index.html");
+	
+	document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",str], "*");
+	
+	//location.href =str.replace("/jqmStyle.html", "/index.html");
+
+//location.href = "index.html";
 }
 function get_link_url(){
-document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href","get_ifram_location_href"], "*");
+
+//alert(document.location.href);
+document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
 }
 </script>
 <style>
