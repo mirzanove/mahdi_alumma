@@ -895,11 +895,12 @@ if(_isMobile() == mobiletrue) {
             if(section != null) {
                 //var activePage = jQueryM_v1_4_5.mobile.activePage;
               
-				//alert(section);
+				
 				jQueryM_v1_4_5('.posttop').removeAttr('style');
                 if(section.indexOf("post") !== -1) {
                     section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
 					if (!jQueryM_v1_4_5("#wrapper").is(':animated')) {
+					//alert(section);
 					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
 					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
 					}
