@@ -901,14 +901,14 @@ if(_isMobile() == mobiletrue) {
                     section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
 					if (!jQueryM_v1_4_5("#wrapper").is(':animated')) {
 					//alert(section);
-					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
+					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
 					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
 					}
                 }
                 if(section.indexOf("td_threadtitle_") !== -1) {
                     //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
 					section= section.replace(/(#td_threadtitle_(.*?))(\?([^"]*)|$)/mg, "$1");
-					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
+					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
                     jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
                 }
             }
@@ -1555,14 +1555,14 @@ else {
                     //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
                     section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
 					
-					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 50);
+					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
 					
 					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
                 }
                 if(section.indexOf("td_threadtitle_") !== -1) {
                     //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
                     section= section.replace(/(#td_threadtitle_(.*?))(\?([^"]*)|$)/mg, "$1");
-					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 50);
+					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
 					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
                 }
             }
