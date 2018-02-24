@@ -1562,7 +1562,7 @@ else {
                 if(section.indexOf("td_threadtitle_") !== -1) {
                     //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
                     section= section.replace(/(#td_threadtitle_(.*?))(\?([^"]*)|$)/mg, "$1");
-					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 500);
+					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 50);
 					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
                 }
             }
