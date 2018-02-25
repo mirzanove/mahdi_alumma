@@ -1554,7 +1554,6 @@ else {
                 if(section.indexOf("post") !== -1) {
                     //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
                     section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
-					
 					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
 					
 					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
