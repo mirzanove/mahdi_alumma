@@ -157,7 +157,7 @@ border: 2px dashed #f69c55;
 color: #ffffff;
 background-color: #025172;
 padding: 5px 5px;
-position: absolute;	
+position: fixed;	
 margin:2px;
 
 }
