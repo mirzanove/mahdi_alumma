@@ -189,6 +189,11 @@ if(_isMobile() == mobiletrue) {
         //alert("mobile");
         
 		
+		
+            // Hide the address bar!
+            window.scrollTo(0, 1);
+       
+		
 		jQueryM_v1_4_5('.loading').show();
         /*if (navigator.userAgent.match(detect_userAgent)) {
         	
