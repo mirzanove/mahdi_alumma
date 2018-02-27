@@ -158,9 +158,9 @@ background-color: #025172;
 padding: 5px 5px;
 position: fixed;
 overflow:hidden;
-
+vertical-align: middle;
+line-height: 20px;
 top: 0px;
-
 z-index:888888;  
 }
 .header_img{

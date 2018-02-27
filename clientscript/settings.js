@@ -170,7 +170,12 @@ if(_isMobile() == mobiletrue) {
     /*jQueryM_v1_4_5(document).on( "pagecontainershow", function(){
       
     });*/
-    jQueryM_v1_4_5(window).on("resize orientationchange", function(event) {
+    
+	 jQueryM_v1_4_5.fn.hasScrollBar = function() {
+        return this.get(0).scrollHeight > this.height();
+     }
+	
+	jQueryM_v1_4_5(window).on("resize orientationchange", function(event) {
         resize(jQueryM_v1_4_5("html"));
         //getPageHeight(document)
     });
@@ -190,9 +195,8 @@ if(_isMobile() == mobiletrue) {
         
 		
 		
-            // Hide the address bar!
-            window.scrollTo(0, 1);
-       
+		
+		
 		
 		jQueryM_v1_4_5('.loading').show();
         /*if (navigator.userAgent.match(detect_userAgent)) {
@@ -942,6 +946,11 @@ if(_isMobile() == mobiletrue) {
     };
 } ////////////////////////////////////////////////////////////////
 else {
+ 
+     jQueryD_1_4_2.fn.hasScrollBar = function() {
+      
+		return this.get(0).scrollHeight > this.height();
+     }
  
      jQueryD_1_4_2(window).resize(function() {
             resize(jQueryD_1_4_2("html"));
