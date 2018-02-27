@@ -187,7 +187,9 @@ if(_isMobile() == mobiletrue) {
 
     jQueryM_v1_4_5(document).ready(function() {
         //alert("mobile");
-        jQueryM_v1_4_5('.loading').show();
+        
+		
+		jQueryM_v1_4_5('.loading').show();
         /*if (navigator.userAgent.match(detect_userAgent)) {
         	
         jQueryM_v1_4_5("#wrapper,html,body").css("-webkit-transform", "translate3d(0,0,0)");
@@ -901,6 +903,7 @@ if(_isMobile() == mobiletrue) {
                     section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
 					if (!jQueryM_v1_4_5("#wrapper").is(':animated')) {
 					//alert(section);
+					//go_fuck();
 					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
 					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
 					}

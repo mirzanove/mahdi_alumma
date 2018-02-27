@@ -161,7 +161,7 @@ overflow:hidden;
 
 top: 0px;
 
-z-index:9999999;  
+z-index:888888;  
 }
 .header_img{
 cursor: pointer;
@@ -667,7 +667,7 @@ div.pagebody {
 	background: #ffffff;
 	padding: 2px;
 	border: 1px solid #c0c0c0;
-	margin-top: 30px;
+	
 }
 .pda {
 	background: #F9F9F9;
