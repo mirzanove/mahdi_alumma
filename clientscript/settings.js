@@ -72,14 +72,14 @@ function printDiv(divID) {
 }
 function printDiv2(divID) {
 
-      /*if(_isMobile() == mobiletrue) {
+      if(_isMobile() == mobiletrue) {
 		 jQueryM_v1_4_5("#frame1").remove(); 
 		 jQueryM_v1_4_5('font').removeAttr("size");
 	  }
 	  else{
 		 jQueryD_1_4_2("#frame1").remove(); 
 		 jQueryD_1_4_2('font').removeAttr("size");
-	  }*/
+	  }
 	  
 	  //var contents = document.getElementById(divID).innerHTML;
 	    var contents = divID;
@@ -89,7 +89,7 @@ function printDiv2(divID) {
 	    wrapper.innerHTML = contents;
        
 		
-	   /* walk_the_DOM(wrapper, function(el) {
+	   walk_the_DOM(wrapper, function(el) {
         
 		//el.removeAttribute('style');
 		
@@ -106,7 +106,7 @@ function printDiv2(divID) {
 			el.childNodes[0].removeAttribute('style');
 
 		}
-        });*/
+        });
 		
        // alert(wrapper.innerHTML.replace("size\=+0",""));
 
@@ -131,7 +131,7 @@ function printDiv2(divID) {
 
 		   }
 
-		   //frameDoc.document.open();
+		   frameDoc.document.open();
            frameDoc.document.write('<html dir = "rtl"><head>');
 		    
 		   if(_isMobile() == mobiletrue) {
@@ -143,16 +143,18 @@ function printDiv2(divID) {
 			frameDoc.document.write('</head><body>');
             frameDoc.document.write(wrapper.innerHTML);
             frameDoc.document.write('</body></html>');
-            //frameDoc.document.close();
-            //window.frames["frame1"].focus();
-            window.frames["frame1"].print();
+            frameDoc.document.close();
+            
 			printin_prosses = false;
-			/*setTimeout(function () {
+			setTimeout(function () {
                 
-                //document.body.removeChild(frame1);
+				window.frames["frame1"].focus();
+                window.frames["frame1"].print();
 				
-            }, 100);
-            return false;*/
+                document.body.removeChild(frame1);
+				
+            }, 200);
+            return false;
 
 }
 
