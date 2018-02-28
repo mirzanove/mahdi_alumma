@@ -625,6 +625,11 @@ eventer(messageEvent,function(e) {
          else
 		 {e.source.postMessage(["check_highlight_state","false"], "*");}
 	break;
+	case 'hide_drop': 
+	if(data == "hide_drop"){ 
+      $('.ui-popup').popup('close');
+    }		
+	break;
 	
   }
 
