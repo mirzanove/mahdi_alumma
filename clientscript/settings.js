@@ -152,6 +152,7 @@ function printDiv2(divID) {
                 window.frames["frame1"].print();
 				
                 document.body.removeChild(frame1);
+				
 				//jQueryM_v1_4_5('body').trigger('resize');
 				//jQueryM_v1_4_5('.posttop').css("background-color", "#d5dc91");
                 //jQueryM_v1_4_5("#wrapper").animate({ scrollTop:500 }, 0);
@@ -351,9 +352,11 @@ if(_isMobile() == mobiletrue) {
 			printin_prosses = true;
 		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext');
             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
-			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
+			 
            // setTimeout(function() {printDiv2(c);}, 3000);
+		  
 		  jQueryM_v1_4_5.print(c);
+		  setTimeout(function () {jQueryM_v1_4_5('html').hide().show(500);}, 100);
 		 
 		}
 			
