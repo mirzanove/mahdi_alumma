@@ -111,7 +111,7 @@ function printDiv(divID) {
             frame1.name = "frame1";
 			frame1.id = "frame1";
             frame1.style.position = "absolute";
-            frame1.style.top = "-1000000px";
+            frame1.style.top = "0px";
             document.body.appendChild(frame1);
             var frameDoc;
            
@@ -127,7 +127,7 @@ function printDiv(divID) {
 
 		   }
 
-		   frameDoc.document.open();
+		   //frameDoc.document.open();
            frameDoc.document.write('<html dir = "rtl"><head>');
 		    
 		   if(_isMobile() == mobiletrue) {
@@ -139,12 +139,12 @@ function printDiv(divID) {
 			frameDoc.document.write('</head><body>');
             frameDoc.document.write(wrapper.innerHTML);
             frameDoc.document.write('</body></html>');
-            frameDoc.document.close();
+            //frameDoc.document.close();
             setTimeout(function () {
                 window.frames["frame1"].focus();
                 window.frames["frame1"].print();
                 document.body.removeChild(frame1);
-            }, 500);
+            }, 100);
             return false;
 
 }
