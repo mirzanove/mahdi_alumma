@@ -379,10 +379,9 @@ if(_isMobile() == mobiletrue) {
 				 
 				 
 				 
-				 location.href='#';
-				 
-				 window.location.hash=' ';
-				 //window.location.href =''; 
+				 //location.href='#';
+				 //window.location.hash=' ';
+				 window.location.href =window.location.href+'#'+postID; 
 				 //redraw(event.currentTarget.parentNode.parentNode.parentNode);
 				 //jQueryM_v1_4_5('html').hide().show(0);
 				 //jQueryM_v1_4_5('.header_topic').hide().show(0);
