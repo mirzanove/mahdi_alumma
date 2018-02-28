@@ -349,10 +349,12 @@ if(_isMobile() == mobiletrue) {
          event.stopPropagation();
 		if(printin_prosses == false){
 			printin_prosses = true;
-		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
+		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext');
             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
-            setTimeout(function() {printDiv2(c);}, 3000);
+           // setTimeout(function() {printDiv2(c);}, 3000);
+		  jQueryM_v1_4_5.print(c);
+		 
 		}
 			
 		});
@@ -1196,7 +1198,8 @@ else {
 			if(printin_prosses == false){
 			printin_prosses = true;
 			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
-            setTimeout(function() {printDiv2(c);}, 3000);
+            jQueryD_1_4_2.print();
+			//setTimeout(function() {printDiv2(c);}, 3000);
             }			
 		
 			
