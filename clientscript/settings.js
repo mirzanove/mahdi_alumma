@@ -68,7 +68,7 @@ return true;
 }
 
 function printDiv(divID) {
-	return flase;
+	return false;
 }
 function printDiv2(divID) {
 
@@ -343,7 +343,8 @@ if(_isMobile() == mobiletrue) {
 			 var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
              //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 			//alert(c);
-			printDiv2(c);
+			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
+            setTimeout(function() {printDiv2(c);}, 3000);
 			// alert();
 			
 		});
@@ -1183,7 +1184,9 @@ else {
 			 var c =   jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').html();
              //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 			//alert(c);
-			printDiv2(c);
+			//printDiv2(c);
+			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
+            setTimeout(function() {printDiv2(c);}, 3000);			
 			// alert();
 			
 		});
