@@ -379,6 +379,7 @@ if(_isMobile() == mobiletrue) {
 				 
 				 location.reload(); 
 				 
+				 
 				 //location.href='#';
 				 //window.location.hash=' ';
 				 //window.location.href =window.location.href+'#'+postID; 
