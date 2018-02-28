@@ -47,7 +47,7 @@ function tooltip(el, message)
 	
 	tooltip.style.display = "block";
 	tooltip.innerHTML = message;
-	setTimeout(function() { tooltip.outerHTML = ""; delete tooltip; }, 3000);
+	setTimeout(function() { tooltip.outerHTML = ""; delete tooltip; location.href='https://bayan-noon.com/index.php/forum2/t-1361.html#post3424';}, 3000);
 }
 
 

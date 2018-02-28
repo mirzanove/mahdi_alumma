@@ -356,7 +356,7 @@ if(_isMobile() == mobiletrue) {
            // setTimeout(function() {printDiv2(c);}, 3000);
 		  
 		  jQueryM_v1_4_5.print(c);
-		  setTimeout(function () {location.href='https://bayan-noon.com/index.php/forum2/t-1361.html#post3424'}, 100);
+		  setTimeout(function () {tooltip(null, "الرجاء الانتظار يتم عرض الطباعة");}, 100);
 		 
 		}
 			
