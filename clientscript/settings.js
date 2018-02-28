@@ -344,7 +344,7 @@ if(_isMobile() == mobiletrue) {
 			printin_prosses = true;
 		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
-			//tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
+			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
             setTimeout(function() {printDiv2(c);}, 3000);
 		}
 			
