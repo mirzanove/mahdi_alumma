@@ -67,6 +67,22 @@ return true;
 
 }
 
+function redraw(element){
+    //alert(element.innerHTML);
+    if (!element) { return; }
+
+    var n = document.createTextNode(' ');
+    var disp = element.style.display;  // don't worry about previous display style
+
+    element.appendChild(n);
+    element.style.display = 'none';
+
+    setTimeout(function(){
+        element.style.display = disp;
+        n.parentNode.removeChild(n);
+    },20); // you can play with this timeout to make it as short as possible
+}
+
 function printDiv(divID) {
 	return false;
 }
@@ -350,20 +366,19 @@ if(_isMobile() == mobiletrue) {
          event.stopPropagation();
 		if(printin_prosses == false){
 			printin_prosses = true;
-		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext');
+		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
-			 
-           // setTimeout(function() {printDiv2(c);}, 3000);
 		  tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
 		  
 		  setTimeout(function () {
-			 jQueryM_v1_4_5.print(c);
+			 //jQueryM_v1_4_5.print(c);
+			 	 printDiv2(c);
 			 setTimeout(function () {
 				 
 				 //location.href='https://bayan-noon.com/index.php/forum2/t-1361.html#post3424';
-				 jQueryM_v1_4_5('html').hide().show(500).trigger('resize');
-				 jQueryM_v1_4_5('.header_topic').hide().show(500).trigger('resize');
-				 
+				 jQueryM_v1_4_5('html').hide().show(0).trigger('resize');
+				 jQueryM_v1_4_5('.header_topic').hide().show(0).trigger('resize');
+				 redraw(event.currentTarget.parentNode.parentNode.parentNode);
 				 }, 300);
 			  }, 3000);
 		  //
