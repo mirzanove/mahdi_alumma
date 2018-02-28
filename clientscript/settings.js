@@ -153,6 +153,8 @@ function printDiv2(divID) {
 				
                 document.body.removeChild(frame1);
 				jQueryM_v1_4_5('#wrapper').trigger('resize');
+				jQueryM_v1_4_5('.posttop').removeAttr('style');
+                jQueryM_v1_4_5("#wrapper").animate({ scrollTop:500 }, 0);
             }, 200);
             return false;
 
