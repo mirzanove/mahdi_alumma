@@ -354,9 +354,13 @@ if(_isMobile() == mobiletrue) {
             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 			 
            // setTimeout(function() {printDiv2(c);}, 3000);
+		  tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
 		  
-		  jQueryM_v1_4_5.print(c);
-		  setTimeout(function () {tooltip(null, "الرجاء الانتظار يتم عرض الطباعة");}, 100);
+		  setTimeout(function () {
+			 jQueryM_v1_4_5.print(c);
+			 setTimeout(function () {location.href='https://bayan-noon.com/index.php/forum2/t-1361.html#post3424';}, 300);
+			  }, 3000);
+		  //
 		 
 		}
 			
