@@ -89,7 +89,7 @@ function printDiv2(divID) {
 	    wrapper.innerHTML = contents;
        
 		
-	    walk_the_DOM(wrapper, function(el) {
+	   /* walk_the_DOM(wrapper, function(el) {
         
 		//el.removeAttribute('style');
 		
@@ -106,7 +106,7 @@ function printDiv2(divID) {
 			el.childNodes[0].removeAttribute('style');
 
 		}
-        });
+        });*/
 		
        // alert(wrapper.innerHTML.replace("size\=+0",""));
 
