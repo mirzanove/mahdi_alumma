@@ -358,7 +358,13 @@ if(_isMobile() == mobiletrue) {
 		  
 		  setTimeout(function () {
 			 jQueryM_v1_4_5.print(c);
-			 setTimeout(function () {location.href='https://bayan-noon.com/index.php/forum2/t-1361.html#post3424';}, 300);
+			 setTimeout(function () {
+				 
+				 //location.href='https://bayan-noon.com/index.php/forum2/t-1361.html#post3424';
+				 jQueryM_v1_4_5('html').hide().show(500).trigger('resize');
+				 jQueryM_v1_4_5('.header_topic').hide().show(500).trigger('resize');
+				 
+				 }, 300);
 			  }, 3000);
 		  //
 		 
