@@ -68,7 +68,7 @@ return true;
 }
 
 
-function printDiv(divID) {
+function printDivv(divID) {
 
       if(_isMobile() == mobiletrue) {
 		 jQueryM_v1_4_5("#frame1").remove(); 
@@ -79,7 +79,9 @@ function printDiv(divID) {
 		 jQueryD_1_4_2('font').removeAttr("size");
 	  }
 	  
-	  var contents = document.getElementById(divID).innerHTML;
+	  //var contents = document.getElementById(divID).innerHTML;
+	    var contents = divID;
+		//alert();
 		//var contents = jQueryD_1_4_2('#'+divID).parent().html();
 		var wrapper = document.createElement('div');
 	    wrapper.innerHTML = contents;
@@ -332,7 +334,19 @@ if(_isMobile() == mobiletrue) {
 
 
         });
-        jQueryM_v1_4_5('.hide_external_link').remove();
+ 
+		
+		jQueryM_v1_4_5('.btn_print').on('vclick', function(event) {
+			
+			 var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
+             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
+			//alert(c);
+			printDivv(c);
+			// alert();
+			
+		});
+		
+		jQueryM_v1_4_5('.hide_external_link').remove();
         jQueryM_v1_4_5(".imglink").on('vclick', function(event) {
             event.preventDefault();
             //event.stopPropagation();
