@@ -147,7 +147,7 @@ function printDiv2(divID) {
             setTimeout(function () {
                 window.frames["frame1"].focus();
                 window.frames["frame1"].print();
-                document.body.removeChild(frame1);
+                //document.body.removeChild(frame1);
 				printin_prosses = false;
             }, 100);
             return false;
