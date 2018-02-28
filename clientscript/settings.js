@@ -152,7 +152,7 @@ function printDiv2(divID) {
                 window.frames["frame1"].print();
 				
                 document.body.removeChild(frame1);
-				
+				jQueryM_v1_4_5('#wrapper').trigger('resize');
             }, 200);
             return false;
 
