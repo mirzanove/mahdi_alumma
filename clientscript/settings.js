@@ -152,8 +152,8 @@ function printDiv2(divID) {
                 window.frames["frame1"].print();
 				
                 document.body.removeChild(frame1);
-				jQueryM_v1_4_5('body').trigger('resize');
-				jQueryM_v1_4_5('.posttop').css("background-color", "#d5dc91");
+				//jQueryM_v1_4_5('body').trigger('resize');
+				//jQueryM_v1_4_5('.posttop').css("background-color", "#d5dc91");
                 //jQueryM_v1_4_5("#wrapper").animate({ scrollTop:500 }, 0);
             }, 200);
             return false;
