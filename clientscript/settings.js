@@ -1184,7 +1184,8 @@ else {
 
 	
 	     jQueryD_1_4_2('.btn_print').click( function(event) {
-			
+			event.preventDefault();
+            event.stopPropagation();
 			 var c =   jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').html();
              //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 	
