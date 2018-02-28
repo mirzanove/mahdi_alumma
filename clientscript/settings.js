@@ -341,7 +341,8 @@ if(_isMobile() == mobiletrue) {
         });
  
 		jQueryM_v1_4_5('.btn_print').on('vclick', function(event) {
-		
+		 event.preventDefault();
+         event.stopPropagation();
 		if(printin_prosses == false){
 			printin_prosses = true;
 		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
