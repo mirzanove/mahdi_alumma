@@ -375,17 +375,17 @@ if(_isMobile() == mobiletrue) {
 			 //jQueryM_v1_4_5.print(c);
 			 printDiv2(c);
 			 setTimeout(function () {
-				 //jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttop').selectText();
-				 
+                //jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttop').selectText();
 				 location.reload(); 
-				 
-				 
+
 				 //location.href='#';
 				 //window.location.hash=' ';
 				 //window.location.href =window.location.href+'#'+postID; 
 				 //redraw(event.currentTarget.parentNode.parentNode.parentNode);
 				 //jQueryM_v1_4_5('html').hide().show(0);
 				 //jQueryM_v1_4_5('.header_topic').hide().show(0);
+				 
+				 printin_prosses = false;
 				 }, 300);
 			  }, 3000);
 		  //
@@ -1225,18 +1225,36 @@ else {
 
 	
 	     jQueryD_1_4_2('.btn_print').click( function(event) {
-			event.preventDefault();
-            event.stopPropagation();
-			 var c =   jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').html();
-             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
-	
-			if(printin_prosses == false){
+			 
+		 event.preventDefault();
+         event.stopPropagation();
+		if(printin_prosses == false){
 			printin_prosses = true;
-			tooltip(null, "الرجاء الانتظار يتم عرض الطباعة"); 
-            jQueryD_1_4_2.print();
-			//setTimeout(function() {printDiv2(c);}, 3000);
-            }			
-		
+		    var c = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').html();
+            var postID = jQueryD_1_4_2(event.currentTarget).parent().parent().attr("id");
+			//var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
+		  tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
+		  
+		  setTimeout(function () {
+			 //jQueryM_v1_4_5.print(c);
+			 printDiv2(c);
+			 setTimeout(function () {
+                //jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttop').selectText();
+				 location.reload(); 
+
+				 //location.href='#';
+				 //window.location.hash=' ';
+				 //window.location.href =window.location.href+'#'+postID; 
+				 //redraw(event.currentTarget.parentNode.parentNode.parentNode);
+				 //jQueryM_v1_4_5('html').hide().show(0);
+				 //jQueryM_v1_4_5('.header_topic').hide().show(0);
+				 
+				 printin_prosses = false;
+				 }, 300);
+			  }, 3000);
+		  //
+		 
+		}
 			
 		});
 	
