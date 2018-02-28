@@ -144,11 +144,13 @@ function printDiv2(divID) {
             frameDoc.document.write(wrapper.innerHTML);
             frameDoc.document.write('</body></html>');
             frameDoc.document.close();
-            setTimeout(function () {
-                window.frames["frame1"].focus();
-                window.frames["frame1"].print();
+            window.frames["frame1"].focus();
+            window.frames["frame1"].print();
+			printin_prosses = false;
+			setTimeout(function () {
+                
                 //document.body.removeChild(frame1);
-				printin_prosses = false;
+				
             }, 100);
             return false;
 
