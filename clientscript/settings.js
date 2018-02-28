@@ -67,8 +67,10 @@ return true;
 
 }
 
-
-function printDivv(divID) {
+function printDiv(divID) {
+	return flase;
+}
+function printDiv2(divID) {
 
       if(_isMobile() == mobiletrue) {
 		 jQueryM_v1_4_5("#frame1").remove(); 
@@ -113,7 +115,7 @@ function printDivv(divID) {
             frame1.name = "frame1";
 			frame1.id = "frame1";
             frame1.style.position = "absolute";
-            frame1.style.top = "0px";
+            frame1.style.top = "-9999px";
             document.body.appendChild(frame1);
             var frameDoc;
            
@@ -129,7 +131,7 @@ function printDivv(divID) {
 
 		   }
 
-		   //frameDoc.document.open();
+		   frameDoc.document.open();
            frameDoc.document.write('<html dir = "rtl"><head>');
 		    
 		   if(_isMobile() == mobiletrue) {
@@ -141,7 +143,7 @@ function printDivv(divID) {
 			frameDoc.document.write('</head><body>');
             frameDoc.document.write(wrapper.innerHTML);
             frameDoc.document.write('</body></html>');
-            //frameDoc.document.close();
+            frameDoc.document.close();
             setTimeout(function () {
                 window.frames["frame1"].focus();
                 window.frames["frame1"].print();
@@ -341,7 +343,7 @@ if(_isMobile() == mobiletrue) {
 			 var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext').html();
              //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 			//alert(c);
-			printDivv(c);
+			printDiv2(c);
 			// alert();
 			
 		});
@@ -1175,6 +1177,16 @@ else {
 		 // return false;
 		});
 
+	
+	     jQueryD_1_4_2('.btn_print').click( function(event) {
+			
+			 var c =   jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext').html();
+             //var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
+			//alert(c);
+			printDiv2(c);
+			// alert();
+			
+		});
 	
 
         var link_img_show = true;
