@@ -108,9 +108,10 @@ u{
 
 div.posttext {
 	
-/*font-family:'Lateef', serif;*/
+font-family:'Lateef', serif;
+padding:15px;
 
-padding:15px;}
+}
 
 
 
