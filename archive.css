@@ -47,9 +47,14 @@ td {
 	font-size: 100%;
 	font: inherit;
 	direction: rtl;
+	text-decoration-skip-ink: edges;
+	/*border-bottom:solid;*/
 	/*font-family: 'Amiri', serif;*/
 }
-
+u{
+   text-decoration: none;
+   border-bottom:solid;	
+}
 
 /* amiri-regular - arabic */
 @font-face {
