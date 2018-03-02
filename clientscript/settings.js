@@ -227,7 +227,7 @@ if(_isMobile() == mobiletrue) {
         //alert("mobile");
         
 		
-		jQueryM_v1_4_5('.posttext').css("font-size", "");	
+		jQueryM_v1_4_5('.posttext').css("font-size", "25px");	
 		//alert(jQueryM_v1_4_5('.posttext').css('font-size'));
 		jQueryM_v1_4_5('.loading').show();
 		
@@ -757,7 +757,7 @@ if(_isMobile() == mobiletrue) {
 
             arrEdited2.push({
                 id: jQueryM_v1_4_5(this).attr('id'),
-                fontsize: 20
+                fontsize: 25
 
             });
         });
@@ -842,10 +842,11 @@ if(_isMobile() == mobiletrue) {
 						//alert(arrEdited2[d].id);
 						
 						 var el = c[i];
-				         var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
-    
+				         var style = jQueryM_v1_4_5('.posttext').css("font-size");
+                        //alert(style);
 				        if(fontSize == null){
                         fontSize = arrEdited2[d].fontsize;
+						//alert(fontSize);
 				        }
 				        fontSize = fontSize +2;
 				        el.style.fontSize = (fontSize) + 'px';
@@ -1037,7 +1038,7 @@ else {
         //alert("deskstop");
         
 		
-		jQueryD_1_4_2('.posttext').css("font-size", "");	
+		jQueryD_1_4_2('.posttext').css("font-size", "25px");	
 		//alert(jQueryD_1_4_2('.posttext').css('font-size'));
 		jQueryD_1_4_2('.loading').show();
 
