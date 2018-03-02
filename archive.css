@@ -61,12 +61,12 @@ font
 }
 u{
    text-decoration: none;
-   padding-bottom:0px;
+
    border-bottom:solid;	
 }
 
 
-.posttext div,.posttext span{line-height: 140%;}
+.posttext div,.posttext span{line-height: 165%;}
 
 
 div.posttext {
