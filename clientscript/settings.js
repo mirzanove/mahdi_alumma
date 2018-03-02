@@ -86,6 +86,10 @@ function redraw(element){
 function printDiv(divID) {
 	return false;
 }
+
+
+
+
 function printDiv2(divID) {
 
       if(_isMobile() == mobiletrue) {
@@ -223,7 +227,9 @@ if(_isMobile() == mobiletrue) {
         //alert("mobile");
         
 		
-		
+		jQueryM_v1_4_5('.posttext').css("font-size", "");	
+		//alert(jQueryM_v1_4_5('.posttext').css('font-size'));
+		jQueryM_v1_4_5('.loading').show();
 		
 		
 		
@@ -1029,7 +1035,11 @@ else {
 
     jQueryD_1_4_2(document).ready(function() {
         //alert("deskstop");
-        jQueryD_1_4_2('.loading').show();
+        
+		
+		jQueryD_1_4_2('.posttext').css("font-size", "");	
+		//alert(jQueryD_1_4_2('.posttext').css('font-size'));
+		jQueryD_1_4_2('.loading').show();
 
 	
 
