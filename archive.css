@@ -15,7 +15,6 @@ h5,
 h6,
 p,
 blockquote,
-a,
 abbr,
 acronym,
 del,
@@ -47,12 +46,11 @@ font
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
-	font: inherit;
+	/*font: inherit;*/
 	direction: rtl;
-	text-decoration-skip-ink: edges;
 	/*border-bottom:solid;*/
 	/*font-family: 'Amiri', serif;*/
-	line-height: 160%;
+
 	
 	
 }
@@ -61,6 +59,12 @@ u{
    padding-bottom:4px;
    border-bottom:solid;	
 }
+
+
+.posttext span{line-height: 160%;}
+
+
+
 
 /* amiri-regular - arabic */
 @font-face {
@@ -97,6 +101,8 @@ div.language div ul li span{
 div.language div ul li a{
 	border:1px solid gainsboro;
 }
+
+
 
 div.posttext {
 
@@ -615,14 +621,12 @@ body #loading {
 .tooltiptext {
 	display: none;
 }
-a {
-   
-		
-}
+
 a:link {
 	color: #417394;
 	font-weight: bold;
 	text-decoration: none;
+	
 	
 }
 a:visited {
