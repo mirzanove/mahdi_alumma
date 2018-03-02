@@ -61,13 +61,13 @@ font
 }
 u{
    text-decoration: none;
-    line-height: 0%;
+    line-height: 200%;
     border-bottom:solid;
     /*margin-bottom :-300px;*/
 }
 
 
-.posttext div,.posttext span{line-height: 175%;}
+.posttext div,.posttext span{line-height: 140%;}
 
 
 div.posttext {
