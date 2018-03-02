@@ -61,13 +61,25 @@ font
 }
 u{
    text-decoration: none;
-   padding-bottom:4px;
+   padding-bottom:0px;
    border-bottom:solid;	
 }
 
 
-.posttext div,.posttext span{line-height: 160%;}
+.posttext div,.posttext span{line-height: 140%;}
 
+
+div.posttext {
+
+/*font-family: Andalus;
+font-style: normal;
+  font-weight: 400;*/
+  /*font-family: "arial", Times, serif;*/
+ font-family:'Lateef', serif;
+ font-size:25px;
+ padding:15px;
+	 
+}
 
 /* arabic */
 @font-face {
@@ -120,19 +132,6 @@ div.language div ul li span{
 }
 div.language div ul li a{
 	border:1px solid gainsboro;
-}
-
-
-div.posttext {
-
-/*font-family: Andalus;
-font-style: normal;
-  font-weight: 400;*/
-  /*font-family: "arial", Times, serif;*/
- font-family:'Lateef', serif;
- font-size:25px;
- padding:15px;
-	 
 }
 
 
