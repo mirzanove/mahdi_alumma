@@ -772,7 +772,7 @@ if(_isMobile() == mobiletrue) {
 			}else{
 			if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}
 			fontSize = null
-			var size = 20;
+			var size = 25;
 
 			var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
 
@@ -1591,7 +1591,7 @@ else {
 			   }else{
 			   if (typeof link_disable2 !== 'undefined') {if(link_disable2 == true){return false;}}}	
 			}
-			var size = 20;
+			var size = 25;
             jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', size);
             /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
