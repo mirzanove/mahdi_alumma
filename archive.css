@@ -50,10 +50,14 @@ td {
 	text-decoration-skip-ink: edges;
 	/*border-bottom:solid;*/
 	/*font-family: 'Amiri', serif;*/
+	
+	
 }
 u{
    text-decoration: none;
+   padding-bottom:3px;
    border-bottom:solid;	
+   line-height: 200%;
 }
 
 /* amiri-regular - arabic */
