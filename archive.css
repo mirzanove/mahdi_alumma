@@ -41,7 +41,9 @@ tfoot,
 thead,
 tr,
 th,
-td {
+td ,
+font
+{
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
@@ -50,7 +52,7 @@ td {
 	text-decoration-skip-ink: edges;
 	/*border-bottom:solid;*/
 	/*font-family: 'Amiri', serif;*/
-	line-height: 140%;
+	line-height: 160%;
 	
 	
 }
@@ -58,7 +60,6 @@ u{
    text-decoration: none;
    padding-bottom:3px;
    border-bottom:solid;	
-   line-height: 200%;
 }
 
 /* amiri-regular - arabic */
