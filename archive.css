@@ -106,7 +106,11 @@ u{
 .posttext div,.posttext span{line-height: 140%;}
 
 
-div.posttext {font-family:'Lateef', serif;padding:15px;}
+div.posttext {
+	
+/*font-family:'Lateef', serif;*/
+
+padding:15px;}
 
 
 
