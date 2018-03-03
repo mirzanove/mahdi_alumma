@@ -95,15 +95,9 @@ font
 }
 
 
-u{
-    text-decoration: none;
-    border-bottom: 0.1px solid;
+u{text-decoration: none;border-bottom: 0.1px solid;}
 
-
-}
-
-
-.posttext div:not(u),.posttext span:not(u){line-height: 160%;}
+.posttext div:not(u),.posttext span:not(u){line-height: 150%;}
 
 
 div.posttext {
