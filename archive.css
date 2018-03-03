@@ -96,14 +96,14 @@ font
 
 
 u{
-   text-decoration: none;
-    line-height: 200%;
-    border-bottom:solid;
-    /*margin-bottom :-300px;*/
+    text-decoration: none;
+    border-bottom: 0.1px solid;
+
+
 }
 
 
-.posttext div,.posttext span{line-height: 140%;}
+.posttext div:not(u),.posttext span:not(u){line-height: 160%;}
 
 
 div.posttext {
