@@ -163,7 +163,7 @@ body #copy_tooltip {
 
 html, body {height:100%; overflow:hidden; 
 -webkit-overflow-scrolling: touch;
-width:100%; 
+/*width:100%; */
 
 }
 
