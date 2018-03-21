@@ -403,6 +403,156 @@ if(useTwitter === true) {
 	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 }
 </script>
+
+
+
+
+
+
+
+
+<!-- Scripts -->
+<script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
+<script>
+var link_disable = false;
+var elts = document.getElementsByTagName('div');
+
+function showdropdown() {
+	    document.getElementById("myDropdown").classList.toggle("show");
+}
+window.onclick = function(event) {
+
+  var target = event ? event.target : window.event.srcElement;
+  //alert(target.className);
+  if (target.className !='dropbtn'&& target.className!='drop') {
+    
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+var show = function() { 
+
+//alert(link_disable); 
+if(link_disable == true){
+			return false;
+		}
+
+}
+for (var i = elts.length - 1; i >= 0; --i) {
+    elts[i].onclick = show;
+}
+
+var toc = document.getElementById('toc');
+function scrollTo_up(){
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+toc.scrollTop = 0;
+setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
+}
+function scrollTo_down(){
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+toc.scrollTop = toc.scrollHeight;
+setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
+}
+
+document.getElementsByClassName("close")[0].addEventListener("click", close_modal);
+function close_modal(){
+document.getElementsByClassName("modal")[0].style.display = 'none';
+setTimeout(function() { 
+			  link_disable = false;
+			  document.getElementById('iframe').contentWindow.postMessage(["link_disable","false"], "*");
+			  }, 1000);
+
+//document.documentElement.style.overflow = "auto";
+//document.body.style.overflow = "auto";
+}
+
+/*toc.addEventListener("scroll", scroll_toc);
+function scroll_toc(){
+if(element.scrollHeight - element.scrollTop === element.clientHeight) {
+alert("");
+}}*/
+
+
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+eventer(messageEvent,function(e) {
+
+    var eventName = e.data[0];
+    var data = e.data[1];
+
+	switch(eventName) {
+    
+	case 'modal_display':
+	if(data == "show"){
+	   
+	   link_disable = true;
+	   e.source.postMessage(["link_disable","true"], "*");
+	   document.getElementsByClassName("modal")[0].style.display = 'block';
+	   //$("#myModal").show() ;
+	   //$("body,html").css({'overflow' : 'hidden'});
+	   document.documentElement.style.overflow = "hidden";
+	   document.body.style.overflow = "hidden";
+	}
+	break;
+	case 'image_url':
+	   //$("#img01").attr("src",data);
+       document.getElementById('img01').src = data;	   
+	break;
+	break;case 'loading': 
+    if(data == "stop"){
+	   document.getElementsByClassName("loading2")[0].style.display = 'none';
+	 
+	}else{
+	   document.getElementsByClassName("loading2")[0].style.display = 'block';
+	}
+	break;
+	case 'get_ifram_location_href': 
+	 location.href = data;
+	break;
+	case 'check_highlight_state': 
+	     var chkBox = document.getElementById('checkbox_id3');
+         if (chkBox.checked)
+         {e.source.postMessage(["check_highlight_state","true"], "*");}
+         else
+		 {e.source.postMessage(["check_highlight_state","false"], "*");}
+	break;
+	case 'hide_drop': 
+	if(data == "hide_drop"){ 
+       var dropdowns = document.getElementsByClassName("dropdown-content");
+       var i;
+       for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+         if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+         }
+       }
+    }		
+	break;
+	
+	
+}
+},false);
+
+
+		
+</script>
+
+
+
+
+
+
+
+
+
 <script type="text/javascript" src="whxdata/whtagdata.js"></script>
 </body>
 </html>

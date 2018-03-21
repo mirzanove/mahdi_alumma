@@ -1,7 +1,7 @@
 //Variables to override in settings
-var useTOC = false;
-var useGLO = false;
-var useIDX = false;
+var useTOC = true;
+var useGLO = true;
+var useIDX = true;
 var delayLoadIdx = true;
 var delayLoadGlo = true;
 var useFilter = true;
