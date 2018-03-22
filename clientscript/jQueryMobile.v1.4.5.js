@@ -383,14 +383,15 @@ function getSpecialEventObject( eventType ) {
 				// register our touchstart handler on the document.
 
 				activeDocHandlers[ "touchstart" ] = ( activeDocHandlers[ "touchstart" ] || 0) + 1;
+
+				
 if(window.location != window.parent.location)
 {
-	//alert(realType);
-}
-else{
-	
+var isAndroid = /(android)/i.test(navigator.userAgent);
+//alert(isAndroid);
+if(!isAndroid){
 if ( activeDocHandlers[ "touchstart" ] === 1 ) {
-					$document.bind( "touchstart", handleTouchStart )
+$document.bind( "touchstart", handleTouchStart )
 						.bind( "touchend", handleTouchEnd )
 
 						// On touch platforms, touching the screen and then dragging your finger
@@ -405,7 +406,28 @@ if ( activeDocHandlers[ "touchstart" ] === 1 ) {
 
 						.bind( "touchmove", handleTouchMove )
 						.bind( "scroll", handleScroll );
-				}	
+}	
+}
+
+}
+else{
+if ( activeDocHandlers[ "touchstart" ] === 1 ) {
+$document.bind( "touchstart", handleTouchStart )
+						.bind( "touchend", handleTouchEnd )
+
+						// On touch platforms, touching the screen and then dragging your finger
+						// causes the window content to scroll after some distance threshold is
+						// exceeded. On these platforms, a scroll prevents a click event from being
+						// dispatched, and on some platforms, even the touchend is suppressed. To
+						// mimic the suppression of the click event, we need to watch for a scroll
+						// event. Unfortunately, some platforms like iOS don't dispatch scroll
+						// events until *AFTER* the user lifts their finger (touchend). This means
+						// we need to watch both scroll and touchmove events to figure out whether
+						// or not a scroll happenens before the touchend event is fired.
+
+						.bind( "touchmove", handleTouchMove )
+						.bind( "scroll", handleScroll );
+}	
 }
 				
 			}
