@@ -280,9 +280,14 @@ if(_isMobile() == mobiletrue) {
 		}
 	}*/
 
-     
+       
+		
         jQueryM_v1_4_5(document).on('vclick', function(event) {
 
+		
+
+		
+		
             if(event.which == 0 || event.which == 1) { //right click
              
             window.parent.postMessage(["hide_drop", "hide_drop"], "*");

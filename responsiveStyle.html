@@ -5,7 +5,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes" />
 <meta name="generator" content="Adobe RoboHelp 12" />
-<title>New Help</title>
+<title>mawso3a</title>
 <link rel="StyleSheet" href="template/Charcoal_Grey/layout-rtl.css" type="text/css" />
 
 <script type="text/javascript"> 
@@ -26,6 +26,34 @@ function MyFunction(){
 function get_link_url(){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
+}
+
+
+
+
+function chkvisiblty(cc){
+
+if (cc.className == "fts active"){
+//alert("hide");
+
+/*var div = '<iframe id ="topictt" class="topic" name="rh_default_topic_frame_name"></iframe>';
+
+gTopicFrameName = "rh_default_topic_frame_name";
+gDefaultTopic = "#index.php.htm";
+document.getElementById('topic_wrapper').innerHTML = div;*/
+}
+else{
+//alert("show");
+//document.getElementById("topictt").remove();
+
+/*var element = document.getElementById("topictt");
+element.outerHTML = "";
+delete element;*/
+
+
+}
+
+
 }
 	
 </script>
@@ -217,17 +245,43 @@ display:block;
 
 
 
-<div class="header" data-class="">
-	<div class="logo" data-attr="title:@KEY_LNG.HomeButton;href:rh.consts('DEFAULT_TOPIC')" data-click="!(@KEY_SCREEN_DESKTOP || @KEY_SCREEN_TABLET) && @KEY_ACTIVE_TAB(null)">
-		&nbsp;
-	</div>
-	<div class="title">
-		<span>New Help</span>
-	</div>
-	<div class="brs_next" data-attr="title:@KEY_LNG.Next"><a id="browseSeqNextLandscape" class="wBSNextButton" data-rhwidget="Basic" data-attr="href:.l.brsNext" data-css="visibility: @.l.brsNext?'visible':'hidden'">&nbsp;</a>
+<div class="header">
+             <div style = "height: 100%; float : left; cursor: pointer;" data-trigger="EVT_SCROLL_TO_PREPOST">
+
+<img src= "template/resources/toc_book_closed_mobile_rtl.png">
+
 </div>
-	<div class="brs_previous" data-attr="title:@KEY_LNG.Prev"><a id="browseSeqBackLandscape" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'">&nbsp;</a>
+
+<div style = "height: 100%; float : left; cursor: pointer;"  data-trigger="EVT_SCROLL_TO_NEXTPOST">
+<img src= "template/resources/toc_book_closed_mobile_ltr.png">
+
 </div>
+
+<div  style = "height: 100%; float : left; cursor: pointer;"  data-trigger="EVT_SCROLL_TO_TOP">
+<img src= "template/resources/toc_book_open_drildown.png">
+
+</div>	
+
+<div style = "height: 100%; float : left; cursor: pointer;" data-trigger="EVT_SCROLL_TO_DOWN">
+<img src= "template/resources/toc_book_open_mobile.png">
+</div>
+
+<div class="dropdown" id = "dropdown" style = "display:block; height: 100%; float : left; cursor: pointer;">
+<img onclick="showdropdown()" class="dropbtn" src= "template/resources/plus.png">
+  <div id="myDropdown" class="dropdown-content">
+<a class = "drop"  data-trigger="EVT_PRINT_TOPIC">طباعة الكل</a>
+<a class = "drop"  data-trigger="EVT_REMOVE_FORMAT">ازالة التنسيق</a>
+<a class = "drop"  data-trigger="EVT_ZOOMIN">A++</a>
+<a class = "drop"  data-trigger="EVT_ZOOMOUT">A--</a>
+<a class = "drop"  data-trigger="EVT_RESET">0</a>
+  </div>
+</div>
+			 
+<div class="logo" data-attr="href:rh.consts('DEFAULT_TOPIC')" data-click="!(@KEY_SCREEN_DESKTOP || @KEY_SCREEN_TABLET) && @KEY_ACTIVE_TAB(null)">
+		      &nbsp;
+
+</div>
+          	
 </div>
 <!-- Function bar with TOC/IDS/GLO/FILTER/FTS buttons -->
 <div class="functionbar" data-css="width: sidebar_width | screen: 'desktop'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
@@ -236,25 +290,37 @@ display:block;
 		<a class="idx" data-if="KEY_FEATURE.idx" data-class="active: @KEY_ACTIVE_TAB == 'idx'" data-click="$mc.toggleActiveTab('idx')" data-attr="title:@KEY_LNG.Index; href: '#'">&#160;</a>
 		<a class="glo" data-if="KEY_FEATURE.glo" data-class="active: @KEY_ACTIVE_TAB == 'glo'" data-click="$mc.toggleActiveTab('glo')" data-attr="title:@KEY_LNG.Glossary; href: '#'">&#160;</a>
 		<a class="filter" data-if="KEY_FEATURE.filter" data-class="active: @KEY_ACTIVE_TAB == 'filter'; filter-applied: @.l.tag_expression.length"  data-click="$mc.toggleActiveTab('filter')" data-attr="title:@KEY_LNG.Filter; href: '#'">&#160;</a>
-		<a class="fts" data-if="!@KEY_SCREEN_DESKTOP || @KEY_SEARCH_LOCATION == 'tabbar'" data-class="active: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'" data-click="$mc.toggleActiveTab('fts')" data-attr="title:@KEY_LNG.SearchTitle; href: '#'">&#160;</a>
+		<a onclick = "chkvisiblty(this)" class="fts" data-if="!@KEY_SCREEN_DESKTOP || @KEY_SEARCH_LOCATION == 'tabbar'" data-class="active: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'" data-click="$mc.toggleActiveTab('fts')" data-attr="title:@KEY_LNG.SearchTitle; href: '#'">&#160;</a>
+	    
+	  <a onclick="MyFunction();return false;" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a>
+	 
+	  <a onclick="get_link_url();" class="cool" style = "background-image:url('template/resources/close.png');background-repeat:no-repeat;background-position:center;">&#160;</a>
+	
+	
 	</div>
 </div>
 <!-- Table of contents -->
-<div class="toc-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: @KEY_ACTIVE_TAB == 'toc'; drill-down: KEY_TOC_DRILL_DOWN; ; loading: !@EVT_TOC_LOADED">
-	<div class="mobileheader"><span data-text="@KEY_LNG.TableOfContents"></span><div class="totopic" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
-	<ul class="toc" data-rhwidget="List: .p.toc" data-controller="TocController: toc" data-click="$toc.onClick(event)">
-		<li data-rif="item.type === 'item' || item.type === 'remoteitem'" data-i-class="$toc.class(item)" data-class="inactive: @bookid != '#{@pid}'" data-childorder="#{childOrder}" data-rhtags="#{$toc.tags(item)}" data-itemid="#{@id}">
-			<a data-itext="item.name" data-i-href="$toc.url(item, '#{@id}')"></a>
-		</li>
-		<li class="book" data-rif="item.type === 'book'" data-class="active: @bookid == '#{@id}'; inactive: @bookid != '#{@pid}' &amp;&amp; @bookid != '#{@id}'" data-childorder="#{childOrder}"
-			data-itemkey="#{$toc.key(item.absRef, item.key)}" data-itemid="#{@id}" data-itemlevel="#{@level}" data-rhtags="#{$toc.tags(item)}">
-			<a data-itext="item.name" data-i-href="$toc.url(item, '#{@id}')"></a>
-		</li>
-		<li class="child max-height-transition" data-rif="item.key" data-class="show: @show_child#{@id}" data-childorder="#{childOrder}">
-		  <ul class="child" data-child="$toc.key(item.absRef, item.key)"></ul>
-		</li>
-	</ul>
+
+<div  class="toc-bar"   data-class="layout-visible: @KEY_ACTIVE_TAB == 'toc';" >
+<table style='width:100%'>
+	  
+<tr>
+      
+
+	  <td style='width:2em'>
+	  <a style="cursor : pointer;" onclick="scrollTo_down();return false;"><img src= "template/resources/toc_book_open_mobile.png"></a>
+	  </td>
+	  <td style="text-align: center;">
+		جدول المحتويات
+     </td>
+	  <td style='width:2em'>
+		<a style="cursor : pointer;" onclick="scrollTo_up();return false;"><img src= "template/resources/toc_book_open_drildown.png"></a>
+      </td>	   
+</tr>
+</table>
 </div>
+
+
 <!-- Index -->
 <div class="idx-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; layout-visible: @KEY_ACTIVE_TAB == 'idx'; ">
 	<div class="mobileheader"><span data-text="@KEY_LNG.Index"></span><div class="totopic" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
@@ -347,9 +413,9 @@ display:block;
 		</div>
 		<div id ="loading" data-class="loading: EVT_SEARCH_IN_PROGRESS" data-if="EVT_SEARCH_IN_PROGRESS"></div>
 		<p style = "text-align:center" id = "progressbar" class="progressbar" data-if="KEY_SEARCH_PROGRESS"><span data-text="KEY_SEARCH_PROGRESS"></span>%<br><CENTER><P style = "cursor: pointer" class = "rh-hide" id ="stop" onclick="context.stop();">إلغاء</P></CENTER></p>
-		<div  data-if="!@EVT_SEARCH_IN_PROGRESS">
+		<div class="wSearchResultItemsBlock" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<div data-rhwidget="List: key: @.p.searchresults, spliton: index % @MAX_RESULTS == 14" data-config="loadmore: '.l.load_more_results', loaded: '.l.results_loaded'">
-				<div>
+				<div class="wSearchResultItem">
 					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams">
 						<div class="wSearchResultTitle" data-itext="item.strTitle"></div>
 					</a>
@@ -368,7 +434,8 @@ display:block;
 	</div>
 </div>
 <!-- Topics -->
-<div class="topic main" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
+<div id= "topic_wrapper">
+<div id = "topictt" class="topic main" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
 	<div class="functionholder">
 		<div class="print"><a data-trigger="EVT_PRINT_TOPIC" class="print" data-attr="href: '#'; title:@KEY_LNG.Print">&#160;</a></div>
 		<div class="brs_previous" data-attr="title:@KEY_LNG.Prev"><a id="browseSeqBack" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'">&nbsp;</a>
@@ -377,40 +444,28 @@ display:block;
 </div>
 		<!-- Extra search field for desktop -->
 		<div class="searchbar-extra" data-if="KEY_SCREEN_DESKTOP" data-mouseover="@mousein_searchbox(true)" data-mouseout="@mousein_searchbox(false)">
-			<input class="wSearchField" type="text" data-class="searchpage-mode: @active_content == 'search'" data-attr="placeholder: @KEY_LNG.Search"
+			<input class="wSearchField" type="search" data-class="searchpage-mode: @active_content == 'search'" data-attr="placeholder: @KEY_LNG.Search"
 			data-focus="@focusin_searchbox(true)" data-blur="@focusin_searchbox(false)" data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
 			<a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">&nbsp;</a>
 			<div class="searchAND" data-class="layout-visible: @mousein_searchbox || @focusin_searchbox || @focusin_andoption" data-if="KEY_FEATURE.andsearch">
-				<input id="andsearch" type="checkbox" value="1" class="wSearchAND" data-checked="KEY_AND_SEARCH" data-focus="@focusin_andoption(true)" data-blur="@focusin_andoption(false)" />
-				<label for="andsearch"><span class="wSearchAND">عرض نتائج البحث لكل الكلمات</span></label>
+				
+				
 			</div>
 		</div>
 	</div>
-	<div class="topic-state" data-class="loading: EVT_TOPIC_LOADING" data-if="EVT_TOPIC_LOADING"></div>
-	<iframe class="topic" name="rh_default_topic_frame_name"></iframe>
+
+	<iframe id ="iframe" class="topic" name="rh_default_topic_frame_name"></iframe>
 	<a class="to_top" data-trigger="EVT_SCROLL_TO_TOP" data-attr="title:@KEY_LNG.ToTopTip">&#160;</a> 
 </div>
+</div>
+
+
 <!-- Social media buttons -->
 <div class="social_buttons" data-if="@KEY_FEATURE.social === true && (@KEY_SCREEN_PHONE == false || (@KEY_SCREEN_PHONE == true && $mc.isSidebarTab(@KEY_ACTIVE_TAB) != true && $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content) != true && @KEY_ACTIVE_TAB != 'filter'))" data-class="opened: @.l.social_opened === true;">
 	<a class="social_buttons_controller" href="javascript:rh.model.publish('l.social_opened', rh.model.get('l.social_opened') === true ? false : true)"></a>
 	<div class="fb-button" data-if="KEY_FEATURE.facebook"><iframe id="bf-iframe" style="border:none; overflow:hidden;"></iframe></div>
 	<div class="twitter-button" id="twitter-holder" data-if="KEY_FEATURE.twitter"></div>
 </div>
-<!-- Scripts -->
-<script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
-<script>
-if(useTwitter === true) {
-	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-}
-</script>
-
-
-
-
-
-
-
-
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
 <script>
@@ -544,8 +599,6 @@ eventer(messageEvent,function(e) {
 
 		
 </script>
-
-
 <script type="text/javascript" src="whxdata/whtagdata.js"></script>
 </body>
 </html>

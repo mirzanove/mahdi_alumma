@@ -383,8 +383,13 @@ function getSpecialEventObject( eventType ) {
 				// register our touchstart handler on the document.
 
 				activeDocHandlers[ "touchstart" ] = ( activeDocHandlers[ "touchstart" ] || 0) + 1;
-
-				if ( activeDocHandlers[ "touchstart" ] === 1 ) {
+if(window.location != window.parent.location)
+{
+	//alert(realType);
+}
+else{
+	
+if ( activeDocHandlers[ "touchstart" ] === 1 ) {
 					$document.bind( "touchstart", handleTouchStart )
 						.bind( "touchend", handleTouchEnd )
 
@@ -400,7 +405,9 @@ function getSpecialEventObject( eventType ) {
 
 						.bind( "touchmove", handleTouchMove )
 						.bind( "scroll", handleScroll );
-				}
+				}	
+}
+				
 			}
 		},
 
