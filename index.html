@@ -9,7 +9,6 @@
     <script type="text/javascript" language="javascript">
   
 
-
 var pageName = (function () {
         var a = window.location.href;
         return a;
@@ -204,8 +203,8 @@ choose one of the options below for the type of the style that match your device
 
 
 
-<div style ="font-size:25px" class="dropdown">
-  <button style ="font-size:25px" onclick="myFunction()" style ="font-size:20px" onclick="myFunction()" class="dropbtn">اختيار select</button>
+<div style ="font-size:25px" class="dropdown" id="dropdown">
+  <button style ="font-size:25px" onclick="myFunction()" class="dropbtn">اختيار select</button>
   <div style ="font-size:25px" id="myDropdown" class="dropdown-content">
     <a onclick="Redirect('1')" href="#">ستايل جيكوري للموبايلات<br>jquery mobile style</a>
     <hr>
@@ -279,10 +278,13 @@ In this way, we ask God to be able to help us in this work, and may God reward y
 toggle between hiding and showing the dropdown content */
 function myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
+	document.getElementById("dropdown").scrollIntoView();
 }
 
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
+  
+  
   if (!event.target.matches('.dropbtn')) {
 
     var dropdowns = document.getElementsByClassName("dropdown-content");
