@@ -759,6 +759,7 @@ function findSearchTerms(searchTerms, bSkip)
 		}
 
 		if(bAdd && !bSkip && sCW!="" && sCW!=" " && !IsStopWord(sCW,gaFtsStop)){
+			//alert(gaFtsStop);
 			gaSearchTerms[gaSearchTerms.length] = sCW;
 			if (bPhrase)
 			{

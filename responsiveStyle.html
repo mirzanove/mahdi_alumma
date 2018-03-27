@@ -7,7 +7,13 @@
 <meta name="generator" content="Adobe RoboHelp 12" />
 <title>mawso3a</title>
 <link rel="StyleSheet" href="template/Charcoal_Grey/layout-rtl.css" type="text/css" />
-<script src="https://code.jquery.com/pep/0.4.3/pep.js"></script>
+<script type="text/javascript">
+      window.onload = function() {
+        var frm = document.getElementById('iframe');
+        var win = frm.contentWindow || (frm.contentDocument && frm.contentDocument.parentWindow) || (frm.document && frm.document.parentWindow);
+        if (win) win.parent = null;
+      }
+    </script>
 <script type="text/javascript"> 
 
 function getbooleanindexopage(){
@@ -384,7 +390,7 @@ display:block;
    </table>
 	</div>
 <!-- Search results -->
-<div class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(true) | debounce: 50, delta: 100">
+<div class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(false) | debounce: 50, delta: 100">
 	
 	<label for="checkbox_id1">
     <input type="radio" value="1" name="genderS" id="checkbox_id1" checked> 
@@ -437,7 +443,7 @@ display:block;
 </div>
 <!-- Topics -->
 <div id= "topic_wrapper">
-<div id = "topictt" class="topic main" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
+<div id = "topic" class="topic main" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
 	<div class="functionholder">
 		<div class="print"><a data-trigger="EVT_PRINT_TOPIC" class="print" data-attr="href: '#'; title:@KEY_LNG.Print">&#160;</a></div>
 		<div class="brs_previous" data-attr="title:@KEY_LNG.Prev"><a id="browseSeqBack" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'">&nbsp;</a>
@@ -456,7 +462,7 @@ display:block;
 		</div>
 	</div>
 
-	<iframe id ="iframe" class="topic" name="rh_default_topic_frame_name"></iframe>
+	<iframe  id ="iframe" class="topic" name="rh_default_topic_frame_name"></iframe>
 	<a class="to_top" data-trigger="EVT_SCROLL_TO_TOP" data-attr="title:@KEY_LNG.ToTopTip">&#160;</a> 
 </div>
 </div>

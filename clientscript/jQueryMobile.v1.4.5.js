@@ -385,13 +385,8 @@ function getSpecialEventObject( eventType ) {
 				activeDocHandlers[ "touchstart" ] = ( activeDocHandlers[ "touchstart" ] || 0) + 1;
 
 				
-if(window.location != window.parent.location)
-{
-var isAndroid = /(android)/i.test(navigator.userAgent);
-//alert(isAndroid);
-if(!isAndroid){
-if ( activeDocHandlers[ "touchstart" ] === 1 ) {
-$document.bind( "touchstart", handleTouchStart )
+                     if ( activeDocHandlers[ "touchstart" ] === 1 ) {
+                         $document.bind( "touchstart", handleTouchStart )
 						.bind( "touchend", handleTouchEnd )
 
 						// On touch platforms, touching the screen and then dragging your finger
@@ -406,29 +401,8 @@ $document.bind( "touchstart", handleTouchStart )
 
 						.bind( "touchmove", handleTouchMove )
 						.bind( "scroll", handleScroll );
-}	
-}
+                     }	
 
-}
-else{
-if ( activeDocHandlers[ "touchstart" ] === 1 ) {
-$document.bind( "touchstart", handleTouchStart )
-						.bind( "touchend", handleTouchEnd )
-
-						// On touch platforms, touching the screen and then dragging your finger
-						// causes the window content to scroll after some distance threshold is
-						// exceeded. On these platforms, a scroll prevents a click event from being
-						// dispatched, and on some platforms, even the touchend is suppressed. To
-						// mimic the suppression of the click event, we need to watch for a scroll
-						// event. Unfortunately, some platforms like iOS don't dispatch scroll
-						// events until *AFTER* the user lifts their finger (touchend). This means
-						// we need to watch both scroll and touchmove events to figure out whether
-						// or not a scroll happenens before the touchend event is fired.
-
-						.bind( "touchmove", handleTouchMove )
-						.bind( "scroll", handleScroll );
-}	
-}
 				
 			}
 		},
@@ -450,6 +424,7 @@ $document.bind( "touchstart", handleTouchStart )
 				--activeDocHandlers[ "touchstart" ];
 
 				if ( !activeDocHandlers[ "touchstart" ] ) {
+					
 					$document.unbind( "touchstart", handleTouchStart )
 						.unbind( "touchmove", handleTouchMove )
 						.unbind( "touchend", handleTouchEnd )
@@ -486,7 +461,11 @@ $document.bind( "touchstart", handleTouchStart )
 // Expose our custom events to the jQuery bind/unbind mechanism.
 
 for ( i = 0; i < virtualEventNames.length; i++ ) {
-	$.event.special[ virtualEventNames[ i ] ] = getSpecialEventObject( virtualEventNames[ i ] );
+	//alert(virtualEventNames[ i ]);	
+//if(window.location == window.parent.location){
+$.event.special[ virtualEventNames[ i ] ] = getSpecialEventObject( virtualEventNames[ i ] );
+//}
+	
 }
 
 // Add a capture click handler to block clicks.
@@ -530,24 +509,7 @@ if ( eventCaptureSupported ) {
 			// innermost child of the touched element, even if that child is no where
 			// near the point of touch.
 
-			ele = target;
-
-			while ( ele ) {
-				for ( i = 0; i < cnt; i++ ) {
-					o = clickBlockList[ i ];
-					touchID = 0;
-
-					if ( ( ele === target && Math.abs( o.x - x ) < threshold && Math.abs( o.y - y ) < threshold ) ||
-								$.data( ele, touchTargetPropertyName ) === o.touchID ) {
-						// XXX: We may want to consider removing matches from the block list
-						//      instead of waiting for the reset timer to fire.
-						e.preventDefault();
-						e.stopPropagation();
-						return;
-					}
-				}
-				ele = ele.parentNode;
-			}
+			
 		}
 	}, true);
 }
@@ -616,6 +578,7 @@ if ( eventCaptureSupported ) {
 
 			function trigger( event, state ) {
 				scrolling = state;
+				alert();
 				triggerCustomEvent( thisObject, scrolling ? "scrollstart" : "scrollstop", event );
 			}
 
@@ -627,13 +590,10 @@ if ( eventCaptureSupported ) {
 				}
 
 				if ( !scrolling ) {
-					trigger( event, true );
+					//trigger( event, true );
 				}
 
-				clearTimeout( timer );
-				timer = setTimeout( function() {
-					trigger( event, false );
-				}, 50 );
+				
 			});
 		},
 		teardown: function() {

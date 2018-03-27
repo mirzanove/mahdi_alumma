@@ -1,13 +1,13 @@
 
 if(_isMobile()== mobiletrue){
-/*$.mobile.hideUrlBar = false; 
-$.mobile.page.prototype.options.domCache = true;
-$.mobile.loader.prototype.options.disabled = true;	
+$.mobile.hideUrlBar = false; 
+
 $.mobile.ajaxEnabled=false;
 $.mobile.loadingMessage = false;
 $.mobile.hashListeningEnabled = true;
 $.mobile.pushStateEnabled = false;
-$.mobile.loading().hide();*/	
+
+
 
 
 
