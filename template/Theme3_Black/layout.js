@@ -1,4 +1,7 @@
-﻿if (document.location.href.includes("&checkbox=00")){
+﻿document.getElementsByClassName("loading2")[0].style.display = 'block';
+
+
+if (document.location.href.includes("&checkbox=00")){
 document.getElementById("checkbox_id1").checked = false;
 document.getElementById("checkbox_id0").checked = true;
 document.getElementById("checkbox_id2").checked = false;
@@ -83,7 +86,7 @@ $(document).ready( function (){
 $(document).on('click','.nolink',function(){
 
 
-
+     document.getElementsByClassName("loading2")[0].style.display = 'block';
 	 var $links = $('.nolink');
 	 //$(this).css("background-color", "yellow");
 	 $links.removeClass('curr');

@@ -246,6 +246,7 @@ function DomTextNode( a_Node, a_nFrom )
 	this.doHighlight = function( a_aRanges, a_nStart )
 	{   //jomart
 	    document.getElementById("loading").style.display = 'none';
+		window.parent.postMessage(["loading","stop"], "*");
 		//jomart
 		s_strHlStart = "<em>";
 		s_strHlEnd = "</em>";
@@ -2251,7 +2252,7 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					return el;
 				}
         });
-		
+		 window.parent.postMessage(["loading","stop"], "*");
 		 document.getElementById("loading").style.display = 'none';
 
 		 
