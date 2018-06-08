@@ -588,24 +588,25 @@ function highlightDocument()
 
 /////// start routine /////////
 function applyHighlight()
-{
+{   
 	readSetting(RHHIGHLIGHT, callbackHighlightSettingRead);
 }
 function callbackHighlightSettingRead(bHighlight)
 {
-	if(bHighlight == TRUESTR)
-		readSetting(RHHIGHLIGHTTEXTCOLOR, callbackHighlightTxtColorRead);
+
+		 callbackHighlightTxtColorRead();
 }
 function callbackHighlightTxtColorRead(txtColor)
-{
+{   
 	gsTextColor = txtColor;
 	readSetting(RHHIGHLIGHTBGCOLOR, callbackHighlightBgColorRead);
 }
 function callbackHighlightBgColorRead(bgColor)
-{
+{    
 	gsBkgndColor = bgColor;
 	StartHighLightSearch();
 }
+
 function StartHighLightSearch()
 {
 	var strTerms = GetHighlightTextFromURL();
@@ -616,8 +617,9 @@ function StartHighLightSearch()
 	for (var i = 0; i < arrSyns.length; i++)
 		if (trim(arrSyns[i]) != "")
 			findSearchTerms(trim(arrSyns[i]), false);
+ 
 
-	hit(strTerms);
+ hit(strTerms);
 }
 
 //////// common with FTS routines to identify stop word etc. ////////////
