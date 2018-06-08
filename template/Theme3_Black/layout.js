@@ -102,7 +102,7 @@ $(document).on('click','.nolink',function(){
 function go_topic(){
 	
 	
-	         document.getElementsByClassName("loading2")[0].style.display = 'block';
+	        document.getElementsByClassName("loading2")[0].style.display = 'block';
 
 	        if($(window).innerWidth() < em(43.68)) {
               $('.content').css("bottom", "40px");
