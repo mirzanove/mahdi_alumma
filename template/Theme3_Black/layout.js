@@ -676,12 +676,12 @@ function tabButtonEvent(tabs) {
 
 ************/
 function setTopic() {
-	var url = document.location.toString(),
+	/*var url = document.location.toString(),
 		hashString = rh._.extractHashString(url);
 	if(!hashString || -1 === hashString.search('ux=search')) {
-		saveSetting(lastVisitedTopic, url, false);/* Save the URL of the topic. */
+		saveSetting(lastVisitedTopic, url, false);
 		changeTopicLink(url);
-	}
+	}*/
 }
 function changeTopicLink(url, arg1, arg2) {/* Amend return link. Change default topic to last visited topic. */
 	if(url != "") {
