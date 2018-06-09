@@ -2354,7 +2354,8 @@ var data = e.data[1];
 		  }
 		  else{
 		  loaddsett();
-          document.getElementById("loading").style.display = 'none';		  
+          document.getElementById("loading").style.display = 'none';
+          window.parent.postMessage(["loading","stop"], "*");		  
 		  enable_highlight = false;
 		  }
      break;
