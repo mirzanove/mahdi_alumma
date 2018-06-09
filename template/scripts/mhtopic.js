@@ -589,17 +589,16 @@ function highlightDocument()
 /////// start routine /////////
 function applyHighlight()
 {   
-	readSetting(RHHIGHLIGHT, callbackHighlightSettingRead);
+	callbackHighlightSettingRead();
 }
 function callbackHighlightSettingRead(bHighlight)
 {
-
 		 callbackHighlightTxtColorRead();
 }
 function callbackHighlightTxtColorRead(txtColor)
 {   
 	gsTextColor = txtColor;
-	readSetting(RHHIGHLIGHTBGCOLOR, callbackHighlightBgColorRead);
+	 callbackHighlightBgColorRead();
 }
 function callbackHighlightBgColorRead(bgColor)
 {    
