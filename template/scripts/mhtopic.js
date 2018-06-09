@@ -1,3 +1,4 @@
+
 var gTopicElemId = "";
 var gsPPath="";
 var gaPaths=new Array();
@@ -75,11 +76,12 @@ function verifyEnvironment() {
 	loadScreens(SCR_NONE, gCommonRootRelPath);
 }
 
+
 function initializeTopic() {
-	//jomart
-	window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");
+	//jomart	
+    window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");
 	
-	publishTopicData();
+	//publishTopicData();
 	/*rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
 		setTimeout(applyHighlight, 50);
 	});*/
@@ -2270,7 +2272,7 @@ jQueryD_1_4_2("em").get(0).scrollIntoView();
 		
 		}
 		else{
-            
+           
 			highlightDocument();
 			
 		}
@@ -2347,7 +2349,7 @@ var data = e.data[1];
      	break;
      case 'check_highlight_state':
           if (data =="true"){
-		  
+		
 		  enable_highlight = true;
 		  document.getElementById("loading").style.display = 'block';
 		  setTimeout(applyHighlight, 50);
