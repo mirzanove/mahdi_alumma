@@ -617,8 +617,10 @@ function StartHighLightSearch()
 		if (trim(arrSyns[i]) != "")
 			findSearchTerms(trim(arrSyns[i]), false);
  
+if(strTerms){
+ hit(strTerms);	
+}
 
- hit(strTerms);
 }
 
 //////// common with FTS routines to identify stop word etc. ////////////
@@ -2253,9 +2255,7 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					return el;
 				}
         });
-		 window.parent.postMessage(["loading","stop"], "*");
-		 document.getElementById("loading").style.display = 'none';
-
+		 
 		 
 if (_isMobile() == mobiletrue) {
 		     			    
@@ -2270,6 +2270,7 @@ jQueryD_1_4_2("em").get(0).scrollIntoView();
 		
 		}
 		else{
+            
 			highlightDocument();
 			
 		}
@@ -2351,6 +2352,8 @@ var data = e.data[1];
 		  document.getElementById("loading").style.display = 'block';
 		  setTimeout(applyHighlight, 50);
 		  loaddsett();
+		  window.parent.postMessage(["loading","stop"], "*");
+		  document.getElementById("loading").style.display = 'none';
 		  }
 		  else{
 		  loaddsett();
