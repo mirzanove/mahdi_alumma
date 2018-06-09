@@ -81,7 +81,7 @@ function initializeTopic() {
 	//jomart	
     window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");
 	
-	//publishTopicData();
+	publishTopicData();
 	/*rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
 		setTimeout(applyHighlight, 50);
 	});*/
@@ -92,6 +92,8 @@ function initializeTopic() {
 function publishTopicData()
 {
 	// Active topic URL
+	
+
 	rh.model.publish(rh.consts('KEY_TOPIC_URL'), decodeURI(document.location.href));
 	
 	// Active topic title
