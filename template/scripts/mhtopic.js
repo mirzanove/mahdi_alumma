@@ -624,6 +624,10 @@ function StartHighLightSearch()
 if(strTerms){
  hit(strTerms);	
 }
+else{
+
+window.parent.postMessage(["loading","stop"], "*");	
+}
 
 }
 
@@ -2259,6 +2263,9 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					return el;
 				}
         });
+	
+		window.parent.postMessage(["loading","stop"], "*");
+		//document.getElementById("loading").style.display = 'none'; 
 		 
 		 
 if (_isMobile() == mobiletrue) {
@@ -2353,16 +2360,19 @@ var data = e.data[1];
           if (data =="true"){
 		
 		  enable_highlight = true;
-		  document.getElementById("loading").style.display = 'block';
+		  //document.getElementById("loading").style.display = 'block';
 		  setTimeout(applyHighlight, 50);
 		  loaddsett();
-		  window.parent.postMessage(["loading","stop"], "*");
-		  document.getElementById("loading").style.display = 'none';
+		  
 		  }
 		  else{
 		  loaddsett();
-          document.getElementById("loading").style.display = 'none';
-          window.parent.postMessage(["loading","stop"], "*");		  
+		  
+          //document.getElementById("loading").style.display = 'none';
+          setTimeout(stopload, 50);
+		  function stopload() {
+             window.parent.postMessage(["loading","stop"], "*");
+          }		  
 		  enable_highlight = false;
 		  }
      break;

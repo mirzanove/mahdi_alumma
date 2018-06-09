@@ -243,6 +243,9 @@ display:block;
 <link rel="SHORTCUT ICON" href="87px.png" />
 
 <div class = "loading2 topic-state"></div>
+<script type="text/javascript">
+document.getElementsByClassName("loading2")[0].style.display = 'block';   
+</script>
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
@@ -643,6 +646,7 @@ eventer(messageEvent,function(e) {
 	break;
 	break;case 'loading': 
     if(data == "stop"){
+	
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';
 	 
 	}else{

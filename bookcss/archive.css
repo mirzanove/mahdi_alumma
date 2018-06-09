@@ -599,7 +599,8 @@ hyphens: auto;
 }
 
 #loading {
-    background-image: url("../clientscript/images/loading.gif")! important ; 
+    display:none;
+	background-image: url("../clientscript/images/loading.gif")! important ; 
     background-repeat: no-repeat !important;
 	background-position: center 0in !important;
 	z-index :9999;

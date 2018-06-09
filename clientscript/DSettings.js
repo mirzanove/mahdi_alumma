@@ -172,8 +172,17 @@ jQueryD_1_4_2("a").live("click", function(event) {
 				   if(c != x) {
                         if(classname != "btn_print up") {
 						if(x.indexOf("heexternal://") == -1) {
-						jQueryD_1_4_2('.loading').show();
-                        //alert(c+x);
+						
+						
+						if(window.location == window.parent.location) {
+	                        jQueryD_1_4_2('#loading').show();
+                        }
+                        else{
+						    window.parent.postMessage(["loading","run"], "*");
+						}							 
+ 						
+						
+						
 						location.href = link+loc+h;
 			            return false;
 						
@@ -316,18 +325,13 @@ function loaddsett(){
 
     jQueryD_1_4_2(document).ready(function() {
         //alert("deskstop");
-        
-        //alert(window.location.pathname);
-		  
+       
 		jQueryD_1_4_2('.posttext').css("font-size", "25px");	
 		
-		
-		
-		//alert(jQueryD_1_4_2('.posttext').css('font-size'));
-		jQueryD_1_4_2('.loading').show();
 
-	
-	    //jQueryD_1_4_2('.img_center').remove();
+		
+
+
 
         var arrEdited = [];
         jQueryD_1_4_2('.imglink').each(function(i) {

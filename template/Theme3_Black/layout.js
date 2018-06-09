@@ -100,7 +100,10 @@ $(document).on('click','.nolink',function(){
 
 
 function go_topic(){
-	       if(document.location.href.indexOf("&ux=search")!= -1){
+	       
+		  
+		   if(document.location.href.indexOf("&ux=search")!= -1){
+			
 			   document.getElementsByClassName("loading2")[0].style.display = 'block'; 
 		   }
 	

@@ -5,6 +5,8 @@ var imag_loading = false;
 var model_visible = false;
 var stop = false;
 
+
+
 function getPageHeight(D) {
     var setsize = Math.max(Math.max(D.body.scrollHeight, D.documentElement.scrollHeight), Math.max(D.body.offsetHeight, D.documentElement.offsetHeight), Math.max(D.body.clientHeight, D.documentElement.clientHeight));
     window.parent.postMessage(["setsize", setsize], "*");
@@ -205,6 +207,8 @@ if(IE=="6"&&IE=="7"){
 resize(window);
 
 }
+
+
 setTimeout(function() {
 
 	document.getElementById("loading").style.display = 'none';
