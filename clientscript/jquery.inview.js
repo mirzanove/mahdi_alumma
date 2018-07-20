@@ -65,7 +65,8 @@ jQuery(document).ready(function( $ ) {
 
 if(!$el.attr("src")){
 $el.parent().attr("class", 'alpom2 link_off');	
-$el.attr("src", '../../clientscript/images/loading.GIF');
+
+$el.attr("src", '../../clientscript/images/loading.gif');
 var img = new Image();
 //imag_loading = true;
 img.onload = function() {

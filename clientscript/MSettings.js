@@ -89,10 +89,10 @@ else {
 					}
                 }
 				else if(checkURL(x) == false) {
-                    if(c.indexOf("&checkbox=") !== -1) {
+
+				if(c.indexOf("&checkbox=") !== -1) {
 						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
                     }
-					
 					if(x.indexOf("#post") !== -1) {
                         x = x.substring(0, x.indexOf("#post") - 0);
                     }
@@ -141,7 +141,8 @@ else {
 		if(loc != ''){
 		   loc = '?'+loc;
 		}
-	   			   
+	   			                    	
+
 				   
 				  // h = location.hash.substring(0, location.hash.indexOf("#post") - 0);
 				   if (link.match(/(#post(.*?))/mg) ) {
@@ -159,35 +160,34 @@ else {
 
 
 				   if(c != x) {
-                        if(classname != "btn_print up") {
+                         if(classname != "btn_print up") {
 						if(x.indexOf("heexternal://") == -1) {
- 
-						    if(window.location == window.parent.location) {
-	                            jQueryM_v1_4_5('#loading').show();
-                            }
-                            else{
-						        window.parent.postMessage(["loading","run"], "*");
-		                    }
-                        
-						if( classname !='whtbtnshow'){
-							location.href = link+loc+h;
+						
+						
+						if(window.location == window.parent.location) {
+	                        jQueryM_v1_4_5('#loading').show();
+                        }
+                        else{
+						    window.parent.postMessage(["loading","run"], "*");
+						}							 
+ 						
+						
+						
+						location.href = link+loc+h;
+			            return false;
+						
+                        }
 						}
+						else{
+						
+                   			 //alert(c+x);
+                             return false;							 
 						
 						}
-						}
-						
                     }else{
 						
-						 if (!this.href.match(/(#post(.*?))/mg) ) {
-							 
-							if(window.location == window.parent.location) {
-	                            jQueryM_v1_4_5('#loading').show();
-                            }
-                            else{
-						        window.parent.postMessage(["loading","run"], "*");
-		                    }
-							 
-						 }
+						location.href = link+loc+h;
+			             return false;
 					}
                 }
 				
