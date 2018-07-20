@@ -396,36 +396,30 @@ jQueryD_1_4_2("a").live("click", function(event) {
 					
 				  
 					
-					if(c.indexOf("#&checkbox=") !== -1) {
-						c = c.replace(/([^"]*)(\#&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
+							if(c.indexOf("&checkbox=") !== -1) {
+						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
                     }
 					if(x.indexOf("#post") !== -1) {
                         x = x.substring(0, x.indexOf("#post") - 0);
                     }
-                    if(c.indexOf("#td_threadtitle_") !== -1) {
-                        c = c.substring(0, c.indexOf("#td_threadtitle_") - 0);
-                    }
-					if(c.indexOf("#post") !== -1) {
+                    if(c.indexOf("#post") !== -1) {
                         c = c.substring(0, c.indexOf("#post") - 0);
                     }
-                    if(c.indexOf("#&random=") !== -1) {
-						c = c.substring(0, c.indexOf("#&random=") - 0); 
+                    if(c.indexOf("?random=") !== -1) {
+						c = c.substring(0, c.indexOf("?random=") - 0); 
 				   }
-				   if(c.indexOf("#&rhsyns=") !== -1) {
-                        c = c.substring(0, c.indexOf("#&rhsyns=") - 0);
+				   if(c.indexOf("?rhsyns=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
                    }
-				   if(c.indexOf("#&rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("#&rhhlterm=") - 0);
+				   if(c.indexOf("?rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
                    }
-				   if(c.indexOf("#&rhsearch=") !== -1) {
-                        c = c.substring(0, c.indexOf("#&rhsearch=") - 0);
+				   if(c.indexOf("&rhsearch=") !== -1) {
+                        c = c.substring(0, c.indexOf("&rhsearch=") - 0);
                    }
-				   if(c.indexOf("#&rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("#&rhhlterm=") - 0);
+				   if(c.indexOf("&rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("&rhhlterm=") - 0);
                    }
-				    if (c.match(/[^"]*(\#|\?)&pass\=(.*?)(&([^"]*)|$)/mg)) {
-			         c = c.replace(/(.*?)(\#|\?)&pass\=(.*?)(#([^"]*)|$)/mg, "$1");
-		           }
                    
 				   c = c.replace("?", "");
                    
@@ -433,33 +427,16 @@ jQueryD_1_4_2("a").live("click", function(event) {
 		
 		var loc ="";
 		strr =  document.location.href;	   
-
-	    
-			
-		if (strr.match(/[^"]*\#&rhsearch\=(.*?)(#([^"]*)|$)/mg) ) {
-			//alert(strr);
-			loc+= strr.replace(/[^"]*\#&rhsearch\=(.*?)(#([^"]*)|$)/mg, "#&rhsearch=$1");
-			
-		}
-		if (strr.match(/[^"]*\#&rhhlterm\=(.*?)(#([^"]*)|$)/mg) ) {
-			loc+= strr.replace(/[^"]*\#&rhhlterm\=(.*?)(#([^"]*)|$)/mg, "#&rhhlterm=$1");
-			
-			
-		}
-		if (strr.match(/[^"]*\#&checkbox\=(.*?)(#([^"]*)|$)/mg) ) {
-			loc += strr.replace(/[^"]*\#&checkbox\=(.*?)(#([^"]*)|$)/mg, "#&checkbox=$1");
-  
-		}
 		
-
-		if (strr.match(/[^"]*#&pass\=(.*?)(#([^"]*)|$)/mg)) {
-			//loc = loc.replace("#", "");
-			loc+= strr.replace(/[^"]*#&pass\=(.*?)(#([^"]*)|$)/mg, "#&pass=$1");
-			//alert(loc);
+		if (strr.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc+= strr.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
 		}
-		
-		
-		
+		if (strr.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc+= strr.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
+		}
+		if (strr.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc+= strr.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
+		}
 		if (loc.match(/(#post(.*?))/mg) ) {
 			loc= loc.replace(/(#post[^"]*)/mg, "");
 					 
@@ -467,15 +444,12 @@ jQueryD_1_4_2("a").live("click", function(event) {
         if (loc.match(/(#td_threadtitle_(.*?))/mg) ) {
 			loc= loc.replace(/(#td_threadtitle_[^"]*)/mg, "");			 
 		}
-		
-		
 		if(loc != ''){
-		   //loc = '?'+loc;
+		   loc = '?'+loc;
 		}
-	   	 
-         
-	 
-        
+	   			   
+				   
+				  // h = location.hash.substring(0, location.hash.indexOf("#post") - 0);
 				   if (link.match(/(#post(.*?))/mg) ) {
 					   h= link.replace(/[^"]*(#post(.*?))/mg, "$1");
 					   link= link.replace(/(#post[^"]*)/mg, "");
@@ -488,7 +462,6 @@ jQueryD_1_4_2("a").live("click", function(event) {
 				   }else{
 					     h='';  
 				   }
-               
                   
 				   
 				   if(c != x) {
