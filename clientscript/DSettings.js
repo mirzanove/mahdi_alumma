@@ -677,7 +677,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
 			        }
 	
 	                if(classname != "alpom2_go"){
-					if(!(wke || iee)){
+			
 						
 					if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
 			         else{
@@ -695,7 +695,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                         jQueryD_1_4_2("#img01").attr("src", link);
                         }
 				     }
-					}
+				
 			        }
                
 
@@ -705,7 +705,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
 			} else {
              
 			
-			 
+	
 			  if(checkURL(link)) {
 				
 					
@@ -743,7 +743,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
 					 if(classname !='linkstyle2 outsidelink'){
 			
 					 if(classname != "alpom2_go"){
-					 if((wke || iee)){
+				
 					 event.preventDefault();
 				     link_disable = true;
                      model_visible = true;
@@ -758,7 +758,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                         jQueryD_1_4_2("#img01").attr("src", link);
                         }
 				     
-					 }
+					
 					 }
 					 }
 					 
@@ -881,11 +881,11 @@ function loaddsett(){
         jQueryD_1_4_2(document).click(function(event) {
          if(event.which == 0 || event.which == 1) { //right click
          event.stopPropagation();
-  	     //window.parent.postMessage(["hide_drop", "hide_drop"], "*");
+  	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
          var target = event ? event.target : window.event.srcElement;
 
 		 if (target.id != 'dropbtn') {
-               
+                 
                  jQueryD_1_4_2('#myDropdown').removeClass("show");
          }		
 			
@@ -992,9 +992,9 @@ img.src = jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('
 			jQueryD_1_4_2(event.currentTarget).parent().children(".extImag").children('.extImag_go').children('a').attr("href", jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('a').attr('href'));
 			
 			jQueryD_1_4_2(".extImag2 > a,.extImag_go > a").click(function(event) {
-			  event.stopPropagation();
+			//event.stopPropagation();
               
-
+/*
               if(wke){
 				    event.stopPropagation();
 					jQueryD_1_4_2(this).attr("target","_heexternal");
@@ -1007,7 +1007,7 @@ img.src = jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('
 				    event.stopPropagation();
 					jQueryD_1_4_2(this).attr("target","_heexternal");	
 			  }
- 
+ */
 			});
 
 			jQueryD_1_4_2(".extImag_copy").click(function(event) {

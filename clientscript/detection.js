@@ -2,7 +2,7 @@
 var disable_resoures = false;
 var mobiletrue = true;
 var encrypted = false;
-var wke = true;
+var wke = false;
 var iee = false;
 
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
