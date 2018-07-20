@@ -1,319 +1,15 @@
 
-function get_current_url(url){
-	
-var linkk = window.location.href
-var linkk;
-if(url){
-linkk = url;	
-}
-
-//alert(linkk);
-var index = linkk.indexOf("index.php/");
-var help = linkk.indexOf("/help.html");
-  
-                if(index != -1) {
-                var  link2 = linkk.substring(index, linkk.length);
-	          
-               }
-               else{
-	           
-			   
-			   if(help!= -1){ 
-				  var  link2 = "help.html"; 
-			   }
-			   else{
-				  var  link2 = "index.php.htm"; 
-			   }
-               }
-
-			  if (typeof simplePostMessage !== 'undefined') {
-					//simplePostMessage(["get_page_location_href",link2],"*",parent.parent);
-              } 
-
-	
-return  link2;	
-}
-
-
-function autolog(event){
-
-var linkk = window.location.href
-
-//alert(linkk);
-var index = linkk.indexOf("index.php/");
-var help = linkk.indexOf("/help.html");
-  
-                if(index != -1) {
-                var  link2 = linkk.substring(index, linkk.length);
-	          
-               }
-               else{
-	           
-			   
-			   if(help!= -1){ 
-				  var  link2 = "help.html"; 
-			   }
-			   else{
-				  var  link2 = "index.php.htm"; 
-			   }
-               }
-
-			 
-
-      
-	
-	
-	    if(event == undefined){
-			
-			
-			//alert();
-		}
-		else{
-			 event.preventDefault();
-		}
-	   
-		
-		var passphrase = document.getElementById('staticrypt-password').value;
-        
-		
-		 
-		 
-            var encryptedHMAC = encryptedMsg.substring(0, 64);
-            var encryptedHTML = encryptedMsg.substring(64);
-            var  decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
-
-			
-		//alert(decryptedHMAC);
-		 	
-			
-        if (decryptedHMAC !== encryptedHMAC) {
-            alert('Bad passphrase!');
-            
-			//location.hash="";
-			
-			return;
-        }
-		else{
-		    
-			var plainHTML = CryptoJS.AES.decrypt(encryptedHTML, passphrase).toString(CryptoJS.enc.Utf8);
-			
-			
-			//alert(plainHTML);
-			
-	    jQueryD_1_4_2( ".staticrypt-page" ).hide();
-		
-		jQueryD_1_4_2( "#content" ).append("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:120%;text-align:center;padding:4px;\">مـــــوضـــــوع مشـــــفـــــر</div>"+plainHTML);
-		 
-		if (typeof loaddsett == 'function') { 
-		   loaddsett();
-		}
-		
-		if (typeof highlightSearch == 'function') { 
-		    highlightSearch();
-		}
-		
-		if (typeof applyHighlight == 'function') { 
-		    setTimeout(applyHighlight, 500);	
-            return;
-		}
-		
-		var strpass = passphrase.hexEncode(); 
-	
-		var currentpost ;
-
-		if(location.hash){
-			
-			var c = location.hash;
-			if (c.match(/[^"]*(\?&|\#&)pass\=(.*?)(&([^"]*)|$)/mg)) {
-			       
-				
-				if (c.match(/(#post(.*?))/mg) ) {
-					
-				
-				   c = c.replace(/(.*?)#&pass\=(.*?)(&([^"]*)|$)/mg, "$1");
-                   passtext = "#&pass="+strpass;
-				   if(window.location == window.parent.location) {
-				  
-
-				  location.hash = c+passtext;	
-				   }
-				   if (typeof simplePostMessage !== 'undefined') {
-				   
-				   //alert(link2+'#'+c+passtext);
-				   simplePostMessage(["send_pass_hash",link2+'#'+c+passtext],"*",parent.parent);
-				   }
-				}
-
-				   
-		    }else{
-				 c = c.replace(/(.*?)\\#&pass\=(.*?)(&([^"]*)|$)/mg, "$1");
-				passtext = "\\#&pass="+strpass;
-				if(window.location == window.parent.location) {
-				location.hash = c+passtext;	
-				}
-				if (typeof simplePostMessage !== 'undefined') {
-				   
-				    //alert(link2+'#'+c+passtext);
-				   simplePostMessage(["send_pass_hash",link2+'#'+c+passtext],"*",parent.parent);
-				}
-			}
-
-            
-	
-        }
-		else{
-			passtext = "&pass="+strpass;
-			if(window.location == window.parent.location) {
-			location.hash = passtext;	
-			}
-			 if (typeof simplePostMessage !== 'undefined') {
-				  
-                 // alert(link2+'#'+c+passtext);
-				  simplePostMessage(["send_pass_hash",link2+'#'+passtext],"*",parent.parent);
-				   }
-			
-		}
-		
-        return false;
-		}
-		
-		
-		
-	
-}
-
-
-
-
 ///////////////////////////////////////////////////////////////////////////
 if(_isMobile() == mobiletrue) {
   
 } ////////////////////////////////////////////////////////////////
 else {
 
-var passtext;
-var pass =  document.location.href;	 
+
+
+
+
 jQueryD_1_4_2(document).ready(function() {
-
-if (typeof encryptedMsg != 'undefined')
-{
-	
-jQueryD_1_4_2("#content").html('<div class="staticrypt-page" dir = "rtl"><div class="staticrypt-form" ><div class="staticrypt-instructions"><p class="staticrypt-title">**موضوع محمي**</p><hr><span>الرجاء مسح كاش المتصفح والمفضلة بعدالإنتهاء من الموسوعة في حال كان جهاز الذي تستخدمه غير شخصي ودخلت الى البيانات المشفرة<span><hr></div><form  onsubmit="autolog(null);return false;" id="LoginForm" autocomplete="on"><input autocomplete="on" id="staticrypt-password" type="password" name="password" placeholder="كلمة السر"autofocus/><br><button autocomplete="on" type=\'submit\' id ="subment" class="staticrypt-decrypt-button">فك التشفير</button></form></div></div>');
-
-
-jQueryD_1_4_2("#subment").click(function(event){
-        
-	
-		event.preventDefault();
-
-		
-		autolog(event);
-		
-		
-		return false;
-		
-		
-});
-
-
-	
-}
-
-
-if(window.location == window.parent.location) {
-	 //alert("sssssssssssss");
-	 
-  		
-
-
-if (pass.match(/[^"]*\&pass\=(.*?)(&([^"]*)|$)/mg) ) {
-			
-			
-		if(location.hash){
-              //alert(pass);
-            
-			
-			
-			if (pass.match(/[^"]*\#&pass\=(.*?)(&([^"]*)|$)/mg) ) {
-				
- 
-			var locc = pass.match(/\#&pass\=([^.]+)/i);
-			if(document.getElementById('staticrypt-password')){
-
-				document.getElementById('staticrypt-password').value = locc[1].hexDecode();
-                
-				
-			}
-	
-			}else{
-			 
-			if (pass.match(/(#td_threadtitle_(.*?))/mg) ) {
-				
-            var rgx = /\&pass=(.*?)\#td_threadtitle/i   
-			var locc = pass.match(rgx);
-			if(document.getElementById('staticrypt-password')){
-				document.getElementById('staticrypt-password').value = locc[1].hexDecode();
-			}
-
-			
-		     }
-			 else{
-				
-             var rgx = /&pass=(.*?)\#|$/i   
-			
-			
-			var locc = pass.match(rgx);
-			if(document.getElementById('staticrypt-password')){
-				
-				document.getElementById('staticrypt-password').value = locc[1].hexDecode();
-
-				
-			}
-
-			}
-
-			}
-			
-	
-        }
-		else{
-			
-			var locc = pass.replace(/[^"]*\&pass\=(.*?)(&([^"]*)|$)/mg, "$1");
-			if(document.getElementById('staticrypt-password')){
-				document.getElementById('staticrypt-password').value = locc.hexDecode();
-				//jQueryD_1_4_2('#LoginForm').submit();
-			}
-		}
-			
-}
-if (typeof encryptedMsg != 'undefined')
-{
-var rgx = /\&pass=(.*?)/i   
-var locc = pass.match(rgx);
-
-if(locc == null){
-	
-}else{
-autolog(null);
-}
-	
-}	
- 
-} 
-else{
- if (typeof simplePostMessage !== 'undefined') {
- simplePostMessage(["get_pass",null],"*",parent.parent);
- }
- //window.parent.postMessage(["getpass",null], "*");
-
- }
-
-
-
-
-
-
-
 
 
 function makeUnselectable(node) {
@@ -372,9 +68,6 @@ disable_select_text('footer');
 jQueryD_1_4_2("a").live("click", function(event) {
             link_img_show = true;
           
-		        
-		  
-		  
 			
 			if(window.location != window.parent.location) {
 			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
@@ -386,17 +79,29 @@ jQueryD_1_4_2("a").live("click", function(event) {
 			
 			
 			if( location.hostname === this.hostname || !this.hostname.length ) {
-             //alert(classname);
+             //alert("curr");
 			 
 			  var x = this.href;
                 var c = window.location.href;
-	
+              
+            //alert(classname);
+			/*if((!checkURL(link)) && (classname !="btn_print up")){
+               var index = link.indexOf("index.php/");
+  
+                if(index != -1) {
+                var  link2 = link.substring(index, link.length);
+	           //alert(link2)
+               }
+               else{
+	           var  link2 = "http://localhost/vb_423/archive/clientscript/index.php.htm"; 
+               }
+			    simplePostMessage(["get_page_location_href",link2],"*",parent.parent);
+			}*/
+
+				
                 if(checkURL(x) == false) {
                     
-					
-				  
-					
-							if(c.indexOf("&checkbox=") !== -1) {
+					if(c.indexOf("&checkbox=") !== -1) {
 						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
                     }
 					if(x.indexOf("#post") !== -1) {
@@ -462,261 +167,94 @@ jQueryD_1_4_2("a").live("click", function(event) {
 				   }else{
 					     h='';  
 				   }
-                  
-				   
+
+
 				   if(c != x) {
-					   
-				
                         if(classname != "btn_print up") {
 						if(x.indexOf("heexternal://") == -1) {
- 
-						    if(window.location == window.parent.location) {
-	                            jQueryD_1_4_2('#loading').show();
-								if( classname !='whtbtnshow'){
-								//location.reload(); 
-								}
-								
-                            }
-                            else{
-						        window.parent.postMessage(["loading","run"], "*");
-		                    }
-                        
-						if( classname !='whtbtnshow'){
-							
-			            var gg =get_current_url(link).replace(/(.*?)#post(.*?)([^"]*|$)/mg, "$1");
-									
-							
 						
-						if(h.indexOf("#td_threadtitle_") !=-1){
-							
-							
-					        if(loc){
-					
-								location.href = link+h+'\\'+loc;
-							}
-							else{
-								location.href = link+h;
-							}
-							
-								
-							if (typeof simplePostMessage !== 'undefined') {
-				                    simplePostMessage(["send_pass_hash",get_current_url(link)+h],"*",parent.parent);
-				            }
-						   
-							
-						}else if(h.indexOf("#post") !=-1){
-					        
-							location.href = link+h+'\\'+loc;
-							if (typeof simplePostMessage !== 'undefined') {
-				                    
-									simplePostMessage(["send_pass_hash",get_current_url(link)+h],"*",parent.parent);
-				            }
+						
+						if(window.location == window.parent.location) {
+	                        jQueryD_1_4_2('#loading').show();
+                        }
+                        else{
+						    window.parent.postMessage(["loading","run"], "*");
+						}							 
+ 						
+						
+						
+						location.href = link+loc+h;
+			            return false;
+						
+                        }
 						}
 						else{
-							
-							location.href = link+h+loc;
-							if (typeof simplePostMessage !== 'undefined') {
-				                    simplePostMessage(["send_pass_hash",get_current_url(link)+h],"*",parent.parent);
-				            }
-						}
 						
-								
-									
+                   			 //alert(c+x);
+                             return false;							 
 						
-							return false;
 						}
-
-						}
-						}
-						
                     }else{
-					   
-					  
-					   
-						 if (!this.href.match(/(#post(.*?))/mg) ) {
-							 
-							if(window.location == window.parent.location) {
-	                            jQueryD_1_4_2('#loading').show();
-								if( classname !='whtbtnshow'){
-								
-								
-								//location.reload(); 
-								setTimeout(function(){ location.reload();  }, 100);
-								}
-								
-                            }
-                            else{
-						        window.parent.postMessage(["loading","run"], "*");
-		                    }
-							 
-						 }
-						 
-						 if( classname !='whtbtnshow'){
 						
-						 	
-					
-							 if(this.href.indexOf("#post") == -1) {
-								
-                               
-                                
-			                      if(pass.match(/\#&pass\=([^.]+)/i)){
-									  
-									    
-									 var locc = pass.match(/\#&pass\=([^.]+)/i);
-                                     if(window.location == window.parent.location) {
-									 location.href = loc;	
-									 }
-	
-									 return false;
-								  }
-								  else{
-									location.href = link+loc+h;
-									//alert(location.href);  
-
-									var gg =get_current_url().replace(/(.*?)#post(.*?)([^"]*|$)/mg, "$1");
-									
-									if (typeof simplePostMessage !== 'undefined') {
-				                    simplePostMessage(["send_pass_hash",gg],"*",parent.parent);
-				                    }
-									return false;
-									  
-								  }
-                      
-							 }
-							 else{
-                             
-							   
-							     
-								var xx = this.href;
-                                var cc = window.location.href;
-								
-								var hh;
-								var match;
-								  if (xx.match(/(#post(.*?))/mg) ) {
-					               hh= xx.replace(/[^"]*(#post(.*?))/mg, "$1");
-
-				                  }
-								  
-								  if (cc.match(/(#post(.*?))(\\#|)/mg) ) {
-					               //match =  cc.match(/(#post(.*?))[^"]*/i);
-								   match =cc.replace(/(.*?)#post(.*?)(\\#[^"]*|$)/mg, "#post$2");
-								   //alert(match);
-				                  }
-
-                                if(loc){
-									loc = "\\"+loc;
-								}
-                             
-								setTimeout(function(){ location.hash = h+loc; }, 0);
-								if (typeof simplePostMessage !== 'undefined') {
-				                 
-								  simplePostMessage(["send_pass_hash",get_current_url()+h],"*",parent.parent);
-				                }
-							
-								jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(hh).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
-					            jQueryD_1_4_2(hh).css("background-color", "#d5dc91");	
-                          
-							   
-														
-							   return false;
-							 }
-							  
-							  
-							  
-		                    
-
-						 }
-			            
+						 location.href = link+loc+h;
+			             return false;
 					}
                 }
                if(checkURL(link)) {
-					
+					/*for chromiem book remove next */
+					//link_disable = true;
+				    //alert(classname);
+					if(classname =='alpom2 link_off'){
+                        
+						return false;
+					 }
+				    if(typeof enable_heexternal == 'function') {
 				
-                    if (classname =='alpom2 link_off'){
-                      event.preventDefault();
-                      event.stopPropagation();
-                      return false;
-					}	
-                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink') {
-                      
-						//event.preventDefault();
-                        event.stopPropagation();
-                        //return false;
-                    }
-					else{
-					 
-			        if(iee){
-					jQueryD_1_4_2(this).attr("target","_heopenit");	
-			        }
-	
-	                if(classname != "alpom2_go"){
-			
-						
-					if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+				       if (enable_heexternal() == true) {
+					   jQueryD_1_4_2(this).attr("target","_heopenit");
+                       }
+				    }
+				    else{
+					
+					 if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
 			         else{
-					 event.preventDefault();
+			         event.preventDefault();
 				     link_disable = true;
                      model_visible = true;
 				         if(window.location != window.parent.location) {
                         window.parent.postMessage(["modal_display", "show"], "*");
-                        window.parent.postMessage(["image_url", link], "*");
+                       alert(link);
+					   window.parent.postMessage(["image_url", link], "*");
                         } else {
 						jQueryD_1_4_2(".modal").show();
                         jQueryD_1_4_2("#wrapper,body,html").css({
                             'overflow': 'hidden'
                         });
                         jQueryD_1_4_2("#img01").attr("src", link);
+						jQueryD_1_4_2("#img01").removeAttr('style');
                         }
 				     }
-				
-			        }
-               
-
-			   }
-			   }
-
-			} else {
-             
-			
-	
-			  if(checkURL(link)) {
-				
 					
+					
+				    }
+                }
+			 
+           
+			
+			} else {
+              //alert(classname);
+			  if(checkURL(link)) {
 				if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
 			         else{
 					 
+					 if(classname =='alpom2 link_off'){
+                        
+						return false;
+					 }
 
-                    if (classname =='alpom2 link_off'){
-                      event.preventDefault();
-                      event.stopPropagation();
-                      return false;
-					}	
-                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink') {
-                      
-						//event.preventDefault();
-                        event.stopPropagation();
-                        //return false;
-                    }
-					else{
-					
-					if(wke){
-					alert(classname);
-					if(classname != "alpom2"){
-					jQueryD_1_4_2(this).attr("target","_heexternal");
-					var res = jQueryD_1_4_2(this).attr("href");
-					res = res.replace("heexternal://", "");
-					jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');	
-					}
-					}
 
-					if(iee){	
-					jQueryD_1_4_2(this).attr("target","_heexternal");	
-					}
-					 
-					 if(classname !='linkstyle2 outsidelink'){
-			
-					 if(classname != "alpom2_go"){
-				
+                     if(classname !='linkstyle2 outsidelink'){
+                        
 					 event.preventDefault();
 				     link_disable = true;
                      model_visible = true;
@@ -729,36 +267,33 @@ jQueryD_1_4_2("a").live("click", function(event) {
                             'overflow': 'hidden'
                         });
                         jQueryD_1_4_2("#img01").attr("src", link);
+						jQueryD_1_4_2("#img01").removeAttr('style');
                         }
-				     
-					
-					 }
-					 }
-					 
-					 }
+				     }
 					 }	
-	 	 
+					 
+
+				 
+					 	 
 			        
 			  }
-			  else{
-				  
+			  
+			  if(typeof enable_heexternal == 'function') {
 				
-
-                   if(wke){
-					jQueryD_1_4_2(this).attr("target","_heexternal");
-					var res = jQueryD_1_4_2(this).attr("href");
-					res = res.replace("heexternal://", "");
-					jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');	
-					}
-
-					if(iee){
-					jQueryD_1_4_2(this).attr("target","_heexternal");	
-					} 
-
+				if (enable_heexternal() == true) {
+				//for buitin webkit
+				//var res = link.replace("_heexternal://", "");
+				//jQueryD_1_4_2(this).attr("href","_heexternal://"+res).removeAttr('target');
 				
-				  
-			  }
- 
+				//for tradent ie
+				//alert();
+				jQueryD_1_4_2(this).attr("target","_heexternal");
+
+				}
+				else{
+				//alert();
+				}
+			   }
             }
 
         
@@ -791,19 +326,18 @@ function loaddsett(){
       });*/
 
 
+	  
+	  
     jQueryD_1_4_2(document).ready(function() {
         //alert("deskstop");
-        
-        //alert(window.location.pathname);
-		  
+       
 		jQueryD_1_4_2('.posttext').css("font-size", "25px");	
 		
-		
-		
-		//alert(jQueryD_1_4_2('.posttext').css('font-size'));
 
-	
-	    //jQueryD_1_4_2('.img_center').remove();
+
+		
+
+
 
         var arrEdited = [];
         jQueryD_1_4_2('.imglink').each(function(i) {
@@ -849,18 +383,18 @@ function loaddsett(){
 		}
 			
 		});
-		
+	
+
         var link_img_show = true;
         jQueryD_1_4_2(document).click(function(event) {
          if(event.which == 0 || event.which == 1) { //right click
          event.stopPropagation();
   	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
-         var target = event ? event.target : window.event.srcElement;
+		  matches = event.target.matches ? event.target.matches('.dropbtn') : event.target.msMatchesSelector('.dropbtn');
+		 if (!matches) {
 
-		 if (target.id != 'dropbtn') {
-                 
                  jQueryD_1_4_2('#myDropdown').removeClass("show");
-         }		
+         }	
 			
 			if(link_disable == false){
 			    jQueryD_1_4_2('.image_custom').remove();
@@ -930,14 +464,24 @@ jQueryD_1_4_2(".link_pic").click(function(event) {
 				
 			}
 			
-
-			jQueryD_1_4_2(event.currentTarget).parent().append('<div class="extImag"><div class="extImag2"><a target="_blank" href=""><img class="img2" src="" height="200" width="200" alt=""></a></div><br><div class="extImag_go linkstyle"><a class="extImag_go2" href="" target="_blank" >الذهاب الى الرابط</a></div><br><div class="extImag_copy linkstyle">نسخ الرابط</div></div>');
+			
+			
+			
+			
+			
+			jQueryD_1_4_2(event.currentTarget).parent().append('<div class="extImag"><div class="extImag2"><a target="_blank" href=""><img class="img2" src="" height="200" width="200" alt=""></a></div><br><div class="extImag_go linkstyle"><a href="" target="_blank" >الذهاب الى الرابط</a></div><br><div class="extImag_copy linkstyle">نسخ الرابط</div></div>');
+			
 
 			jQueryD_1_4_2(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').attr("href",jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('a').attr('href'));
+			
 			//jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('a').selectText();
 			
 			
-	
+			
+			
+			
+			
+			
 			
 var img = new Image();
 
@@ -964,23 +508,9 @@ img.src = jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('
 			
 			jQueryD_1_4_2(event.currentTarget).parent().children(".extImag").children('.extImag_go').children('a').attr("href", jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('a').attr('href'));
 			
-			jQueryD_1_4_2(".extImag2 > a,.extImag_go > a").click(function(event) {
-			//event.stopPropagation();
-              
-/*
-              if(wke){
-				    event.stopPropagation();
-					jQueryD_1_4_2(this).attr("target","_heexternal");
-					var res = jQueryD_1_4_2(this).attr("href");
-					res = res.replace("heexternal://", "");
-					jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');	
-			  }
-
-			  if(iee){
-				    event.stopPropagation();
-					jQueryD_1_4_2(this).attr("target","_heexternal");	
-			  }
- */
+			jQueryD_1_4_2(".extImag_go").click(function(event) {
+			  //event.preventDefault();
+              event.stopPropagation();	
 			});
 
 			jQueryD_1_4_2(".extImag_copy").click(function(event) {
@@ -1021,9 +551,8 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 		
 			
 		jQueryD_1_4_2(".alpom2_go").click(function(event) {
-			  
-             // event.stopPropagation();
-  			  
+			  //event.preventDefault();
+              event.stopPropagation();	
 	    });
 		
 		jQueryD_1_4_2(".alpom2_copy").click(function(event) {
@@ -1104,21 +633,7 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 
 				jQueryD_1_4_2(".tooltiptext_custom_go > a").click(function(event) {
                     event.stopPropagation();
-					//event.preventDefault();
-					
-					if(wke){
-					jQueryD_1_4_2(this).attr("target","_heexternal");
-					var res = jQueryD_1_4_2(this).attr("href");
-					res = res.replace("heexternal://", "");
-					jQueryD_1_4_2(this).attr("href","heexternal://"+res).removeAttr('target');	
-					}
-
-					if(iee){
-					jQueryD_1_4_2(this).attr("target","_heexternal");	
-					}
-					
-					
-
+					//link_img_show = true;
                 });
 				
 				jQueryD_1_4_2(".tooltiptext_custom_copy").click(function(event) {
@@ -1435,119 +950,38 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
             event.stopPropagation();
         });
 
-      
+
 
         jQueryD_1_4_2(window).hashchange(function() {
-        
-			
-			var section = location.hash ? location.hash : null;
-            
-		
-			if(section != null) {
-                
-				if (section.match(/[^"]*(\?&|\#&)pass\=(.*?)(&([^"]*)|$)/mg)) {
-			       
-
-				    section = section.replace(/(.*?)\\#&pass\=(.*?)(&([^"]*)|$)/mg, "$1");
-
-				    //alert(section);
-		       }
+            var section = location.hash ? location.hash : null;
+            if(section != null) {
+                //var activePage = jQueryM_v1_4_5.mobile.activePage;
+                  
 				
 				
-				
+				jQueryD_1_4_2('.posttop').removeAttr('style');
                 if(section.indexOf("post") !== -1) {
-                    
-
-				   //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
-                    jQueryD_1_4_2('.posttop').removeAttr('style');
-                    jQueryD_1_4_2('.posttop').removeAttr('style');
-
-					section= section.replace(/(#post(.*?))(\\([^"]*)|(\/[^"]*)|$)/mg, "$1");
-					
-					if(jQueryD_1_4_2(section).position()){
+                    //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
+                    section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
 					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
-					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
-					}
 					
+					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
                 }
                 if(section.indexOf("td_threadtitle_") !== -1) {
-                   
-				 
-				   jQueryD_1_4_2('.posttop').removeAttr('style');
-                   jQueryD_1_4_2('.posttop').removeAttr('style');
-            
-				   //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
-                    section= section.replace(/(#td_threadtitle_(.*?))(\\([^"]*)|(\/[^"]*)|$)/mg, "$1");
-					
-					if(jQueryD_1_4_2(section).position()){
-				    jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
+                    //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
+                    section= section.replace(/(#td_threadtitle_(.*?))(\?([^"]*)|$)/mg, "$1");
+					jQueryD_1_4_2("#wrapper").animate({ scrollTop: jQueryD_1_4_2(section).position().top + jQueryD_1_4_2("#wrapper").scrollTop() }, 0);
 					jQueryD_1_4_2(section).css("background-color", "#d5dc91");
-					}
-					
-				 
                 }
             }
         });
         jQueryD_1_4_2(window).hashchange();
-        
+    
 	
 	
-/*	
-	//jQueryD_1_4_2('.language').parent().nextAll("br").remove();
-	//jQueryD_1_4_2('.language').nextAll("br").remove();
-	jQueryD_1_4_2('.language').remove();
-	 jQueryD_1_4_2('.move').remove();
+
 	
-
-jQueryD_1_4_2('.posttext').each(function(index, elem) {
-var hh  = elem;
 	
-stop = false;	
-walk_the_DOM(hh, function(el) {
-if(el.tagName =="BR"){
-jQueryD_1_4_2(el).css('display', 'none');	
-	
-}else if(el.tagName == undefined){
-
-if(jQueryD_1_4_2(el).text().replace(/^\s+|\s+$/g, '').replace(/(\r\n\t|\n|\r\t)/gm,"").length > 0){
-return true;
-}
-}
-else if(el.tagName == "IMG"){
-stop2 = true;
-return true;
-}	
-});	
-
-
-stop2 = false;	
-walk_the_DOM2(hh, function(el) {
-
-if(el.tagName =="BR"){
-
-jQueryD_1_4_2(el).css('display', 'none');	
-	
-}else if(el.tagName == undefined){
-
-if(jQueryD_1_4_2(el).text().replace(/^\s+|\s+$/g, '').replace(/(\r\n\t|\n|\r\t)/gm,"").length > 0){
-
-stop2 = true;
-return true;
-}
-
-}
-else if(el.tagName == "IMG"){
-stop2 = true;
-return true;
-}	
-});	
-});
-
-//jQueryD_1_4_2('#wrapper').html(jQueryD_1_4_2('#wrapper').html().replace(/(\<br[\s]*\/?\>[\s]*){,3}/g, '<br/>'));	
-	
-*/	
-	
-
 	}); //end 	
     
 	
@@ -1574,14 +1008,25 @@ return true;
 
 	
 	
-if (typeof simplePostMessage !== 'undefined') {
- simplePostMessage(["get_parent_hash",null],"*",parent.parent);
-}
+
+
+var linkk = window.location.href
+var index = linkk.indexOf("index.php/");
+  
+                if(index != -1) {
+                var  link2 = linkk.substring(index, linkk.length);
+	           //alert(link2)
+               }
+               else{
+	           var  link2 = "http://localhost/vb_423/archive/clientscript/index.php.htm"; 
+               }
+
+			  if (typeof simplePostMessage !== 'undefined') {
+                     simplePostMessage(["get_page_location_href",link2],"*",parent.parent);
+              } 
+			
 
 }
-
-
-
 
 
 

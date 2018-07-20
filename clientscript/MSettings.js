@@ -10,7 +10,7 @@ else {
 	 jQueryM_v1_4_5(document).on('click', 'a', function(event) {
 
             var classname = jQueryM_v1_4_5(this).attr('class');
-            var link = jQueryM_v1_4_5(this).attr('href');
+            var link = this.href;
 
 			//alert(classname);
 			
@@ -72,7 +72,8 @@ else {
                      model_visible = true;
 				         if(window.location != window.parent.location) {
                         window.parent.postMessage(["modal_display", "show"], "*");
-                        window.parent.postMessage(["image_url", link], "*");
+                   
+					   window.parent.postMessage(["image_url", link], "*");
                         } else {
 						jQueryM_v1_4_5(".modal").show();
                         jQueryM_v1_4_5("#wrapper,body,html").css({
@@ -245,7 +246,8 @@ else {
                      model_visible = true;
 				         if(window.location != window.parent.location) {
                         window.parent.postMessage(["modal_display", "show"], "*");
-                        window.parent.postMessage(["image_url", link], "*");
+                       
+					   window.parent.postMessage(["image_url", link], "*");
                         } else {
 						jQueryM_v1_4_5(".modal").show();
                         jQueryM_v1_4_5("#wrapper,body,html").css({
