@@ -223,7 +223,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                      model_visible = true;
 				         if(window.location != window.parent.location) {
                         window.parent.postMessage(["modal_display", "show"], "*");
-                       alert(link);
+                      
 					   window.parent.postMessage(["image_url", link], "*");
                         } else {
 						jQueryD_1_4_2(".modal").show();
@@ -485,7 +485,7 @@ jQueryD_1_4_2(".link_pic").click(function(event) {
 			
 var img = new Image();
 
-jQueryD_1_4_2(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').children('img').attr("src", '../../clientscript/images/loading.GIF');
+jQueryD_1_4_2(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').children('img').attr("src", '../../clientscript/images/loading.gif');
 //$el.parent().attr("class", 'alpom2 link_off');
 jQueryD_1_4_2(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').attr("class", 'alpom2 link_off');
 img.onload = function() {

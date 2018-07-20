@@ -512,7 +512,7 @@ function loaddsett(){
 
             var img = new Image();
 
-            jQueryM_v1_4_5(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').children('img').attr("src", '../../clientscript/images/loading.GIF');
+            jQueryM_v1_4_5(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').children('img').attr("src", '../../clientscript/images/loading.gif');
             //$el.parent().attr("class", 'alpom2 link_off');
             jQueryM_v1_4_5(event.currentTarget).parent().children(".extImag").children('.extImag2').children('a').attr("class", 'alpom2 link_off');
             img.onload = function() {
