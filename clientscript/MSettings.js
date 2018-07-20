@@ -80,6 +80,7 @@ else {
                             'overflow': 'hidden'
                         });
                         jQueryM_v1_4_5("#img01").attr("src", link);
+						jQueryM_v1_4_5("#img01").removeAttr('style');
                         }
 				     }
 					 }
