@@ -17,7 +17,7 @@ div.content {
 }
 div.header {
             background-color:#232323;
-            z-index:5;
+            z-index:5000;
 }
 div.content_top_link {
                       display:none;
@@ -374,7 +374,7 @@ div.phone_scrollarea {
 }
 @media screen and (max-width: 43.68em) {
 div.header {
-            position:absolute;
+
             overflow:auto;
             top:0;
             left:0;
@@ -653,7 +653,7 @@ div.phone_scrollarea {
 }
 @media screen and (min-width: 43.68em) and (max-width: 59.49em) {
 div.header {
-            position:absolute;
+         
             overflow:auto;
             top:0;
             left:0;
@@ -800,7 +800,7 @@ div.floatholder {
 }
 @media screen and (min-width: 59.5em) and (max-width: 80.99em) {
 div.header {
-            position:fixed;
+           
             top:0;
             left:0;
             width:100%;

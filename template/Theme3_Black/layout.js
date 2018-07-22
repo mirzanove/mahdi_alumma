@@ -121,6 +121,12 @@ function go_topic(){
 			else if($(window).innerWidth() >= em(81)){
 			  $('.content').css("bottom", "0px");
 			 }
+			 
+			 
+			setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 700); 
+			 
+			 
+			 
 }
 
 
