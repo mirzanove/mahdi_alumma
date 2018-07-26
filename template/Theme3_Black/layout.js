@@ -238,7 +238,7 @@ toc = document.getElementById('rh_scrollable_content');
 	
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 toc.scrollTop = toc.scrollHeight;
-setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
+setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 100);
 }
 
 

@@ -4,6 +4,7 @@ var mobiletrue = true;
 var encrypted = false;
 var wke = false;
 var iee = false;
+var wkchrom = false;
 
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;

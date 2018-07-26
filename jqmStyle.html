@@ -496,6 +496,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 <script>
 
 var link_disable = false;
+var elts = document.getElementsByTagName('div');
 
 
 $(document).on( "pagecontainershow", function(){
@@ -570,10 +571,18 @@ $(".ui-content").height(content);
 
 $(document).ready(function(){
 
-$(".nolink").on('click', function(event) {
-		alert();
+var show = function() { 
 
-});
+//alert(link_disable); 
+if(link_disable == true){
+			return false;
+		}
+
+}
+for (var i = elts.length - 1; i >= 0; --i) {
+    elts[i].onclick = show;
+}
+
 
  
 //alert(document.location.href.includes("&checkbox=0"));
