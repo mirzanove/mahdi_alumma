@@ -20,75 +20,11 @@
 
 
 
-
-
-
-
-
-/*
-var mx = 0;
-var curDown = false;
 var scrolling = false;
-$(".m").on({
-  
-   click: function(e) {
-
-  },
-  
-  
-  mousemove: function(e) {
-	if(curDown === true){  
-	  
-
-	
-  if($.support.rtlScrollType == "default" ||$.support.rtlScrollType == "negative"){
-	  
-	var mx2 = e.pageX - this.offsetLeft;
-  }
-  else{
-	 var mx2 = -e.pageX + this.offsetLeft;
-  }
-	
-	
-    if(mx) this.scrollLeft = this.sx + mx - mx2;
-	
-	}
-  },
-  mousedown: function(e) {
-	  
-	curDown = true; 
-    this.sx = this.scrollLeft;
-    
-  if($.support.rtlScrollType == "default" || $.support.rtlScrollType == "negative"){
-	  
-	  mx = e.pageX - this.offsetLeft;
-  }
-  else{
-	  mx = -e.pageX + this.offsetLeft;
-  }
-	
-	
-	
-	
-  }
-});
-
-$(document).on("mouseup", function(){
-  mx = 0;
-  
-  curDown = false;
-  
-  scrolling =false;
-});
 
 
 
 
-$( ".dragscroll" ).scroll(function() {
-     
-       scrolling =true;	 
-								
-});*/
 
 
 
