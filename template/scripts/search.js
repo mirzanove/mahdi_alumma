@@ -151,12 +151,11 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 			startPage = 1;
 	}
 	var sHTML = "";
-	sHTML += "<ul style='margin: 0px; padding: 0px;'>";
+	sHTML += "<ul class=\"row-reverse\" style='margin: 0px; padding: 0px;' reversed>";
 	
 	
 	
-	
-	for(var i=1; i<=nNumPages; i++)
+	for(var i=nNumPages; i>=1; i--)
 	{
 		
 		
