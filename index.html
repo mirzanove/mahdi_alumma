@@ -228,7 +228,7 @@ choose one of the options below for the type of the style that match your device
 <br>
 <br>
 <span dir = "rtl" style ="font-size: 95%; font-weight: bold; color : red;">
-التطبيق لن يعمل مع المتصفحات القديمة مثل انترنت اكسبلورر 8 او اقل
+التطبيق لن يعمل مع المتصفحات القديمة مثل انترنت اكسبلورر 9 او اقل
 </span>
 <br>
 <span dir = "rtl" style ="font-size: 95%; font-weight: bold; color : red;">
@@ -307,8 +307,8 @@ function myFunction() {
 // Close the dropdown if the user clicks outside of it
 window.onclick = function(event) {
   
-  
-  if (!event.target.matches('.dropbtn')) {
+   matches = event.target.matches ? event.target.matches('.dropbtn') : event.target.msMatchesSelector('.dropbtn');
+  if (!matches) {
 
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -321,5 +321,6 @@ window.onclick = function(event) {
   }
 }
 </script>
+<script src="template/exjs/classList.js"></script>
 
 </html>
