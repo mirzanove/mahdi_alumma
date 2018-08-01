@@ -278,10 +278,10 @@ if($.support.rtlScrollType == "default" || $.support.rtlScrollType == "negative"
   var elpos = $(this).scrollLeft();
   var elW = $(this).width();
 
-  pos = pos - elpos - elW / 2;
+  pos = pos + elpos - elW / 2;
 
   $(this).animate({
-    scrollLeft: -pos+30
+    scrollLeft: pos-30
   }, speed == undefined ? 1000 : speed);
   return this;
   

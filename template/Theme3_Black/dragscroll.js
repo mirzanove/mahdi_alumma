@@ -125,13 +125,15 @@ var scrolling = false;
 
                             el.classList.add("dragging");
 	                        
- 
+                         
                              if($.support.rtlScrollType == "default" ||$.support.rtlScrollType == "negative"){
+								
                                (scroller = el.scroller||el).scrollLeft -=
                                 newScrollX = (- lastClientX + (lastClientX=e.clientX));
                               }
                             else{
-	                        (scroller = el.scroller||el).scrollLeft +=
+								
+	                        (scroller = el.scroller||el).scrollLeft -=
                                 newScrollX = (- lastClientX + (lastClientX=e.clientX));
                             }
  
