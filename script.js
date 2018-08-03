@@ -127,8 +127,12 @@ $("#search_footer").removeClass("hide");
 $(".tabView").addClass("hide").trigger('resize');
 $("#three").removeClass("hide").trigger('resize');
 
-
+if($(".curr").length){
+	
 $(".curr")[0].scrollIntoView();
+	
+}
+
 	
 }
 
