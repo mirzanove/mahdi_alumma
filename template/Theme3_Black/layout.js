@@ -142,16 +142,38 @@ if ($('.curr').length > 0){
 setTimeout(function() { 
 
 if($(window).innerWidth() >= em(81)){
+
+var dummyEl = document.getElementById("searchBoxSearchPage");
+var isFocused = (document.activeElement === dummyEl);
+if(!isFocused){
 $('#searchresults').animate({
       //scrollTop: $('.curr').offset().top-30
 	  scrollTop:$('.curr').offset().top - $('#searchresults').offset().top + $('#searchresults').scrollTop()
     }, 0);
+
+}
+	
+	
 }else{
+	
+	
+var dummyEl = document.getElementById("searchBoxSearchPage");
+var isFocused = (document.activeElement === dummyEl);
+if(!isFocused){
 $('#rh_scrollable_content').animate({
       //scrollTop: $('.curr').offset().top-30
 	  scrollTop:$('.curr').offset().top - $('#rh_scrollable_content').offset().top + $('#rh_scrollable_content').scrollTop()
     }, 0);	
-}		
+
+}	
+	
+	
+
+	
+	
+	
+	
+	}		
 }, 500);	
 	
 	
