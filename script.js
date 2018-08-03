@@ -126,6 +126,9 @@ $("#search_footer").removeClass("hide");
 
 $(".tabView").addClass("hide").trigger('resize');
 $("#three").removeClass("hide").trigger('resize');
+
+
+$(".curr")[0].scrollIntoView();
 	
 }
 

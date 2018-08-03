@@ -139,6 +139,10 @@ body #men {
 
 }
 
+.curr{
+background-color: #cfd0d3;
+padding:4px;
+}
 
 </style>
 
@@ -570,6 +574,16 @@ $(".ui-content").height(content);
 
 
 $(document).ready(function(){
+
+
+$(document).on('click','.wSearchResultTitle',function(){
+
+	 var $links = $('.wSearchResultTitle');
+	 $links.removeClass('curr');
+	 $(this).addClass('curr');
+	 
+})
+
 
 var show = function() { 
 

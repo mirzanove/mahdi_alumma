@@ -8,6 +8,26 @@ body.media-mobile div.filter-holder ul, body.media-landscape div.filter-holder u
 }
 
 
+
+body.media-mobile .curr {
+background-color: #cfd0d3;
+    padding: 4px;
+}
+
+body.media-landscape  .curr {
+background-color: #cfd0d3;
+    padding: 4px;
+}
+
+body.media-desktop  .curr {
+background-color: #006699;
+    padding: 4px;
+}
+
+
+
+
+
 div.toc-holder ul {
 	list-style: none;
 	margin: 0;

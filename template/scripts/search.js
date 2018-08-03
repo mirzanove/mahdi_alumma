@@ -258,7 +258,10 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	if(gSearchResStyle != "")
 		strStyle = "style=\"" + gSearchResStyle + "\" ";
 
-	return "<div class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
+	
+	
+	var gg = "<div  class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
+	return  gg
 	
 
 	
