@@ -2799,7 +2799,7 @@ input.wSearchField {
                     height:2.4em;
                     margin:1.2em 2% 1em;
                     padding:0 2%;
-                    padding-right:8%;
+                    padding-left:8%;
                     width:96%;
                     outline:0;
                     -webkit-border-radius:.5em;
@@ -2815,7 +2815,7 @@ input.wSearchField {
 a.wSearchLink {
                position:absolute;
                top:1.7em;
-               right:4%;
+               left:4%;
                -webkit-appearance:none;
 }
 img.wSearchLink {
