@@ -1406,7 +1406,7 @@ body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-m
 	bottom: 3em;
 	width: 100%;
 	padding-top: 0em;
-	padding-right: 0.25em;
+	/*padding-right: 0.10em;*/
 	padding-left: 0.25em;
 	padding-bottom: 0
 }
