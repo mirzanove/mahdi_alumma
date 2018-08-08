@@ -229,8 +229,26 @@ if(bookmarks.length == "0"){
 	setTimeout(function() { 
 			var elements = document.getElementsByClassName('curr')[0];
 			 if(elements){
-			  //elements.scrollIntoView();
-			  elements.scrollIntoView(!1);
+			  
+               if(getbooleanindexopage()!=3){
+				   elements.scrollIntoView(!1);
+			  }else{
+			  
+			
+			      if(document.getElementById('tocold')){
+					  
+					  if(document.getElementById('tocold').getAttribute('hidden') == null){
+					
+						  elements.scrollIntoView(!1);
+					  }
+					  
+					  
+				  }
+ 
+			  }
+			  
+			  
+			  
 			 }
       }, 0);
 	
