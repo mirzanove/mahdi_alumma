@@ -8,6 +8,14 @@
 <title>تطبيق موسوعة نون</title>
 
 <script type="text/javascript"> 
+var frame_loaded;
+
+function setFrameLoaded()
+{
+   //frame_loaded = 1;
+   //alert("Iframe is loaded");
+}
+
 
 function getbooleanindexopage(){
 return "3";
@@ -585,7 +593,7 @@ padding-right:10px;
 				
 				
 				<!-- Topic widget -->
-				<iframe id ="iframe" class="wTopic" data-if="!@.l.uimode" name="rh_default_topic_frame_name" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;margin:0em;padding:0em;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" ></iframe>
+				<iframe id ="iframe" onload='setFrameLoaded()' class="wTopic" data-if="!@.l.uimode" name="rh_default_topic_frame_name" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;margin:0em;padding:0em;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" ></iframe>
 				
 				<!-- Search results widget -->
 				

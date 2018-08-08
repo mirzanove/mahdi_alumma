@@ -124,7 +124,7 @@ if(document.location.href.indexOf("&ux=search")!= -1){
 			  $('.content').css("bottom", "0px");
 			 }	
 }
-	
+
 
 
 function go_topic(){
@@ -132,7 +132,13 @@ function go_topic(){
 		  
 		   if(document.location.href.indexOf("&ux=search")!= -1){
 			
-			   document.getElementsByClassName("loading2")[0].style.display = 'block'; 
+			   if(!document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) || document.location.href.match(/((#|%23)post(.*?))/mg)) {
+			
+      	         document.getElementsByClassName("loading2")[0].style.display = 'block'; 	
+					 
+	           }
+			   
+			   
 		   }
 	
 	  
@@ -150,15 +156,14 @@ function go_topic(){
 			  $('.content').css("bottom", "0px");
 			 }
 			 
-			var myframe = document.getElementById("iframe");
+	
+	
 
-if (myframe)   {
-  // alert();
-} else   {
-   //not there yet
-} 
+			
+			
+			
 			 
-			//setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 700); 
+	//setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 700); 
 			 
 			 
 			 
