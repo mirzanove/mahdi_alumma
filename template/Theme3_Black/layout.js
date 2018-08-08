@@ -107,7 +107,7 @@ function go_bookmark(){
          
 		 if(document.location.href.indexOf("&ux=search")!= -1){
 			
-			   if(!document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) || document.location.href.match(/((#|%23)post(.*?))/mg)) {
+			   if(!(document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) ||document.location.href.match(/((#|%23)post(.*?))/mg))) {
 			
       	         document.getElementsByClassName("loading2")[0].style.display = 'block'; 	
 					 
@@ -140,7 +140,7 @@ function go_topic(){
 		  
 		   if(document.location.href.indexOf("&ux=search")!= -1){
 			
-			   if(!document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) || document.location.href.match(/((#|%23)post(.*?))/mg)) {
+			   if(!(document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) ||document.location.href.match(/((#|%23)post(.*?))/mg))) {
 			
       	         document.getElementsByClassName("loading2")[0].style.display = 'block'; 	
 					 
