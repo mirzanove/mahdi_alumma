@@ -133,8 +133,15 @@ function go_topic(){
 			  $('.content').css("bottom", "0px");
 			 }
 			 
+			var myframe = document.getElementById("iframe");
+
+if (myframe)   {
+  // alert();
+} else   {
+   //not there yet
+} 
 			 
-			setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 700); 
+			//setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 700); 
 			 
 			 
 			 
@@ -148,6 +155,9 @@ function go_topic(){
 
 function go_search(){	   
 
+if($("#searchBoxSearchPage").is(":focus")){
+
+}else{
 if ($('.curr').length > 0){
 
 setTimeout(function() { 
@@ -171,6 +181,9 @@ toc.scrollTop = 0;*/
 	
 	
  }	
+}
+
+	
 	   if($('.wSearchPageNumberSelected').length) 
 		{	
 
