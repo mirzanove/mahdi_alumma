@@ -104,10 +104,18 @@ $(document).on('click','.nolink',function(){
 
 
 function go_bookmark(){
-if(document.location.href.indexOf("&ux=search")!= -1){
+         
+		 if(document.location.href.indexOf("&ux=search")!= -1){
 			
-			   document.getElementsByClassName("loading2")[0].style.display = 'block'; 
+			   if(!document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) || document.location.href.match(/((#|%23)post(.*?))/mg)) {
+			
+      	         document.getElementsByClassName("loading2")[0].style.display = 'block'; 	
+					 
+	           }
+  
 		   }
+			   
+			
 	
 	  
 
