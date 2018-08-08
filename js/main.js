@@ -200,7 +200,7 @@ if(bookmarks.length == "0"){
 
 		
 		if(url == lol || lol==""){
-			bookmarksResults.innerHTML += '<div class="curr well">'+
+			bookmarksResults.innerHTML += '<div class="curr2 well">'+
 										'<h3><span  class= "title" style = "">' + name +"</span>"+
 										'<BR><span  style = "display:none;" class= "url" style = "word-break: break-all;">'+url+'</span>'+
 										' <a onclick="go_topic()" class="btn btn-info" href="'+url+'">الذهاب الى الرابط</a>' + 
@@ -227,10 +227,11 @@ if(bookmarks.length == "0"){
 	
 	
 	setTimeout(function() { 
-			var elements = document.getElementsByClassName('curr')[0];
+			var elements = document.getElementsByClassName('curr2')[0];
 			 if(elements){
 			  
                if(getbooleanindexopage()!=3){
+				   
 				   elements.scrollIntoView(!1);
 			  }else{
 			  
@@ -238,7 +239,7 @@ if(bookmarks.length == "0"){
 			      if(document.getElementById('tocold')){
 					  
 					  if(document.getElementById('tocold').getAttribute('hidden') == null){
-					
+					      
 						  elements.scrollIntoView(!1);
 					  }
 					  

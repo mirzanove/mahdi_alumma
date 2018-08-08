@@ -23,6 +23,20 @@ background-color: #006699;
 
 }
 
+body.media-mobile .curr2 {
+background-color: #cfd0d3;
+
+}
+
+body.media-landscape  .curr2 {
+background-color: #cfd0d3;
+
+}
+
+body.media-desktop  .curr2 {
+background-color: #006699;
+
+}
 
 
 

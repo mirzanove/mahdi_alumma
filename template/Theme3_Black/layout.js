@@ -178,17 +178,24 @@ if($("#searchBoxSearchPage").is(":focus")){
 if ($('.curr').length > 0){
 
 setTimeout(function() { 
-
+//var elements = document.getElementsByClassName('curr')[0];
 if($(window).innerWidth() >= em(81)){
 $('#searchresults').animate({
       //scrollTop: $('.curr').offset().top-30
 	  scrollTop:$('.curr').offset().top - $('#searchresults').offset().top + $('#searchresults').scrollTop()
+	 
+	  
     }, 0);
-}else{
+//$('.curr')[0].scrollIntoView(1);
+	
+	
+	}else{
 $('#rh_scrollable_content').animate({
       //scrollTop: $('.curr').offset().top-30
 	  scrollTop:$('.curr').offset().top - $('#rh_scrollable_content').offset().top + $('#rh_scrollable_content').scrollTop()
-    }, 0);	
+    }, 0);
+
+//$('.curr')[0].scrollIntoView(1);	
 }		
 }, 500);	
 	
