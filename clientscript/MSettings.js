@@ -269,10 +269,9 @@ else {
 								
                             }
                             else{
-						         window.parent.postMessage(["loading","run"], "*");
-								//location.href = link;
+						        window.parent.postMessage(["loading","run"], "*");
+								location.href = link;
 								setTimeout(function(){ location.reload();  }, 300);
-								//return false;
 		                    }
 							 
 						 }
