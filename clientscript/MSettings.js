@@ -565,12 +565,22 @@ function loaddsett(){
 		
 		
 		
-		jQueryM_v1_4_5(".link_org").on('click', function(event) {
-			
-			jQueryM_v1_4_5(".moveoff").unbind("click"); 
+		jQueryM_v1_4_5(".link_org").click(function(event) {
+            
+			stop = true;
 			event.preventDefault();
             event.stopPropagation();
+            
+			if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
+			}
+			link_img_show = false;
 
+			
 			
 			if(!jQueryM_v1_4_5(event.currentTarget).children(".selected").hasClass( "moveoff" )){
 				jQueryM_v1_4_5(".selected").unbind( "click" );
@@ -612,9 +622,9 @@ function loaddsett(){
                 stop = false;				
 	             });
 
-				jQueryM_v1_4_5(".tooltiptext_custom_go > a").on('click', function(event) {
+				jQueryM_v1_4_5(".tooltiptext_custom_go > a").click(function(event) {
                     event.stopPropagation();
-					//event.preventDefault();
+					//link_img_show = true;
 					
 					if(wkchrom){
 				    //event.stopPropagation();
@@ -624,20 +634,9 @@ function loaddsett(){
 					jQueryM_v1_4_5(this).attr("href","heexternal://"+res).removeAttr('target');	
 			        }
 					
-					
-					/*if(wke){
-					jQueryM_v1_4_5(this).attr("target","_heexternal");
-					var res = jQueryM_v1_4_5(this).attr("href");
-					res = res.replace("heexternal://", "");
-					jQueryM_v1_4_5(this).attr("href","heexternal://"+res).removeAttr('target');	
-					}
-
-					if(iee){
-					jQueryM_v1_4_5(this).attr("target","_heexternal");	
-					}*/
                 });
 				
-				jQueryM_v1_4_5(".tooltiptext_custom_copy").on('click', function(event) {
+				jQueryM_v1_4_5(".tooltiptext_custom_copy").click(function(event) {
                     event.stopPropagation();
 	
 					var c = event.currentTarget.parentNode.parentNode.childNodes;
@@ -655,7 +654,7 @@ function loaddsett(){
 				
             }
 
-		   jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
+            jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
 
 
         });
