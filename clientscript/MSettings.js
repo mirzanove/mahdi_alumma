@@ -269,8 +269,8 @@ else {
 								
                             }
                             else{
-						        window.parent.postMessage(["loading","run"], "*");
-								setTimeout(function(){ location.reload();  }, 100);
+						        //window.parent.postMessage(["loading","run"], "*");
+								//setTimeout(function(){ location.reload();  }, 100);
 		                    }
 							 
 						 }
