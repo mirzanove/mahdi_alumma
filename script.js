@@ -101,7 +101,16 @@ $("#two").removeClass("hide").trigger('resize');
 
 //var element = document.getElementsByClassName("selected");
 
-$(".selected")[0].scrollIntoView();
+
+setTimeout(function() { 
+			  
+			   document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href2",null], "*");
+			
+			 }, 500);
+			 
+//$(".curr")[0].scrollIntoView();			 
+			 
+
 //alert();
 /*var target1 = $.mobile.activePage.find('.selected').get(0).offsetTop;
 var top = $('.selected').position().top+43;

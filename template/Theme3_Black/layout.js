@@ -1,4 +1,11 @@
-﻿document.getElementsByClassName("loading2")[0].style.display = 'block';
+﻿
+
+
+
+
+
+
+document.getElementsByClassName("loading2")[0].style.display = 'block';
 
 
 if (document.location.href.indexOf("&checkbox=00")!= -1){
@@ -96,7 +103,11 @@ $(document).on('click','.nolink',function(){
 });
 
 
-
+function go_bookmark(){
+	
+	//fetchBookmarks();
+	
+}
 
 
 function go_topic(){
@@ -107,7 +118,7 @@ function go_topic(){
 			   document.getElementsByClassName("loading2")[0].style.display = 'block'; 
 		   }
 	
-	      
+	  
 
 	        if($(window).innerWidth() < em(43.68)) {
               $('.content').css("bottom", "40px");
@@ -142,38 +153,16 @@ if ($('.curr').length > 0){
 setTimeout(function() { 
 
 if($(window).innerWidth() >= em(81)){
-
-var dummyEl = document.getElementById("searchBoxSearchPage");
-var isFocused = (document.activeElement === dummyEl);
-if(!isFocused){
 $('#searchresults').animate({
       //scrollTop: $('.curr').offset().top-30
 	  scrollTop:$('.curr').offset().top - $('#searchresults').offset().top + $('#searchresults').scrollTop()
     }, 0);
-
-}
-	
-	
 }else{
-	
-	
-var dummyEl = document.getElementById("searchBoxSearchPage");
-var isFocused = (document.activeElement === dummyEl);
-if(!isFocused){
 $('#rh_scrollable_content').animate({
       //scrollTop: $('.curr').offset().top-30
 	  scrollTop:$('.curr').offset().top - $('#rh_scrollable_content').offset().top + $('#rh_scrollable_content').scrollTop()
     }, 0);	
-
-}	
-	
-	
-
-	
-	
-	
-	
-	}		
+}		
 }, 500);	
 	
 	
@@ -187,7 +176,7 @@ toc.scrollTop = 0;*/
 
 setTimeout(function() { 
 
- $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
+// $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
  
 }, 500);
 	
@@ -244,14 +233,13 @@ toc = document.getElementById('searchresults');
 }else{
 toc = document.getElementById('rh_scrollable_content');		
 }
-	
+
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 toc.scrollTop = 0;
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
 
 function scrollTo_down(){
-
 if($(window).innerWidth() >= em(81)){
 toc = document.getElementById('searchresults');	
 }else{
@@ -300,27 +288,16 @@ if($.support.rtlScrollType == "default" || $.support.rtlScrollType == "negative"
   var elpos = $(this).scrollLeft();
   var elW = $(this).width();
 
-  pos = pos + elpos - elW / 2;
+  pos = pos - elpos - elW / 2;
 
   $(this).animate({
-    scrollLeft: pos-30
+    scrollLeft: -pos+30
   }, speed == undefined ? 1000 : speed);
   return this;
   
   
   
 }
-  
-  
-  
-  
-
-
-  
-  
-  
-  
-  
   
   
   };
@@ -981,7 +958,8 @@ eventer(messageEvent,function(e) {
 
     var eventName = e.data[0];
     var data = e.data[1];
-
+	var data2 = e.data[2];
+    data2= get_current_url(data2);
 	switch(eventName) {
     
 	case 'modal_display':
@@ -1029,6 +1007,68 @@ eventer(messageEvent,function(e) {
          }
        }
     }		
+	break;
+	case 'send_page_info':
+	
+	
+	
+	
+	
+	
+	if(lsTest() === true){
+		document.getElementById("websiteName").value = data; 
+	document.getElementById("websiteUrl").value = data2;
+	
+	 var  jj = document.getElementsByClassName("bar_index");
+	 
+	 if(localStorage.getItem('bookmarks') != null){
+	 	   
+		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+	        
+
+			
+			if(bookmarks.length == "0"){
+				
+			$('.bar_index').removeAttr( "style" );
+			$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
+
+			}
+			else{
+			
+			for(var i = 0; i < bookmarks.length; i++){
+
+			 
+		    if(bookmarks[i].url == data2){
+	       
+		   $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
+			$('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
+		
+ 
+			   break;
+		    }
+			else{
+			
+			
+			$('.bar_index').removeAttr( "style" );
+			$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
+			  
+			}
+			}
+			
+			
+			}
+			
+	}
+	fetchBookmarks(data2);
+	
+	}
+	else{
+  
+	var ll = document.getElementById('tocold');
+    ll.innerHTML = '<br><div style = "text-Align:center;padding:4px;color:red;font-size:20px">متصفحك لايدعم خاصية حفظ روابط الموسوعة في المفضلة</div>';
+	}
+	
+	
 	break;
 	
 	

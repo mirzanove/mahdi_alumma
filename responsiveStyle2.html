@@ -339,8 +339,76 @@ a.nolink {
 }
 .curr{
 background-color: #cfd0d3;
-padding:4px;
 }
+
+.btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-danger {
+text-decoration: none;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-info {
+text-decoration: none;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.well{
+padding-left:10px;
+padding-right:10px;
+}
+
+
+.form-control {
+   font-size: 1em;
+    height: 2.4em;
+    margin: 1.2em 2% 1em;
+    padding: 0 2%;
+   
+    width: 96%;
+    outline: 0;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    border-color: #e6e6e6;
+    border-width: .1em;
+    border-style: solid;
+    background-color: #fafafa;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.form-group {
+    margin-bottom: 5px;
+	text-align: center;
+}
+
+
 
 
 
@@ -473,17 +541,18 @@ padding:4px;
 				</div>
 				
 				<div class="home">
-					<a onclick='go_topic(); location.href= location.href.replace(/(.*?)\&ux\=search(.*?)(&([^"]*)|$)/mg, "$1");'><img src="template/Theme3_Black/icon_back_small2.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/icon_back_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
+					<a onclick='go_topic(); location.href= location.href.replace(/(.*?)\&ux\=(search|bookmark)(.*?)(&([^"]*)|$)/mg, "$1");'><img src="template/Theme3_Black/icon_back_small2.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/icon_back_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
 				</div>
 				
 				<div class="home">
 					<a data-attr="href: '#ux=search'" onclick="setTopic();go_search()"><img src="template/Theme3_Black/search_buttonbar_small.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/search_hover_buttonbar_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
 				</div>
 
-				 <!--
-		        <div class="home">
-			    <a data-attr="href: '#ux=searchh'" style = "background-image:url('template/resources/bookmark_small.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
-		       </div> -->
+				<div class="home" title="bookmark" onclick="go_bookmark();">
+			       <a data-attr="href: '#ux=bookmark'" onclick="">
+                           <img src="template/Theme3_Black/index_buttonbar.png" alt=""  id="booknormal" border="0" />
+				   </a>
+		       </div>
 
 				
 				<div class="home">
@@ -516,11 +585,25 @@ padding:4px;
 				
 				<!-- Search results widget -->
 				
-				<!-- 
-				<div  data-if="@.l.uimode=='searchh'" dir ="rtl">
-				fffffffffffffffffffffffffffff
+				<div id ="tocold" data-if="@.l.uimode=='bookmark'" dir ="rtl">
+				 <form id="bookmarksForm"  onsubmit="return false">
+			<div class="form-group">
+			    <label>عنوان الموضوع</label>
+			    <input type="text" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+			 </div>
+			 <div class="form-group" style = "display:none;">
+			    <label>رابط الموضوع</label>
+			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			 </div>
+			 <center><button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
+			 
+			 
+		</form> 
+
+<div id="bookmarksResults">
+      			
+</div>
 				</div>
-				-->
 				
 				<div class="wSearchResults rh-hide" id="searchresults" data-if="@.l.uimode=='search'" dir ="rtl">
 
@@ -643,17 +726,18 @@ padding:4px;
 			<a onclick="MyFunction();return false;" target="_top" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
 		</div>
 		<div data-class="bar_topic_active: !@.l.uimode; bar_topic: @.l.uimode">
-			<a onclick='go_topic();location.href= location.href.replace(/(.*?)\&ux\=search(.*?)(&([^"]*)|$)/mg, "$1");'>&#160;</a>
+			<a onclick='go_topic();location.href= location.href.replace(/(.*?)\&ux\=(search|bookmark)(.*?)(&([^"]*)|$)/mg, "$1");'>&#160;</a>
 		</div>
-        <!--
-		<div class="bar_index">
-			<a data-attr="href: '#ux=searchh'">&#160;</a> 
-		</div> -->
+       
 		
-		<div data-class="bar_search_active: @.l.uimode === 'search'; bar_search: !@.l.uimode" title="Search">
+		<div class="bar_search" title="Search">
 			<a data-attr="href: '#ux=search'" onclick="setTopic();go_search()">&#160;</a>
 		</div>
 		
+		
+		<div class="bar_index" title="bookmark" onclick="go_bookmark();">
+			<a data-attr="href: '#ux=bookmark'" onclick=""></a>
+		</div>
 		
 		
 	</div>
@@ -680,5 +764,6 @@ $(function(){
 });
 //]]></script>
 <script type="text/javascript" src="whxdata/whtagdata.js"></script>
+<script src="js/main.js"></script>
   </body>
 </html>

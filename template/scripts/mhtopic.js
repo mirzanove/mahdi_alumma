@@ -2293,6 +2293,40 @@ jQueryD_1_4_2("em").get(0).scrollIntoView();
 		
 }
 
+var data2 = document.location.href;
+		rhsyns = data2.replace(/(.*?)\?(rhhlterm=[^"]*|&rhsyns=[^"]*)/mg, "$1");
+       
+	    if (data2.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
+			data2= data2.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");	
+		}
+		if (data2.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
+			data2+= data2.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
+		}
+		if (data2.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
+			data2+= data2.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
+		}
+		if (data2.match(/(#post(.*?))/mg) ) {
+					  
+					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
+		}
+		if (data2.match(/(#td_threadtitle(.*?))/mg) ) {
+				
+					   rhsyns= rhsyns.replace(/(#td_threadtitle[^"]*)/mg, "");			 
+		}
+		if (rhsyns.match(/(rhsyns=%20)/mg) ) {
+					  
+			rhsyns= rhsyns.replace(/(rhsyns=%20)/mg, "");	
+            			
+	    }
+		
+		rhsyns= rhsyns.replace('html?', "html");
+        rhsyns= rhsyns.replace('htm?', "htm");		
+   
+		window.parent.postMessage(["send_page_info",document.title, rhsyns], "*");
+
+
+
+
 
 
 
@@ -2385,6 +2419,43 @@ var data = e.data[1];
 	 }else{
 		 link_disable = false;
 	 }
+	  case 'get_ifram_location_href2':
+        
+		data2 = document.location.href;
+		rhsyns = data2.replace(/(.*?)\?(rhhlterm=[^"]*|&rhsyns=[^"]*)/mg, "$1");
+       
+	    if (data2.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
+			data2= data2.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");	
+		}
+		if (data2.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
+			data2+= data2.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
+		}
+		if (data2.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
+			data2+= data2.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
+		}
+		if (data2.match(/(#post(.*?))/mg) ) {
+					  
+					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
+		}
+		if (data2.match(/(#td_threadtitle(.*?))/mg) ) {
+				
+					   rhsyns= rhsyns.replace(/(#td_threadtitle[^"]*)/mg, "");			 
+		}
+		if (rhsyns.match(/(rhsyns=%20)/mg) ) {
+					  
+			rhsyns= rhsyns.replace(/(rhsyns=%20)/mg, "");	
+            			
+	    }
+		
+		rhsyns= rhsyns.replace('html?', "html");
+ 		rhsyns= rhsyns.replace('htm?', "htm");			 
+
+		window.parent.postMessage(["send_page_info",document.title, rhsyns], "*");
+		 
+		 
+     break;
+	 
+	 
 }	
 },false);
 

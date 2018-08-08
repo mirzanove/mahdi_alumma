@@ -8,21 +8,22 @@ body.media-mobile div.filter-holder ul, body.media-landscape div.filter-holder u
 }
 
 
-
 body.media-mobile .curr {
 background-color: #cfd0d3;
-    padding: 4px;
+
 }
 
 body.media-landscape  .curr {
 background-color: #cfd0d3;
-    padding: 4px;
+
 }
 
 body.media-desktop  .curr {
 background-color: #006699;
-    padding: 4px;
+
 }
+
+
 
 
 
@@ -305,7 +306,7 @@ body.media-desktop div.toc-holder {
 }
 body.media-desktop div.toc-holder * {
 	width: auto;
-	white-space: nowrap
+	/*white-space: nowrap*/
 }
 body.media-desktop div.toc-holder>ul li {
 	padding-right: 2em
@@ -2458,6 +2459,57 @@ body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearc
 	-ms-perspective: 1000;
 	perspective: 1000
 }
+
+
+
+
+body.media-desktop  input.form-control {
+
+ font-size: 1em;
+    height: 2.4em;
+    margin: 1.2em 2% 1em;
+    padding: 0 2%;
+   
+    width: 96%;
+    outline: 0;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    border-color: #e6e6e6;
+    border-width: .1em;
+    border-style: solid;
+    background-color: #fafafa;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+
+}
+
+body.media-desktop  .form-group {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+
+
+body.media-desktop  .well h3  span.title  {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+
+body.media-desktop  .well h3  span.url {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+
 body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearchField:focus, body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearchField.searchpage-mode {
 	outline: 0
 }

@@ -237,6 +237,72 @@ display:block;
 display:block;
 }
 
+.btn {
+    display: inline-block;
+    padding: 1px 6px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-danger {
+text-decoration: none;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-info {
+text-decoration: none;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.well{
+padding-left:10px;
+padding-right:10px;
+}
+
+
+.form-control {
+   font-size: 1em;
+    height: 2.4em;
+    margin: 1.2em 2% 1em;
+    padding: 0 2%;
+   
+    width: 96%;
+    outline: 0;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    border-color: #e6e6e6;
+    border-width: .1em;
+    border-style: solid;
+    background-color: #fafafa;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.form-group {
+    margin-bottom: 5px;
+	text-align: center;
+}
 
 
 </style>
@@ -249,7 +315,7 @@ display:block;
 </div>
 </head>
 
-<body class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_DESKTOP; media-landscape: KEY_SCREEN_TABLET; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
+<body onload="" class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_DESKTOP; media-landscape: KEY_SCREEN_TABLET; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
 <script type="text/javascript" src="./ehlpdhtm.js"></script>
 
 
@@ -297,7 +363,7 @@ display:block;
 <!-- Function bar with TOC/IDS/GLO/FILTER/FTS buttons -->
 <div class="functionbar" data-css="width: sidebar_width | screen: 'desktop'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
 	<div class="nav" data-class="no-filter: !@KEY_FEATURE.filter">
-		<a class="toc" data-if="KEY_FEATURE.toc" data-class="active: @KEY_ACTIVE_TAB == 'toc'" data-click="$mc.toggleActiveTab('toc')" data-attr="title:@KEY_LNG.TableOfContents; href: '#'">&#160;</a>
+		<a onclick = "chkbookmark(this)" class="toc" data-if="KEY_FEATURE.toc" data-class="active: @KEY_ACTIVE_TAB == 'toc'" data-click="$mc.toggleActiveTab('toc')" data-attr="title:@KEY_LNG.TableOfContents; href: '#'">&#160;</a>
 		<a class="idx" data-if="KEY_FEATURE.idx" data-class="active: @KEY_ACTIVE_TAB == 'idx'" data-click="$mc.toggleActiveTab('idx')" data-attr="title:@KEY_LNG.Index; href: '#'">&#160;</a>
 		<a class="glo" data-if="KEY_FEATURE.glo" data-class="active: @KEY_ACTIVE_TAB == 'glo'" data-click="$mc.toggleActiveTab('glo')" data-attr="title:@KEY_LNG.Glossary; href: '#'">&#160;</a>
 		<a class="filter" data-if="KEY_FEATURE.filter" data-class="active: @KEY_ACTIVE_TAB == 'filter'; filter-applied: @.l.tag_expression.length"  data-click="$mc.toggleActiveTab('filter')" data-attr="title:@KEY_LNG.Filter; href: '#'">&#160;</a>
@@ -310,25 +376,33 @@ display:block;
 	
 	</div>
 </div>
+
 <!-- Table of contents -->
 
-<div  class="toc-bar"   data-class="layout-visible: @KEY_ACTIVE_TAB == 'toc';" >
-<table style='width:100%'>
-	  
-<tr>
-      
+<div  class="toc-bar mobileheader"   data-class="layout-visible: @KEY_ACTIVE_TAB == 'toc';" >
+المفضلة
+<div class="totopic" data-if="@KEY_ACTIVE_TAB != 'fts'" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back" title="الخلف"></div>
+</div>
 
-	  <td style='width:2em'>
-	  <a style="cursor : pointer;" onclick="scrollTo_down();return false;"><img src= "template/resources/toc_book_open_mobile.png"></a>
-	  </td>
-	  <td style="text-align: center;">
-		جدول المحتويات
-     </td>
-	  <td style='width:2em'>
-		<a style="cursor : pointer;" onclick="scrollTo_up();return false;"><img src= "template/resources/toc_book_open_drildown.png"></a>
-      </td>	   
-</tr>
-</table>
+<div id = "toc" class="toc-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: @KEY_ACTIVE_TAB == 'toc'; drill-down: KEY_TOC_DRILL_DOWN; ;">
+
+<form id="bookmarksForm"  onsubmit="return false">
+			<div class="form-group">
+			    <label>عنوان الموضوع</label>
+			    <input type="text" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+			 </div>
+			 <div class="form-group" style = "display:none;">
+			    <label>رابط الموضوع</label>
+			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			 </div>
+			 <center><button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
+			 
+			 
+</form> 
+
+<div id="bookmarksResults">
+      			
+</div>
 </div>
 
 
@@ -644,7 +718,20 @@ var element, name, arr;
 
 }
 
+function  go_topic(){
 
+}
+
+function chkbookmark(thiss){
+
+setTimeout(function() { 
+			  if(thiss.className == "toc active"){
+			   document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href2",null], "*");
+			  }
+			 }, 300);
+
+
+}
 
 
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
@@ -654,7 +741,8 @@ eventer(messageEvent,function(e) {
 
     var eventName = e.data[0];
     var data = e.data[1];
-
+	var data2 = e.data[2];
+    data2= get_current_url(data2);
 	switch(eventName) {
     
 	case 'modal_display':
@@ -705,6 +793,63 @@ eventer(messageEvent,function(e) {
        }
     }		
 	break;
+	case 'send_page_info':
+	
+	
+	
+	
+	
+if(lsTest() === true){
+
+    document.getElementById("websiteName").value = data; 
+	document.getElementById("websiteUrl").value = data2;
+	
+    if(localStorage.getItem('bookmarks') != null){
+	 	   
+		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+	        
+
+			
+			if(bookmarks.length == "0"){
+			document.getElementsByClassName("toc")[0].removeAttribute("style");
+			}
+			else{
+			
+			for(var i = 0; i < bookmarks.length; i++){
+
+			 
+		    if(bookmarks[i].url == get_current_url(data2)){
+			   
+               document.getElementsByClassName("toc")[0].setAttribute("style", "background-image: url(template/Charcoal_Grey/booked.png);");
+  
+			   break;
+		    }
+			else{
+			
+			   document.getElementsByClassName("toc")[0].removeAttribute("style");
+			}
+			}
+			
+			
+			}
+			
+	}
+   
+   
+   
+ fetchBookmarks(data2);  
+   
+   
+}else{
+ 
+   var gg = document.getElementById('toc');
+   gg.innerHTML = '<br><br><div style = "text-Align:center;padding:4px;color:red;font-size:20px">متصفحك لايدعم خاصية حفظ روابط الموسوعة في المفضلة</div>';
+} 
+	
+	
+	
+	
+	break;
 	
 	
 }
@@ -714,5 +859,6 @@ eventer(messageEvent,function(e) {
 		
 </script>
 <script type="text/javascript" src="whxdata/whtagdata.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
