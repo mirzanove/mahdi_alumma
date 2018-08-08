@@ -269,9 +269,9 @@ else {
 								
                             }
                             else{
-						        window.parent.postMessage(["loading","run"], "*");
+						        /*window.parent.postMessage(["loading","run"], "*");
 								location.href = link;
-								setTimeout(function(){ location.reload();  }, 300);
+								setTimeout(function(){ location.reload();  }, 300);*/
 		                    }
 							 
 						 }
