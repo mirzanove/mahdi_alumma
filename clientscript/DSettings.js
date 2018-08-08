@@ -329,6 +329,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
 						        window.parent.postMessage(["loading","run"], "*");
 								//location.href = link;
 								setTimeout(function(){ location.reload();  }, 300);
+								//return false;
 		                    }
 							 
 						 }
