@@ -313,7 +313,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
 				
 					   
 						 if (!this.href.match(/(#post(.*?))/mg) ) {
-							 
+							
 							if(window.location == window.parent.location) {
 	                            jQueryD_1_4_2('#loading').show();
 								if( classname !='whtbtnshow'){
@@ -325,8 +325,11 @@ jQueryD_1_4_2("a").live("click", function(event) {
 								
                             }
                             else{
+								
 						        window.parent.postMessage(["loading","run"], "*");
-								setTimeout(function(){ location.reload();  }, 100);
+								//location.href = link;
+								
+								setTimeout(function(){ location.reload();  }, 300);
 		                    }
 							 
 						 }
