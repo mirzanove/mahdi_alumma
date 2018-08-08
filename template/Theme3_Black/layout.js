@@ -165,12 +165,12 @@ setTimeout(function() {
 if($(window).innerWidth() >= em(81)){
 $('#searchresults').animate({
       //scrollTop: $('.curr').offset().top-30
-	  scrollTop:$('.curr').offset().top - $('#searchresults').offset().top + $('#searchresults').scrollTop()
+	  //scrollTop:$('.curr').offset().top - $('#searchresults').offset().top + $('#searchresults').scrollTop()
     }, 0);
 }else{
 $('#rh_scrollable_content').animate({
       //scrollTop: $('.curr').offset().top-30
-	  scrollTop:$('.curr').offset().top - $('#rh_scrollable_content').offset().top + $('#rh_scrollable_content').scrollTop()
+	  //scrollTop:$('.curr').offset().top - $('#rh_scrollable_content').offset().top + $('#rh_scrollable_content').scrollTop()
     }, 0);	
 }		
 }, 500);	
