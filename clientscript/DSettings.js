@@ -126,8 +126,6 @@ function changeUrl(key,value) {
 
 	}
 	
-	
-	
 //Get query string value
 	var searchUrl=location.search;
 	if(searchUrl.indexOf("?")== "-1") {
@@ -247,15 +245,13 @@ if (typeof encryptedMsg != 'undefined')
 		if(hh == true){
 			//childboxes("pass", strpass);
 			//insertParam("pass", strpass)
-			changeUrl("pass", strpass);
-			
-		
-		
-		}else{
-			if(hh == true){
-				
-			window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
+			if(window.location == window.parent.location) {
+			   changeUrl("&pass", strpass);	
 			}
+		
+			window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
+		
+		
 		}
 		
 		

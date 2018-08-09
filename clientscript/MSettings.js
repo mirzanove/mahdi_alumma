@@ -47,7 +47,7 @@ if (_isMobile() != mobiletrue) {
 } ////////////////////////////////////////////////////////////////
 else {
  
- function childboxes(MainElement, ChildElement){
+function childboxes(MainElement, ChildElement){
     
 	var loc_target = "";
     var str = document.location.href;
@@ -122,8 +122,6 @@ function changeUrl(key,value) {
 
 	}
 	
-	
-	
 //Get query string value
 	var searchUrl=location.search;
 	if(searchUrl.indexOf("?")== "-1") {
@@ -185,7 +183,7 @@ function getCookie(cname) {
     return "";
 }
 
-var hh;
+var hh = true;
 
 function autolog(event,hh,pass){
 if (typeof encryptedMsg != 'undefined')
@@ -243,15 +241,13 @@ if (typeof encryptedMsg != 'undefined')
 		if(hh == true){
 			//childboxes("pass", strpass);
 			//insertParam("pass", strpass)
-			changeUrl("pass", strpass);
-			
-		
-		
-		}else{
-			if(hh == true){
-				
-			window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
+			if(window.location == window.parent.location) {
+			   changeUrl("&pass", strpass);	
 			}
+		
+			window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
+		
+		
 		}
 		
 		
@@ -395,6 +391,7 @@ return false;
 
 
 
+
 jQueryM_v1_4_5(document).ready(function() {
 
 
@@ -405,6 +402,7 @@ if (typeof encryptedMsg != 'undefined')
 
 		if(lsTest() === true){
 		var checked = localStorage.getItem('passebook');
+	
 		if (checked) {
               document.getElementById("pass").checked = true;
 			 
@@ -514,6 +512,7 @@ else{
 		
 	     window.parent.postMessage(["get_pass", "get_pass"], "*");	
 }
+
 
 
 
