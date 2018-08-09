@@ -400,7 +400,7 @@ if (typeof encryptedMsg != 'undefined')
 
 		if(lsTest() === true){
 		var checked = localStorage.getItem('passebook');
-		if (checked != "") {
+		if (checked) {
               document.getElementById("pass").checked = true;
 			 
 
