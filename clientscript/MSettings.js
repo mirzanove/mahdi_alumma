@@ -185,7 +185,7 @@ function getCookie(cname) {
     return "";
 }
 
-var hh = true;
+var hh;
 
 function autolog(event,hh,pass){
 if (typeof encryptedMsg != 'undefined')
@@ -222,7 +222,7 @@ if (typeof encryptedMsg != 'undefined')
 		 	
 			
         if (decryptedHMAC !== encryptedHMAC) {
-              alert('كلمة السر غير صحيحة');
+            alert('كلمة السر غير صحيحة');
             
 			//location.hash="";
 			
@@ -239,14 +239,14 @@ if (typeof encryptedMsg != 'undefined')
 		passtext = "#&pass="+strpass;
 		
 		
-		if(window.location == window.parent.location) {	
+		
 		if(hh == true){
 			//childboxes("pass", strpass);
 			//insertParam("pass", strpass)
 			changeUrl("pass", strpass);
 			
 		
-		}
+		
 		}else{
 			if(hh == true){
 				
@@ -381,6 +381,11 @@ if (typeof encryptedMsg != 'undefined')
 		}
     }
     });
+
+
+		
+		
+		
         
 		}
 
