@@ -401,7 +401,7 @@ jQueryD_1_4_2(document).ready(function() {
 if (typeof encryptedMsg != 'undefined')
 {
 
-    jQueryD_1_4_2("#content").html('<div class="staticrypt-page" dir = "rtl"><div class="staticrypt-form" ><div class="staticrypt-instructions"><p class="staticrypt-title">**موضوع محمي**</p><hr><span>الرجاء مسح كاش المتصفح والمفضلة بعدالإنتهاء من الموسوعة في حال كان جهاز الذي تستخدمه غير شخصي ودخلت الى البيانات المشفرة<span><hr></div><input autocomplete="on" id="staticrypt-password" type="password" name="password" placeholder="كلمة السر"/><br><input type="checkbox" id="pass"> حفظ كلمة السر.. </input><br><input type="checkbox" id="pass2"> الدخول التلقائي للبيانات المشفرة.. </input><br><button autocomplete="on" type=\'submit\' id ="subment" class="staticrypt-decrypt-button">فك التشفير</button></div></div>');
+    jQueryD_1_4_2("#content").html('<div class="staticrypt-page" dir = "rtl"><div class="staticrypt-form" ><div class="staticrypt-instructions"><p class="staticrypt-title">**موضوع محمي**</p><hr><span>الرجاء مسح كاش المتصفح والمفضلة بعدالإنتهاء من الموسوعة في حال كان جهاز الذي تستخدمه غير شخصي ودخلت الى البيانات المشفرة<span><hr></div><input style= "" autocomplete="on" id="staticrypt-password" type="password" name="password" placeholder="كلمة السر"/><br><input type="checkbox" id="pass"> حفظ كلمة السر.. </input><br><input type="checkbox" id="pass2"> الدخول التلقائي للبيانات المشفرة.. </input><br><button autocomplete="on" type=\'submit\' id ="subment" class="staticrypt-decrypt-button">فك التشفير</button></div></div>');
 
 		if(lsTest() === true){
 		var checked = localStorage.getItem('passebook');
@@ -473,16 +473,20 @@ if (typeof encryptedMsg != 'undefined')
 jQueryD_1_4_2("#subment").click(function(event){
 
 		event.preventDefault();
-
-		
 		autolog(event,true,document.getElementById('staticrypt-password').value);
-		
-		
 		return false;
 		
 		
 });
 
+
+jQueryD_1_4_2("#staticrypt-password").keypress(function(event) {
+    if(event.which == 13) {
+        event.preventDefault();
+		autolog(event,true,document.getElementById('staticrypt-password').value);
+		return false;
+    }
+});
 
 
 

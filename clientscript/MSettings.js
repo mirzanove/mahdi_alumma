@@ -480,7 +480,13 @@ jQueryM_v1_4_5("#subment").click(function(event){
 		
 });
 
-
+jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
+    if(event.which == 13) {
+        event.preventDefault();
+		autolog(event,true,document.getElementById('staticrypt-password').value);
+		return false;
+    }
+});
 
 
 
