@@ -205,7 +205,7 @@ if (typeof encryptedMsg != 'undefined')
 			 }
 			 
 		}
-    
+            
             var encryptedHMAC = encryptedMsg.substring(0, 64);
             var encryptedHTML = encryptedMsg.substring(64);
             var  decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
