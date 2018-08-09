@@ -202,7 +202,7 @@ if (typeof encryptedMsg != 'undefined')
 		
 	    var passphrase;
 		if(document.getElementById('staticrypt-password')){
-			 if(hh = true){
+			 if(hh == true){
 			
 				passphrase = pass;
 			 }else{

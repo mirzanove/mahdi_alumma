@@ -34,13 +34,6 @@ return  link2;
 }
 
 
-
-
-
-
-
-
-
 var strpass;
 var passtext;
 
@@ -187,8 +180,6 @@ function getCookie(cname) {
     return "";
 }
 
-var hh = true;
-
 function autolog(event,hh,pass){
 if (typeof encryptedMsg != 'undefined')
 {
@@ -206,7 +197,7 @@ if (typeof encryptedMsg != 'undefined')
 		
 	    var passphrase;
 		if(document.getElementById('staticrypt-password')){
-			 if(hh = true){
+			 if(hh == true){
 			
 				passphrase = pass;
 			 }else{
@@ -214,7 +205,7 @@ if (typeof encryptedMsg != 'undefined')
 			 }
 			 
 		}
-            
+    
             var encryptedHMAC = encryptedMsg.substring(0, 64);
             var encryptedHTML = encryptedMsg.substring(64);
             var  decryptedHMAC = CryptoJS.HmacSHA256(encryptedHTML, CryptoJS.SHA256(passphrase).toString()).toString();
@@ -248,10 +239,9 @@ if (typeof encryptedMsg != 'undefined')
 			if(window.location == window.parent.location) {
 			   changeUrl("&pass", strpass);	
 			}
-		
-			window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
-		
-		
+			else{
+			   window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
+			}
 		}
 		
 		
