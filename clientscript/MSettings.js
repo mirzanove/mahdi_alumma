@@ -202,11 +202,13 @@ if (typeof encryptedMsg != 'undefined')
 		
 	    var passphrase;
 		if(document.getElementById('staticrypt-password')){
-			 if(hh == true){
+			 if(hh == false){
 			
 				passphrase = pass;
 			 }else{
-			     passphrase = document.getElementById('staticrypt-password').value;
+			   
+				 passphrase = document.getElementById('staticrypt-password').value;
+				 
 			 }
 			 
 		}
