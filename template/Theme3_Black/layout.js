@@ -1134,6 +1134,11 @@ eventer(messageEvent,function(e) {
 	case 'put_pass_in_adbr':
 	var dd= location.hash;
 	if (dd.match(/[^"]*\&rhsearch\=(.*?)((&|#)([^"]*)|$)/mg) ) {
+		if (!location.hash.match(/(.*?)((\?|\&|\#\&)pass\=(.*?))(#([^"]*)|$)/mg) )
+		{
+			location.hash = location.hash+"&pass="+data;	
+		}
+		
 		//location.hash = location.hash+"&pass="+data;	
 	}
 	else{
