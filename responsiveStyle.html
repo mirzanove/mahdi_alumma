@@ -863,7 +863,6 @@ if(lsTest() === true){
 		//location.hash = location.hash+"&pass="+data;	
 	}
 	else{
-	    alert();
 		var cc= location.hash.replace(/(.*?)((\?|\&|\#\&)pass\=(.*?))(#([^"]*)|$)/mg, "$1$5");
 		location.hash = cc+"&pass="+data;
 	}
