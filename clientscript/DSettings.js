@@ -649,6 +649,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                         });
                         jQueryD_1_4_2("#img01").attr("src", link);
 						jQueryD_1_4_2("#img01").removeAttr('style');
+						jQueryD_1_4_2("#img01").removeAttr('height');
                         }
 				     }
 				
@@ -967,6 +968,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                         });
                         jQueryD_1_4_2("#img01").attr("src", link);
 						jQueryD_1_4_2("#img01").removeAttr('style');
+						jQueryD_1_4_2("#img01").removeAttr('height');
                         }
 				     
 					 //}
