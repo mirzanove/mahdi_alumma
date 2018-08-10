@@ -284,7 +284,6 @@ if (typeof encryptedMsg != 'undefined')
 		
 		if(document.getElementById("pass2")){
 		if(document.getElementById("pass2").checked){
-		   
 		      if(lsTest() === true){
 			
 				 localStorage.setItem('autolog',true); 
@@ -301,8 +300,10 @@ if (typeof encryptedMsg != 'undefined')
 		else{
 			
              if(lsTest() === true){
-				 
+		
 				localStorage.setItem('autolog',false);
+				
+				
 			  }
 			  else{
 				  
@@ -374,20 +375,25 @@ if (typeof encryptedMsg != 'undefined')
     }
     });
 
-
-		
-		
-		
-        
-		}
-
 }
+
+		
+}
+if(hh == true){
+if (typeof applyHighlight == 'function') { 
+		    window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");	
+          
+}
+}
+
 return false;
 }
 
 
 
 jQueryD_1_4_2(document).ready(function() {
+
+
 
 
 if (typeof encryptedMsg != 'undefined')
@@ -413,9 +419,6 @@ if (typeof encryptedMsg != 'undefined')
 
 		
 		var checked2 = localStorage.getItem('autolog');
-		
-		
-		
 		if (checked2 == "true") {
               document.getElementById("pass2").checked = true;
 		     

@@ -3035,7 +3035,7 @@ function displayTopics( a_QueryResult )
 {
 	var sHTML = "";
 	var sLine = "";
-
+    var strParams;
 	
 	//jomart
 	//var szSearchStrings= rh.model.get(rh.consts('KEY_SEARCH_TERM'));
@@ -3048,7 +3048,7 @@ function displayTopics( a_QueryResult )
 		
 		szSearchStrings = '"'+szSearchStrings.replace(/["']/g, "")+'"';
 		
-		var strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=1';
+		 strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=1';
 		
 	}
 	
@@ -3056,13 +3056,13 @@ function displayTopics( a_QueryResult )
 		
 		if (document.getElementById("checkbox_id4").checked){
 			
-			var strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=00';
+			 strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=00';
 		}
 		else{
 			
 			szSearchStrings =remove_stopWrods(szSearchStrings);
 			
-			var strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=01';
+			 strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=01';
 		}
 	
 	}
@@ -3072,14 +3072,14 @@ function displayTopics( a_QueryResult )
 		
 		if (document.getElementById("checkbox_id4").checked){
 			
-			var strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=20';
+			strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=20';
 		}
 		else{
 			
 			
 			szSearchStrings =remove_stopWrods(szSearchStrings);
 			
-			var strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=21';
+			strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=21';
 		}
 	
 	}

@@ -614,7 +614,7 @@ function StartHighLightSearch()
 {
 	var strTerms = GetHighlightTextFromURL();
 	var arrSyns = GetSynonymsFromURL();
-	
+
 	findSearchTerms(strTerms, false);
 	// Repeat for all synonyms
 	for (var i = 0; i < arrSyns.length; i++)
@@ -2402,7 +2402,7 @@ var data = e.data[1];
      	break;
      case 'check_highlight_state':
           if (data =="true"){
-		
+
 		  enable_highlight = true;
 		  //document.getElementById("loading").style.display = 'block';
 		  setTimeout(applyHighlight, 50);

@@ -858,9 +858,16 @@ if(lsTest() === true){
 	}
 	break;
 	case 'put_pass_in_adbr':
-	var dd= location.hash.replace(/(.*?)((\?|\&|\#\&)pass\=(.*?))(#([^"]*)|$)/mg, "$1$5");
-	location.hash = dd+"&pass="+data;
-	//changeUrl("pass", data);
+	var dd= location.hash;
+	if (dd.match(/[^"]*\&rhsearch\=(.*?)((&|#)([^"]*)|$)/mg) ) {
+		//location.hash = location.hash+"&pass="+data;	
+	}
+	else{
+	    alert();
+		var cc= location.hash.replace(/(.*?)((\?|\&|\#\&)pass\=(.*?))(#([^"]*)|$)/mg, "$1$5");
+		location.hash = cc+"&pass="+data;
+	}
+	return false;
 	break;
 	
 	

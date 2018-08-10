@@ -379,15 +379,17 @@ if (typeof encryptedMsg != 'undefined')
 		}
     }
     });
-
-
-		
-		
-		
-        
-		}
+}
 
 }
+
+if(hh == true){
+if (typeof applyHighlight == 'function') { 
+		    window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");	
+          
+}
+}
+
 return false;
 }
 
