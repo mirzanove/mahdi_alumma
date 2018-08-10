@@ -423,18 +423,7 @@ behavior:url(PIE-1.0.0/PIE.htc)/*tpa=http://localhost/vb_423/archive/PIE-1.0.0/P
 <link rel="SHORTCUT ICON" href="87px.png" tppabs="http://localhost/vb_423/archive/87px.png" />
 <title>help</title>
 <script type="text/javascript" language="JavaScript">
-//<![CDATA[
-function reDo() {
-  if (innerWidth != origWidth || innerHeight != origHeight)
-     location.reload();
-}
-if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
-	origWidth = innerWidth;
-	origHeight = innerHeight;
-	onresize = reDo;
-}
-onerror = null; 
-//]]>
+
 </script>
 <style type="text/css">
 <!--
@@ -446,22 +435,7 @@ visibility:hidden; }
 p.WebHelpNavBar { text-align:right; }
 -->
 </style>
- <meta name="generator" content="Adobe RoboHelp 2015" />
-<script type="text/javascript" src="template/scripts/rh.min.js"></script>
-<script type="text/javascript" src="template/scripts/common.min.js"></script>
-<script type="text/javascript" src="template/scripts/topic.min.js"></script>
-<script type="text/javascript" src="template/scripts/constants.js"></script>
-<script type="text/javascript" src="template/scripts/utils.js"></script>
-<script type="text/javascript" src="template/scripts/mhutils.js"></script>
-<script type="text/javascript" src="template/scripts/mhlang.js"></script>
-<script type="text/javascript" src="template/scripts/mhver.js"></script>
-<script type="text/javascript" src="template/scripts/settings.js"></script>
-<script type="text/javascript" src="template/scripts/XmlJsReader.js"></script>
-<script type="text/javascript" src="template/scripts/loadparentdata.js"></script>
-<script type="text/javascript" src="template/scripts/loadscreen.js"></script>
-<script type="text/javascript" src="template/scripts/loadprojdata.js"></script>
-<script type="text/javascript" src="template/scripts/mhtopic.js"></script>
- <link rel="stylesheet" type="text/css" href="template/styles/topic.min.css">
+
 <script type="text/javascript" >
 gRootRelPath = ".";
 gCommonRootRelPath = ".";
@@ -469,7 +443,7 @@ gTopicId = "0_1";
 </script>
 </head>
 <body style="text-align:center;">
-<script type="text/javascript" src="ehlpdhtm.js"></script>
+
 
 <noscript>enable javascript in your browser..<br />
 فعل الجافا سكربت في متصفحك</noscript>
@@ -610,4 +584,99 @@ gTopicId = "0_1";
 <script type="text/javascript">
 </script>
 </body>
+
+
+<script>
+//<![CDATA[
+     setTimeout(function() {
+
+        document.getElementById("loading").style.display = 'none';
+        }, 0);
+window.parent.postMessage(["loading","stop"], "*");
+window.parent.postMessage(["send_page_info","**تعليمات استخدام التطبيق **", "help.html"], "*");
+
+
+
+
+
+
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+eventer(messageEvent,function(e) {
+enable_highlight = true;
+var eventName = e.data[0];
+var data = e.data[1];
+	
+
+    switch(eventName) {
+      case 'get_ifram_location_href':
+      
+		str = data
+		if (str.match(/(index.html)/mg) ) {
+			window.parent.postMessage(["get_ifram_location_href",str], "*");
+		}
+		else{	
+		
+		var loc_target="";
+		data2 = document.location.href;
+		/*rhsearch = str.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
+		rhhlterm = str.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");*/
+		rhsyns = data2.replace(/(.*?)\?(rhhlterm=[^"]*|&rhsyns=[^"]*)/mg, "$1");
+       
+	    if (str.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc_target= str.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
+			
+		}
+	   
+		if (str.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc_target+= str.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
+		}
+		if (str.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc_target+= str.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
+		}
+		
+		if (str.match(/[^"]*(\#|\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg)) {
+			//loc = loc.replace("#", "");
+			loc_target+= str.replace(/[^"]*(\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg, "&pass=$2");
+			//alert(loc);
+		}
+		
+		
+		if (data2.match(/(#post(.*?))/mg) ) {
+					   loc_target+= data2.replace(/[^"]*(#post(.*?))/mg, "$1");
+					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
+		}
+		if (data2.match(/(#td_threadtitle(.*?))/mg) ) {
+					   loc_target+= data2.replace(/[^"]*(#td_threadtitle(.*?))/mg, "$1");
+					   rhsyns= rhsyns.replace(/(#td_threadtitle[^"]*)/mg, "");			 
+		}
+		if (rhsyns.match(/(rhsyns=%20)/mg) ) {
+					   //loc_target+= dd.replace(/[^"]*(#td_threadtitle(.*?))/mg, "$1");
+			rhsyns= rhsyns.replace(/(rhsyns=%20)/mg, "");	
+            			
+	    }
+		//alert(rhsyns+'bbbbbbbbb'+loc_target);
+		
+		if(loc_target != ''){
+		loc_target = '?'+loc_target;
+		}
+		
+		window.parent.postMessage(["get_ifram_location_href",rhsyns+loc_target], "*");
+		//alert(rhsyns);
+			
+			
+		}
+     	break;
+ 	 
+}	
+},false);
+
+
+
+
+
+
+//]]>
+</script> 
 </html>

@@ -22,8 +22,6 @@ function saveBookmark(e){
 	var websiteName = document.getElementById('websiteName').value;
 	var websiteUrl = document.getElementById('websiteUrl').value;	
     websiteUrl = get_current_url(websiteUrl);
-	
-	
 	var stop = false;
 	
 	if(!validateForm(websiteName, websiteUrl)){
