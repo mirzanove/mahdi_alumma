@@ -1,3 +1,4 @@
+
 function get_current_url(url){
 	
 var linkk = window.location.href
@@ -179,6 +180,26 @@ function getCookie(cname) {
     }
     return "";
 }
+
+function updateh1family() {
+        var selector = document.getElementById('selecth1FontFamily');
+        var family = selector.options[selector.selectedIndex].value;
+        var h1 = document.getElementById('wrapper')
+        h1.style.fontFamily = family; 
+		
+		 if(lsTest() === true){
+				 
+				 localStorage.setItem('fonttype',selector.selectedIndex); 
+		 }
+		 else{
+				
+				 setCookie("fonttype", selector.selectedIndex, 1000);
+ 
+		 }
+
+		
+}
+
 
 function autolog(event,hh,pass){
 if (typeof encryptedMsg != 'undefined')
@@ -393,12 +414,9 @@ return false;
 
 jQueryD_1_4_2(document).ready(function() {
 
-
-
-
 if (typeof encryptedMsg != 'undefined')
 {
-
+   
     jQueryD_1_4_2("#content").html('<div class="staticrypt-page" dir = "rtl"><div class="staticrypt-form" ><div class="staticrypt-instructions"><p class="staticrypt-title">**موضوع محمي**</p><hr><span>الرجاء مسح كاش المتصفح والمفضلة بعدالإنتهاء من الموسوعة في حال كان جهاز الذي تستخدمه غير شخصي ودخلت الى البيانات المشفرة<span><hr></div><input style= "" autocomplete="on" id="staticrypt-password" type="password" name="password" placeholder="كلمة السر"/><br><input type="checkbox" id="pass"> حفظ كلمة السر.. </input><br><input type="checkbox" id="pass2"> الدخول التلقائي للبيانات المشفرة.. </input><br><button autocomplete="on" type=\'submit\' id ="subment" class="staticrypt-decrypt-button">فك التشفير</button></div></div>');
 
 		if(lsTest() === true){
@@ -1021,9 +1039,9 @@ function loaddsett(){
       
 		return this.get(0).scrollHeight > this.height();
      }
-      
+     
+
 	 
- 
      jQueryD_1_4_2(window).resize(function() {
             resize(jQueryD_1_4_2("html"));
             //getPageHeight(document)
@@ -1719,12 +1737,41 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 	
 	
 
+	    jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans Unicode </option></select><div>');
+
+		
 	
+		 if(lsTest() === true){
+				 
+				 var fonttype = localStorage.getItem('fonttype'); 
+				 if(fonttype){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+				 }
+		 }
+		 else{
+				
+				var fonttype = getCookie("fonttype");
+				if(fonttype){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+				}
+ 
+		 }
+		
+		
+		
 	
 	}); //end 	
     
 	
-
+    
 
 	
 	

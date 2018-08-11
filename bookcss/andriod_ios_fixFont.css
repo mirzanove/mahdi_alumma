@@ -9,9 +9,10 @@
 }
 
 
-div.posttext {
-	
+#wrapper{
 font-family:'Lateef', serif;
-padding:15px;
+} 
 
+div.posttext {
+padding:15px;
 }

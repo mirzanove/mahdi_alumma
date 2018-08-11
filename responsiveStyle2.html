@@ -542,7 +542,7 @@ padding-right:10px;
 			<div class="desktop_functionholder">
 				<div class="searchholder">
 					<div class="wSearchField" dir ="rtl">
-						<input id="searchBox" class="wSearchField" type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBox')" data-search="true" /><a class="wSearchLink" onclick="searchHelp(null, 'searchBox')" href="#"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink" class="wSearchLink" border="0" /></a> 
+						<input autocomplete="on" id="searchBox" class="wSearchField" type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBox')" data-search="true" /><a class="wSearchLink" onclick="searchHelp(null, 'searchBox')" href="#"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink" class="wSearchLink" border="0" /></a> 
 						 
 					</div>
 				</div>
@@ -597,11 +597,11 @@ padding-right:10px;
 				
 				<!-- Search results widget -->
 				
-				<div id ="tocold" data-if="@.l.uimode=='bookmark'" dir ="rtl">
+				<div id ="tocold" data-if="@.l.uimode=='bookmark'" dir ="rtl" hidden>
 				 <form id="bookmarksForm"  onsubmit="return false">
 			<div class="form-group">
 			    <label>عنوان الموضوع</label>
-			    <input type="text" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+			    <input type="search" autocomplete="off" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
@@ -621,7 +621,7 @@ padding-right:10px;
 
 						<div class="wSearchField">
 						<a class="wSearchLink2" onclick="searchHelp(null, 'searchBoxSearchPage')" href="#"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0" /></a>
-						<input id="searchBoxSearchPage" class="wSearchField2" type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBoxSearchPage')" data-search="true" /> 
+						<input autocomplete="on" id="searchBoxSearchPage" class="wSearchField2" type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBoxSearchPage')" data-search="true" /> 
 							 
 						</div>
 		

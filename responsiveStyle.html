@@ -389,7 +389,7 @@ padding-right:10px;
 <form id="bookmarksForm"  onsubmit="return false">
 			<div class="form-group">
 			    <label>عنوان الموضوع</label>
-			    <input type="text" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+			    <input type="search" autocomplete="off" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
@@ -457,7 +457,7 @@ padding-right:10px;
 	<table style='width:100%'>
      <tr>
 	 <td style="margin:0;padding:0">
-	 <input style='width:100%' id = "wSearchField" class="wSearchField" type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	 <input style='width:100%' autocomplete="on" id = "wSearchField" class="wSearchField" type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
 	 </td>
      <td style='width:2.5em;margin:0;padding:0'>
@@ -537,7 +537,7 @@ padding-right:10px;
 </div>
 		<!-- Extra search field for desktop -->
 		<div class="searchbar-extra" data-if="KEY_SCREEN_DESKTOP" data-mouseover="@mousein_searchbox(true)" data-mouseout="@mousein_searchbox(false)">
-			<input class="wSearchField" type="search" data-class="searchpage-mode: @active_content == 'search'" data-attr="placeholder: @KEY_LNG.Search"
+			<input autocomplete="on" class="wSearchField" type="search" data-class="searchpage-mode: @active_content == 'search'" data-attr="placeholder: @KEY_LNG.Search"
 			data-focus="@focusin_searchbox(true)" data-blur="@focusin_searchbox(false)" data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
 			<a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">&nbsp;</a>
 			<div class="searchAND" data-class="layout-visible: @mousein_searchbox || @focusin_searchbox || @focusin_andoption" data-if="KEY_FEATURE.andsearch">

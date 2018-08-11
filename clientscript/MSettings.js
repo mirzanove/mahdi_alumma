@@ -183,6 +183,26 @@ function getCookie(cname) {
     return "";
 }
 
+function updateh1family() {
+        var selector = document.getElementById('selecth1FontFamily');
+        var family = selector.options[selector.selectedIndex].value;
+        var h1 = document.getElementById('wrapper')
+        h1.style.fontFamily = family; 
+		
+		 if(lsTest() === true){
+				 
+				 localStorage.setItem('fonttype',selector.selectedIndex); 
+		 }
+		 else{
+				
+				 setCookie("fonttype", selector.selectedIndex, 1000);
+ 
+		 }
+
+		
+}
+
+
 var hh = true;
 
 function autolog(event,hh,pass){
@@ -1721,7 +1741,38 @@ function loaddsett(){
  
 
    
-    }); //end
+   jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans Unicode </option></select><div>');
+
+		
+	
+		 if(lsTest() === true){
+				 
+				 var fonttype = localStorage.getItem('fonttype'); 
+				 if(fonttype){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+				 }
+		 }
+		 else{
+				
+				var fonttype = getCookie("fonttype");
+				if(fonttype){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+				}
+ 
+		 }
+
+
+
+
+   }); //end
     	
 
 	

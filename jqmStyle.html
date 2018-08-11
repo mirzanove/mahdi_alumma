@@ -394,7 +394,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
      </td>
 	 
 	 <td>
-	 <input id = "wSearchField" class="wSearchField" type="search"  data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	 <input id = "wSearchField" autocomplete="on" class="wSearchField" type="search"  data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>   
 
 	 </td>
@@ -484,7 +484,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 <form id="bookmarksForm"  onsubmit="return false">
 			<div class="form-group">
 			    <label>عنوان الموضوع</label>
-			    <input type="text" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+			    <input type="search" class="form-control" autocomplete="off" id="websiteName" placeholder="عنوان الموضوع">
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
