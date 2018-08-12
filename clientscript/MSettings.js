@@ -194,12 +194,22 @@ function updateh1family() {
         h1.style.fontFamily = family; 
 		
 		if(selector.selectedIndex == 0){
-	                     h1.style.fontSize = "155%";
+						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
+						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
+						 
+						 
 		             }
 					 else{
-						
-						  h1.style.fontSize = "130%";
-					 }
+						 
+						 jQueryM_v1_4_5('.posttext').css("font-size","85%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","80%");
+						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");
+		 }
+		
+		
 		 if(lsTest() === true){
 				 
 				 localStorage.setItem('fonttype',selector.selectedIndex); 
@@ -429,6 +439,7 @@ return false;
 jQueryM_v1_4_5(document).ready(function() {
 
 
+
 if (typeof encryptedMsg != 'undefined')
 {
 
@@ -521,6 +532,79 @@ jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
 		return false;
     }
 });
+
+
+
+
+jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
+
+		
+	
+		 if(lsTest() === true){
+				 
+				 var fonttype = localStorage.getItem('fonttype'); 
+				 if(fonttype || fonttype == null){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+					 //jQueryM_v1_4_5('.posttext').removeAttr("style");
+					 
+				if(selector.selectedIndex == 0 || fonttype == null){
+						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
+						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
+						 
+						 
+		             }
+					 else{
+						 
+						 jQueryM_v1_4_5('.posttext').css("font-size","85%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","80%");
+						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");
+		             }
+					 
+				 }
+		 }
+		 else{
+				
+				var fonttype = getCookie("fonttype");
+				if(fonttype || fonttype == null){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+					 //jQueryM_v1_4_5('.posttext').removeAttr("style");
+					
+					if(selector.selectedIndex == 0 || fonttype == null){
+						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
+						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
+						 
+						 
+		             }
+					 else{
+						 
+						 jQueryM_v1_4_5('.posttext').css("font-size","85%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","80%");
+						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");
+		             }
+					 
+
+					
+				}
+ 
+}
+
+
+
+
 
 
 
@@ -1545,7 +1629,27 @@ function loaddsett(){
 			}
 			//var size = 25;
 			fontSize = null;
-            jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', "100%");
+            
+			if(fontSize2 == null){
+						var gg = jQueryD_1_4_2('.posttext,li').css('font-size');
+						
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize2 = ((parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'))/parseFloat(jQueryD_1_4_2('.post,.pagebody').css('font-size')))*100);
+
+						}
+						else{
+						fontSize2 = parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'));
+						
+						}	
+			
+                   }
+			
+			
+			
+			
+			
+			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize2+"%");
             /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
             document.documentElement.style.display = '';*/
@@ -1590,6 +1694,25 @@ function loaddsett(){
 						}
 						else{
 						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
+						
+						}
+						
+						//alert(posttopid);
+						
+		}
+		
+		if(fontSize2 == null){
+					    //fontSize = null;
+						//alert("getnewzise");
+						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+						//alert(gg);
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
+
+						}
+						else{
+						fontSize2 = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
 						
 						}
 						
@@ -1659,6 +1782,25 @@ function loaddsett(){
 						
 		}
 		
+		
+		if(fontSize2 == null){
+					    //fontSize = null;
+						//alert("getnewzise");
+						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+						//alert(gg);
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
+
+						}
+						else{
+						fontSize2 = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
+						
+						}
+						
+						//alert(posttopid);
+						
+		}
 			
 			
 			fontSize = fontSize-6;
@@ -1729,54 +1871,6 @@ function loaddsett(){
         });
         jQueryM_v1_4_5(window).hashchange();
  
-
-   
-   jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans </option></select><div>');
-
-	if(lsTest() === true){
-				 
-				 var fonttype = localStorage.getItem('fonttype'); 
-				 if(fonttype){
-					 var selector = document.getElementById('selecth1FontFamily');
-					 selector.selectedIndex = fonttype;
-					 var strUser = selector.options[selector.selectedIndex].value;
-					 var h1 = document.getElementById('wrapper')
-                     h1.style.fontFamily = strUser; 
-					 jQueryM_v1_4_5('.posttext').removeAttr("style");
-					 if(selector.selectedIndex == 0){
-	                     
-						 h1.style.fontSize = "155%";
-		             }
-					 else{
-						 
-						 h1.style.fontSize = "130%";
-					 }
-				 }
-		 }
-		 else{
-				
-				var fonttype = getCookie("fonttype");
-				if(fonttype){
-					 var selector = document.getElementById('selecth1FontFamily');
-					 selector.selectedIndex = fonttype;
-					 var strUser = selector.options[selector.selectedIndex].value;
-					 var h1 = document.getElementById('wrapper')
-                     h1.style.fontFamily = strUser; 
-					 jQueryM_v1_4_5('.posttext').removeAttr("style");
-					 if(selector.selectedIndex == 0){
-	                     
-						 h1.style.fontSize = "155%";
-		             }
-					 else{
-						 
-						 h1.style.fontSize = "130%";
-					 }
-				}
- 
-		 }
-
-
-
 
    }); //end
     	

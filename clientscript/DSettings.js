@@ -191,12 +191,22 @@ function updateh1family() {
         h1.style.fontFamily = family; 
 		
 		if(selector.selectedIndex == 0){
-	                     h1.style.fontSize = "155%";
+						 jQueryD_1_4_2('.posttext').css("font-size","100%");
+						 jQueryD_1_4_2('#content ul  > li').css("font-size","90%");
+						 jQueryD_1_4_2('#navbar').css("font-size","77%");
+						 jQueryD_1_4_2('.thread_title').css("font-size","85%");
+						 
+						 
 		             }
 					 else{
-						
-						  h1.style.fontSize = "130%";
-					 }
+						 
+						 jQueryD_1_4_2('.posttext').css("font-size","85%");
+						 jQueryD_1_4_2('#content ul  > li').css("font-size","80%");
+						 jQueryD_1_4_2('#navbar').css("font-size","65%");
+						 jQueryD_1_4_2('.thread_title').css("font-size","70%");
+		 }
+		
+		
 		 if(lsTest() === true){
 				 
 				 localStorage.setItem('fonttype',selector.selectedIndex); 
@@ -424,6 +434,11 @@ return false;
 
 jQueryD_1_4_2(document).ready(function() {
 
+
+
+
+
+
 if (typeof encryptedMsg != 'undefined')
 {
    
@@ -510,6 +525,77 @@ jQueryD_1_4_2("#staticrypt-password").keypress(function(event) {
 		return false;
     }
 });
+
+
+
+
+
+jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
+
+		
+	
+		 if(lsTest() === true){
+				 
+				 var fonttype = localStorage.getItem('fonttype'); 
+				 if(fonttype || fonttype == null){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+					 //jQueryD_1_4_2('.posttext').removeAttr("style");
+					 
+				if(selector.selectedIndex == 0 || fonttype == null){
+						 jQueryD_1_4_2('.posttext').css("font-size","100%");
+						 jQueryD_1_4_2('#content ul  > li').css("font-size","90%");
+						 jQueryD_1_4_2('#navbar').css("font-size","77%");
+						 jQueryD_1_4_2('.thread_title').css("font-size","85%");
+						 
+						 
+		             }
+					 else{
+						 
+						 jQueryD_1_4_2('.posttext').css("font-size","85%");
+						 jQueryD_1_4_2('#content ul  > li').css("font-size","80%");
+						 jQueryD_1_4_2('#navbar').css("font-size","65%");
+						 jQueryD_1_4_2('.thread_title').css("font-size","70%");
+		             }
+					 
+				 }
+		 }
+		 else{
+				
+				var fonttype = getCookie("fonttype");
+				if(fonttype || fonttype == null){
+					 var selector = document.getElementById('selecth1FontFamily');
+					 selector.selectedIndex = fonttype;
+					 var strUser = selector.options[selector.selectedIndex].value;
+					 var h1 = document.getElementById('wrapper')
+                     h1.style.fontFamily = strUser; 
+					 //jQueryD_1_4_2('.posttext').removeAttr("style");
+					
+					if(selector.selectedIndex == 0 || fonttype == null){
+						 jQueryD_1_4_2('.posttext').css("font-size","100%");
+						 jQueryD_1_4_2('#content ul  > li').css("font-size","90%");
+						 jQueryD_1_4_2('#navbar').css("font-size","77%");
+						 jQueryD_1_4_2('.thread_title').css("font-size","85%");
+						 
+						 
+		             }
+					 else{
+						 
+						 jQueryD_1_4_2('.posttext').css("font-size","85%");
+						 jQueryD_1_4_2('#content ul  > li').css("font-size","80%");
+						 jQueryD_1_4_2('#navbar').css("font-size","65%");
+						 jQueryD_1_4_2('.thread_title').css("font-size","70%");
+		             }
+					 
+
+					
+				}
+ 
+		 }
+
 
 
 
@@ -1642,7 +1728,27 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 			}
 			//var size = 25;
 			fontSize = null;
-            jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', "100%");
+            
+			
+			if(fontSize2 == null){
+						var gg = jQueryD_1_4_2('.posttext,li').css('font-size');
+						
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize2 = ((parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'))/parseFloat(jQueryD_1_4_2('.post,.pagebody').css('font-size')))*100);
+
+						}
+						else{
+						fontSize2 = parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'));
+						
+						}	
+			}
+			
+			
+			
+			
+			
+			jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize2+"%");
             /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
             document.documentElement.style.display = '';*/
@@ -1651,6 +1757,15 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
         // Increase Font Size 
         jQueryD_1_4_2(".increase").click(function(event) {
           
+		 if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
+			} 
+		  
+		  
 		 if(posttopid == jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
 				
 		}
@@ -1684,14 +1799,25 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 						//alert(posttopid);
 						
 		}
-		 
-			if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			}
+		
+		
+		if(fontSize2 == null){
+						var gg = jQueryD_1_4_2('.posttext,li').css('font-size');
+						
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize2 = ((parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'))/parseFloat(jQueryD_1_4_2('.post,.pagebody').css('font-size')))*100);
+
+						}
+						else{
+						fontSize2 = parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'));
+						
+						}	
+		}
+		
+		
+		
+			
 			//var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             //var currentSize = parseFloat(currentSize) + 10;
            
@@ -1752,6 +1878,23 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 						//alert(posttopid);
 						
 		}
+		
+		
+		if(fontSize2 == null){
+						var gg = jQueryD_1_4_2('.posttext,li').css('font-size');
+						
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize2 = ((parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'))/parseFloat(jQueryD_1_4_2('.post,.pagebody').css('font-size')))*100);
+
+						}
+						else{
+						fontSize2 = parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'));
+						
+						}	
+		}
+		
+		
 		
 			
 			
@@ -1826,51 +1969,7 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 	
 	
 
-	    jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans </option></select><div>');
-
-		
-	
-		 if(lsTest() === true){
-				 
-				 var fonttype = localStorage.getItem('fonttype'); 
-				 if(fonttype){
-					 var selector = document.getElementById('selecth1FontFamily');
-					 selector.selectedIndex = fonttype;
-					 var strUser = selector.options[selector.selectedIndex].value;
-					 var h1 = document.getElementById('wrapper')
-                     h1.style.fontFamily = strUser; 
-					 jQueryD_1_4_2('.posttext').removeAttr("style");
-					 if(selector.selectedIndex == 0){
-	                     
-						 h1.style.fontSize = "155%";
-		             }
-					 else{
-						 
-						 h1.style.fontSize = "130%";
-					 }
-				 }
-		 }
-		 else{
-				
-				var fonttype = getCookie("fonttype");
-				if(fonttype){
-					 var selector = document.getElementById('selecth1FontFamily');
-					 selector.selectedIndex = fonttype;
-					 var strUser = selector.options[selector.selectedIndex].value;
-					 var h1 = document.getElementById('wrapper')
-                     h1.style.fontFamily = strUser; 
-					 jQueryD_1_4_2('.posttext').removeAttr("style");
-					 if(selector.selectedIndex == 0){
-	                     
-						 h1.style.fontSize = "155%";
-		             }
-					 else{
-						 
-						 h1.style.fontSize = "130%";
-					 }
-				}
- 
-		 }
+	    
 		
 		
 		

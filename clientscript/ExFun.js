@@ -1,5 +1,7 @@
 var link_disable = false;
 var fontSize;
+var fontSize2;
+var fontSize3;
 var printin_prosses = false;
 var imag_loading = false;
 var model_visible = false;

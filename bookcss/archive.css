@@ -69,7 +69,7 @@ html, body {height:100%; overflow:hidden;
      overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
-	font-size: 155%;
+	font-size: 160%;
 }
 
 
@@ -241,7 +241,7 @@ a:visited {
 .link_org .selected{
 	outline: none;
 	direction: ltr;
-	font-size: 80%;
+	/*font-size: 80%;*/
 	/*font-family:Arial;*/
 	color: #417394;
 	font-weight: bold;
@@ -260,7 +260,7 @@ word-wrap:break-word;
 }
 
 .tooltiptext_custom{
-font-size: 100%;
+/*font-size: 100%;*/
 	/*font-family:Arial;*/	
 }
 
@@ -274,7 +274,7 @@ font-size: 100%;
 }
 .link_pic .selected{
     direction: ltr;
-	font-size: 60%;
+	/*font-size: 60%;*/
 	/*font-family:Arial;*/
 	color: #417394;
 	font-weight: bold;
@@ -292,7 +292,7 @@ word-wrap:break-word;
 
 .alpom2 .selected{
     direction: ltr;
-	font-size: 80%;
+	/*font-size: 80%;*/
 	/*font-family:Arial;*/
 	color: #417394;
 	font-weight: bold;
@@ -311,7 +311,7 @@ word-wrap:break-word;
 
 .selected2{
     direction: ltr;
-	font-size: 80%;
+	/*font-size: 80%;*/
 	/*font-family:Arial;*/
 	color: #417394;
 	font-weight: bold;
@@ -538,7 +538,7 @@ color:white;
     top:3px;
 	/*left: 0px;*/
     color: #f1f1f1;
-    font-size: 20px;
+    /*font-size: 20px;*/
     font-weight: bold;
     background-color: black;
 	border-style: solid;
@@ -679,7 +679,7 @@ hyphens: auto;
 	zoom: 1;
 	*display: inline;
 	background-color: #E1E4F2;
-	padding: 0px 3px 0px 3px;
+	padding: 0px 1px 0px 1px;
 	text-decoration: none;
 }
 .container span a {
@@ -688,7 +688,7 @@ hyphens: auto;
 	*display: inline;
 	color: #ffffff;
 	background-color: #7192a8;
-	padding: 0px 10px 0px 10px;
+	padding: 0px 7px 0px 7px;
 	border: solid 1px  #ffffff;
 	text-decoration: none;
 }
@@ -698,7 +698,7 @@ hyphens: auto;
 	zoom: 1;
 	*display: inline;
 	color: #000000;
-	padding: 0px 10px 0px 10px;
+	padding: 0px 7px 0px 7px;
 	border: solid 1px #000000;text-decoration: none;
 }
 
@@ -751,17 +751,17 @@ hyphens: auto;
 	padding: 4px;
 	white-space: wrap;
 	font-weight: bold;
+	/*font-size: 70%;*/
 	
 }
 
 .up2 {
 display: inline-block;
   font-weight: bold;
-  font-size: 94%;
+  /*font-size: 94%;*/
   color: #fff;
   outline: none;
   cursor: pointer;
-  top:-1px;
   position:relative;
   vertical-align: middle;
 
@@ -784,14 +784,14 @@ display: inline-block;
   top:-3px;
   position:relative;
   font-weight: bold;
-  font-size: 94%;
+  font-size: 70%;
   color: #fff;
   vertical-align: middle;
   outline: none;
   cursor: pointer;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   padding-right: 5px;
   padding-left: 5px;
  
@@ -943,7 +943,7 @@ a {
 }
 p.largefont {
 	text-align: left;
-	font-size: 10pt;
+	/*font-size: 10pt;*/
 	font-weight: bold;
 }
 div.pagebody {
@@ -954,8 +954,8 @@ div.pagebody {
 .pda {
 	background: #F9F9F9;
 	border: 1px solid #c0c0c0;
-	padding-bottom:3px;
-	padding-top:10px;
+	padding-bottom:1px;
+	padding-top:1px;
 	padding-left:5px;
 	padding-right:5px;
 	
@@ -990,17 +990,19 @@ div.highlight {
 	background: #FFFFCC;
 }
 span.small {
-	font-size: 10px;
+	/*font-size: 10px;*/
 }
 #content {
 	margin-bottom: 8px;
 	border: 1px solid #c0c0c0;
 	padding: 1px;
+	
 }
 #navbar {
 	background: #F9F9F9;
 	border: 1px solid #c0c0c0;
 	padding: 4px;
+	/*font-size: 70%;*/
 }
 #pagenumbers {
 	text-align: center;
@@ -1009,6 +1011,7 @@ span.small {
 	border-right: 1px solid #c0c0c0;
 	border-bottom: 1px solid #c0c0c0;
 	border-top: 1px solid #c0c0c0;
+	/*font-size: 70%;*/
 }
 .footer {
 	text-align: center;
@@ -1023,164 +1026,9 @@ span.small {
 hr {
 	border-top: 1px solid #c0c0c0;
 }
-P.Preformatted {
-	line-height: normal;
-	margin-bottom: 14pt;
-	margin-top: 14pt;
-	x-text-tab-stops: repeat 1in;
-	white-space: nowrap;
-	font-family: monospace;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-P.Address {
-	margin-top: 0;
-	margin-bottom: 0;
-	font-style: italic;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Big {
-	font-weight: bolder;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Citation {
-	font-style: italic;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Code {
-	font-family: monospace;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Definition {
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Emphasize {
-	font-style: italic;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Keyboard {
-	font-weight: bold;
-	font-family: monospace;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.StrikeThrough {
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;text-decoration: line-through;
-}
-SPAN.Sample {
-	font-family: monospace;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Strong {
-	font-weight: bold;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.SubScript {
-	vertical-align: sub;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Superscript {
-	vertical-align: super;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.TeleType {
-	font-family: monospace;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Var {
-	font-style: italic;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
-SPAN.Underline {
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;text-decoration: underline;
-}
-SPAN.Italic {
-	font-style: italic;
-	direction: rtl;
-	font: inherit;
-	font-size: 100%;
-	border: 0;
-	padding: 0;
-	margin: 0;
-}
+
+
+
 
 
 
@@ -1216,6 +1064,12 @@ li {
 }
 li span.padd {
 font-weight: bold;
+/*font-size: 90%;*/
+}
+
+div b  span.padd {
+font-weight: bold;
+/*font-size: 90%;*/
 }
 
 #content ul  > li{
@@ -1224,7 +1078,7 @@ font-weight: bold;
 	border: 1px solid #e6e6e6;
 	padding: 5px;
 	/*font: 15px times new roman;*/
-	font-size: 100%;
+	/*font-size: 90%;*/
 }
 
 #selecth1FontFamily {
@@ -1239,5 +1093,11 @@ text-align:center;
 background-color:grey;	
 padding:4px;
 font-weight:bold;
-font-size:100%;
+/*font-size:100%;*/
+}
+
+.notlateef{
+
+font-size: 90%;	
+	
 }
