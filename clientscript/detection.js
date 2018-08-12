@@ -1,4 +1,5 @@
 
+
 var disable_resoures = false;
 var mobiletrue = true;
 var encrypted = false;

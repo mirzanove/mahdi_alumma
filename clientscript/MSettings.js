@@ -1,3 +1,7 @@
+ var posttopid;
+
+
+
 function get_current_url(url){
 	
 var linkk = window.location.href
@@ -189,6 +193,13 @@ function updateh1family() {
         var h1 = document.getElementById('wrapper')
         h1.style.fontFamily = family; 
 		
+		if(selector.selectedIndex == 0){
+	                     h1.style.fontSize = "155%";
+		             }
+					 else{
+						
+						  h1.style.fontSize = "130%";
+					 }
 		 if(lsTest() === true){
 				 
 				 localStorage.setItem('fonttype',selector.selectedIndex); 
@@ -201,7 +212,6 @@ function updateh1family() {
 
 		
 }
-
 
 var hh = true;
 
@@ -1523,165 +1533,145 @@ function loaddsett(){
 		
 
         // reset 
-        jQueryM_v1_4_5(".resetMe").on('click', function(event) {
-            
-			 
-		
-			
-			if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}
-			fontSize = null
-			var size = 25;
-
-			var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
-
-            for(var i = 0; i < c.length; i++) {
-                //alert(c[i].className);
-                if(c[i].className == "posttext padd2") {
-                 
-				
-				for(var d = 0; d < arrEdited2.length; d++) {
-                 
-				    
-				 
-                    if(c[i].getAttribute("id")== arrEdited2[d].id) {
-						//alert(arrEdited2[d].id);
-						
-						 var el = c[i];
-				         var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
-    
-				        if(fontSize == null){
-                        fontSize = size;
-				        }
-				        //fontSize = fontSize +1;
-				        el.style.fontSize = (fontSize) + 'px';
-						arrEdited2[d].fontsize= fontSize;
-                        break;
-				    }
-						
-						
-					}
-			   }
-				
-              
-            }
-			
-			
-            /*jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', size);*/
-            
-			//jQueryM_v1_4_5('html,body,#wrapper,.thread_title').hide().show(0);  
-			
-			
-			//if (navigator.userAgent.match(/(chrome)/i)) {
-	        document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; 
-            document.documentElement.style.display = '';
-	        //}
+        // reset 
+        jQueryM_v1_4_5(".resetMe").click(function(event) {
+           
+		   if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
+			}
+			//var size = 25;
+			fontSize = null;
+            jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', "100%");
+            /*document.documentElement.style.display = 'none';
+            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+            document.documentElement.style.display = '';*/
         });
-
 
         // Increase Font Size 
-        jQueryM_v1_4_5(".increase").on('click', function(event) {
+        jQueryM_v1_4_5(".increase").click(function(event) {
+          
+		 if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
+			} 
+		  
+		  
+		 if(posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
+				
+		}
+		else{
+			    
+				fontSize = null;
+				posttopid = null;
+				
+		}
+		 
+		 if(posttopid == null){
+		    posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
+		    //alert("lol");
+		 }
+     
+		if(fontSize == null){
+					    //fontSize = null;
+						//alert("getnewzise");
+						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+						//alert(gg);
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
+
+						}
+						else{
+						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
+						
+						}
+						
+						//alert(posttopid);
+						
+		}
+		 
+			
+			//var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+            //var currentSize = parseFloat(currentSize) + 10;
            
 			
-			/*var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            var currentSize = parseFloat(currentSize) + 3;
-            
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);*/
 			
-			var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
+			fontSize = fontSize+6;
 
-            for(var i = 0; i < c.length; i++) {
-                //alert(c[i].className);
-                if(c[i].className == "posttext padd2") {
-                 
-				
-				for(var d = 0; d < arrEdited2.length; d++) {
-                 
-				    
-				 
-                    if(c[i].getAttribute("id")== arrEdited2[d].id) {
-						//alert(arrEdited2[d].id);
-						
-						 var el = c[i];
-				         var style = jQueryM_v1_4_5('.posttext').css("font-size");
-                        //alert(style);
-				        if(fontSize == null){
-                        fontSize = arrEdited2[d].fontsize;
-						//alert(fontSize);
-				        }
-				        fontSize = fontSize +2;
-				        el.style.fontSize = (fontSize) + 'px';
-						arrEdited2[d].fontsize= fontSize;
-                        break;
-				    }
-						
-						
-					}
-			   }
-				
-                  
-			   
-            }
-			
-			//jQueryM_v1_4_5('html,body,#wrapper').hide().show(0); 
-			//if (navigator.userAgent.match(/(chrome)/i)) {
-			document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; 
-            document.documentElement.style.display = '';
-	        //}
+			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
+            /*document.documentElement.style.display = 'none';
+            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+            document.documentElement.style.display = '';*/
+            return false;
         });
 
-
         // Decrease Font Size 
-        jQueryM_v1_4_5(".decrease").on('click', function(event) {
+        jQueryM_v1_4_5(".decrease").click(function(event) {
+            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+			else{
+			   if(window.location != window.parent.location) {
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
+			   }else{
+			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
+			}
+			//var currentFontSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+            var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+            var currentSize = parseFloat(currentSize) - 3;
             
-			if(window.location != window.parent.location) {
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			}else{
-			if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}
-			
-			var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
-            
-			var i;
-            for(i = 0; i < c.length; i++) {
-                //alert(c[i].className);
-                if(c[i].className == "posttext padd2") {
+		if(posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
+				
+		}
+		else{
+			    
+				fontSize = null;
+				posttopid = null;
+				
+		}
+		
+		 if(posttopid == null){
+		    posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
+		    //alert("lol");
+		 }
+     
+		if(fontSize == null){
+					    //fontSize = null;
+						//alert("getnewzise");
+						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+						//alert(gg);
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
 
-                  
-			    	for(var d = 0; d < arrEdited2.length; d++) {
-                 
-				    
-				 
-                    if(c[i].getAttribute("id")== arrEdited2[d].id) {
-						//alert(arrEdited2[d].id);
+						}
+						else{
+						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
 						
-						 var el = c[i];
-				         var style = window.getComputedStyle(el, null).getPropertyValue('font-size');
-    
-				        if(fontSize == null){
-                        fontSize = arrEdited2[d].fontsize;
-				        }
-				        fontSize = fontSize -2;
-				        el.style.fontSize = (fontSize) + 'px';
-						arrEdited2[d].fontsize= fontSize;
-                        break;
-				    }
+						}
 						
+						//alert(posttopid);
 						
-					}
-				}
-            }
+		}
+		
+			
+			
+			fontSize = fontSize-6;
+			
+			if(currentSize != -1){
+			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
+			}
             
+			/*document.documentElement.style.display = 'none';
+            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
+            document.documentElement.style.display = '';*/
 			
-			if (navigator.userAgent.match(/(chrome)/i)) {
-	        document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; 
-            document.documentElement.style.display = '';
-	        }
-			
+			return false;
             
         });
 
@@ -1743,9 +1733,7 @@ function loaddsett(){
    
    jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans Unicode </option></select><div>');
 
-		
-	
-		 if(lsTest() === true){
+	if(lsTest() === true){
 				 
 				 var fonttype = localStorage.getItem('fonttype'); 
 				 if(fonttype){
@@ -1754,6 +1742,15 @@ function loaddsett(){
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
+					 jQueryM_v1_4_5('.posttext').removeAttr("style");
+					 if(selector.selectedIndex == 0){
+	                     
+						 h1.style.fontSize = "155%";
+		             }
+					 else{
+						 
+						 h1.style.fontSize = "130%";
+					 }
 				 }
 		 }
 		 else{
@@ -1765,6 +1762,15 @@ function loaddsett(){
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
+					 jQueryM_v1_4_5('.posttext').removeAttr("style");
+					 if(selector.selectedIndex == 0){
+	                     
+						 h1.style.fontSize = "155%";
+		             }
+					 else{
+						 
+						 h1.style.fontSize = "130%";
+					 }
 				}
  
 		 }

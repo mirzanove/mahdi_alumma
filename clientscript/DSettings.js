@@ -1,4 +1,7 @@
 
+ var posttopid;
+
+
 function get_current_url(url){
 	
 var linkk = window.location.href
@@ -187,6 +190,13 @@ function updateh1family() {
         var h1 = document.getElementById('wrapper')
         h1.style.fontFamily = family; 
 		
+		if(selector.selectedIndex == 0){
+	                     h1.style.fontSize = "155%";
+		             }
+					 else{
+						
+						  h1.style.fontSize = "130%";
+					 }
 		 if(lsTest() === true){
 				 
 				 localStorage.setItem('fonttype',selector.selectedIndex); 
@@ -1059,7 +1069,7 @@ function loaddsett(){
     jQueryD_1_4_2(document).ready(function() {
         //alert("deskstop");
        
-		jQueryD_1_4_2('.posttext').css("font-size", "25px");	
+		//jQueryD_1_4_2('.posttext').css("font-size", "25px");	
 		
 
 
@@ -1630,8 +1640,9 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 			   }else{
 			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
 			}
-			var size = 25;
-            jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', size);
+			//var size = 25;
+			fontSize = null;
+            jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', "100%");
             /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
             document.documentElement.style.display = '';*/
@@ -1639,16 +1650,56 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 
         // Increase Font Size 
         jQueryD_1_4_2(".increase").click(function(event) {
-            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
+          
+		 if(posttopid == jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
+				
+		}
+		else{
+			    
+				fontSize = null;
+				posttopid = null;
+				
+		}
+		 
+		 if(posttopid == null){
+		    posttopid = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
+		    //alert("lol");
+		 }
+     
+		if(fontSize == null){
+					    //fontSize = null;
+						//alert("getnewzise");
+						var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+						//alert(gg);
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize = ((parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryD_1_4_2('.post').css('font-size')))*100);
+
+						}
+						else{
+						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
+						
+						}
+						
+						//alert(posttopid);
+						
+		}
+		 
+			if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
 			else{
 			   if(window.location != window.parent.location) {
 			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
 			   }else{
 			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
 			}
-			var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            var currentSize = parseFloat(currentSize) + 3;
-            jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
+			//var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+            //var currentSize = parseFloat(currentSize) + 10;
+           
+			
+			
+			fontSize = fontSize+6;
+
+			jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
             /*document.documentElement.style.display = 'none';
             document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
             document.documentElement.style.display = '';*/
@@ -1668,8 +1719,46 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
             var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
             var currentSize = parseFloat(currentSize) - 3;
             
+		if(posttopid == jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
+				
+		}
+		else{
+			    
+				fontSize = null;
+				posttopid = null;
+				
+		}
+		
+		 if(posttopid == null){
+		    posttopid = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
+		    //alert("lol");
+		 }
+     
+		if(fontSize == null){
+					    //fontSize = null;
+						//alert("getnewzise");
+						var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+						//alert(gg);
+						if(gg.indexOf("px") !== -1){
+							
+						fontSize = ((parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryD_1_4_2('.post').css('font-size')))*100);
+
+						}
+						else{
+						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
+						
+						}
+						
+						//alert(posttopid);
+						
+		}
+		
+			
+			
+			fontSize = fontSize-6;
+			
 			if(currentSize != -1){
-			jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', currentSize);
+			jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
 			}
             
 			/*document.documentElement.style.display = 'none';
@@ -1750,6 +1839,15 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
+					 jQueryD_1_4_2('.posttext').removeAttr("style");
+					 if(selector.selectedIndex == 0){
+	                     
+						 h1.style.fontSize = "155%";
+		             }
+					 else{
+						 
+						 h1.style.fontSize = "130%";
+					 }
 				 }
 		 }
 		 else{
@@ -1761,6 +1859,15 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
+					 jQueryD_1_4_2('.posttext').removeAttr("style");
+					 if(selector.selectedIndex == 0){
+	                     
+						 h1.style.fontSize = "155%";
+		             }
+					 else{
+						 
+						 h1.style.fontSize = "130%";
+					 }
 				}
  
 		 }
