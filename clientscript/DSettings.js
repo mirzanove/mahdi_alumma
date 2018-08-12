@@ -553,7 +553,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 						 jQueryD_1_4_2('#content ul  > li').css("font-size","90%");
 						 jQueryD_1_4_2('#navbar').css("font-size","77%");
 						 jQueryD_1_4_2('.thread_title').css("font-size","85%");
-						 jQueryD_1_4_2('.dropdown-content').css("font-size","0%");
+						 //jQueryD_1_4_2('.dropdown-content').css("font-size","0%");
 						 
 						 
 						 
@@ -564,7 +564,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 						 jQueryD_1_4_2('#content ul  > li').css("font-size","80%");
 						 jQueryD_1_4_2('#navbar').css("font-size","65%");
 						 jQueryD_1_4_2('.thread_title').css("font-size","70%");
-						 jQueryD_1_4_2('.dropdown-content').css("font-size","60%");
+						 //jQueryD_1_4_2('.dropdown-content').css("font-size","60%");
 		         }
 					 
 				 }
