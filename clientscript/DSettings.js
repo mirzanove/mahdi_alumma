@@ -1826,7 +1826,7 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 	
 	
 
-	    jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans Unicode </option></select><div>');
+	    jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option><option> Sans-Serif </option><option> Tahoma </option><option> Verdana </option><option> Lucida Sans </option></select><div>');
 
 		
 	
