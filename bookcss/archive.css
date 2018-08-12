@@ -178,7 +178,7 @@ font-weight:bold;
 
 .dropdown-content {
     
-	font-size: 70%;
+	/*font-size: 70%;*/
 	position: fixed;
    left: 25px;
    top: auto;
