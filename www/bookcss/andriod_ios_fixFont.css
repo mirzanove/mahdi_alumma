@@ -1,0 +1,18 @@
+/* lateef-regular - arabic */
+@font-face {
+  font-family: 'Lateef';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lateef'),
+  url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
+}
+
+
+#wrapper{
+font-family:'Lateef', serif;
+} 
+
+div.posttext {
+padding:15px;
+}
