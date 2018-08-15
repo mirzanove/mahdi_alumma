@@ -16,7 +16,7 @@
 <plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
 <plugin name="cordova-plugin-whitelist" spec="1.2.2"/>
 <platform name="ios" >
-    <preference name="deployment-target" value="8.0"/>
+    <preference name="deployment-target" value="5.0"/>
     <preference name="ios-configuration" value="adhoc"/>
 </platform>
 <splash platform="ios" src="package-assets/320.480.png" width="320" height="480" orientation="portrait"/>
