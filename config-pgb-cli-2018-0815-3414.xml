@@ -23,7 +23,7 @@
 <plugin name="cordova-plugin-whitelist" spec="1.2.2"/>
 <platform name="android" >
     <preference name="android-minSdkVersion" value="16"/>
-    <preference name="android-targetSdkVersion" value="28"/>
+    <preference name="android-targetSdkVersion" value="26"/>
     <preference name="android-installLocation" value="auto"/>
     <preference name="android-signed" value="false"/>
     <preference name="AndroidLaunchMode" value="singleTop"/>
