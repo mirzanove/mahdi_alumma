@@ -11,7 +11,7 @@
     <allow-navigation href="*"/>
     <access origin="*"/>
 </platform>
-<preference name="phonegap-version" value="cli-6.2.0" />
+<preference name="phonegap-version" value="cli-6.5.0" />
 <preference name="xwalkMultipleApk" value="false" />
 <plugin name="cordova-plugin-splashscreen" spec="3.2.2"/>
 <plugin name="cordova-plugin-whitelist" spec="1.2.2"/>
