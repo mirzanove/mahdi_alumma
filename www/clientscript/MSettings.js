@@ -1112,7 +1112,48 @@ function loaddsett(){
 	   
 	   
 	   
-	        
+	    jQueryM_v1_4_5(document).on('click', function(event) {
+         
+		 alert();
+		 
+		 if(event.which == 0 || event.which == 1) { //right click
+         event.stopPropagation();
+  	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
+		 
+		 var target = event ? event.target : window.event.srcElement;
+
+		 if (target.id != 'dropbtn') {
+               
+               jQueryM_v1_4_5('#myDropdown').removeClass("show");
+         }
+		 
+		 
+			
+			if(link_disable == false){
+			    jQueryM_v1_4_5('.image_custom').remove();
+				jQueryM_v1_4_5(".link_img").remove();
+				jQueryM_v1_4_5(".extImag").remove();
+				jQueryM_v1_4_5(".tooltiptext_custom").remove();
+				jQueryM_v1_4_5(".tooltiptext_custom_copy").remove();
+                jQueryM_v1_4_5('.tooltiptext').hide();
+                jQueryM_v1_4_5('.tooltiptext2').hide();
+                jQueryM_v1_4_5('.tooltiptext3').hide();
+                jQueryM_v1_4_5('.tooltiptext4').hide();
+                jQueryM_v1_4_5('.tooltiptext5').hide();
+                jQueryM_v1_4_5('.hide_external_link').hide();
+                jQueryM_v1_4_5('.hide_local_link').hide();
+				
+              jQueryM_v1_4_5(".moveoff").unbind( "click" );
+			  jQueryM_v1_4_5(".selected").attr("class", 'selected'); 
+              }
+             
+
+
+		 }	  
+		       link_img_show = false;
+		       stop = false;
+
+        });   
 	   
         
 		
@@ -1431,51 +1472,6 @@ function loaddsett(){
 		   jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
         });
 	
-
-		
-		
-		jQueryM_v1_4_5(document).on('click', function(event) {
-         if(event.which == 0 || event.which == 1) { //right click
-         event.stopPropagation();
-  	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
-		 
-		 var target = event ? event.target : window.event.srcElement;
-
-		 if (target.id != 'dropbtn') {
-               
-               jQueryM_v1_4_5('#myDropdown').removeClass("show");
-         }
-		 
-		 
-			
-			if(link_disable == false){
-			    jQueryM_v1_4_5('.image_custom').remove();
-				jQueryM_v1_4_5(".link_img").remove();
-				jQueryM_v1_4_5(".extImag").remove();
-				jQueryM_v1_4_5(".tooltiptext_custom").remove();
-				jQueryM_v1_4_5(".tooltiptext_custom_copy").remove();
-                jQueryM_v1_4_5('.tooltiptext').hide();
-                jQueryM_v1_4_5('.tooltiptext2').hide();
-                jQueryM_v1_4_5('.tooltiptext3').hide();
-                jQueryM_v1_4_5('.tooltiptext4').hide();
-                jQueryM_v1_4_5('.tooltiptext5').hide();
-                jQueryM_v1_4_5('.hide_external_link').hide();
-                jQueryM_v1_4_5('.hide_local_link').hide();
-				
-              jQueryM_v1_4_5(".moveoff").unbind( "click" );
-			  jQueryM_v1_4_5(".selected").attr("class", 'selected'); 
-              }
-             
-
-
-		 }	  
-		       link_img_show = false;
-		       stop = false;
-
-           });
-
-
-
 
         jQueryM_v1_4_5(".close").on('click', function(event) {
 
