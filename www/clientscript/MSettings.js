@@ -198,7 +198,7 @@ function updateh1family() {
 		
 		if(selector.selectedIndex == 0){
 						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","70%");
@@ -208,7 +208,7 @@ function updateh1family() {
 					 else{
 						 
 						 jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","80%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
@@ -562,7 +562,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 				
 						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
 						 //jQueryM_v1_4_5('.posttext').css("background-color","red");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","70%");
@@ -572,7 +572,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 					 else{
 						 
 						 jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","80%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
@@ -593,7 +593,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 					
 					if(selector.selectedIndex == 0 || fonttype == null){
 						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
 						 
@@ -602,7 +602,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 					 else{
 						 
 						 jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","80%");
+						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");
 		             }
