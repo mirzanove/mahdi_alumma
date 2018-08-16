@@ -1638,8 +1638,8 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 
                 if(c[i].className == "posttext padd2") {
 
-                    //select_all_and_copy(c[i]);
-				jQueryD_1_4_2(c[i]).selectText();
+                 select_all_and_copy(c[i]);
+			//jQueryD_1_4_2(c[i]).selectText();
 
                 }
 

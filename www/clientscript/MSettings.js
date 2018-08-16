@@ -1525,8 +1525,8 @@ function loaddsett(){
 
                 if(c[i].className == "posttext padd2") {
 
-                    //select_all_and_copy(c[i]);
-					jQueryM_v1_4_5(c[i]).selectText();
+                    select_all_and_copy(c[i]);
+					//jQueryM_v1_4_5(c[i]).selectText();
                 }
 
             }
