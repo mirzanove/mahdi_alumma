@@ -1,4 +1,7 @@
- var posttopid;
+
+
+
+var posttopid;
 
 
 
@@ -538,6 +541,8 @@ jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
 
 
 
+
+
 jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
 
 		
@@ -554,7 +559,9 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 					 //jQueryM_v1_4_5('.posttext').removeAttr("style");
 					 
 				if(selector.selectedIndex == 0 || fonttype == null){
+				
 						 jQueryM_v1_4_5('.posttext').css("font-size","100%");
+						 //jQueryM_v1_4_5('.posttext').css("background-color","red");
 						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
@@ -1112,7 +1119,52 @@ function loaddsett(){
 	   
 	   
 	   
-	        
+	        jQueryM_v1_4_5(document).on('click', function(event) {
+         if(event.which == 0 || event.which == 1) { //right click
+         event.stopPropagation();
+  	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
+		 
+		 //var target = event ? event.target : window.event.srcElement;
+          
+		 matches = jQueryM_v1_4_5(event.target).is( ".dropbtn" )
+		 
+		 /*if (target.id != 'dropbtn') {
+               
+               jQueryM_v1_4_5('#myDropdown').removeClass("show");
+         }*/
+		 
+		 if (!matches) {
+
+                 jQueryM_v1_4_5('#myDropdown').removeClass("show");
+         }
+		 
+		 
+			
+			if(link_disable == false){
+			    jQueryM_v1_4_5('.image_custom').remove();
+				jQueryM_v1_4_5(".link_img").remove();
+				jQueryM_v1_4_5(".extImag").remove();
+				jQueryM_v1_4_5(".tooltiptext_custom").remove();
+				jQueryM_v1_4_5(".tooltiptext_custom_copy").remove();
+                jQueryM_v1_4_5('.tooltiptext').hide();
+                jQueryM_v1_4_5('.tooltiptext2').hide();
+                jQueryM_v1_4_5('.tooltiptext3').hide();
+                jQueryM_v1_4_5('.tooltiptext4').hide();
+                jQueryM_v1_4_5('.tooltiptext5').hide();
+                jQueryM_v1_4_5('.hide_external_link').hide();
+                jQueryM_v1_4_5('.hide_local_link').hide();
+				
+              jQueryM_v1_4_5(".moveoff").unbind( "click" );
+			  jQueryM_v1_4_5(".selected").attr("class", 'selected'); 
+              }
+             
+
+
+		 }	  
+		       link_img_show = false;
+		       stop = false;
+
+           });
 	   
         
 		
@@ -1432,48 +1484,6 @@ function loaddsett(){
         });
 	
 
-		
-		
-		jQueryM_v1_4_5(document).on('click', function(event) {
-         if(event.which == 0 || event.which == 1) { //right click
-         event.stopPropagation();
-  	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
-		 
-		 var target = event ? event.target : window.event.srcElement;
-
-		 if (target.id != 'dropbtn') {
-               
-               jQueryM_v1_4_5('#myDropdown').removeClass("show");
-         }
-		 
-		 
-			
-			if(link_disable == false){
-			    jQueryM_v1_4_5('.image_custom').remove();
-				jQueryM_v1_4_5(".link_img").remove();
-				jQueryM_v1_4_5(".extImag").remove();
-				jQueryM_v1_4_5(".tooltiptext_custom").remove();
-				jQueryM_v1_4_5(".tooltiptext_custom_copy").remove();
-                jQueryM_v1_4_5('.tooltiptext').hide();
-                jQueryM_v1_4_5('.tooltiptext2').hide();
-                jQueryM_v1_4_5('.tooltiptext3').hide();
-                jQueryM_v1_4_5('.tooltiptext4').hide();
-                jQueryM_v1_4_5('.tooltiptext5').hide();
-                jQueryM_v1_4_5('.hide_external_link').hide();
-                jQueryM_v1_4_5('.hide_local_link').hide();
-				
-              jQueryM_v1_4_5(".moveoff").unbind( "click" );
-			  jQueryM_v1_4_5(".selected").attr("class", 'selected'); 
-              }
-             
-
-
-		 }	  
-		       link_img_show = false;
-		       stop = false;
-
-           });
-
 
 
 
@@ -1515,10 +1525,13 @@ function loaddsett(){
 
                 if(c[i].className == "posttext padd2") {
 
-                    select_all_and_copy(c[i]);
+                    //select_all_and_copy(c[i]);
+					jQueryM_v1_4_5(c[i]).selectText();
                 }
 
             }
+			
+			
 
           });
 	

@@ -3220,7 +3220,11 @@ function updateResultView()
 		if($('.wSearchPageNumberSelected').length) 
 		{	
 	      removeClass(document.getElementById("conpag"),"rh-hide");
+		 
+if($('#searchBoxSearchPage').is(':visible')) {
 		  removeClass(document.getElementById("pages_bar_note"),"rh-hide");
+          $('#pages_bar_note').show(); 		  
+}
 		  $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
 		 
 		   
@@ -3229,16 +3233,16 @@ function updateResultView()
 		   if(!$('#searchresults').hasClass("rh-hide")) 
 		   {
 			if($(window).innerWidth() < em(43.68)) {
-              $('.content').css("bottom", "100px");
+              $('.content').css("bottom", "98px");
              } 
 		    else if($(window).innerWidth() >= em(43.68) && $(window).innerWidth() <= em(59.49)){
-			  $('.content').css("bottom", "145px");
+			  $('.content').css("bottom", "135px");
 			 }
 			 else if($(window).innerWidth() >= em(59.5) && $(window).innerWidth() <= em(80.99)){
-			  $('.content').css("bottom", "65px");
+			  $('.content').css("bottom", "55px");
 			 }
 			 else if($(window).innerWidth() >= em(81)){
-			  $('.content').css("bottom", "65px");
+			  $('.content').css("bottom", "55px");
 			 }
 		   }
 		   

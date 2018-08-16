@@ -47,8 +47,15 @@ td {
 	font: inherit;
 	direction: rtl;
 	/*font-size: 100%;*/
+	/*cursor: pointer;*/
+	/*transform: translate3d(0,0,0);*/
 	
 }
+
+.is-ios * {
+    cursor: pointer;
+}
+
 
 
 * html #wrapper {
@@ -61,7 +68,9 @@ td {
 
 
 html, body {height:100%; overflow:hidden; 
--webkit-overflow-scrolling: touch; 
+-webkit-overflow-scrolling: touch;
+
+ -webkit-text-size-adjust: 100%;
 }
 
 #wrapper {
@@ -70,6 +79,8 @@ html, body {height:100%; overflow:hidden;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
 	font-size: 160%;
+	-webkit-text-size-adjust: 100%;
+	cursor: pointer; 
 }
 
 
@@ -459,13 +470,21 @@ border: 2px dashed #f69c55;
 color: #ffffff;
 background-color: #025172;
 padding: 5px 5px;
-position: fixed;
-overflow:hidden;
+transform: translate3d(0,0,0);
 vertical-align: middle;
 line-height: 20px;
+position: fixed; 
 top: 0px;
-z-index:888888;  
+z-index: 10;  
 }
+
+
+.header_topic--fixed {
+top: 0;
+position: fixed;  
+}
+
+
 .header_img{
 cursor: pointer;
 max-height: 100%;  
@@ -477,6 +496,7 @@ top: 0;
 bottom: 0;  
 right: 0;  
 margin: auto;	
+transform: translate3d(0,0,0);
 }
 .header_label{
 cursor: pointer;
@@ -485,7 +505,8 @@ vertical-align: bottom;
 background-color: #666699;
 font-size: 11px;
 padding: 1;
-color:white; 	
+color:white; 
+transform: translate3d(0,0,0);	
 }
 
 

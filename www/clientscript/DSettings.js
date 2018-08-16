@@ -1,5 +1,5 @@
 
- var posttopid;
+var posttopid;
 
 
 function get_current_url(url){
@@ -541,6 +541,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 				 
 				 var fonttype = localStorage.getItem('fonttype'); 
 				 if(fonttype || fonttype == null){
+					
 					 var selector = document.getElementById('selecth1FontFamily');
 					 selector.selectedIndex = fonttype;
 					 var strUser = selector.options[selector.selectedIndex].value;
@@ -1217,14 +1218,24 @@ function loaddsett(){
 
         var link_img_show = true;
         jQueryD_1_4_2(document).click(function(event) {
+			
+		 	
          if(event.which == 0 || event.which == 1) { //right click
-         event.stopPropagation();
+         
+		 
+		 
+		 event.stopPropagation();
   	     window.parent.postMessage(["hide_drop", "hide_drop"], "*");
-		  matches = event.target.matches ? event.target.matches('.dropbtn') : event.target.msMatchesSelector('.dropbtn');
+		 // matches = event.target.matches ? event.target.matches('.dropbtn') : event.target.msMatchesSelector('.dropbtn');
+		 matches = jQueryD_1_4_2(event.target).is( ".dropbtn" )
+		 
+		 //alert(jQueryD_1_4_2(event.target).is( ".dropbtn" ));
 		 if (!matches) {
 
                  jQueryD_1_4_2('#myDropdown').removeClass("show");
-         }	
+         }
+
+		 
 			
 			if(link_disable == false){
 			    jQueryD_1_4_2('.image_custom').remove();
@@ -1627,10 +1638,13 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 
                 if(c[i].className == "posttext padd2") {
 
-                    select_all_and_copy(c[i]);
+                    //select_all_and_copy(c[i]);
+				jQueryD_1_4_2(c[i]).selectText();
+
                 }
 
             }
+			
 
         });
         jQueryD_1_4_2("a.threadinfo").click(function(event) {

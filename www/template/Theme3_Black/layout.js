@@ -105,6 +105,8 @@ $(document).on('click','.nolink',function(){
 
 function go_bookmark(){
          
+		 $('#pages_bar_note').hide();
+		 
 		 if(document.location.href.indexOf("&ux=search")!= -1){
 			
 			   if(!(document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) ||document.location.href.match(/((#|%23)post(.*?))/mg))) {
@@ -137,6 +139,7 @@ function go_bookmark(){
 
 function go_topic(){
 	       
+		  $('#pages_bar_note').hide();
 		  
 		   if(document.location.href.indexOf("&ux=search")!= -1){
 			
@@ -185,6 +188,11 @@ function go_topic(){
 
 function go_search(){	   
 
+
+$('#pages_bar_note').show();
+removeClass(document.getElementById("pages_bar_note"),"rh-hide");
+	
+
 if($("#searchBoxSearchPage").is(":focus")){
 
 }else{
@@ -226,23 +234,23 @@ toc.scrollTop = 0;*/
 
 setTimeout(function() { 
 
-// $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
+ $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
  
 }, 500);
 	
 		 
 		 
 			if($(window).innerWidth() < em(43.68)) {
-              $('.content').css("bottom", "100px");
+              $('.content').css("bottom", "98px");
              } 
 		    else if($(window).innerWidth() >= em(43.68) && $(window).innerWidth() <= em(59.49)){
-			  $('.content').css("bottom", "145px");
+			  $('.content').css("bottom", "135px");
 			 }
 			 else if($(window).innerWidth() >= em(59.5) && $(window).innerWidth() <= em(80.99)){
-			  $('.content').css("bottom", "65px");
+			  $('.content').css("bottom", "55px");
 			 }
 			 else if($(window).innerWidth() >= em(81)){
-			  $('.content').css("bottom", "65px");
+			  $('.content').css("bottom", "55px");
 			 }
  
         }
@@ -372,7 +380,7 @@ function showdropdown() {
 }
 window.onclick = function(event) {
 
-  var target = event ? event.target : window.event.srcElement;
+  /*var target = event ? event.target : window.event.srcElement;
   //alert(target.className);
   if (target.className !='dropbtn'&& target.className!='drop') {
     
@@ -384,7 +392,21 @@ window.onclick = function(event) {
         openDropdown.classList.remove('show');
       }
     }
-  }
+  }*/
+        var  matches;
+        matches = $(event.target).is( ".dropbtn" )
+		 
+		 /*if (target.id != 'dropbtn') {
+               
+               jQueryM_v1_4_5('#myDropdown').removeClass("show");
+         }*/
+		 
+		 if (!matches) {
+
+                 $('#myDropdown').removeClass("show");
+         }
+  
+  
 }
 
 

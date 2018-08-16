@@ -112,6 +112,7 @@ body,
 div {
   margin: 0;
   padding: 0;
+  cursor: pointer; 
 }
 
 .reversed {
@@ -120,7 +121,7 @@ margin:0px;
 }
 
 .container {
-
+height:26px;
 /*cursor:pointer;*/
 border: 4px solid #7192a8;
 padding: 0px;
@@ -135,7 +136,7 @@ margin:0px;
 .right {
 position:relative;
 cursor:pointer;	
-padding: 2px; 
+padding: 1.5px; 
 float: right;
 width: 15px;
 border: 2px solid white;
@@ -150,7 +151,7 @@ color: white !important;
 .left {
 position:relative;
 cursor:pointer;	
-padding: 2px; 
+padding: 1.5px; 
 float: left;
 width: 15px;
 border: 2px solid white;
@@ -194,6 +195,7 @@ display: inline-block;
 zoom: 1;
 *display: inline;
 white-space:nowrap;
+background: #7192a8;
 }
 
 .m > a > ul > li {
@@ -203,15 +205,20 @@ zoom: 1;
 *display: inline;
 white-space:nowrap;	
 cursor:pointer;	
-padding: 3px;
+padding: 2px;
 padding-left :10px;
 padding-right :10px;
-border: 0.3px solid white;
-background: #7192a8;
+border: 1px solid white!important;
 color: white;
+
+
 }
 .wSearchPageNumberSelected
 {
+padding: 2px!important;
+padding-left :10px!important;
+padding-right :10px!important;
+padding-bottom :3px!important;
 background: grey !important;
 }
  
@@ -363,15 +370,7 @@ background-color: #cfd0d3;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
     border-radius: 4px;
 }
 
@@ -705,21 +704,6 @@ padding-right:10px;
 
 				
 <div id="searchResList"></div>
-
-<div id = "pages_bar_note" class = "rh-hide">
-<div style= "font-weight:bold; font-size:.9em; text-align:center; padding:3px; background-color:grey;color:white;">قم بازاحة شريط الصفحات بشكل افقي</div>								
-<div  class="container rh-hide"  style = "" id = "conpag">
-
-<a class="left" id="searchnext" href="#">&gt;&gt;</a>
-<a class="right" id="searchprev" href="#">&lt;&lt;</a>
-<div dir = "ltr" class="m_con" style = "">
-<span class="m dragscroll" style = "">
-<a id="pageList"></a>
-</span>
-</div>
-</div>
-</div>
-			
 			
 			<div class="content_top_link" data-if="!@.l.uimode">
 				<span class="desktop"><a>&#160;</a></span>
@@ -727,6 +711,21 @@ padding-right:10px;
 		</div>
 	</div>
 </div>
+
+<div id = "pages_bar_note" class = "rh-hide">
+<div style= "font-weight:bold; font-size:.9em; text-align:center; padding:3px; background-color:grey;color:white;">قم بازاحة شريط الصفحات بشكل افقي</div>								
+<div  class="container rh-hide"  style = "" id = "conpag">
+
+<a class="left" id="searchnext" href="#">&lt;&lt;</a>
+<a class="right" id="searchprev" href="#">&gt;&gt;</a>
+<div dir = "ltr" class="m_con" style = "">
+<span class="m dragscroll" style = "">
+<a id="pageList"></a>
+</span>
+</div>
+</div>
+</div>
+
 <div class="buttonbar">
 	<div class="buttonbarholder">
 		
