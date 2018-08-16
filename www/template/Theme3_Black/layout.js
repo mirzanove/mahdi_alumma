@@ -187,10 +187,15 @@ function go_topic(){
 
 
 function go_search(){	   
+if($('#pageList >ul >li').length > 0){
 
-
-$('#pages_bar_note').show();
+$('#pages_bar_note').show();	
 removeClass(document.getElementById("pages_bar_note"),"rh-hide");
+	
+}
+
+
+
 	
 
 if($("#searchBoxSearchPage").is(":focus")){
