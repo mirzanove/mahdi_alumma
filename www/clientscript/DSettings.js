@@ -363,7 +363,7 @@ if (typeof encryptedMsg != 'undefined')
 		}
 	
 	    jQueryD_1_4_2( ".staticrypt-page" ).hide();
-		jQueryD_1_4_2( "#content" ).append("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:120%;text-align:center;padding:4px;\">مـــــوضـــــوع مشـــــفـــــر<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML);
+		jQueryD_1_4_2( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:120%;text-align:center;padding:4px;\">مـــــوضـــــوع مشـــــفـــــر<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family();\"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>");
 
 		
 		
