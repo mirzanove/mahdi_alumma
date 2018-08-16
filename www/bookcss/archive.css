@@ -780,8 +780,22 @@ hyphens: auto;
 	
 }
 
-.up2 {
 
+.up2 img {
+display: inline-block;
+  top:-3px;
+  position:relative;
+  font-weight: bold;
+  font-size: 70%;
+  color: #fff;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 [unselectable=on] {
