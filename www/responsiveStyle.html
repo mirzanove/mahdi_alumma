@@ -238,7 +238,7 @@ display:block;
 }
 
 .btn {
-    display: inline-block;
+   display: inline-block;
     padding: 1px 6px;
     margin-bottom: 0;
     font-size: 14px;
@@ -247,15 +247,7 @@ display:block;
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
     border-radius: 4px;
 }
 
@@ -467,7 +459,7 @@ padding-right:10px;
    </table>
 	</div>
 <!-- Search results -->
-<div class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(false) | debounce: 50, delta: 100">
+<div style ="-webkit-overflow-scrolling: touch;" class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(false) | debounce: 50, delta: 100">
 	
 	<label for="checkbox_id1">
     <input onchange="toggleCheckbox('checkbox_id1')" type="radio" value="1" name="genderS" id="checkbox_id1" checked> 

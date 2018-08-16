@@ -444,7 +444,6 @@ return false;
 jQueryM_v1_4_5(document).ready(function() {
 
 
-
 if (typeof encryptedMsg != 'undefined')
 {
 
@@ -1098,22 +1097,18 @@ function loaddsett(){
 
     jQueryM_v1_4_5(document).ready(function() {
 
-
-	   
+        
+jQueryM_v1_4_5("#staticrypt-password").focus(function() {
+jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
+});
 	 
-	       jQueryM_v1_4_5("#wrapper").scroll(function() {
+	       /*jQueryM_v1_4_5("#wrapper").scroll(function() {
             
-			///alert(jQueryM_v1_4_5(this).scrollTop() + jQueryM_v1_4_5(this).innerHeight()+">="+jQueryM_v1_4_5(this)[0].scrollHeight);
-			setTimeout(function () {
-                window.parent.postMessage(["loading", "stop"], "*");
-				 }, 150);
 			
 			
 			if(jQueryM_v1_4_5(this).scrollTop() + jQueryM_v1_4_5(this).height() == jQueryM_v1_4_5(this)[0].scrollHeight) {
    
-                setTimeout(function () {
-                window.parent.postMessage(["loading", "stop"], "*");
-				 }, 150);
+               
 				
             }
 
@@ -1127,7 +1122,7 @@ function loaddsett(){
 				
             }
 
-           });
+           });*/
 	   
 	   
 	   

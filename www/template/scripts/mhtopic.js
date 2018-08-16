@@ -2295,36 +2295,39 @@ jQueryD_1_4_2("em").get(0).scrollIntoView();
 		
 }
 
-var data2 = document.location.href;
-		rhsyns = data2.replace(/(.*?)\?(rhhlterm=[^"]*|&rhsyns=[^"]*)/mg, "$1");
-       
-	    if (data2.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
-			data2= data2.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");	
-		}
-		if (data2.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
-			data2+= data2.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
-		}
-		if (data2.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
-			data2+= data2.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
-		}
-		if (data2.match(/(#post(.*?))/mg) ) {
-					  
-					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
-		}
-		if (data2.match(/(#td_threadtitle(.*?))/mg) ) {
-				
-					   rhsyns= rhsyns.replace(/(#td_threadtitle[^"]*)/mg, "");			 
-		}
-		if (rhsyns.match(/(rhsyns=%20)/mg) ) {
-					  
-			rhsyns= rhsyns.replace(/(rhsyns=%20)/mg, "");	
-            			
-	    }
+var c = window.location.href;
+		          if(c.indexOf("&checkbox=") !== -1) {
+						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
+                    }
+					
+                    if(c.indexOf("#post") !== -1) {
+                        c = c.substring(0, c.indexOf("#post") - 0);
+                    }
+                    if(c.indexOf("?random=") !== -1) {
+						c = c.substring(0, c.indexOf("?random=") - 0); 
+				   }
+				   if(c.indexOf("?rhsyns=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
+                   }
+				   if(c.indexOf("?rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
+                   }
+				   if(c.indexOf("&rhsearch=") !== -1) {
+                        c = c.substring(0, c.indexOf("&rhsearch=") - 0);
+                   }
+				   if(c.indexOf("&rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("&rhhlterm=") - 0);
+                   }
+				   
+				   if (c.match(/[^"]*(\#|\?)&pass\=(.*?)(&([^"]*)|$)/mg)) {
+			         c = c.replace(/(.*?)(\#|\?)&pass\=(.*?)(#([^"]*)|$)/mg, "$1");
+		           }
 		
-		rhsyns= rhsyns.replace('html?', "html");
-        rhsyns= rhsyns.replace('htm?', "htm");		
+		c= c.replace('html?', "html");
+        c= c.replace('htm?', "htm");		
+        
    
-		window.parent.postMessage(["send_page_info",document.title, rhsyns], "*");
+		window.parent.postMessage(["send_page_info",document.title, c], "*");
 
 
 
@@ -2431,36 +2434,38 @@ var data = e.data[1];
 	 }
 	  case 'get_ifram_location_href2':
         
-		data2 = document.location.href;
-		rhsyns = data2.replace(/(.*?)\?(rhhlterm=[^"]*|&rhsyns=[^"]*)/mg, "$1");
-       
-	    if (data2.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
-			data2= data2.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");	
-		}
-		if (data2.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
-			data2+= data2.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
-		}
-		if (data2.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
-			data2+= data2.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
-		}
-		if (data2.match(/(#post(.*?))/mg) ) {
-					  
-					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
-		}
-		if (data2.match(/(#td_threadtitle(.*?))/mg) ) {
-				
-					   rhsyns= rhsyns.replace(/(#td_threadtitle[^"]*)/mg, "");			 
-		}
-		if (rhsyns.match(/(rhsyns=%20)/mg) ) {
-					  
-			rhsyns= rhsyns.replace(/(rhsyns=%20)/mg, "");	
-            			
-	    }
+		var c = window.location.href;
+		          if(c.indexOf("&checkbox=") !== -1) {
+						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
+                    }
+					
+                    if(c.indexOf("#post") !== -1) {
+                        c = c.substring(0, c.indexOf("#post") - 0);
+                    }
+                    if(c.indexOf("?random=") !== -1) {
+						c = c.substring(0, c.indexOf("?random=") - 0); 
+				   }
+				   if(c.indexOf("?rhsyns=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
+                   }
+				   if(c.indexOf("?rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
+                   }
+				   if(c.indexOf("&rhsearch=") !== -1) {
+                        c = c.substring(0, c.indexOf("&rhsearch=") - 0);
+                   }
+				   if(c.indexOf("&rhhlterm=") !== -1) {
+                        c = c.substring(0, c.indexOf("&rhhlterm=") - 0);
+                   }
+				   
+				   if (c.match(/[^"]*(\#|\?)&pass\=(.*?)(&([^"]*)|$)/mg)) {
+			         c = c.replace(/(.*?)(\#|\?)&pass\=(.*?)(#([^"]*)|$)/mg, "$1");
+		           }
 		
-		rhsyns= rhsyns.replace('html?', "html");
- 		rhsyns= rhsyns.replace('htm?', "htm");			 
+		c= c.replace('html?', "html");
+        c= c.replace('htm?', "htm");		 
 
-		window.parent.postMessage(["send_page_info",document.title, rhsyns], "*");
+		window.parent.postMessage(["send_page_info",document.title, c], "*");
 		 
 		 
      break;
