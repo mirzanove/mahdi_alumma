@@ -428,7 +428,7 @@ top: 0px;
 z-index: 10; 
 margin:0;
 padding:0; 
-
+cursor: pointer;
 -webkit-text-size-adjust:100%; 
 font-size:85%;
 
