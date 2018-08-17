@@ -427,7 +427,7 @@ position: fixed;
 top: 0px;
 z-index: 10; 
 margin:0;
-padding:1; 
+padding:0; 
 }
 
 
@@ -481,7 +481,7 @@ color:white;
     
 	/*font-size: 70%;*/
 	
-	margin-top:20px;
+	margin-top:10px;
 	
 	position: relative;
     display:none;
