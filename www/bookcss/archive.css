@@ -427,10 +427,10 @@ position: fixed;
 top: 0px;
 z-index: 10; 
 margin:0;
-padding:1; 
+padding:0; 
 
 -webkit-text-size-adjust:100%; 
-font-size:90%;
+font-size:85%;
 
 }
 
@@ -489,7 +489,7 @@ font-size:inherit;
 }
 
 .dropdown-content {
-	font-size: inherit;
+	font-size: 130%;
 	margin-top:10px;
 	position: relative;
     display:none;
@@ -499,6 +499,7 @@ font-size:inherit;
    text-align: center;
 	-moz-border-radius-topright: 10px;
 	border-collapse:separate !important; 
+	margin:5px;
 }
 
 .dropdown-content a {
