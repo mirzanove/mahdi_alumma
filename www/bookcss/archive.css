@@ -81,7 +81,7 @@ html, body {height:100%; overflow:hidden;
      overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
-	font-size: 180%;
+	font-size: 170%;
 	cursor: pointer;
 }
 

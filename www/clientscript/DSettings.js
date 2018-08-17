@@ -1183,7 +1183,6 @@ function loaddsett(){
        
 		//jQueryD_1_4_2('.posttext').css("font-size", "25px");	
 		jQueryD_1_4_2('.posttext').removeAttr("style");
-
         jQueryD_1_4_2('.up2 >img').removeAttr("style");
 		
 
