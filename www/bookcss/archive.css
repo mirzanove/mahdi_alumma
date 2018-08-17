@@ -177,10 +177,8 @@ font-weight:bold;
     background-color: #4CAF50;
     color: white;
     padding: 3px;
-    
     border: none;
     cursor: pointer;
-    width: 100%;
 }
 
 .dropdown {
@@ -192,8 +190,7 @@ font-weight:bold;
 .dropdown-content {
     
 	/*font-size: 70%;*/
-	position: fixed;
-   left: 6px;
+	position: relative;
    top: auto;
     display:none;
     background-color: #f9f9f9;
