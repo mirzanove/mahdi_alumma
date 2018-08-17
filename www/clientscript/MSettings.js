@@ -1141,6 +1141,9 @@ jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 
            });*/
 	   
+	    jQueryM_v1_4_5('.up2 >img').removeAttr("style");
+	   
+	   
 	   
 	   
 	        jQueryM_v1_4_5(document).on('click', function(event) {
