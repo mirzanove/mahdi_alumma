@@ -6,7 +6,11 @@ var encrypted = false;
 var wke = false;
 var iee = false;
 var wkchrom = false;
-
+var fontstylelist = true;
+var lateefsize = 140;
+var othersize = 140;
+var lateefsizelist = 100;
+var othersizelist = 100;
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
 //var isInIFrame = (window.location != window.parent.location);

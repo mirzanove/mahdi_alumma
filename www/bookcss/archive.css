@@ -1,3 +1,6 @@
+
+
+
 pdf,
 up,
 div,
@@ -69,8 +72,8 @@ td {
 
 html, body {height:100%; overflow:hidden; 
 -webkit-overflow-scrolling: touch;
-
- -webkit-text-size-adjust: 100%;
+-webkit-text-size-adjust:80%;
+ 
 }
 
 #wrapper {
@@ -78,8 +81,7 @@ html, body {height:100%; overflow:hidden;
      overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
-	font-size: 160%;
-	-webkit-text-size-adjust: 100%;
+	font-size: 140%;
 	cursor: pointer; 
 }
 
@@ -191,7 +193,7 @@ font-weight:bold;
     
 	/*font-size: 70%;*/
 	position: fixed;
-   left: 25px;
+   left: 6px;
    top: auto;
     display:none;
     background-color: #f9f9f9;
@@ -782,11 +784,11 @@ hyphens: auto;
 
 
 .up2 img {
-display: inline-block;
+ display: inline-block;
   top:-3px;
   position:relative;
   font-weight: bold;
-  font-size: 70%;
+  font-size: 50%;
   color: #fff;
   vertical-align: middle;
   outline: none;
@@ -796,6 +798,8 @@ display: inline-block;
   padding-bottom: 1px;
   padding-right: 5px;
   padding-left: 5px;
+
+
 }
 
 [unselectable=on] {
@@ -1048,7 +1052,7 @@ span.small {
 	border-right: 1px solid #c0c0c0;
 	border-bottom: 1px solid #c0c0c0;
 	border-top: 1px solid #c0c0c0;
-	/*font-size: 70%;*/
+	font-size: 110%;
 }
 .footer {
 	text-align: center;
@@ -1130,11 +1134,11 @@ text-align:center;
 background-color:grey;	
 padding:4px;
 font-weight:bold;
-/*font-size:100%;*/
+font-size:130%;
 }
 
 .notlateef{
 
-font-size: 90%;	
+/*font-size: 90%;*/	
 	
 }
