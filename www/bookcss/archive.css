@@ -82,7 +82,6 @@ html, body {height:100%; overflow:hidden;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
 	font-size: 140%;
-	cursor: pointer; 
 }
 
 
@@ -1020,10 +1019,6 @@ div.username {
 div.date {
 	width: auto;
 	text-align: right;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
-	position:relative;
 }
 
 div.highlight {
