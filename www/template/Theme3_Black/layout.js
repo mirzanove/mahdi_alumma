@@ -343,7 +343,7 @@ if($.support.rtlScrollType == "default" || $.support.rtlScrollType == "negative"
   }
   else{
 
-  var active = $(this).find(elem);
+  /*var active = $(this).find(elem);
   var activeWidth = active.width() / 2;
 
 
@@ -355,6 +355,20 @@ if($.support.rtlScrollType == "default" || $.support.rtlScrollType == "negative"
 
   $(this).animate({
     scrollLeft: -pos+30
+  }, speed == undefined ? 1000 : speed);
+  return this;*/
+  
+  
+  var active = $(this).find(elem);
+  var activeWidth = active.width() / 2; 
+  var pos = active.position().left + activeWidth;
+  var elpos = $(this).scrollLeft();
+  var elW = $(this).width();
+
+  pos = pos + elpos - elW / 2; 
+
+  $(this).animate({
+    scrollLeft: pos-30
   }, speed == undefined ? 1000 : speed);
   return this;
   
