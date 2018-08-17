@@ -478,6 +478,22 @@ z-index: 10;
 }
 
 
+.header_topic .dropdown{
+  display: inline-block;
+  top:-3px;
+  position:relative;
+  font-weight: bold;
+  font-size: 50%;
+  color: #fff;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+
 .header_topic--fixed {
 top: 0;
 position: fixed;  
@@ -779,8 +795,8 @@ hyphens: auto;
 
 .up2  {
 
- background-color: #20B2AA;
-display: inline-block;
+  background-color: #20B2AA;
+  display: inline-block;
   top:-3px;
   position:relative;
   font-weight: bold;
