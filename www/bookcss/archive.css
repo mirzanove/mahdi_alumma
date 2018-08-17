@@ -779,8 +779,26 @@ hyphens: auto;
 	
 }
 
+.up2  {
+
+ background-color: #20B2AA;
+display: inline-block;
+  top:-3px;
+  position:relative;
+  font-weight: bold;
+  font-size: 90%;
+  color: #fff;
+  vertical-align: middle;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+
+
+
+}
 
 .up2 img {
+
  display: inline-block;
   top:-3px;
   position:relative;
@@ -793,8 +811,6 @@ hyphens: auto;
   text-align: center;
   padding-top: 1px;
   padding-bottom: 1px;
-  padding-right: 5px;
-  padding-left: 5px;
   width:35px;
 
 
@@ -1048,12 +1064,11 @@ span.small {
 }
 .footer {
 	text-align: center;
-	font-size: 12px;
 	padding:3px;
+	font: 12px verdana arial sans-serif;
 }
 
 #copyright {
-	font: 12px verdana arial sans-serif;
 	font-weight: bold;
 }
 hr {
