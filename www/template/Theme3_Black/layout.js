@@ -413,15 +413,17 @@ window.onclick = function(event) {
     }
   }*/
         var  matches;
-        matches = $(event.target).is( ".dropbtn" )
-		 
+		var  matches2;
+        matches = $(event.target).is( ".dropbtn" );
+		matches2 = $(event.target).is( "drop" );
+		//var target = event ? event.target : window.event.srcElement;
 		 /*if (target.id != 'dropbtn') {
                
                jQueryM_v1_4_5('#myDropdown').removeClass("show");
          }*/
 		 
-		 if (!matches) {
-
+		if (matches && matches2) {
+                 
                  $('#myDropdown').removeClass("show");
          }
   
