@@ -1,0 +1,24 @@
+/* lateef-regular - arabic */
+@font-face {
+  font-family: 'Lateef';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.eot'); /* IE9 Compat Modes */
+  src: local('Lateef'),
+       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.eot?#iefix') format('embedded-opentype'); /* IE6-IE8 */
+}
+ 
+
+#wrapper{
+/**padding-left:18px !important;*/
+} 
+
+
+
+#wrapper{
+font-family:'Lateef', serif;
+} 
+
+div.posttext {
+padding:15px;
+}
