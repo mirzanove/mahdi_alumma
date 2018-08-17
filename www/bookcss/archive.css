@@ -72,7 +72,7 @@ td {
 
 html, body {height:100%; overflow:hidden; 
 -webkit-overflow-scrolling: touch;
--webkit-text-size-adjust:80%;
+-webkit-text-size-adjust:60%;
  
 }
 
@@ -81,7 +81,7 @@ html, body {height:100%; overflow:hidden;
      overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
-	font-size: 140%;
+	font-size: 180%;
 	cursor: pointer;
 }
 
@@ -423,7 +423,7 @@ zoom: 1;
 }
 u{text-decoration: none;border-bottom: 1px solid;line-height: 180%}
 
-.posttext div,.posttext span{line-height: 150%;}
+.posttext div,.posttext span{/*line-height: 150%;*/}
 
 div.language{
 	width:100%;
@@ -769,13 +769,11 @@ hyphens: auto;
 
 
 .thread_title {
-	/*background: #F9F9F9;*/
 	background: #d5deed;
 	border: 1px solid #c0c0c0;
 	padding: 4px;
 	white-space: wrap;
 	font-weight: bold;
-	/*font-size: 70%;*/
 	
 }
 

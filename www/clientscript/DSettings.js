@@ -558,7 +558,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
-					 //jQueryD_1_4_2('.posttext').removeAttr("style");
+					 jQueryD_1_4_2('.posttext').removeAttr("style");
 					 
 				if(selector.selectedIndex == 0){
 						 //jQueryD_1_4_2('.posttext').css("font-size","100%");
@@ -594,7 +594,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
-					 //jQueryD_1_4_2('.posttext').removeAttr("style");
+					 jQueryD_1_4_2('.posttext').removeAttr("style");
 					
 					if(selector.selectedIndex == 0 || fonttype == null){
 						 /*jQueryD_1_4_2('.posttext').css("font-size","100%");
@@ -1182,7 +1182,7 @@ function loaddsett(){
         //alert("deskstop");
        
 		//jQueryD_1_4_2('.posttext').css("font-size", "25px");	
-		
+		jQueryD_1_4_2('.posttext').removeAttr("style");
 
         jQueryD_1_4_2('.up2 >img').removeAttr("style");
 		

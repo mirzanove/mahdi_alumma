@@ -564,7 +564,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
-					 //jQueryM_v1_4_5('.posttext').removeAttr("style");
+					 jQueryM_v1_4_5('.posttext').removeAttr("style");
 					 
 				if(selector.selectedIndex == 0){
 						 //jQueryM_v1_4_5('.posttext').css("font-size","100%");
@@ -599,7 +599,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 					 var strUser = selector.options[selector.selectedIndex].value;
 					 var h1 = document.getElementById('wrapper')
                      h1.style.fontFamily = strUser; 
-					 //jQueryM_v1_4_5('.posttext').removeAttr("style");
+					 jQueryM_v1_4_5('.posttext').removeAttr("style");
 					
 					if(selector.selectedIndex == 0 || fonttype == null){
 						 /*jQueryM_v1_4_5('.posttext').css("font-size","100%");
@@ -1141,9 +1141,10 @@ jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 
            });*/
 	   
+	    jQueryM_v1_4_5('.posttext').removeAttr("style"); 
 	    jQueryM_v1_4_5('.up2 >img').removeAttr("style");
 	   
-	   
+	    
 	   
 	   
 	        jQueryM_v1_4_5(document).on('click', function(event) {
