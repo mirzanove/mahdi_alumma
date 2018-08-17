@@ -45,46 +45,46 @@
 		<preference name="LoadingDialog" value="," />
 		<preference name="LoadUrlTimeoutValue" value="null" />
 		<platform name="ios">
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\57px.png" width="57" height="57" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\144px.png" width="144" height="144" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\72px.png" width="72" height="72" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\114.png" width="114" height="114" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\100px.png" width="100" height="100" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\60px.png" width="60" height="60" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\120px.png" width="120" height="120" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\180px.png" width="180" height="180" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\76px.png" width="76" height="76" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\152.png" width="152" height="152" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1242..2208.png" width="1242" height="2208" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\2208-1242.png" width="2208" height="1242" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\750--1334.png" width="750" height="1334" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1334.750.png" width="1334" height="750" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\640.1136.png" width="640" height="1136" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1136-640.png" width="1136" height="640" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\640.960.png" width="640" height="960" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\splash960-640.png" width="960" height="640" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\320.480.png" width="320" height="480" /> 
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\480-320.png" width="480" height="320" /> 
+		<icon src="package-assets\57px.png" width="57" height="57" />
+		<icon src="package-assets\144px.png" width="144" height="144" />
+		<icon src="package-assets\72px.png" width="72" height="72" />
+		<icon src="package-assets\114.png" width="114" height="114" />
+		<icon src="package-assets\100px.png" width="100" height="100" />
+		<icon src="package-assets\60px.png" width="60" height="60" />
+		<icon src="package-assets\120px.png" width="120" height="120" />
+		<icon src="package-assets\180px.png" width="180" height="180" />
+		<icon src="package-assets\76px.png" width="76" height="76" />
+		<icon src="package-assets\152.png" width="152" height="152" />
+		<splash src="package-assets\1242..2208.png" width="1242" height="2208" /> 
+		<splash src="package-assets\2208-1242.png" width="2208" height="1242" /> 
+		<splash src="package-assets\750--1334.png" width="750" height="1334" /> 
+		<splash src="package-assets\1334.750.png" width="1334" height="750" /> 
+		<splash src="package-assets\640.1136.png" width="640" height="1136" /> 
+		<splash src="package-assets\1136-640.png" width="1136" height="640" /> 
+		<splash src="package-assets\640.960.png" width="640" height="960" /> 
+		<splash src="package-assets\splash960-640.png" width="960" height="640" /> 
+		<splash src="package-assets\320.480.png" width="320" height="480" /> 
+		<splash src="package-assets\480-320.png" width="480" height="320" /> 
 		</platform>
 		<platform name="android">
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\ico36.36.png" qualifier="ldpi" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\ico48.48.png" qualifier="mdpi" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\ico72.72.png" qualifier="hdpi" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\ico96.96.png" qualifier="xhdpi" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\144px.png" qualifier="xxhdpi" />
-		<icon src="file://D:\GitHub\mahdi_alumma\package-assets\192x192.png" qualifier="xxxhdpi" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\240-320.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\320-240.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\320.480.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\480-320.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\480-800.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\800-480.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\720-1280.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1280-720.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\690-1600.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1600-960.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1280-1920.png" qualifier="" />
-		<splash src="file://D:\GitHub\mahdi_alumma\package-assets\1920-1280.png" qualifier="" />
+		<icon src="package-assets\ico36.36.png" qualifier="ldpi" />
+		<icon src="package-assets\ico48.48.png" qualifier="mdpi" />
+		<icon src="package-assets\ico72.72.png" qualifier="hdpi" />
+		<icon src="package-assets\ico96.96.png" qualifier="xhdpi" />
+		<icon src="package-assets\144px.png" qualifier="xxhdpi" />
+		<icon src="package-assets\192x192.png" qualifier="xxxhdpi" />
+		<splash src="package-assets\240-320.png" qualifier="" />
+		<splash src="package-assets\320-240.png" qualifier="" />
+		<splash src="package-assets\320.480.png" qualifier="" />
+		<splash src="package-assets\480-320.png" qualifier="" />
+		<splash src="package-assets\480-800.png" qualifier="" />
+		<splash src="package-assets\800-480.png" qualifier="" />
+		<splash src="package-assets\720-1280.png" qualifier="" />
+		<splash src="package-assets\1280-720.png" qualifier="" />
+		<splash src="package-assets\690-1600.png" qualifier="" />
+		<splash src="package-assets\1600-960.png" qualifier="" />
+		<splash src="package-assets\1280-1920.png" qualifier="" />
+		<splash src="package-assets\1920-1280.png" qualifier="" />
 		</platform>
 		<platform name="winphone">
 		</platform>
