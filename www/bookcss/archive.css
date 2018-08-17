@@ -479,18 +479,10 @@ z-index: 10;
 
 
 .header_topic .dropdown{
-  display: inline-block;
-  top:-3px;
-  position:relative;
-  font-weight: bold;
-  font-size: 50%;
-  color: #fff;
-  vertical-align: middle;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+      
 }
 
 
