@@ -33,9 +33,9 @@
     <preference name="exit-on-suspend" value="true"/>
 	<preference name="stay-in-webview" value="true" />
 	<preference name="FadeSplashScreen " value="true" />
-	<preference name="EnableViewportScale" value="false" />
+	<preference name="EnableViewportScale" value="true" />
 	<preference name="FadeSplashScreen " value="true" />
-    <preference name="EnableViewportScale" value="false" />
+    <preference name="EnableViewportScale" value="true" />
 	<preference name="BackupWebStorage" value="none" />
 	<preference name="TopActivityIndicator" value="white" />
 	<preference name="KeyboardDisplayRequiresUserAction" value="true" />
