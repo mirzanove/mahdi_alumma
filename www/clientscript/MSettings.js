@@ -204,6 +204,8 @@ function updateh1family() {
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","70%");
 						 
 						  jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
+						  jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
+
 						 
 						 
 		             }
@@ -216,6 +218,7 @@ function updateh1family() {
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
 						 
 						jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
+						jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
 		}
 		
 		
@@ -574,6 +577,8 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","0%");
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
+						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
+
 						 
 						 
 		             }
@@ -586,6 +591,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
+						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
 		         }
 					 
 				 }
@@ -608,7 +614,8 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");*/
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
-						 
+						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
+
 						 
 		             }
 					 else{
@@ -619,6 +626,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");*/
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
+                         jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
 		             }
 					 
 

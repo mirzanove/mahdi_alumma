@@ -72,7 +72,7 @@ td {
 
 html, body {height:100%; overflow:hidden; 
 -webkit-overflow-scrolling: touch;
--webkit-text-size-adjust:60%;
+
  
 }
 
@@ -83,6 +83,7 @@ html, body {height:100%; overflow:hidden;
 	position: relative;
 	font-size: 170%;
 	cursor: pointer;
+	-webkit-text-size-adjust:90%;
 }
 
 
