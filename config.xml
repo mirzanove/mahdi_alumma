@@ -5,6 +5,10 @@
 <description>موسوعة نون</description>
 <author>mirzanove</author>
 <content src="index.html"/>
+<feature name="http://api.phonegap.com/1.0/file" />
+<feature name="http://api.phonegap.com/1.0/network" />
+<feature name="http://api.phonegap.com/1.0/notification" />
+
 <preference name="android-build-tool" value="gradle" />
 <platform name="ios" >
     <allow-intent href="*"/>
