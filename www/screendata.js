@@ -1,0 +1,1 @@
+gXMLBuffer="<?xml version=\"1.0\" encoding=\"utf-8\" ?><screens defaulturl=\"./responsiveStyle2.html\" ><screen minwidth=\"0\" maxwidth=\"0\"  minheight=\"0\" maxheight=\"0\" browseragent=\"\" folder=\".\" defaulturl=\"./responsiveStyle2.html\" default=\"1\" /></screens>";
