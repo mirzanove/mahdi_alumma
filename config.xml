@@ -10,6 +10,7 @@
 		<author href="" email="">		</author>
 		<feature name="http://api.phonegap.com/1.0/network" />
 		<preference name="phonegap-version" value="cli-6.1.0" />
+		
 		<preference name="android-build-tool" value="gradle" />
 		<preference name="orientation" value="default" />
 		<preference name="fullscreen" value="true" />
