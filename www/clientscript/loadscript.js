@@ -65,7 +65,7 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/simpl
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/ExFun.js\'><\/script>');  
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/jquery.inview.js\'><\/script>');  
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/jquery.ba-hashchange.min.js\'><\/script>');  
-  
+document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/copy2clipboard.js\'><\/script>');  
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/config.js\'><\/script>');  
 
 
@@ -76,7 +76,7 @@ else{
    document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/DSettings.js\'><\/script>');  
 }
 
-document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/copy2clipboard.js\'><\/script>');	
+	
 	
 }
 
