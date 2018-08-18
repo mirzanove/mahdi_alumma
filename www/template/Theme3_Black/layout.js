@@ -424,10 +424,40 @@ window.onclick = function(event) {
 		 
 		if (matches && matches2) {
                  
-                 $('#myDropdown').removeClass("show");
+                 
+				 
+				 var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        $('#myDropdown').removeClass("show");
+      }
+    }
+				 
          }
   
   
+}
+
+
+window.onclick = function(event) {
+
+  var target = event ? event.target : window.event.srcElement;
+  //alert(target.className);
+  
+  if (target.className !='dropbtn'&& target.className!='drop') {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+		
+      }
+    }
+  }
 }
 
 
