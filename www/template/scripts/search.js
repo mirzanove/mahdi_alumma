@@ -164,7 +164,7 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 		
 		
 		if(i == nCurPage)
-			sHTML += "<li class='" + gPageClass + "' style='display:inline;'>" + i.toString() + "</li>";
+			sHTML += "<li class='" + gPageClass + "'>" + i.toString() + "</li>";
 		else
 			sHTML += "<li class='' onclick=\"onClickPrevNext(this,'" + i.toString() + "')\" >" + i.toString() + "</li>";
 	}

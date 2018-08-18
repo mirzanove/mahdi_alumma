@@ -2,6 +2,7 @@
    -webkit-tap-highlight-color:rgba(0,0,0,0);
    -webkit-tap-highlight-color:transparent;
    outline-style:none;
+   overflow: hidden ;
 }
 body {
       font-size:100%;
@@ -11,6 +12,8 @@ body {
       min-width:250px;
       color:#3f4344;
       background-color:#ffffff;
+	  overflow: hidden ;
+	 
 }
 div.content {
              background-color:#ffffff;
@@ -479,8 +482,9 @@ div.content {
              top:3.4em;
              bottom:2.65em;
              left:0;
+			 right:0;
              padding-bottom:1em;
-             width:100%;
+            
              overflow:auto;
              -webkit-overflow-scrolling:touch;
 }
@@ -886,9 +890,9 @@ div.sidebar {
 div.content {
              position:absolute;
              top:4em;
-             left:5.25em;
-             right:.1em;
-             bottom:.25em;
+             left:5em;
+             right:0em;
+             bottom:0em;
              overflow:auto;
              -webkit-overflow-scrolling:touch;
 }
@@ -1018,8 +1022,8 @@ div.title {
 div.content {
              position:absolute;
              top:4.5em;
-             right:0%;
-             width:100%;
+             right:0;
+			 left:0;
              bottom:0;
              overflow:hidden;
 }
@@ -1173,8 +1177,7 @@ div.contentholder {
                    position:absolute;
                    top:2.7em;
                    bottom:0em;
-                   left:0em;
-                   right:0em;
+                   width:100%;
                    overflow:auto;
 }
 }
@@ -2404,7 +2407,7 @@ img.wBSNextButton {
                    border:none;
 }
 div.wSearchResults {
-                    margin:1em 1em 2em 1em;
+                    margin:10px 10px 10px 10px;
                     font-size:1.1em;
 }
 div.cSearchSettingsToggle {
