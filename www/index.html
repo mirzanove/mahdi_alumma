@@ -63,6 +63,23 @@ location.href = window.location.href+"responsiveStyle2.html";
 }
 
 }      
+
+function OnLoad(){
+  	 document.addEventListener('deviceready', function(){
+  	 	//enabling zoom control
+  		 cordova.plugins.ZoomControl.ZoomControl("true");
+  		 // enabling built in zoom control
+  		 cordova.plugins.ZoomControl.setBuiltInZoomControls("true");
+  		 // enabling display zoom control
+  		 cordova.plugins.ZoomControl.setDisplayZoomControls("true");
+  		 
+  	 }, function(){
+  		 alert('error deviceready');
+  	 });
+  	 
+}
+
+
 	
 </script>
 <noscript>
@@ -163,7 +180,7 @@ line-height: 120%;
 <link rel="SHORTCUT ICON" href="87px.png" />	
 <div class ="loading" id ="loading"></div>
 </head>
-<body>
+<body onload="OnLoad();">
 <table dir="rtl" border="0" width="100%">
 			  <tbody>
 				<tr height="43">
