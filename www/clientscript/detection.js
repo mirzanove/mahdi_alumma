@@ -65,8 +65,19 @@ function lsTest(){
 
 function IsSafari() {
 
-  var is_safari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
-  return is_safari;
+ var ua = navigator.userAgent.toLowerCase(); 
+if (ua.indexOf('safari') != -1) { 
+  if (ua.indexOf('chrome') > -1) {
+   
+	is_safari = false;
+	return is_safari;
+  } else {
+	 is_safari = true; 
+	 return is_safari;
+    
+  }
+}
+  
 
 }
 
