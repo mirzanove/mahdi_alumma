@@ -841,7 +841,7 @@ hyphens: auto;
 .up {
 	
 background-color: #20B2AA;
-display: inline-block;
+
   top:-3px;
   position:relative;
   font-weight: bold;
@@ -1017,6 +1017,7 @@ div.pagebody {
 	padding-top:1px;
 	padding-left:5px;
 	padding-right:5px;
+	width :100%;
 	
 }
 div.post {
