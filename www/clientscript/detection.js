@@ -12,6 +12,8 @@ var lateefsizelist = 130;
 var othersizelist = 120;
 var adjust_lateef = 70;
 var adjust_other =  90;
+var normal_hight = "normal";
+var safarilinehight = 170;
  
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
@@ -60,6 +62,14 @@ function lsTest(){
         return false;
     }
 }
+
+function IsSafari() {
+
+  var is_safari = navigator.userAgent.toLowerCase().indexOf('safari/') > -1;
+  return is_safari;
+
+}
+
 
 
 String.prototype.hexDecode = function(){

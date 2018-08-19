@@ -198,8 +198,7 @@ function updateh1family() {
 						 ///jQueryD_1_4_2('.dropdown-content').css("font-size","0%");*/
 						 
 						  jQueryD_1_4_2('#wrapper').css("font-size",lateefsize+"%");
-						  
-						 
+						  jQueryD_1_4_2('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");
 						 
 						 
 						 
@@ -214,6 +213,7 @@ function updateh1family() {
 						 //jQueryD_1_4_2('.dropdown-content').css("font-size","60%");
 						
 						 jQueryD_1_4_2('#wrapper').css("font-size",othersize+"%");
+						 jQueryD_1_4_2('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
 		 }
 		
 		
@@ -568,6 +568,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 						 //jQueryD_1_4_2('.dropdown-content').css("font-size","0%");
 						 
 						 jQueryD_1_4_2('#wrapper').css("font-size",lateefsize+"%");
+						 jQueryD_1_4_2('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");
 
 						 
 						 
@@ -581,6 +582,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 						 //jQueryD_1_4_2('.dropdown-content').css("font-size","60%");
 						 
 						 jQueryD_1_4_2('#wrapper').css("font-size",othersize+"%");
+						 jQueryD_1_4_2('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
 		         }
 					 
 				 }
@@ -614,6 +616,7 @@ jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير ن
 						 jQueryD_1_4_2('.thread_title').css("font-size","70%");*/
 						 
 						 jQueryD_1_4_2('#wrapper').css("font-size",othersize+"%");
+						 jQueryD_1_4_2('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
 		             }
 					 
 
@@ -1185,7 +1188,7 @@ function loaddsett(){
 		jQueryD_1_4_2('.posttext').removeAttr("style");
         jQueryD_1_4_2('.up2 >img').removeAttr("style");
 		
-
+        
 
 
         var arrEdited = [];

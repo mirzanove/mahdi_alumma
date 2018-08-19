@@ -217,14 +217,15 @@ function printDiv2(divID) {
 		   
 		   frameDoc.document.open();
            frameDoc.document.write('<html dir = "rtl"><head>');
-
+       
 		   if(_isMobile() == mobiletrue) {
 		   frameDoc.document.write('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
-		   frameDoc.document.write( "<style>font{font-size:"+jQueryM_v1_4_5('.posttext').css('font-size')+"}</style>" );
-	       }
+		   frameDoc.document.write( "<style>.posttext > div,.posttext {line-height:"+jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height")+"} font{font-size:"+jQueryM_v1_4_5('.posttext').css('font-size')+"} div.posttext{font-family:'"+jQueryM_v1_4_5('#wrapper').css("font-family")+"'}</style>" );
+
+		   }
 	       else{
-		   frameDoc.document.write('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
-		   frameDoc.document.write( "<style>font{font-size:"+jQueryD_1_4_2('.posttext').css('font-size')+"}</style>" );
+	       frameDoc.document.write('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		   frameDoc.document.write( "<style>.posttext > div,.posttext {line-height:"+jQueryD_1_4_2('.posttext > div,.posttext > span').css("line-height")+"} font{font-size:"+jQueryD_1_4_2('.posttext').css('font-size')+"} div.posttext{font-family:'"+jQueryD_1_4_2('#wrapper').css("font-family")+"'}</style>" );
 	       }
 			
 		  if (IE <=8) {     

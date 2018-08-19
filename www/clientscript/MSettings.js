@@ -205,6 +205,7 @@ function updateh1family() {
 						 
 						  jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
 						  jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
+						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");
 
 						 
 						 
@@ -219,6 +220,7 @@ function updateh1family() {
 						 
 						jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
 						jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
+						jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
 		}
 		
 		
@@ -578,7 +580,8 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
 						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
-
+						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");
+                            
 						 
 						 
 		             }
@@ -592,6 +595,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
 						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
+						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
 		         }
 					 
 				 }
@@ -627,6 +631,7 @@ jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير �
 						 
 						 jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
                          jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
+						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
 		             }
 					 
 
@@ -1120,12 +1125,18 @@ if(window.location == window.parent.location) {
 function loaddsett(){     
 
 
-    jQueryM_v1_4_5(document).ready(function() {
+jQueryM_v1_4_5(document).ready(function() {
 
         
 jQueryM_v1_4_5("#staticrypt-password").focus(function() {
 jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 });
+
+
+
+
+
+
 	 
 	       /*jQueryM_v1_4_5("#wrapper").scroll(function() {
             
