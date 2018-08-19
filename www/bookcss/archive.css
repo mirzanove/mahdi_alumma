@@ -1017,7 +1017,7 @@ div.pagebody {
 	padding-top:1px;
 	padding-left:5px;
 	padding-right:5px;
-	width :100%;
+	display:block;
 	
 }
 div.post {
@@ -1131,6 +1131,21 @@ font-weight: bold;
 div b  span.padd {
 font-weight: bold;
 /*font-size: 90%;*/
+}
+.padd{
+	
+/*margin:100*/
+}
+
+.padd > span  {
+font-weight: bold;
+/*padding-left:30px;*/
+/*margin:100;*/
+}
+.padd > span  > span {
+font-weight: bold;
+/*padding-left:30px;*/
+/*margin:100;*/
 }
 
 #content ul  > li{
