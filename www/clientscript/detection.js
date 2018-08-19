@@ -10,8 +10,8 @@ var lateefsize = 170;
 var othersize = 125;
 var lateefsizelist = 130;
 var othersizelist = 120;
-var adjust_lateef = 70;
-var adjust_other =  90;
+var adjust_lateef = 80;
+var adjust_other =  100;
 var normal_hight = "normal";
 var safarilinehight = 170;
  
