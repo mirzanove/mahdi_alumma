@@ -483,8 +483,6 @@ div.content {
              bottom:2.65em;
              left:0;
 			 right:0;
-             padding-bottom:1em;
-            
              overflow:auto;
              -webkit-overflow-scrolling:touch;
 }
