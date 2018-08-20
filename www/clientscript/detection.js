@@ -7,7 +7,10 @@ var iee = false;
 var wkchrom = false;
 var fontstylelist = true;
 
- 
+var othersizelist;
+var lateefsizelist;
+
+
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
 //var isInIFrame = (window.location != window.parent.location);
