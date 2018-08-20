@@ -260,7 +260,7 @@ var selector, family, h1, fonttype;
 						 /*jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
 						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");*/
 						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "180%");
-						 jQueryM_v1_4_5('#wrapper').css("font-size","130%");
+						 jQueryM_v1_4_5('#wrapper').css("font-size","120%");
 						 jQueryM_v1_4_5('.posttext').css("font-size","120%");
 		 }
 		 
