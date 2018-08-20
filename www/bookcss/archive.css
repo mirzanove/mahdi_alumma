@@ -1013,14 +1013,9 @@ div.pagebody {
 	border: 1px solid #c0c0c0;
 }
 .pda {
-	background: #F9F9F9;
-	border: 1px solid #c0c0c0;
-	padding-bottom:1px;
-	padding-top:1px;
-	padding-left:5px;
-	padding-right:5px;
-	display:block;
-	
+padding:5px;
+padding-top:10px;
+border: 1px solid #c0c0c0;	
 }
 div.post {
 	border: 1px solid #c0c0c0;
