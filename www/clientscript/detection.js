@@ -5,7 +5,7 @@ var encrypted = false;
 var wke = false;
 var iee = false;
 var wkchrom = false;
-var fontstylelist = true;
+var fontstylelist = false;
 
 var othersizelist;
 var lateefsizelist;
