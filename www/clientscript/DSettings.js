@@ -587,11 +587,7 @@ jQueryD_1_4_2("#staticrypt-password").keypress(function(event) {
     }
 });
 
-jQueryD_1_4_2('.posttext').removeAttr("style");
-if (fontstylelist == true) { 
-jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
-updateh1family(false);
-}
+
 
 
 
@@ -625,7 +621,9 @@ else{
 	     window.parent.postMessage(["get_pass", "get_pass"], "*");	
 }
 
-
+if (fontstylelist == true) { 
+jQueryD_1_4_2("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
+}
 
 
 
@@ -1133,6 +1131,13 @@ function loaddsett(){
      }
      
 
+jQueryD_1_4_2('.posttext').removeAttr("style");
+if (fontstylelist == true) { 
+updateh1family(false);
+}
+	 
+	 
+	 
 	 
      jQueryD_1_4_2(window).resize(function() {
             resize(jQueryD_1_4_2("html"));

@@ -5,7 +5,7 @@ var encrypted = false;
 var wke = false;
 var iee = false;
 var wkchrom = false;
-var fontstylelist = false;
+var fontstylelist = true;
 
  
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 

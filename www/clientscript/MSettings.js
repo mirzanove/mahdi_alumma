@@ -630,10 +630,9 @@ else{
 }
 
 
-jQueryM_v1_4_5('.posttext').removeAttr("style");
 if (fontstylelist == true) { 
 jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
-updateh1family(false);
+
 }
 
 
@@ -1090,7 +1089,10 @@ jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 });
 
 
-
+jQueryM_v1_4_5('.posttext').removeAttr("style");
+if (fontstylelist == true) { 
+updateh1family(false);
+}
 
 
 
