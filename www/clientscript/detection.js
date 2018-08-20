@@ -5,15 +5,8 @@ var encrypted = false;
 var wke = false;
 var iee = false;
 var wkchrom = false;
-var fontstylelist = true;
-var lateefsize = 170;
-var othersize = 135;
-var lateefsizelist = 130;
-var othersizelist = 120;
-var adjust_lateef = 80;
-var adjust_other =  100;
-var normal_hight = "normal";
-var safarilinehight = 170;
+var fontstylelist = false;
+
  
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;

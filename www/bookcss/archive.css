@@ -81,12 +81,16 @@ html, body {height:100%; overflow:hidden;
      overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
-	font-size: 170%;
+	font-size: 140%;
 	cursor: pointer;
 	-webkit-text-size-adjust:80%;
 }
 
-
+.posttext{
+	
+	font-size: 125%;
+	
+}
 
 
 .hit{
@@ -804,8 +808,7 @@ hyphens: auto;
   outline: none;
   cursor: pointer;
   text-align: center;
-  padding-top: 1px;
-  padding-bottom: 1px;
+  padding:5px;
 
 
 }
@@ -851,8 +854,7 @@ background-color: #20B2AA;
   outline: none;
   cursor: pointer;
   text-align: center;
-  padding-right: 5px;
-  padding-left: 5px;
+  padding:5px;
  
  
 }

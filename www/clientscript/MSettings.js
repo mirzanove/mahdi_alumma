@@ -190,40 +190,82 @@ function getCookie(cname) {
     return "";
 }
 
-function updateh1family() {
-        var selector = document.getElementById('selecth1FontFamily');
-        var family = selector.options[selector.selectedIndex].value;
-        var h1 = document.getElementById('wrapper')
+function updateh1family(savefont) {
+        
+var selector, family, h1, fonttype;
+
+	    if(savefont== true){
+
+		 
+		selector = document.getElementById('selecth1FontFamily');
+		family = selector.options[selector.selectedIndex].value;
+         h1 = document.getElementById('wrapper')
         h1.style.fontFamily = family; 
+		
+		}
+		else{
+		
+		if(lsTest() === true){
+		if(fonttype || fonttype == null){	
+		fonttype = localStorage.getItem('fonttype'); 
+		selector = document.getElementById('selecth1FontFamily');
+		selector.selectedIndex = fonttype;
+		strUser = selector.options[selector.selectedIndex].value;
+		h1 = document.getElementById('wrapper')
+        h1.style.fontFamily = strUser; 
+		jQueryM_v1_4_5('.posttext').removeAttr("style");	
+		}
+		}
+		else{
+		
+		fonttype = getCookie("fonttype");
+        if(fonttype || fonttype == null){		
+		selector = document.getElementById('selecth1FontFamily');
+		selector.selectedIndex = fonttype;
+		strUser = selector.options[selector.selectedIndex].value;
+		h1 = document.getElementById('wrapper')
+        h1.style.fontFamily = strUser; 
+		jQueryM_v1_4_5('.posttext').removeAttr("style");	
+		}
+		}
+			
+		}
+		
+		
+		
 		
 		if(selector.selectedIndex == 0){
 						 /*jQueryM_v1_4_5('.posttext').css("font-size","100%");
 						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");*/
-						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","70%");
+						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
+						 ///jQueryM_v1_4_5('.dropdown-content').css("font-size","0%");*/
 						 
-						  jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
-						  jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
-						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");
-
+						  /*jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
+						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");*/
+						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "normal");
+						  jQueryM_v1_4_5('#wrapper').css("font-size","140%");
+						  jQueryM_v1_4_5('.posttext').css("font-size","120%");
 						 
 						 
 		             }
 					 else{
 						 
-						/* jQueryM_v1_4_5('.posttext').css("font-size","85%");
+						 /*jQueryM_v1_4_5('.posttext').css("font-size","85%");
 						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
 						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
 						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");*/
 						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
-						 
-						jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
-						jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
-						jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
-		}
-		
-		
+						
+						 /*jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
+						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");*/
+						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "140%");
+						 jQueryM_v1_4_5('#wrapper').css("font-size","120%");
+						 jQueryM_v1_4_5('.posttext').css("font-size","120%");
+		 }
+		 
+		 
+		 if(savefont== true){
 		 if(lsTest() === true){
 				 
 				 localStorage.setItem('fonttype',selector.selectedIndex); 
@@ -233,6 +275,8 @@ function updateh1family() {
 				 setCookie("fonttype", selector.selectedIndex, 1000);
  
 		 }
+		 }
+		
 
 		
 }
@@ -380,7 +424,7 @@ if (typeof encryptedMsg != 'undefined')
 	    jQueryM_v1_4_5( ".staticrypt-page" ).hide();
 
 		if (fontstylelist == true) { 
-		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family();\"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>");
+		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>");
         }
 		else{
 		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML);
@@ -555,98 +599,6 @@ jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
 
 
 
-	
-if (fontstylelist == true) { 
-jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family();"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
-
-		 if(lsTest() === true){
-				 
-				 var fonttype = localStorage.getItem('fonttype'); 
-				 if(fonttype || fonttype == null){
-					
-					 var selector = document.getElementById('selecth1FontFamily');
-					 selector.selectedIndex = fonttype;
-					 var strUser = selector.options[selector.selectedIndex].value;
-					 var h1 = document.getElementById('wrapper')
-                     h1.style.fontFamily = strUser; 
-					 jQueryM_v1_4_5('.posttext').removeAttr("style");
-					 
-				if(selector.selectedIndex == 0){
-						 //jQueryM_v1_4_5('.posttext').css("font-size","100%");
-						 //jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
-						 //jQueryM_v1_4_5('#navbar').css("font-size","77%");
-						 //jQueryM_v1_4_5('.thread_title').css("font-size","85%");
-						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","0%");
-						 
-						 jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
-						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");
-                            
-						 
-						 
-		             }
-					 else{
-						 
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");*/
-						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
-						 
-						 jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
-						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
-		         }
-					 
-				 }
-		 }
-		 else{
-				
-				var fonttype = getCookie("fonttype");
-				if(fonttype || fonttype == null){
-					 var selector = document.getElementById('selecth1FontFamily');
-					 selector.selectedIndex = fonttype;
-					 var strUser = selector.options[selector.selectedIndex].value;
-					 var h1 = document.getElementById('wrapper')
-                     h1.style.fontFamily = strUser; 
-					 jQueryM_v1_4_5('.posttext').removeAttr("style");
-					
-					if(selector.selectedIndex == 0 || fonttype == null){
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","100%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");*/
-						 
-						 jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
-						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_lateef+"%");
-
-						 
-		             }
-					 else{
-						 
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");*/
-						 
-						 jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
-                         jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust", adjust_other+"%");
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");
-		             }
-					 
-
-					
-				}
- 
-		 }
-
-}
-
-
-
-
-
-
 
 if(window.location == window.parent.location) {
 var c = window.location.href;
@@ -678,6 +630,11 @@ else{
 }
 
 
+jQueryM_v1_4_5('.posttext').removeAttr("style");
+if (fontstylelist == true) { 
+jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
+updateh1family(false);
+}
 
 
 
@@ -1160,7 +1117,7 @@ jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 
            });*/
 	   
-	    jQueryM_v1_4_5('.posttext').removeAttr("style"); 
+	    //jQueryM_v1_4_5('.posttext').removeAttr("style"); 
 	    jQueryM_v1_4_5('.up2 >img').removeAttr("style");
 	   
 	    
