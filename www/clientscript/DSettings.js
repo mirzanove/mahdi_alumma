@@ -200,8 +200,8 @@ var selector, family, h1, fonttype;
 		else{
 		
 		if(lsTest() === true){
-		if(fonttype || fonttype == null){	
 		fonttype = localStorage.getItem('fonttype'); 
+		if(fonttype || fonttype == null){	
 		selector = document.getElementById('selecth1FontFamily');
 		selector.selectedIndex = fonttype;
 		strUser = selector.options[selector.selectedIndex].value;

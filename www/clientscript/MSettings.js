@@ -206,8 +206,8 @@ var selector, family, h1, fonttype;
 		else{
 		
 		if(lsTest() === true){
-		if(fonttype || fonttype == null){	
 		fonttype = localStorage.getItem('fonttype'); 
+		if(fonttype || fonttype == null){	
 		selector = document.getElementById('selecth1FontFamily');
 		selector.selectedIndex = fonttype;
 		strUser = selector.options[selector.selectedIndex].value;
@@ -1094,6 +1094,12 @@ jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 jQueryM_v1_4_5('.posttext').removeAttr("style");
 if (fontstylelist == true) { 
 updateh1family(false);
+}
+else{
+jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "normal");
+jQueryM_v1_4_5('#wrapper').css("font-size","140%");
+jQueryM_v1_4_5('.posttext').css("font-size","120%");
+jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");	
 }
 
 
