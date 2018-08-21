@@ -308,42 +308,6 @@ background-repeat: no-repeat !important;
  
 }
 
-#searchbar {
-    position: relative;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.input-wrapper {
-    position: absolute;
-    right: 60px;
-    left: 0px;
-    top : 0px;
-    bottom: 0px;
-}
-
-.input-wrapper2 {
-    position: absolute;
-    right: 0px;
-    left: 0px;
-    top : 0px;
-    bottom: 0px;
-}
-
-/* Form wrapper styling */
-.form-wrapper {
-     position: relative;
-    left: 0px;
-    top: 0px;
-	bottom:0px;
-    width: 100%;
-    height: 40px;
-    display: inline-block;
-}
  
 .form-wrapper input {
     height: 100%;
@@ -351,34 +315,19 @@ background-repeat: no-repeat !important;
     float: left;   
     color: #000;
     height: 2.2em !important;
-	    height: 3em;
+	height: 3em;
     max-height: 3em;
-
     font-size: 100%;
-    -webkit-appearance: none;	
+    -webkit-appearance: none;
+	
 	
 }
- 
-/* Form submit button */
-.form-wrapper button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    overflow: visible;
 
-    
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    height: 37px;
-    width: 60px;
-    color: #ffffff;
-    background: red;
-}  
+.input-wrapper2 {
    
+	padding:5px!important;
+}
  
-.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
-    border: 0;
 
 </style>
 <link rel="SHORTCUT ICON" href="87px.png" />
@@ -463,11 +412,11 @@ background-repeat: no-repeat !important;
 
  <form id="bookmarksForm"  onsubmit="return false">
 			 <center>
-			 <label style ="font-size:130%;font-weight:bold;">عنوان الموضوع</label>
-			<div class="form-wrapper form-group">
+			 <label class = "bookmarktitle" style ="font-size:150%;font-weight:bold;">عنوان الموضوع</label>
+			<div class="form-group form-wrapper">
 			   
 			   <div class="input-wrapper2">
-                    <input type="search" autocomplete="off" class="form-control2" id="websiteName" placeholder="عنوان الموضوع"/>
+                    <input style ="width:100%;" type="search" autocomplete="off" class="form-control2" id="websiteName" placeholder="عنوان الموضوع"/>
                 </div>
 			 </div>
 			 <div class="form-group" style = "display:none;">
@@ -478,7 +427,7 @@ background-repeat: no-repeat !important;
 			 </center>
 			 
 			 
-		</form>
+</form> 
 
 <div id="bookmarksResults">
       			

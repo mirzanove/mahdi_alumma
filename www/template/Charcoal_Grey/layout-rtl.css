@@ -2435,43 +2435,19 @@ body.media-desktop div.topic div.functionholder div.searchbar-extra {
 	z-index: 10
 }
 body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearchField {
-	display: inline-block;
-	font-size: 1.5em;
-	height: 1.98em;
 	height: 100%;
-	width: 17.5em;
-	border: none;
-	padding: 0;
-	padding-right: 1em;
-	-webkit-border-radius: 0.2em;
-	-moz-border-radius: 0.2em;
-	border-radius: 0.2em;
-	background-color: transparent;
-	color: #fff;
-	vertical-align: bottom;
-	-o-transition-duration: 0.35s;
-	-o-transition-timing-function: ease-out;
-	-o-transition-property: width;
-	-ms-transition-duration: 0.35s;
-	-ms-transition-timing-function: ease-out;
-	-ms-transition-property: width;
-	-moz-transition-duration: 0.35s;
-	-moz-transition-timing-function: ease-out;
-	-moz-transition-property: width;
-	-webkit-transition-duration: 0.35s;
-	-webkit-transition-timing-function: ease-out;
-	-webkit-transition-property: width;
-	transition-duration: 0.35s;
-	transition-timing-function: ease-out;
-	transition-property: width;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-perspective: 1000;
-	-moz-perspective: 1000;
-	-ms-perspective: 1000;
-	perspective: 1000
+    width: 89%;
+    float: right;   
+    color:white;
+    height: 2.8em !important;
+	height: 3em;
+    max-height: 3em;
+    font-size: 100%;
+    -webkit-appearance: none;
+	-webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+	background-color:black;
+	border-color: black;
 }
 
 
@@ -2499,7 +2475,7 @@ body.media-desktop  input.form-control {
 
 }
 
-body.media-desktop  .form-group {
+body.media-desktop  .bookmarktitle {
 
 color:white;
 font-size: 1.5em;
@@ -2507,6 +2483,19 @@ font-size: 1.5em;
 }
 
 
+body.media-desktop  .form-group {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+body.media-desktop  .form-group {
+
+color:white;
+font-size: 1.5em;
+
+}
 
 body.media-desktop  .well h3  span.title  {
 
@@ -2533,7 +2522,7 @@ body.media-desktop div.topic div.functionholder div.searchbar-extra a.wSearchLin
 	height: 1.98em;
 	width: 2em;
 	text-decoration: none;
-	margin-right: -.22em;
+	float:left;
 	padding: 0;
 	cursor: pointer;
 	vertical-align: bottom;
