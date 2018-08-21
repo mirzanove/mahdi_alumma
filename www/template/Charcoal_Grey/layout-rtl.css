@@ -42,6 +42,10 @@ background-color: #006699;
 
 
 
+div.toc-holder{
+	overflow: hidden!important;
+}
+
 
 div.toc-holder ul {
 	list-style: none;
@@ -613,7 +617,7 @@ body.ios {
 }
 body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile.ios div.topic, body.media-landscape.ios div.topic {
 	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll !important
+	overflow-y: auto !important
 }
 div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchbar, body.media-mobile div.searchresults, body.media-landscape div.toc-holder, body.media-landscape div.idx-holder, body.media-landscape div.glo-holder, body.media-landscape div.filter-holder, body.media-landscape div.searchbar, body.media-landscape div.searchresults, body.media-desktop div.toc-holder, body.media-desktop div.idx-holder, body.media-desktop div.glo-holder, body.media-desktop div.filter-holder, body.media-desktop div.searchbar, body.media-desktop div.searchresults, body.media-desktop div.topic div.functionholder div.searchbar-extra div.searchAND {
 	max-height: 0px;
