@@ -2796,7 +2796,7 @@ div.wSearchField {
                   position:relative;
 }
 input.wSearchField {
-                    font-size:1em;
+                    /*font-size:1em;
                     height:2.4em;
                     margin:1.2em 2% 1em;
                     padding:0 2%;
@@ -2811,7 +2811,7 @@ input.wSearchField {
                     border-style:solid;
                     background-color:#fafafa;
                     -moz-box-sizing:border-box;
-                    box-sizing:border-box;
+                    box-sizing:border-box;*/
 }
 
 input.wSearchField2 {
