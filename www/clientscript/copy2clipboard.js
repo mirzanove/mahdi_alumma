@@ -126,7 +126,16 @@ function paste(el)
 
 function select_all_and_copy(el) 
 {   
-  
+    if(_isMobile() == mobiletrue) {
+		
+		jQueryM_v1_4_5('em').contents().unwrap();
+		
+	}
+	else{
+		
+		jQueryD_1_4_2('em').contents().unwrap();
+	}
+	
      if(printin_prosses == false){
 			printin_prosses = true;
 
