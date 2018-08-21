@@ -206,9 +206,9 @@ if ($('.curr').length > 0){
 setTimeout(function() { 
 //var elements = document.getElementsByClassName('curr')[0];
 if($(window).innerWidth() >= em(81)){
-$('#searchresults').animate({
+$('.contentholder').animate({
       //scrollTop: $('.curr').offset().top-30
-	  scrollTop:$('.curr').offset().top - $('#searchresults').offset().top + $('#searchresults').scrollTop()
+	  scrollTop:$('.curr').offset().top - $('.contentholder').offset().top + $('.contentholder').scrollTop()
 	 
 	  
     }, 0);
