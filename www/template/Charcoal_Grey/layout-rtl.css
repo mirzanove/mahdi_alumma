@@ -13,6 +13,9 @@ background-color: #cfd0d3;
 
 }
 
+
+
+
 body.media-landscape  .curr {
 background-color: #cfd0d3;
 
@@ -41,10 +44,6 @@ background-color: #006699;
 
 
 
-
-div.toc-holder{
-	overflow: hidden!important;
-}
 
 
 div.toc-holder ul {
@@ -2516,6 +2515,13 @@ font-size: 1.5em;
 body.media-desktop  .well h3  span.title  {
 
 color:white;
+font-size: 1.5em;
+
+}
+
+body.media-desktop  .well h3  a.btn  {
+
+color:white!important;
 font-size: 1.5em;
 
 }
