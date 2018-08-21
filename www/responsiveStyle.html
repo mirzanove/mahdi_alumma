@@ -308,7 +308,77 @@ background-repeat: no-repeat !important;
  
 }
 
+#searchbar {
+    position: relative;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
+.input-wrapper {
+    position: absolute;
+    right: 60px;
+    left: 0px;
+    top : 0px;
+    bottom: 0px;
+}
+
+.input-wrapper2 {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top : 0px;
+    bottom: 0px;
+}
+
+/* Form wrapper styling */
+.form-wrapper {
+     position: relative;
+    left: 0px;
+    top: 0px;
+	bottom:0px;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+}
+ 
+.form-wrapper input {
+    height: 100%;
+    width: 100%;
+    float: left;   
+    color: #000;
+    height: 2.2em !important;
+	    height: 3em;
+    max-height: 3em;
+
+    font-size: 100%;
+    -webkit-appearance: none;	
+	
+}
+ 
+/* Form submit button */
+.form-wrapper button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    overflow: visible;
+
+    
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 37px;
+    width: 60px;
+    color: #ffffff;
+    background: red;
+}  
+   
+ 
+.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
 
 </style>
 <link rel="SHORTCUT ICON" href="87px.png" />
@@ -391,19 +461,24 @@ background-repeat: no-repeat !important;
 
 <div id = "toc" class="toc-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: @KEY_ACTIVE_TAB == 'toc'; drill-down: KEY_TOC_DRILL_DOWN; ;">
 
-<form id="bookmarksForm"  onsubmit="return false">
-			<div class="form-group">
-			    <label>عنوان الموضوع</label>
-			    <input type="search" autocomplete="off" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+ <form id="bookmarksForm"  onsubmit="return false">
+			 <center>
+			 <label style ="font-size:130%;font-weight:bold;">عنوان الموضوع</label>
+			<div class="form-wrapper form-group">
+			   
+			   <div class="input-wrapper2">
+                    <input type="search" autocomplete="off" class="form-control2" id="websiteName" placeholder="عنوان الموضوع"/>
+                </div>
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
 			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
-			 <center><button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
+			 <button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
+			 </center>
 			 
 			 
-</form> 
+		</form>
 
 <div id="bookmarksResults">
       			

@@ -430,7 +430,78 @@ background-repeat: no-repeat !important;
 }
 
 
+#searchbar {
+    position: relative;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
+.input-wrapper {
+    position: absolute;
+    right: 60px;
+    left: 0px;
+    top : 0px;
+    bottom: 0px;
+}
+
+.input-wrapper2 {
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top : 0px;
+    bottom: 0px;
+}
+
+/* Form wrapper styling */
+.form-wrapper {
+     position: relative;
+    left: 0px;
+    top: 0px;
+	bottom:0px;
+    width: 100%;
+    height: 40px;
+    display: inline-block;
+}
+ 
+.form-wrapper input {
+    height: 100%;
+    width: 100%;
+    float: left;   
+    color: #000;
+    height: 2.2em !important;
+	    height: 3em;
+    max-height: 3em;
+
+    font-size: 100%;
+    -webkit-appearance: none;	
+	
+}
+ 
+/* Form submit button */
+.form-wrapper button {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    overflow: visible;
+
+    
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    height: 37px;
+    width: 60px;
+    color: #ffffff;
+    background: red;
+}  
+   
+ 
+.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    
 </style>
 
 
@@ -605,19 +676,33 @@ background-repeat: no-repeat !important;
 				<!-- Search results widget -->
 				
 				<div id ="tocold" data-if="@.l.uimode=='bookmark'" dir ="rtl" hidden>
-				 <form id="bookmarksForm"  onsubmit="return false">
-			<div class="form-group">
-			    <label>عنوان الموضوع</label>
-			    <input type="search" autocomplete="off" class="form-control" id="websiteName" placeholder="عنوان الموضوع">
+			
+			
+		
+		
+		
+		
+		
+		 <form id="bookmarksForm"  onsubmit="return false">
+			 <center>
+			 <label style ="font-size:130%;font-weight:bold;">عنوان الموضوع</label>
+			<div class="form-wrapper form-group">
+			   
+			   <div class="input-wrapper2">
+                    <input type="search" autocomplete="off" class="form-control2" id="websiteName" placeholder="عنوان الموضوع"/>
+                </div>
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
 			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
-			 <center><button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
+			 <button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
+			 </center>
 			 
 			 
 		</form> 
+		
+		
 
 <div id="bookmarksResults">
       			
@@ -627,9 +712,15 @@ background-repeat: no-repeat !important;
 				<div class="wSearchResults rh-hide" id="searchresults" data-if="@.l.uimode=='search'" dir ="rtl">
 
 						<div class="wSearchField">
-						<a class="wSearchLink2" onclick="searchHelp(null, 'searchBoxSearchPage')" href="#"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0" /></a>
-						<input autocomplete="on" id="searchBoxSearchPage" class="wSearchField2" type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBoxSearchPage')" data-search="true" /> 
-							 
+						
+						  <div id="searchbar">
+            <form class="form-wrapper">
+                <div class="input-wrapper">
+                    <input autocomplete="on" id="searchBoxSearchPage"  type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBoxSearchPage')" data-search="true"/>
+                </div>
+<button onclick="searchHelp(null, 'searchBoxSearchPage')" href="#" type="submit"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0" /></button>
+            </form>
+        </div>	 
 						</div>
 		
 				
