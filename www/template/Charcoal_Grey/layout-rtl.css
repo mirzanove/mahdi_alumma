@@ -2448,6 +2448,18 @@ body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearc
     -moz-border-radius: .5em;
 	background-color:black;
 	border-color: black;
+	border-top-style: solid;
+	border-top-color: #232323;
+	border-bottom-width: 0.1em;
+	border-bottom-style: solid;
+	border-bottom-color: #232323;
+	border-right-width: 0.1em;
+	border-right-style: solid;
+	border-right-color: #232323;
+	border-left-width: 0.1em;
+	border-left-style: solid;
+	border-left-color: #232323;
+	background-color: #232323;
 }
 
 
