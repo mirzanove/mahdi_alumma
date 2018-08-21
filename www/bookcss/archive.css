@@ -382,16 +382,33 @@ u{text-decoration: none;border-bottom: 1px solid;line-height: 180%}
 
 .posttext div,.posttext span{/*line-height: 150%;*/}
 
-div.language{
-	width:100%;
-	/*font-size: 60%;*/
+
+
+div.languag div{
+ margin:.1em 0;	
+}
+div.languag.selected{
+	outline: none;
+	direction: ltr;
+	font-size: 90%;
+	/*font-family:Arial;*/
+	color: #417394;
+	font-weight: bold;
+	text-decoration: none;
+	cursor: pointer;
+	padding:7px;
+	background-color:#EEEEEE;
+	/*line-height: 0%;*/
+	display: inline-block;
+    *display: inline;
+    zoom: 1;
+	overflow-wrap: break-word; -ms-word-break: break-all; word-break: break-word; word-break: break-all;
+word-wrap:break-word;
+	
+	
 }
 
-div.language div{
-	display:inline-block;
-	*display: inline;
-    *zoom:1;
-}
+
 
 
 
