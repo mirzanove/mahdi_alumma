@@ -292,7 +292,7 @@ var toc2;
 function scrollTo_up(){
 	
 if($(window).innerWidth() >= em(81)){
-toc = document.getElementById('searchresults');	
+toc = document.getElementsByClassName('contentholder')[0];	
 }else{
 toc = document.getElementById('rh_scrollable_content');		
 }
@@ -303,8 +303,9 @@ setTimeout(function() { document.getElementsByClassName("loading2")[0].style.dis
 }
 
 function scrollTo_down(){
+	
 if($(window).innerWidth() >= em(81)){
-toc = document.getElementById('searchresults');	
+toc = document.getElementsByClassName('contentholder')[0];	
 }else{
 toc = document.getElementById('rh_scrollable_content');		
 }
