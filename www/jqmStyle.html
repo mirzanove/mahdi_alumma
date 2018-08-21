@@ -345,6 +345,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 <div style = "padding:0;" data-role="popup" id="popupMenu2" data-theme="a">
 <a style = "padding:3px;" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
 <a style = "padding:3px;" data-trigger="EVT_REMOVE_HIT" data-role="button" data-ajax="false">ازالة تسليط الضوء</a>
+<a style = "padding:3px;" data-trigger="EVT_ADD_HIT" data-role="button" data-ajax="false">اعادة تسليط الضوء</a>
 <a style = "padding:3px;" data-trigger="EVT_REMOVE_FORMAT" data-role="button" data-ajax="false">ازالة التنسيق</a>
 <a style = "padding:3px;" data-trigger="EVT_REMOVE_SRC" data-role="button" data-ajax="false">ازالة رابط مصدر البيان</a>
 <a style = "padding:3px;" data-trigger="EVT_REMOVE_TRANZ" data-role="button" data-ajax="false">ازالة روابط عبارات الترجمة</a>
@@ -830,6 +831,9 @@ eventer(messageEvent,function(e) {
 	break;
 	case 'get_ifram_location_href': 
 	 location.href = data;
+	break;
+	case 'get_href': 
+	 e.source.postMessage(["send_href",document.location.href], "*");
 	break;
 	case 'check_highlight_state': 
 	     var chkBox = document.getElementById('checkbox_id3');

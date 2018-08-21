@@ -1113,6 +1113,9 @@ eventer(messageEvent,function(e) {
 	case 'get_ifram_location_href': 
 	 location.href = data;
 	break;
+	case 'get_href': 
+	 e.source.postMessage(["send_href",document.location.href], "*");
+	break;
 	case 'check_highlight_state': 
 	     var chkBox = document.getElementById('checkbox_id3');
          if (chkBox.checked)

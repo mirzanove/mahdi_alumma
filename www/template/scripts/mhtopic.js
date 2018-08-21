@@ -613,6 +613,7 @@ function callbackHighlightBgColorRead(bgColor)
 function StartHighLightSearch()
 {
 	var strTerms = GetHighlightTextFromURL();
+	
 	var arrSyns = GetSynonymsFromURL();
 
 	findSearchTerms(strTerms, false);
@@ -630,6 +631,47 @@ window.parent.postMessage(["loading","stop"], "*");
 }
 
 }
+
+
+function StartHighLightSearch2(url)
+{   
+   
+	var strTerms = getUrlParameter2("rhsearch",url);
+	
+	var arrSyns = GetSynonymsFromURL2();
+	findSearchTerms(strTerms, false);
+	// Repeat for all synonyms
+	for (var i = 0; i < arrSyns.length; i++)
+		if (trim(arrSyns[i]) != "")
+			findSearchTerms(trim(arrSyns[i]), false);
+	
+	
+	var loc_target;
+	
+if (url.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
+			loc_target= url.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
+			
+}		
+		
+if(loc_target == "&checkbox=1"){
+
+strTerms = '"'+strTerms+'"'
+}
+	
+
+if(strTerms){
+ hit(strTerms);	
+}
+else{
+
+window.parent.postMessage(["loading","stop"], "*");	
+}
+
+}
+
+
+
+
 
 //////// common with FTS routines to identify stop word etc. ////////////
 
@@ -2275,6 +2317,7 @@ jQueryM_v1_4_5("em").get(0).scrollIntoView();
 
 }
 else{
+
 if(jQueryD_1_4_2("em").get(0)){
 jQueryD_1_4_2("em").get(0).scrollIntoView();
 }
@@ -2345,7 +2388,13 @@ var data = e.data[1];
 	
 
     switch(eventName) {
-      case 'get_ifram_location_href':
+      
+	  
+	  case 'send_href':
+	  
+	  StartHighLightSearch2(data)
+	  break;
+	  case 'get_ifram_location_href':
       
 		str = data
 		if (str.match(/(index.html)/mg) ) {
