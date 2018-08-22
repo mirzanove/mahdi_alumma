@@ -638,15 +638,7 @@ function StartHighLightSearch2(url)
    
 	var strTerms = getUrlParameter2("rhsearch",url);
 	
-	var arrSyns = GetSynonymsFromURL2();
-	findSearchTerms(strTerms, false);
-	// Repeat for all synonyms
-	for (var i = 0; i < arrSyns.length; i++)
-		if (trim(arrSyns[i]) != "")
-			findSearchTerms(trim(arrSyns[i]), false);
-	
-	
-	var loc_target;
+var loc_target;
 	
 if (url.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
 			loc_target= url.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
@@ -657,6 +649,32 @@ if(loc_target == "&checkbox=1"){
 
 strTerms = '"'+strTerms+'"'
 }
+else{
+	
+	if(loc_target == "&checkbox=01"){
+
+strTerms = remove_stopWrods(strTerms);
+     }
+	 
+	 
+	 if(loc_target == "&checkbox=21"){
+
+strTerms = remove_stopWrods(strTerms);
+     }
+}
+	
+	
+	
+	
+	var arrSyns = GetSynonymsFromURL2();
+	findSearchTerms(strTerms, false);
+	// Repeat for all synonyms
+	for (var i = 0; i < arrSyns.length; i++)
+		if (trim(arrSyns[i]) != "")
+			findSearchTerms(trim(arrSyns[i]), false);
+	
+	
+
 	
 
 if(strTerms){
@@ -2287,8 +2305,9 @@ window.findAndReplaceDOMText = (function() {
 function hit(xx){
 var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 	var term = hh;
-    term= term.replace(/["']/g, "");
-		//alert(hh);
+    
+	
+	term= term.replace(/["']/g, "");
 		if(/^".*"$/.test(hh)==true){
 		
 		term = createAccentRegexp(term).split(' ').join('(<[^>]+>|[\\n\\r\\s\\p{P}\\p{S}\\p{Mn}\\u0640\u200F])*')
