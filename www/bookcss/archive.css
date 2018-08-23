@@ -76,15 +76,7 @@ html, body {height:100%; overflow:hidden;
  
 }
 
-#wrapper {
-     height:100%;
-     overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
-	position: relative;
-	font-size: 170%;
-	cursor: pointer;
-	-webkit-text-size-adjust:70%;
-}
+
 
 .posttext{
 	

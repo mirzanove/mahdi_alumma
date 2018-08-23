@@ -10,10 +10,22 @@
 }
 
 
-#wrapper{
-font-family:'Lateef', serif;
-} 
+#wrapper {
+     
+	 font-family:'Lateef', serif;
+	 height:100%;
+     overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	position: relative;
+	font-size: 140%;
+	cursor: pointer;
+	font-family:'Lateef', serif;
+	-webkit-text-size-adjust:80%;
+}
+
+
 
 div.posttext {
 padding:15px;
+font-size: 120%;
 }
