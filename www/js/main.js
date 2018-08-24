@@ -208,9 +208,9 @@ if(bookmarks.length == "0"){
 										'<span  class= "title" style = ""><img src=\"template/Charcoal_Grey/booked.png\"> ' + name +"</span>"+
 										'<BR><span  style = "display:none;" class= "url" style = "word-break: break-all;">'+url+'</span>'+
 										' <a style= "text-decoration: none!important;"onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
-										' <a style= "text-decoration: none!important;" onclick="unbook(this); deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a><hr>'
+										' <a style= "text-decoration: none!important;" onclick="unbook(this); deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a>'+
 										''+ 
-										'</div>';
+										'</div><hr>';
 			
 			
 		}else{
@@ -219,9 +219,9 @@ if(bookmarks.length == "0"){
 										'<span  class= "title" style = "">' + name +"</span>"+
 										'<BR><span  style = "display:none;" class= "url" style = "word-break: break-all;">'+url+'</span>'+
 										'<a style= "text-decoration: none!important;" onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
-										' <a style= "text-decoration: none!important;"onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a><hr>'
+										' <a style= "text-decoration: none!important;"onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a>'+
 										''+ 
-										'</div>';
+										'</div><hr>';
 		}
 		
 	
