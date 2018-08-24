@@ -254,22 +254,25 @@ background-color: #4CAF50; /* Green */
 
 
 .btn-danger {
-text-decoration: none;
+
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
 }
 
 .btn-info {
-text-decoration: none;
+
     color: #fff;
     background-color: #5bc0de;
     border-color: #46b8da;
 }
 
 .well{
-padding-left:10px;
-padding-right:10px;
+padding:5px;
+color:black;
+font-size: 120%;
+font-weight:bold;
+
 }
 
 
@@ -413,7 +416,7 @@ background-repeat: no-repeat !important;
 
  <form id="bookmarksForm"  onsubmit="return false">
 			 <center>
-			 <label class = "bookmarktitle" style ="font-size:150%;font-weight:bold;">عنوان الموضوع</label>
+			 <label class = "bookmarktitle" style ="font-weight:bold;">عنوان الموضوع:</label>
 			<div class="form-group form-wrapper">
 			   
 			   <div class="input-wrapper2">
@@ -424,12 +427,14 @@ background-repeat: no-repeat !important;
 			    <label>رابط الموضوع</label>
 			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
+			 <br>
+			  <br>
 			 <button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
 			 </center>
 			 
 			 
 </form> 
-
+<br>
 <div id="bookmarksResults">
       			
 </div>

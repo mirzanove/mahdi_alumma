@@ -37,8 +37,15 @@ background-color: #cfd0d3;
 }
 
 body.media-desktop  .curr2 {
+
 background-color: #006699;
 
+}
+
+
+.curr2 img{
+
+width:20px;
 }
 
 
@@ -1579,7 +1586,7 @@ body.media-mobile div.functionbar div.nav a.active.toc {
 	background-image: url("toc_mobile_active.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 1.9375em 1.25em
+	background-size: 1.9375em 1.7em
 }
 body.media-mobile div.functionbar div.nav a.active.idx {
 	background-image: url("index_mobile_active.png");
@@ -1615,7 +1622,7 @@ body.media-mobile div.functionbar div.nav a.toc {
 	background-image: url("toc_mobile.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 1.9375em 1.25em
+	background-size: 1.9375em 1.7em
 }
 body.media-mobile div.functionbar div.nav a.idx {
 	background-image: url("index_mobile.png");
@@ -2199,7 +2206,8 @@ body.media-desktop div.functionbar div.nav a.toc {
 	background-image: url("toc_desktop.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: auto
+	background-size: auto;
+	background-size: 3em 3em;
 }
 body.media-desktop div.functionbar div.nav a.idx {
 	background-image: url("index_desktop.png");
@@ -2512,14 +2520,20 @@ font-size: 1.5em;
 
 }
 
-body.media-desktop  .well h3  span.title  {
+body.media-desktop  .well   span.title  {
 
 color:white;
 font-size: 1.5em;
 
 }
 
-body.media-desktop  .well h3  a.btn  {
+body.media-desktop  .well   span.title img  {
+
+width:20px;
+
+}
+
+body.media-desktop  .well   a.btn  {
 
 color:white!important;
 font-size: 1.5em;
@@ -2527,7 +2541,7 @@ font-size: 1.5em;
 }
 
 
-body.media-desktop  .well h3  span.url {
+body.media-desktop  .well   span.url {
 
 color:white;
 font-size: 1.5em;

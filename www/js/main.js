@@ -205,22 +205,22 @@ if(bookmarks.length == "0"){
 		
 		if(url == lol || lol==""){
 			bookmarksResults.innerHTML += '<div class="curr2 well">'+
-										'<h3><span  class= "title" style = "">' + name +"</span>"+
+										'<span  class= "title" style = ""><img src=\"template/Charcoal_Grey/booked.png\"> ' + name +"</span>"+
 										'<BR><span  style = "display:none;" class= "url" style = "word-break: break-all;">'+url+'</span>'+
-										' <a onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
-										' <a onclick="unbook(this); deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a><hr>'
-										'</h3>'+ 
+										' <a style= "text-decoration: none!important;"onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
+										' <a style= "text-decoration: none!important;" onclick="unbook(this); deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a><hr>'
+										''+ 
 										'</div>';
 			
 			
 		}else{
 			
 			bookmarksResults.innerHTML += '<div class="well">'+
-										'<h3><span  class= "title" style = "">' + name +"</span>"+
+										'<span  class= "title" style = "">' + name +"</span>"+
 										'<BR><span  style = "display:none;" class= "url" style = "word-break: break-all;">'+url+'</span>'+
-										'<a onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
-										' <a onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a><hr>'
-										'</h3>'+ 
+										'<a style= "text-decoration: none!important;" onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
+										' <a style= "text-decoration: none!important;"onclick="deleteBookmark(\''+url+'\')" class="btn btn-danger" href="#">ازالة</a><hr>'
+										''+ 
 										'</div>';
 		}
 		
