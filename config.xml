@@ -32,7 +32,7 @@
 <platform name="ios" >
     <preference name="deployment-target" value="6.0"/>
     <preference name="ios-configuration" value="adhoc"/>
-    <preference name="Fullscreen" value="true"/>
+    <preference name="Fullscreen" value="false"/>
     <preference name="exit-on-suspend" value="true"/>
 	<preference name="stay-in-webview" value="true" />
 	<preference name="FadeSplashScreen " value="true" />
