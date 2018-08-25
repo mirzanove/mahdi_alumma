@@ -45,6 +45,7 @@ else{
 }
 document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archive.css\'/>');
 
+document.write('<script type=\"text/javascript\" src=\''+url+'js/index.js\'><\/script>'); 
 
 if(_isMobile() == mobiletrue) {
 
