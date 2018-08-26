@@ -161,7 +161,7 @@ line-height: 120%;
 .show {display:block;}
 
 
-
+.hide {display:none;}
 
 
 </style>
@@ -197,6 +197,11 @@ line-height: 120%;
 <br>
 9/8/2018
 <br>
+<span id ="offlineAr">اصدار يعمل بدون انترنت<br></span>
+<span id ="offlineEn">Offline Version<br></span>
+<span id ="onlineAr">اصدار غير محلي متصل بالنت<br></span>
+<span id ="onlineEn">Online Version<br></span>
+
 ۞۞۞۞۞۞۞۞۞۞۞
 
 <br>
@@ -227,7 +232,7 @@ Notes:
 <br>
 <center>
 <div dir = "ltr" style = "text-align:center; max-width:350px; font-weight: bold; font-size: 110%; color:black">
-This App is only Encyclopedia Reference for reading , searching , and bookmarking Which Contains Offline html5 javascript css files no need for Internet Connection except for External Links.
+This App is only Encyclopedia Reference for reading , searching , and bookmarking Which Contains html5 javascript css files no need for Internet Connection if you are using the Offline version except for External Links.
 </div>
 </center>
 <br>
@@ -358,6 +363,28 @@ You Can Contact me at "mirzanove@gmail.com" if you need more informations..
 </body>
 
 <script>
+
+
+
+
+switch(window.location.protocol) {
+   case 'http:':
+   document.getElementById("offlineAr").classList.add("hide");
+   document.getElementById("offlineEn").classList.add("hide");
+   case 'https:':
+   document.getElementById("offlineAr").classList.add("hide");
+   document.getElementById("offlineEn").classList.add("hide");
+     //remote file over http or https
+     break;
+   case 'file:':
+     document.getElementById("onlineAr").classList.add("hide");
+	 document.getElementById("onlineEn").classList.add("hide");
+     break;
+   default: 
+     //some other protocol
+}
+
+
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
 function myFunction() {
