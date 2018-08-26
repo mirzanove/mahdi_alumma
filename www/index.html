@@ -274,18 +274,22 @@ This App is only Encyclopedia Reference for reading , searching , and bookmarkin
 if you are using the online version of this App its Recommended to view it with modern browsers like chrome ,firefox, internet explorer 10 and above..
 <br>
 </div>
-</center>
+
+<div id = "onlinev">
 <br>
 <br>
 <span id = "onlinevAr" dir = "rtl" style ="font-size: 110%; font-weight: bold; color : black">
 لتصفح  التطبيق اولاين:
-<span>
 <br>
+<span>
+
 <span id = "onlinevEn" dir = "rtl" style ="font-size: 100%; font-weight: bold; color : black">
 to view the App online:
-<span>
 <br>
+<span>
 <a href="https://www.bayan-noon.com" target = "_blank">https://www.bayan-noon.com</a>
+</div>
+</center>
 </div>
 
 <br>
@@ -372,13 +376,11 @@ You Can Contact me at "mirzanove@gmail.com" if you need more informations..
 switch(window.location.protocol) {
    case 'http:':
    document.getElementById("offlineEn").classList.add("hide");
-   document.getElementById("onlinevAr").classList.add("hide");
-   document.getElementById("offlineEn").classList.add("hide");
+   document.getElementById("onlinev").classList.add("hide");
    
    case 'https:':
    document.getElementById("offlineEn").classList.add("hide");
-   document.getElementById("onlinevAr").classList.add("hide");
-   document.getElementById("onlinevEn").classList.add("hide");
+   document.getElementById("onlinev").classList.add("hide");
      //remote file over http or https
      break;
    case 'file:':
