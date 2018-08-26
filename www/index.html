@@ -277,11 +277,11 @@ if you are using the online version of this App its Recommended to view it with 
 </center>
 <br>
 <br>
-<span dir = "rtl" style ="font-size: 95%; font-weight: bold; color : black">
+<span id = "onlinevAr" dir = "rtl" style ="font-size: 110%; font-weight: bold; color : black">
 لتصفح  التطبيق اولاين:
 <span>
 <br>
-<span dir = "rtl" style ="font-size: 95%; font-weight: bold; color : black">
+<span id = "onlinevEn" dir = "rtl" style ="font-size: 100%; font-weight: bold; color : black">
 to view the App online:
 <span>
 <br>
@@ -372,8 +372,13 @@ You Can Contact me at "mirzanove@gmail.com" if you need more informations..
 switch(window.location.protocol) {
    case 'http:':
    document.getElementById("offlineEn").classList.add("hide");
+   document.getElementById("onlinevAr").classList.add("hide");
+   document.getElementById("offlineEn").classList.add("hide");
+   
    case 'https:':
    document.getElementById("offlineEn").classList.add("hide");
+   document.getElementById("onlinevAr").classList.add("hide");
+   document.getElementById("onlinevEn").classList.add("hide");
      //remote file over http or https
      break;
    case 'file:':
