@@ -200,9 +200,7 @@ line-height: 120%;
 ۞۞۞۞۞۞۞۞۞۞۞
 <br>
 <br>
-<span style = "color:red" id ="offlineAr">اصدار يعمل بدون انترنت<br></span>
 <span style = "color:red" id ="offlineEn">Offline Version<br></span>
-<span style = "color:green" id ="onlineAr">اصدار غير محلي متصل بالنت<br></span>
 <span style = "color:green" id ="onlineEn">Online Version<br></span>
 <br>
 <span style ="font-weight: bold; font-size: 110%; color : balck">
@@ -368,15 +366,12 @@ You Can Contact me at "mirzanove@gmail.com" if you need more informations..
 
 switch(window.location.protocol) {
    case 'http:':
-   document.getElementById("offlineAr").classList.add("hide");
    document.getElementById("offlineEn").classList.add("hide");
    case 'https:':
-   document.getElementById("offlineAr").classList.add("hide");
    document.getElementById("offlineEn").classList.add("hide");
      //remote file over http or https
      break;
    case 'file:':
-     document.getElementById("onlineAr").classList.add("hide");
 	 document.getElementById("onlineEn").classList.add("hide");
      break;
    default: 
