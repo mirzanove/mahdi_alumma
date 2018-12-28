@@ -638,6 +638,8 @@ function StartHighLightSearch2(url)
    
 	var strTerms = getUrlParameter2("rhsearch",url);
 	
+	strTerms = strip_And_Normlize(strTerms);
+	
 var loc_target;
 	
 if (url.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
@@ -2303,6 +2305,16 @@ window.findAndReplaceDOMText = (function() {
 
 //jomart
 function hit(xx){
+
+
+if (_isMobile() == mobiletrue) {
+                    jQueryM_v1_4_5('em').contents().unwrap();
+} else {
+                    jQueryD_1_4_2('em').contents().unwrap();
+                    
+}
+
+
 var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 	var term = hh;
     
