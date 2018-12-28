@@ -4,7 +4,6 @@
 var posttopid;
 
 
-
 function get_current_url(url){
 	
 var linkk = window.location.href
@@ -41,19 +40,16 @@ return  link2;
 }
 
 
-
-
-
 var strpass;
 var passtext;
 
 
 ///////////////////////////////////////////////////////////////////////////
-if (_isMobile() != mobiletrue) {
-
+if(_isMobile() != mobiletrue) {
+  
 } ////////////////////////////////////////////////////////////////
 else {
- 
+
 function childboxes(MainElement, ChildElement){
     
 	var loc_target = "";
@@ -244,9 +240,8 @@ var selector, family, h1, fonttype;
 						  /*jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
 						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");*/
 						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "normal");
-						  jQueryM_v1_4_5('#wrapper').css("font-size","140%");
+						  jQueryM_v1_4_5('#wrapper').css("font-size","170%");
 						  jQueryM_v1_4_5('.posttext').css("font-size","120%");
-						  jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 						 
 						 
 		             }
@@ -260,10 +255,9 @@ var selector, family, h1, fonttype;
 						
 						 /*jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
 						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");*/
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "180%");
-						 jQueryM_v1_4_5('#wrapper').css("font-size","120%");
-						 jQueryM_v1_4_5('.posttext').css("font-size","115%");
-						 jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","95%");
+						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "140%");
+						 jQueryM_v1_4_5('#wrapper').css("font-size","135%");
+						 jQueryM_v1_4_5('.posttext').css("font-size","130%");
 		 }
 		 
 		 
@@ -283,7 +277,6 @@ var selector, family, h1, fonttype;
 		
 }
 
-var hh = true;
 
 function autolog(event,hh,pass){
 if (typeof encryptedMsg != 'undefined')
@@ -346,10 +339,9 @@ if (typeof encryptedMsg != 'undefined')
 			if(window.location == window.parent.location) {
 			   changeUrl("&pass", strpass);	
 			}
-		
-			window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
-		
-		
+			else{
+			   window.parent.postMessage(["put_pass_in_adbr", strpass], "*");	
+			}
 		}
 		
 		
@@ -390,7 +382,6 @@ if (typeof encryptedMsg != 'undefined')
 		
 		if(document.getElementById("pass2")){
 		if(document.getElementById("pass2").checked){
-		   
 		      if(lsTest() === true){
 			
 				 localStorage.setItem('autolog',true); 
@@ -407,8 +398,10 @@ if (typeof encryptedMsg != 'undefined')
 		else{
 			
              if(lsTest() === true){
-				 
+		
 				localStorage.setItem('autolog',false);
+				
+				
 			  }
 			  else{
 				  
@@ -424,8 +417,9 @@ if (typeof encryptedMsg != 'undefined')
 		}
 	
 	    jQueryM_v1_4_5( ".staticrypt-page" ).hide();
-
+	
 		if (fontstylelist == true) { 
+         
 		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>");
         }
 		else{
@@ -485,10 +479,11 @@ if (typeof encryptedMsg != 'undefined')
 		}
     }
     });
-}
 
 }
 
+		
+}
 if(hh == true){
 if (typeof applyHighlight == 'function') { 
 		    window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");	
@@ -502,13 +497,14 @@ return false;
 
 
 
+
 jQueryM_v1_4_5(document).ready(function() {
 
 
 if (typeof encryptedMsg != 'undefined')
 {
-
-    jQueryM_v1_4_5("#content").html('<div class="staticrypt-page" dir = "rtl"><div class="staticrypt-form" ><div class="staticrypt-instructions"><p class="staticrypt-title">**موضوع محمي**</p><hr><span>الرجاء مسح كاش المتصفح والمفضلة بعدالإنتهاء من الموسوعة في حال كان جهاز الذي تستخدمه غير شخصي ودخلت الى البيانات المشفرة<span><hr></div><input autocomplete="on" id="staticrypt-password" type="password" name="password" placeholder="كلمة السر"/><br><input type="checkbox" id="pass"> حفظ كلمة السر.. </input><br><input type="checkbox" id="pass2"> الدخول التلقائي للبيانات المشفرة.. </input><br><button autocomplete="on" type=\'submit\' id ="subment" class="staticrypt-decrypt-button">فك التشفير</button></div></div>');
+   
+    jQueryM_v1_4_5("#content").html('<div class="staticrypt-page" dir = "rtl"><div class="staticrypt-form" ><div class="staticrypt-instructions"><p class="staticrypt-title">**موضوع محمي**</p><hr><span>الرجاء مسح كاش المتصفح والمفضلة بعدالإنتهاء من الموسوعة في حال كان جهاز الذي تستخدمه غير شخصي ودخلت الى البيانات المشفرة<span><hr></div><input style= "" autocomplete="on" id="staticrypt-password" type="password" name="password" placeholder="كلمة السر"/><br><input type="checkbox" id="pass"> حفظ كلمة السر.. </input><br><input type="checkbox" id="pass2"> الدخول التلقائي للبيانات المشفرة.. </input><br><button autocomplete="on" type=\'submit\' id ="subment" class="staticrypt-decrypt-button">فك التشفير</button></div></div>');
 
 		if(lsTest() === true){
 		var checked = localStorage.getItem('passebook');
@@ -528,9 +524,6 @@ if (typeof encryptedMsg != 'undefined')
 
 		
 		var checked2 = localStorage.getItem('autolog');
-		
-		
-		
 		if (checked2 == "true") {
               document.getElementById("pass2").checked = true;
 		     
@@ -580,15 +573,12 @@ if (typeof encryptedMsg != 'undefined')
 jQueryM_v1_4_5("#subment").click(function(event){
 
 		event.preventDefault();
-
-		
 		autolog(event,true,document.getElementById('staticrypt-password').value);
-		
-		
 		return false;
 		
 		
 });
+
 
 jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
     if(event.which == 13) {
@@ -600,6 +590,11 @@ jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
 
 
 
+if (fontstylelist == true) {
+
+jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
+}
+//jQueryM_v1_4_5("#wrapper").append('<center><a target ="_blank" href="https://info.flagcounter.com/4Yvv"><img src="https://s11.flagcounter.com/count/4Yvv/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Free counters!" border="0"></a></td></center>');
 
 
 if(window.location == window.parent.location) {
@@ -632,10 +627,7 @@ else{
 }
 
 
-
 //jQueryM_v1_4_5("#wrapper").append('<center><a target ="_blank" href="https://info.flagcounter.com/4Yvv"><img src="https://s11.flagcounter.com/count/4Yvv/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Free counters!" border="0"></a></td></center>');
-
-
 
 	 
 	 jQueryM_v1_4_5(document).on('click', 'a', function(event) {
