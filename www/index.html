@@ -376,10 +376,26 @@ You Can Contact me at "mirzanove@gmail.com" if you need more informations..
 <script>
 
 
+if(location.href.indexOf("http://127.0.0.9:3030/") !=-1){
 
+document.getElementById("onlineEn").classList.add("hide");
+}
+else if(location.href.indexOf("file:") !=-1){
+ document.getElementById("onlineEn").classList.add("hide");
+}
+else if(location.href.indexOf("http://") !=-1){
+   document.getElementById("offlineEn").classList.add("hide");
+   document.getElementById("onlinev").classList.add("hide");
+}
+else if(location.href.indexOf("http://") !=-1){
+   document.getElementById("offlineEn").classList.add("hide");
+   document.getElementById("onlinev").classList.add("hide");
+}
 
+/*
 switch(window.location.protocol) {
    case 'http:':
+  
    document.getElementById("offlineEn").classList.add("hide");
    document.getElementById("onlinev").classList.add("hide");
    
@@ -391,10 +407,13 @@ switch(window.location.protocol) {
    case 'file:':
 	 document.getElementById("onlineEn").classList.add("hide");
      break;
+   case 'http://127.0.0.9:3030/':
+   document.getElementById("onlineEn").classList.add("hide");
+   break;
    default: 
      //some other protocol
 }
-
+*/
 
 /* When the user clicks on the button, 
 toggle between hiding and showing the dropdown content */
