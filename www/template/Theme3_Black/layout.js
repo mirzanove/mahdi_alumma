@@ -107,19 +107,7 @@ function go_bookmark(){
          
 		 $('#pages_bar_note').hide();
 		 
-		 if(document.location.href.indexOf("&ux=search")!= -1){
-			
-			   if(!(document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) ||document.location.href.match(/((#|%23)post(.*?))/mg))) {
-			
-      	         document.getElementsByClassName("loading2")[0].style.display = 'block'; 	
-					 
-	           }
-  
-		   }
-			   
-			
-	
-	  
+
 
 	        if($(window).innerWidth() < em(43.68)) {
               $('.content').css("bottom", "40px");
@@ -138,6 +126,8 @@ function go_bookmark(){
 
 
 function go_topic(){
+	
+
 	       
 		  $('#pages_bar_note').hide();
 		  
@@ -150,6 +140,16 @@ function go_topic(){
 	           }
 			   
 			   
+		   }
+		   
+		   if(document.location.href.indexOf("&ux=bookmark")!= -1){
+			
+			   if(!(document.location.href.match(/((#|%23)td_threadtitle(.*?))/mg) ||document.location.href.match(/((#|%23)post(.*?))/mg))) {
+			
+      	         document.getElementsByClassName("loading2")[0].style.display = 'block'; 	
+					 
+	           }
+  
 		   }
 	
 	  

@@ -85,16 +85,15 @@ function onToggleHighlightSearch()
 function onMaxPageCountChange(maxVal)
 {
 	
-	
 	if(maxVal ==-1){
 		
 		document.getElementById("pages_bar_note").className = "rh-hide";
 	}
 	else{
-		
+	if($('.wSearchPageNumberSelected').length) 
+	{
     removeClass(document.getElementById("pages_bar_note"),"rh-hide");	
-	
-		
+	}	
 	}
 	
 	g_nMaxResult = maxVal;
