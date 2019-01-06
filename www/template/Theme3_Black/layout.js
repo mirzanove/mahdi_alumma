@@ -901,12 +901,15 @@ function setCheckBoxes() {
 			if (checkbox[0].checked) {
 				toggle.addClass('on');
 				toggle.removeClass('off');
-				toggle.text(toggle.attr('data-on'));
+				//toggle.text(toggle.attr('data-on'));
+			    toggle.html('<img src="template/Theme3_Black/chktruebox.png">');
 			
 			} else { 
 				toggle.addClass('off');
 				toggle.removeClass('on');
-				toggle.text(toggle.attr('data-off'));
+				//toggle.text(toggle.attr('data-off'));
+				toggle.html('<img src="template/Theme3_Black/chkfalsebox.png">');
+				
 				
 			};
 		}
@@ -923,7 +926,8 @@ function setCheckBoxes() {
 			if (checkbox[0].checked) {
 				toggle.addClass('on');
 				toggle.removeClass('off');
-				toggle.text(toggle.attr('data-on'));
+				//toggle.text(toggle.attr('data-on'));
+				toggle.html('<img src="template/Theme3_Black/chktrue.png">');
 			
 			} else { 
 				toggle.addClass('off');
@@ -945,13 +949,18 @@ function setCheckBoxes() {
 		if (checkbox.checked) {
 			toggle.addClass('off');
 			toggle.removeClass('on');
-			toggle.text(toggle.attr('data-off'));
+			//toggle.text(toggle.attr('data-off'));
+			toggle.html('<img src="template/Theme3_Black/chkfalsebox.png">');
+			
 			checkbox.checked = false;
 		} else {
 			checkbox.checked = true;
 			toggle.addClass('on');
 			toggle.removeClass('off');
-			toggle.text(toggle.attr('data-on'));
+			//toggle.text(toggle.attr('data-on'));
+			toggle.html('<img src="template/Theme3_Black/chktruebox.png">');
+			
+
 		}
 		}
 	});
@@ -976,9 +985,11 @@ function setCheckBoxes() {
 			$('.switch-toggle2').addClass('off');
 			$('.switch-toggle2').text(toggle.attr('data-off'));
 			
+			
 			toggle.addClass('on');
 			toggle.removeClass('off');
-			toggle.text(toggle.attr('data-on'));
+			//toggle.text(toggle.attr('data-on'));
+			toggle.html('<img src="template/Theme3_Black/chktrue.png">');
 		}
 	});
 	
