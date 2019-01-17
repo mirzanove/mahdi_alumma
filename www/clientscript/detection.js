@@ -123,6 +123,30 @@ function _isMobile(){
 
 
 
+function makeselectable(node) {
+   // alert(node.nodeType);
+	if (node.nodeType == 1) {
+        node.setAttribute("unselectable", "off");
+		//jQueryD_1_4_2(node).addClass("enableselect");
+		node.classList.add("enableselect");
+		/*node.setAttribute("unselectable", "yes");
+		node.setAttribute("onselectstart", "return false;");*/
+    }
+    var child = node.firstChild;
+    while (child) {
+        makeselectable(child);
+        child = child.nextSibling;
+    }
+}
+
+
+function clearSelection()
+{
+ if (window.getSelection) {window.getSelection().removeAllRanges();}
+ else if (document.selection) {document.selection.empty();}
+}
+
+
 //alert("first");
 
 

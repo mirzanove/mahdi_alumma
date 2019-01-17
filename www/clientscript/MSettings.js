@@ -629,8 +629,27 @@ else{
 
 //jQueryM_v1_4_5("#wrapper").append('<center><a target ="_blank" href="https://info.flagcounter.com/4Yvv"><img src="https://s11.flagcounter.com/count/4Yvv/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Free counters!" border="0"></a></td></center>');
 
+
+
+function enable_select_text(xx){
+var x= jQueryM_v1_4_5(xx);
+for(var i=0; i<x.length; i++) {
+			makeselectable(x[i]);
+}
+}
+
+enable_select_text('.posttext');
+enable_select_text('.thread_title');
+enable_select_text('span.padd');
+
+
+
+jQueryM_v1_4_5(document).click(function() {
+//clearSelection();
+});
 	 
-	 jQueryM_v1_4_5(document).on('click', 'a', function(event) {
+
+jQueryM_v1_4_5(document).on('click', 'a', function(event) {
 
             var classname = jQueryM_v1_4_5(this).attr('class');
             var link = this.href;
@@ -1157,7 +1176,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                 jQueryM_v1_4_5('.hide_local_link').hide();
 				
               jQueryM_v1_4_5(".moveoff").unbind( "click" );
-			  jQueryM_v1_4_5(".selected").attr("class", 'selected'); 
+			  jQueryM_v1_4_5(".selected").attr("class", 'selected enableselect enableselect'); 
               }
              
 
@@ -1220,9 +1239,18 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                     for(i = 0; i < c.length; i++) {
                     //alert(c[i].className);
 					
-					if(c[i].className == "selected") {
-					   select_all_and_copy(c[i]);
-                    }
+					
+					 if(c[i].className!=null){
+	
+    
+			   if(c[i].className.indexOf("selected")!=-1) {
+
+                 select_all_and_copy(c[i]);
+			//jQueryD_1_4_2(c[i]).selectText();
+
+                }
+				
+			   }
                     
                     }
  
@@ -1250,8 +1278,8 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			
 			if(!jQueryM_v1_4_5(event.currentTarget).children(".selected").hasClass( "moveoff" )){
 				jQueryM_v1_4_5(".selected").unbind( "click" );
-				jQueryM_v1_4_5(".selected").attr("class", 'selected');
-				jQueryM_v1_4_5(event.currentTarget).children(".selected").attr("class", 'selected moveoff');
+				jQueryM_v1_4_5(".selected").attr("class", 'selected enableselect');
+				jQueryM_v1_4_5(event.currentTarget).children(".selected").attr("class", 'selected moveoff enableselect');
 				jQueryM_v1_4_5(event.currentTarget).children(".selected").unbind('click').bind('click', function(event) {
 			     	
 					event.stopPropagation();
@@ -1282,7 +1310,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				jQueryM_v1_4_5(".tooltiptext_custom").click(function(event) {
                  
 				jQueryM_v1_4_5(".selected").unbind( "click" );
-				jQueryM_v1_4_5(".selected").attr("class", 'selected');
+				jQueryM_v1_4_5(".selected").attr("class", 'selected enableselect');
 				 event.stopPropagation();
                 jQueryM_v1_4_5(".tooltiptext_custom").remove();
                 stop = false;				
@@ -1309,11 +1337,20 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 					
                     for(i = 0; i < c.length; i++) {
                     //alert(c[i].className);
-					if(c[i].className == "selected moveoff") {
-                           
-							select_all_and_copy(c[i]);
+					
+						 if(c[i].className!=null){
+	
+    
+			   if(c[i].className.indexOf("selected moveoff")!=-1) {
 
-                    }
+                 select_all_and_copy(c[i]);
+			//jQueryD_1_4_2(c[i]).selectText();
+
+                }
+				
+			   }
+					
+					
                     }
 	
                 });
@@ -1354,8 +1391,8 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 
             if (!jQueryM_v1_4_5(event.currentTarget).children(".selected").hasClass("moveoff")) {
                 jQueryM_v1_4_5(".selected").unbind("click");
-                jQueryM_v1_4_5(".selected").attr("class", 'selected');
-                jQueryM_v1_4_5(event.currentTarget).children(".selected").attr("class", 'selected moveoff');
+                jQueryM_v1_4_5(".selected").attr("class", 'selected enableselect');
+                jQueryM_v1_4_5(event.currentTarget).children(".selected").attr("class", 'selected moveoff enableselect');
 				//jQueryM_v1_4_5(event.currentTarget).children('.selected').selectText();
                 jQueryM_v1_4_5(event.currentTarget).children(".selected").unbind('click').bind('click', function(event) {
 
@@ -1463,15 +1500,17 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                        var cc = c[i].childNodes;
                            for(ii = 0; ii < cc.length; ii++) {
 							  
-							   if(cc[ii].className == "selected moveoff") {
-								   //var ccc = cc[ii].childNodes;
-								   //alert(cc[ii].className);
-								  
-                                  
-								  select_all_and_copy(cc[ii]);
-								
-								   
-							   }
+							   		 if(c[ii].className!=null){
+	
+    
+			   if(c[ii].className.indexOf("selected moveoff")!=-1) {
+
+                 select_all_and_copy(c[ii]);
+			//jQueryD_1_4_2(c[i]).selectText();
+
+                }
+				
+			   }
 							   
 						   }
                     }
@@ -1524,12 +1563,17 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
             var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
             var i;
             for(i = 0; i < c.length; i++) {
+		 if(c[i].className!=null){
+	
+    
+			   if(c[i].className.indexOf("posttext")!=-1) {
 
-                if(c[i].className == "posttext padd2") {
+                 select_all_and_copy(c[i]);
+			//jQueryD_1_4_2(c[i]).selectText();
 
-                    select_all_and_copy(c[i]);
-					//jQueryM_v1_4_5(c[i]).selectText();
                 }
+				
+			   }
 
             }
 			

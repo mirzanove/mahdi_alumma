@@ -626,19 +626,7 @@ else{
 
 
 
-function makeUnselectable(node) {
-   // alert(node.nodeType);
-	if (node.nodeType == 1) {
-        node.setAttribute("unselectable", "on");
-		/*node.setAttribute("unselectable", "yes");
-		node.setAttribute("onselectstart", "return false;");*/
-    }
-    var child = node.firstChild;
-    while (child) {
-        makeUnselectable(child);
-        child = child.nextSibling;
-    }
-}
+
 
 if (!document.getElementsByClassName) {
   document.getElementsByClassName = function(search) {
@@ -667,22 +655,28 @@ if (!document.getElementsByClassName) {
 
 
  
-function disable_select_text(xx){
-var x= document.getElementsByClassName(xx); 
+function enable_select_text(xx){
+var x= jQueryD_1_4_2(xx);
 for(var i=0; i<x.length; i++) {
-			makeUnselectable(x[i]);
+			makeselectable(x[i]);
 }
 }
 
-disable_select_text('up');
-disable_select_text('tooltip5');
-disable_select_text('footer');
+enable_select_text('.posttext');
+enable_select_text('.thread_title');
+enable_select_text('span.padd');
 
+
+jQueryD_1_4_2(document).click(function() {
+//clearSelection();
+});
+			
+			
 
 jQueryD_1_4_2("a").live("click", function(event) {
             link_img_show = true;
           
-			
+		
 		var classname = jQueryD_1_4_2(this).attr('class');
             var link = this.href;
 
@@ -1256,7 +1250,7 @@ updateh1family(false);
                 jQueryD_1_4_2('.hide_external_link').hide();
                 jQueryD_1_4_2('.hide_local_link').hide();
 				jQueryD_1_4_2(".moveoff").unbind( "click" );
-			   jQueryD_1_4_2(".selected").attr("class", 'selected');
+			   jQueryD_1_4_2(".selected").attr("class", 'selected enableselect');
               }
    
 		 }	  
@@ -1299,8 +1293,8 @@ jQueryD_1_4_2(".link_pic").click(function(event) {
 			
 			if(!jQueryD_1_4_2(event.currentTarget).children(".selected").hasClass( "moveoff" )){
 				jQueryD_1_4_2(".selected").unbind( "click" );
-				jQueryD_1_4_2(".selected").attr("class", 'selected');
-				jQueryD_1_4_2(event.currentTarget).children(".selected").attr("class", 'selected moveoff');
+				jQueryD_1_4_2(".selected").attr("class", 'selected enableselect');
+				jQueryD_1_4_2(event.currentTarget).children(".selected").attr("class", 'selected moveoff enableselect');
 				jQueryD_1_4_2(event.currentTarget).children(".selected").unbind('click').bind('click', function(event) {
 			     	
 					event.stopPropagation();
@@ -1380,14 +1374,20 @@ img.src = jQueryD_1_4_2(event.currentTarget).children(".NOTselected").children('
                        var cc = c[i].childNodes;
                            for(ii = 0; ii < cc.length; ii++) {
 							  
-							   if(cc[ii].className == "selected moveoff") {
-								   //var ccc = cc[ii].childNodes;
-								   //alert(cc[ii].className);
-								   select_all_and_copy(cc[ii]);
-								
-								   
-							   }
+							  	     if(c[ii].className!=null){
+	
+    
+			   if(c[ii].className.indexOf("selected moveoff")!=-1) {
+
+                 select_all_and_copy(c[ii]);
+			//jQueryD_1_4_2(c[i]).selectText();
+
+                }
+				
+			   }
+				
 							   
+									   
 						   }
                     }
                     
@@ -1426,10 +1426,18 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 					var i;
                     for(i = 0; i < c.length; i++) {
                     //alert(c[i].className);
-					
-					if(c[i].className == "selected") {
-					   select_all_and_copy(c[i]);
-                    }
+					 if(c[i].className!=null){
+	
+    
+			   if(c[i].className.indexOf("selected")!=-1) {
+
+                 select_all_and_copy(c[i]);
+			//jQueryD_1_4_2(c[i]).selectText();
+
+                }
+				
+			   }
+				
                     
                     }
  
@@ -1456,8 +1464,8 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 			
 			if(!jQueryD_1_4_2(event.currentTarget).children(".selected").hasClass( "moveoff" )){
 				jQueryD_1_4_2(".selected").unbind( "click" );
-				jQueryD_1_4_2(".selected").attr("class", 'selected');
-				jQueryD_1_4_2(event.currentTarget).children(".selected").attr("class", 'selected moveoff');
+				jQueryD_1_4_2(".selected").attr("class", 'selected enableselect');
+				jQueryD_1_4_2(event.currentTarget).children(".selected").attr("class", 'selected moveoff enableselect');
 				jQueryD_1_4_2(event.currentTarget).children(".selected").unbind('click').bind('click', function(event) {
 			     	
 					event.stopPropagation();
@@ -1488,7 +1496,7 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 				jQueryD_1_4_2(".tooltiptext_custom").click(function(event) {
                  
 				jQueryD_1_4_2(".selected").unbind( "click" );
-				jQueryD_1_4_2(".selected").attr("class", 'selected');
+				jQueryD_1_4_2(".selected").attr("class", 'selected enableselect');
 				 event.stopPropagation();
                 jQueryD_1_4_2(".tooltiptext_custom").remove();
                 stop = false;				
@@ -1515,11 +1523,17 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
 					
                     for(i = 0; i < c.length; i++) {
                     //alert(c[i].className);
-					if(c[i].className == "selected moveoff") {
-                           
-							select_all_and_copy(c[i]);
+					 if(c[i].className!=null){
 
-                    }
+			   if(c[i].className.indexOf("selected moveoff")!=-1) {
+
+                 select_all_and_copy(c[i]);
+			//jQueryD_1_4_2(c[i]).selectText();
+
+                }
+				
+			   }
+				
                     }
 	
                 });
@@ -1641,12 +1655,18 @@ jQueryD_1_4_2("#wrapper").scrollTop(jQueryD_1_4_2(this).position().top + jQueryD
             var i;
             for(i = 0; i < c.length; i++) {
 
-                if(c[i].className == "posttext padd2") {
+               
+               if(c[i].className!=null){
+	
+    
+			   if(c[i].className.indexOf("posttext")!=-1) {
 
                  select_all_and_copy(c[i]);
 			//jQueryD_1_4_2(c[i]).selectText();
 
                 }
+				
+			   }
 
             }
 			
