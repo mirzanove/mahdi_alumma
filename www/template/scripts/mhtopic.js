@@ -252,7 +252,7 @@ function DomTextNode( a_Node, a_nFrom )
 	    document.getElementById("loading").style.display = 'none';
 		window.parent.postMessage(["loading","stop"], "*");
 		//jomart
-		s_strHlStart = "<em>";
+		s_strHlStart = "<em class='enableselect'>";
 		s_strHlEnd = "</em>";
 		
 		/*s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
@@ -288,6 +288,7 @@ function DomTextNode( a_Node, a_nFrom )
 		strHTML += _textToHtml_nonbsp(strText.substr( nLastStart ));
 		
 		var spanElement = document.createElement( "span" );
+		spanElement.classList.add("hitmark","enableselect");
 		spanElement.innerHTML = strHTML;
 		if (gbIE)
 		{
@@ -2307,12 +2308,25 @@ window.findAndReplaceDOMText = (function() {
 function hit(xx){
 
 
-if (_isMobile() == mobiletrue) {
-                    jQueryM_v1_4_5('em').contents().unwrap();
-} else {
-                    jQueryD_1_4_2('em').contents().unwrap();
-                    
+ if (_isMobile() == mobiletrue) {
+                    jQueryM_v1_4_5('span.hitmark').contents().unwrap();
+					jQueryM_v1_4_5('em').contents().unwrap();
+					
+					
+if (jQueryM_v1_4_5('em').is(':empty')){
+  jQueryM_v1_4_5('em').remove();
 }
+                } else {
+                    jQueryD_1_4_2('span.hitmark').contents().unwrap();
+					jQueryD_1_4_2('em').contents().unwrap();
+					
+					
+
+if (jQueryD_1_4_2('em').is(':empty')){
+  jQueryD_1_4_2('em').remove();
+}
+					   
+                }
 
 
 var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
@@ -2332,6 +2346,7 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 				replace: function(portion, match) {
 					called = true;
 					var el = document.createElement('em');
+					el.classList.add("enableselect");
 					el.innerHTML = portion.text;
 					return el;
 				}
