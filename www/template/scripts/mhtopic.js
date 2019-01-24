@@ -49,6 +49,8 @@ var	EST_TERM		= 1;
 var	EST_PHRASE		= 2;
 var	EST_STEM		= 3;
 
+var ii = 1;
+
 //Code for breadcrumb variable check for bookmark
 (function() {
 	gbBreadCrumb 	= 0;
@@ -246,13 +248,13 @@ function DomTextNode( a_Node, a_nFrom )
 		}
 		return i;
 	}
-
+    
 	this.doHighlight = function( a_aRanges, a_nStart )
 	{   //jomart
 	    document.getElementById("loading").style.display = 'none';
 		window.parent.postMessage(["loading","stop"], "*");
-		//jomart
-		s_strHlStart = "<em class='enableselect'>";
+	
+		s_strHlStart = "<em class='enableselect' id='hit_'"+ii+">";
 		s_strHlEnd = "</em>";
 		
 		/*s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
@@ -277,18 +279,31 @@ function DomTextNode( a_Node, a_nFrom )
 		var nLastStart = 0;
 		for ( var i = 0; i < this.aClosedRanges.length; i++ )
 		{
+			
+			
 			strHTML += _textToHtml_nonbsp(strText.substring( nLastStart, this.aClosedRanges[i].nStart - this.nFrom ));
-			strHTML += s_strHlStart;
+			//console.log("jjjjj"+_textToHtml_nonbsp(strText.substring( this.aClosedRanges[i].nStart - this.nFrom,
+										  //this.aClosedRanges[i].nEnd - this.nFrom )));
+			if(_textToHtml_nonbsp(strText.substring( this.aClosedRanges[i].nStart - this.nFrom,
+										  this.aClosedRanges[i].nEnd - this.nFrom )) !=""){
+			
+			
+			strHTML += "<em class='enableselect' id='hit_"+ii+"'>";
 			strHTML += _textToHtml_nonbsp(strText.substring( this.aClosedRanges[i].nStart - this.nFrom,
 										  this.aClosedRanges[i].nEnd - this.nFrom ));
 			strHTML += s_strHlEnd;
-
+            ii++;
+			
+			}
 			nLastStart = this.aClosedRanges[i].nEnd - this.nFrom;
+			
+			
 		}
 		strHTML += _textToHtml_nonbsp(strText.substr( nLastStart ));
 		
 		var spanElement = document.createElement( "span" );
 		spanElement.classList.add("hitmark","enableselect");
+		
 		spanElement.innerHTML = strHTML;
 		if (gbIE)
 		{
@@ -592,26 +607,27 @@ function highlightDocument()
 }
 
 /////// start routine /////////
-function applyHighlight()
+function applyHighlight(hitid)
 {   
-	callbackHighlightSettingRead();
+
+	callbackHighlightSettingRead(null,hitid);
 }
-function callbackHighlightSettingRead(bHighlight)
+function callbackHighlightSettingRead(bHighlight,hitid)
 {
-		 callbackHighlightTxtColorRead();
+		 callbackHighlightTxtColorRead(null,hitid);
 }
-function callbackHighlightTxtColorRead(txtColor)
+function callbackHighlightTxtColorRead(txtColor,hitid)
 {   
 	gsTextColor = txtColor;
-	 callbackHighlightBgColorRead();
+	 callbackHighlightBgColorRead(null,hitid);
 }
-function callbackHighlightBgColorRead(bgColor)
+function callbackHighlightBgColorRead(bgColor,hitid)
 {    
 	gsBkgndColor = bgColor;
-	StartHighLightSearch();
+	StartHighLightSearch(hitid);
 }
 
-function StartHighLightSearch()
+function StartHighLightSearch(hitid)
 {
 	var strTerms = GetHighlightTextFromURL();
 	
@@ -678,10 +694,33 @@ strTerms = remove_stopWrods(strTerms);
 	
 	
 
+  if(url){
+		  
+		  	
+		  var arr = url.match(/hit=([\w]+)/);
+      
+		 if(arr){ 
+		 
+          var hitid = arr[1];		 
+		  if(hitid !="null"){
+			 
+			 hitid = hitid; 
+		  }else{
+			
+			 hitid = null; 
+		  }
+         } 
+		 
+        }
+else{
+
+hitid = null; 
+}	
+	
 	
 
 if(strTerms){
- hit(strTerms);	
+ hit(strTerms,hitid);	
 }
 else{
 
@@ -2307,6 +2346,7 @@ window.findAndReplaceDOMText = (function() {
 //jomart
 function hit(xx){
 
+ii = 1;
 
  if (_isMobile() == mobiletrue) {
                     jQueryM_v1_4_5('span.hitmark').contents().unwrap();
@@ -2339,15 +2379,25 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 		term = createAccentRegexp(term).split(' ').join('(<[^>]+>|[\\n\\r\\s\\p{P}\\p{S}\\p{Mn}\\u0640\u200F])*')
         var pattern = XRegExp("("+term+")", "gi");
 		
-		var container = document;
-        
-		findAndReplaceDOMText(container, {
+		//var container = document;
+        var i = 1;
+		findAndReplaceDOMText(document.getElementById('pagebody'), {
 				find: pattern,
 				replace: function(portion, match) {
 					called = true;
+					
 					var el = document.createElement('em');
 					el.classList.add("enableselect");
+
+					if(portion.text.replace(/\s/g,"") != ""){
+					el.setAttribute('id','hit_'+i);
+					i++;
+					
+					}
+					
 					el.innerHTML = portion.text;
+					
+					
 					return el;
 				}
         });
@@ -2431,7 +2481,7 @@ eventer(messageEvent,function(e) {
 enable_highlight = true;
 var eventName = e.data[0];
 var data = e.data[1];
-	
+var data2 = e.data[2];	
 
     switch(eventName) {
       
@@ -2503,7 +2553,31 @@ var data = e.data[1];
 
 		  enable_highlight = true;
 		  //document.getElementById("loading").style.display = 'block';
-		  setTimeout(applyHighlight, 50);
+		  
+		  if(data2){
+		  
+		  	
+		  var arr = data2.match(/hit=([\w]+)/);
+          
+		 if(arr){ 
+          var hitid = arr[1];		 
+		  if(hitid !="null"){
+			
+			 hitid = hitid; 
+		  }else{
+			
+			 hitid = null; 
+		  }
+         } 
+		 
+        }
+else{
+
+hitid = null; 
+}
+		  
+		  
+		  setTimeout(function(){ applyHighlight(hitid);}, 50);
 	
 		  loaddsett();
 		  

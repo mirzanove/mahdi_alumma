@@ -113,7 +113,11 @@ gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 	gIdxCategoryHtml = "<span  class=\"wIdxAlphabetText\">{%LINK_NAME%}</span>";
 </script>
  <style type="text/css">
-#text_div{
+
+ .exthtml{
+display:none;
+}
+ #text_div{
 display : none;
 }
 
@@ -544,7 +548,7 @@ background-repeat: no-repeat !important;
 		<div class="wSearchResultItemsBlock" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<div data-rhwidget="List: key: @.p.searchresults, spliton: index % @MAX_RESULTS == 14" data-config="loadmore: '.l.load_more_results', loaded: '.l.results_loaded'">
 				<div class="wSearchResultItem">
-					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams">
+					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams+'&hit=null'">
 						<div onclick = "highlite(this);" class="wSearchResultTitle" data-itext="item.strTitle"></div>
 					</a>
 					<div class="wSearchContent">
@@ -553,6 +557,10 @@ background-repeat: no-repeat !important;
 					<div class="wSearchURL">
 						<span class="wSearchURL" data-itext="item.strBreadcrumbs"></span>
 					</div>
+					<div class="exthtml" data-h-href="item.strUrl+@.p.searchresultparams">
+					 <img src="template/resources/loading.gif" height="42" width="42"> 
+					</div>
+					
 				</div>
 			</div>
 		</div>

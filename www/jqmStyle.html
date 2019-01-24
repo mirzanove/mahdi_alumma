@@ -32,6 +32,9 @@ document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location
 }
 </script>
 <style>
+.exthtml{
+display:none;
+}
 
 a[data-icon="mapa"].ui-icon-mapa {
     background-image: url("template/resources/style2.png") !important;
@@ -535,7 +538,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 		<div class="wSearchResultItemsBlock" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<div data-rhwidget="List: key: @.p.searchresults, spliton: index % @MAX_RESULTS == 14" data-config="loadmore: '.l.load_more_results', loaded: '.l.results_loaded'">
 				<div class="wSearchResultItem">
-					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams">
+					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams+'&hit=null'">
 						<div class="wSearchResultTitle" data-itext="item.strTitle"></div>
 					</a>
 					<div class="wSearchContent">
@@ -544,6 +547,10 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 					<div class="wSearchURL">
 						<span class="wSearchURL" data-itext="item.strBreadcrumbs"></span>
 					</div>
+					<div class="exthtml" data-h-href="item.strUrl+@.p.searchresultparams">
+					 <img src="template/resources/loading.gif" height="42" width="42"> 
+					</div>
+					
 				</div>
 			</div>
 		</div>

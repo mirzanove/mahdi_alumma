@@ -1,7 +1,7 @@
 
 var gSearchMsgId = "searchMsg";
 var gResultsFoundString = "%1 نتيجة (نتائج) تم العثور عليها لـ %2";
-var gSearchResultHtml = "{%LINK_NAME%}\n							\n							<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n							 <br />\n							<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span>";
+var gSearchResultHtml = "{%LINK_NAME%}\n<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n<br />\n<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span><br>";
 var gSearchResClassName = "wSearchResultItem";
 var gSearchResTitleClassName = "wSearchResultTitle";
 var gSearchResTitleClassHover = "wSearchResultTitleHover";
@@ -238,7 +238,7 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 		strHoverEvents += " onmouseover=\"onSearchItemHover(this,'" + gSearchResTitleClassHover + "')\" ";
 		strHoverEvents += " onmouseout=\"onSearchItemHoverOut(this,'" + gSearchResTitleClassName + "')\"";
 	}
-	var anchorStartTag = "<a onclick=\"go_topic();\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl + "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
+	var anchorStartTag = "<a onclick=\"go_topic();\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl+'&hit=null'+ "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
 	var title = anchorStartTag ;
 	
 

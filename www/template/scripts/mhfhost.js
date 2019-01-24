@@ -3130,6 +3130,7 @@ function displayTopics( a_QueryResult )
 				{
 					szTopicURL += strParams;
 				}
+
 				sLine += writeResult( szTopicURL,
 									  a_QueryResult.aTopics[i].strTitle,
 									  a_QueryResult.aTopics[i].nIndex,
