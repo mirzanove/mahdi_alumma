@@ -3027,6 +3027,7 @@ function changeResultView( a_strHTML )
 			return;
 		resultDiv.innerHTML = a_strHTML;
 		rh.util.loadContentFilter(resultDiv);
+		
 	}
 }
 
@@ -3142,6 +3143,8 @@ function displayTopics( a_QueryResult )
 					sHTML += sLine;
 					sLine = "";
 				}
+			
+			
 			}
 			if( sLine.length > 0 )
 				sHTML += sLine;

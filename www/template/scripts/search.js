@@ -225,7 +225,6 @@ function initSearchPage()
 
 function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs,szSearchStrings,id)
 {
-	console.log(id);
 	var strTitleStyle = "";
 	if(gSearchResTitleStyle != "")
 		strTitleStyle = "style=\"" + gSearchResTitleStyle + "\" ";
@@ -267,6 +266,9 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	var getsnippt ="<div class=\"exthtml\" id='hitcount_"+id+"'><img src=\"template/resources/loading.gif\" height=\"42\" width=\"42\"></div>"
 	
 	var gg = "<div  class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html +getsnippt+"</div>";
+	
+	
+	
 	return  gg
 	
 
