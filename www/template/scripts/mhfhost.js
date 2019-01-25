@@ -3030,7 +3030,7 @@ function changeResultView( a_strHTML )
 	}
 }
 
-
+var szSearchStrings;
 function displayTopics( a_QueryResult )
 {
 	var sHTML = "";
@@ -3039,7 +3039,7 @@ function displayTopics( a_QueryResult )
 	
 	//jomart
 	//var szSearchStrings= rh.model.get(rh.consts('KEY_SEARCH_TERM'));
-	var szSearchStrings= rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
+	szSearchStrings= rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
 	//jomart
 	szSearchStrings = strip_And_Normlize(szSearchStrings);
 	
@@ -3099,7 +3099,7 @@ function displayTopics( a_QueryResult )
 		 strParams = strParams;
         
 		//jomart
-        szSearchStrings = rh.model.get(rh.consts('KEY_SEARCHED_TERM')); 
+        //szSearchStrings = rh.model.get(rh.consts('KEY_SEARCHED_TERM')); 
 		 
 		if(a_QueryResult.aTopics.length > 0)
 			setResultsStringHTML(a_QueryResult.aTopics.length, _textToHtml_nonbsp(szSearchStrings));
@@ -3136,7 +3136,7 @@ function displayTopics( a_QueryResult )
 									  a_QueryResult.aTopics[i].nIndex,
 									  a_QueryResult.aTopics[i].strSummary,
 									  a_QueryResult.aTopics[i].rhTags,
-									  a_QueryResult.aTopics[i].strBreadcrumbs);
+									  a_QueryResult.aTopics[i].strBreadcrumbs,szSearchStrings,i);
 				if( i & 0xF == 0 )
 				{
 					sHTML += sLine;

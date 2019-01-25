@@ -665,6 +665,9 @@ for(var i=0; i<x.length; i++) {
 enable_select_text('.posttext');
 enable_select_text('.thread_title');
 enable_select_text('span.padd');
+enable_select_text('#content>ul');
+
+
 
 
 jQueryD_1_4_2(document).click(function() {
@@ -715,7 +718,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                       return false;
 					}	
 				
-                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink') {
+                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink enableselect') {
                       
 						//event.preventDefault();
                         event.stopPropagation();
@@ -1005,7 +1008,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
                         event.stopPropagation();
                        return false;
 					}					
-                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink') {
+                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink enableselect') {
                         
 						//event.preventDefault();
                         event.stopPropagation();
@@ -1050,7 +1053,7 @@ jQueryD_1_4_2("a").live("click", function(event) {
 					jQueryD_1_4_2(this).attr("target","_heexternal");	
 					}*/
 					 
-					 if(classname !='linkstyle2 outsidelink'){
+					 if(classname !='linkstyle2 outsidelink enableselect'){
 					 if(classname != "alpom2_go"){
 					 
 					// if(!(wke || iee)){

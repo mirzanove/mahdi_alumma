@@ -1,7 +1,7 @@
 
 var gSearchMsgId = "searchMsg";
 var gResultsFoundString = "%1 نتيجة (نتائج) تم العثور عليها لـ %2";
-var gSearchResultHtml = "{%LINK_NAME%}\n<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n<br />\n<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span><br>";
+var gSearchResultHtml = "{%LINK_NAME%}\n<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n<br />\n<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span>";
 var gSearchResClassName = "wSearchResultItem";
 var gSearchResTitleClassName = "wSearchResultTitle";
 var gSearchResTitleClassHover = "wSearchResultTitleHover";
@@ -221,8 +221,11 @@ function initSearchPage()
 	updatePrevNextButtons(0,0);
 }
 
-function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs )
+
+
+function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs,szSearchStrings,id)
 {
+	console.log(id);
 	var strTitleStyle = "";
 	if(gSearchResTitleStyle != "")
 		strTitleStyle = "style=\"" + gSearchResTitleStyle + "\" ";
@@ -239,10 +242,10 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 		strHoverEvents += " onmouseout=\"onSearchItemHoverOut(this,'" + gSearchResTitleClassName + "')\"";
 	}
 	var anchorStartTag = "<a onclick=\"go_topic();\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl+'&hit=null'+ "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
+	
+	
 	var title = anchorStartTag ;
-	
 
-	
 	var html = gSearchResultHtml.replace(LINK_NAME_MACRO, title);
 	if(a_sSummary.length > 0)
 	{
@@ -261,9 +264,9 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	if(gSearchResStyle != "")
 		strStyle = "style=\"" + gSearchResStyle + "\" ";
 
+	var getsnippt ="<div class=\"exthtml\" id='hitcount_"+id+"'><img src=\"template/resources/loading.gif\" height=\"42\" width=\"42\"></div>"
 	
-	
-	var gg = "<div  class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
+	var gg = "<div  class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html +getsnippt+"</div>";
 	return  gg
 	
 

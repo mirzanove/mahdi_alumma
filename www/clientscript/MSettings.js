@@ -641,7 +641,7 @@ for(var i=0; i<x.length; i++) {
 enable_select_text('.posttext');
 enable_select_text('.thread_title');
 enable_select_text('span.padd');
-
+enable_select_text('#content>ul');
 
 
 jQueryM_v1_4_5(document).click(function() {
@@ -689,7 +689,7 @@ jQueryM_v1_4_5(document).on('click', 'a', function(event) {
                       return false;
 					}	
 				
-                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink') {
+                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink enableselect') {
                       
 						//event.preventDefault();
                         event.stopPropagation();
@@ -976,7 +976,7 @@ jQueryM_v1_4_5(document).on('click', 'a', function(event) {
                         event.stopPropagation();
                        return false;
 					}					
-                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink') {
+                    else if (classname == 'link_pic2'||classname =='extImag_go2'||classname =='linkstyle2 outsidelink enableselect') {
                         
 						//event.preventDefault();
                         event.stopPropagation();
@@ -1021,7 +1021,7 @@ jQueryM_v1_4_5(document).on('click', 'a', function(event) {
 					jQueryM_v1_4_5(this).attr("target","_heexternal");	
 					}*/
 					 
-					 if(classname !='linkstyle2 outsidelink'){
+					 if(classname !='linkstyle2 outsidelink enableselect'){
 					 if(classname != "alpom2_go"){
 					 
 					// if(!(wke || iee)){
