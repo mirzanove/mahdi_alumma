@@ -211,9 +211,9 @@ function go_bookmark(){
 	 document.getElementById("tocold").classList.remove("rh-hide");
 	
 	
-	
+	if(document.location.href.indexOf("&ux=bookmark")== -1){
 	history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(search)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=bookmark");
-			 
+	}		 
 			 
 			}
 
@@ -300,7 +300,7 @@ $("#ifram").hide();
 $("#searchresults").hide();
 
 
-window.history.replaceState(null, null, location.hash.replace(/ux\=(search|bookmark)/mg, ""));
+window.history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, ""));
 
 document.getElementsByClassName("loading2")[0].style.display = 'none'; 
 }
@@ -415,8 +415,9 @@ $("#searchresults").show();
 
     document.getElementById("searchresults").removeAttribute("hidden");
 	document.getElementById("searchresults").classList.remove("rh-hide");
+	if(document.location.href.indexOf("&ux=search")== -1){
 	history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(bookmark)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=search");
-		
+	}	
 		
 		
 }
