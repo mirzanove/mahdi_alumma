@@ -1,9 +1,15 @@
 ﻿
 
 
-$("form").submit(function(event){
+$("#searhcform").submit(function(event){
+
 searchHelp(event, 'searchBoxSearchPage');
 });
+
+/*$("#searhcform").submit(function(event){
+
+searchHelp(event, 'searchBoxSearchPage');
+});*/
 
 
 document.getElementsByClassName("loading2")[0].style.display = 'block';
@@ -167,7 +173,11 @@ function px(input) {
 
 $(document).ready( function (){
 	
+//$(".buttonbarholder").tinyscrollbar();
 
+//new MiniBar('.buttonbarholder');
+
+//.querySelector('.buttonbarholder').fakeScroll();
 	
 $(document).on('click','.nolink',function(){
 

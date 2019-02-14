@@ -27,6 +27,7 @@ return "3";
 <link href="template/Theme3_Black/jqueryui-custom.css" type="text/css" rel="stylesheet" />
 
 
+
 <script type="text/javascript" src="template/scripts/rh.min.js"></script>
 <script type="text/javascript" src="template/scripts/common.min.js"></script>
 <script type="text/javascript" src="template/scripts/layout.min.js"></script>
@@ -59,6 +60,9 @@ return "3";
 <script type="text/javascript" src="template/scripts/tabpanels.js"></script>
 
 <script type="text/javascript" src="clientscript/xregexp-all.js"></script>
+
+
+
 
 <script type="text/javascript" >
 gTopicFrameName = "rh_default_topic_frame_name";
@@ -106,28 +110,6 @@ gTocUrlIconStyle = "";
 </script>
 
 <style>
-
-
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-
 
 .exthtml{
 display:none;
@@ -774,7 +756,7 @@ margin:0;
 	<span id="clear" class="clear title="Clear">x</span>
      </td>  
      <td style="width:2em;">
-		<a style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">		<img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
+	 <a style="float:left" onclick="searchHelp(null, 'searchBoxSearchPage')" href="#"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0" /></a> 
      </a>
      </td>
 	 </tr>
@@ -899,7 +881,7 @@ margin:0;
 </div>
 
 <div class="buttonbar">
-	<div class="buttonbarholder" style="overflow-y:auto;width:100%">
+	<div  class="buttonbarholder" style="overflow-y:auto">
 		
 		<div>
 			<a onclick="get_link_url();" target="_top" style = "background-image:url('template/resources/close.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
@@ -940,11 +922,14 @@ margin:0;
 
 <script type="text/javascript" src="template/Theme3_Black/jquery.js"></script>
 <script type="text/javascript" src="template/Theme3_Black/jqueryui-custom.js"></script>
-<script type="text/javascript" src="template/Theme3_Black/overthrow.min.js"></script>
-<script type="text/javascript" src="template/Theme3_Black/overthrow.sidescroller.min.js"></script>
+
 
 <script type="text/javascript" src="template/Theme3_Black/dragscroll.js"></script>
 <script type="text/javascript" src="template/Theme3_Black/layout.js"></script>
+<!--
+<link rel="stylesheet" href="template/Theme3_Black/fakescroll.css">
+<script src="template/Theme3_Black/fakescroll.js"></script>
+
 <!--<script src="template/exjs/classList.js"></script>-->
 <script type="text/javascript">//<![CDATA[
 $(function(){

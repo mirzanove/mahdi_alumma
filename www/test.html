@@ -1,55 +1,22 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
- 
+ <link rel="stylesheet" href="template/Theme3_Black/perfect-scrollbar.css">
+<script src="template/Theme3_Black/perfect-scrollbar.js"></script>
 <style>
 
 
-.searchbar{
- background: #3f4344;
-padding:7px; 
-border-radius: 1em;
+#container {
+  position: relative;
+  width: 480px;
+  height: 320px;
+  overflow: auto;
 }
 
-.searchform{
-padding:0;
-margin:0;
+#container .content {
+  background-image: url('https://i.imgur.com/nAUUNzH.jpg');
+  width: 1280px;
+  height: 720px;
 }
-.clear {
-    position: relative;
-    float: left;
-    height: 20px;
-    width: 20px;
-    border-radius: 20px;
-    background: #676767;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-	  visibility:hidden;
-}
-.searchinput{
-position: relative;
-width:100%;
-border:none;
-
-  outline:none;
-  padding:0 0;
-  margin:0 0;
-  font-size: 135%;
-  max-height: 1em;
-}
-
-
-table {
-  border-collapse: collapse;
-
-  overflow: hidden;
-}
-
-th, td {
-padding:2px;
-}
-
 
 
 
@@ -59,61 +26,15 @@ padding:2px;
 
 <body dir ="rtl">
 
-<div id="search_header" class="searchbar">
-<iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
-<form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
-	<table style="width:100%" border="0" width="100%">
-	  
-	  <tbody>
-	  <tr>
-	 
-	 <td style="width:2em;display:none;" >
-
-		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
-     </td>
-	 
-	
- 
-	 <td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
-
-	<input id="wSearchField" autocomplete="on" class="wSearchField searchinput" type="text" data-type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search" data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)" placeholder="بحث">
-  
-	 </td>
-	  
-	 <td style="width:1em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;" >
-	<span id="clear" class="clear title="Clear">x</span>
-     </td>  
-     <td style="width:2em;">
-		<a class="wSearchLink" data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">		<img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
-     </a>
-
-		
-     </td>
-     
-	 
-	 </tr>
-	  
-   </tbody>
-   </table>
-</form>	 
+<div id="container">
+  <div class="content"></div>
 </div>
 </body>
 
 <script>
 
 (function() {
-	var searchForm = document.getElementById('search-form'),
-		textInput = document.getElementById('wSearchField'),
-		clearBtn = document.getElementById('clear');
-	textInput.onkeyup = function() {
-		// Show the clear button if text input value is not empty
-		clearBtn.style.visibility = (this.value.length) ? "visible" : "hidden";
-	};
-	// Hide the clear button on click, and reset the input value
-	clearBtn.onclick = function() {
-		this.style.visibility = "hidden";
-		textInput.value = "";
-	};
+var ps = new PerfectScrollbar('#container');
 })();
 
 </script>
