@@ -174,11 +174,20 @@ function px(input) {
 $(document).ready( function (){
 	
 $(window).on('hashchange', function() {
-
  
-		 window.location.hash = window.location.hash;
+ if (window.location.hash.includes('&ux=search')) { 
+       //alert(window.location.hash);
+		
+  }
+ else if (window.location.hash.includes('&ux=bookmark')) { 
+      // alert(window.location.hash);
+		
+  }
+  else{
+	   
+	   window.location.hash = window.location.hash;
 		 go_topic(null);
-
+  }
  
  
 });	
