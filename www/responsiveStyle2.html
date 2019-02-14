@@ -527,7 +527,7 @@ margin:0;
 			
 		<table class="headertable">
 				<tr>
-					<td class="logo"><a href="index.php.htm" onclick='go_topic();' class="homelink"><img src="template/Theme3_Black/logo.png" alt="Logo" id="wLogoImage" style="border: none;" border="0" /></a> </td>
+					<td class="logo"><a href="index.php.htm" onclick='go_topic(event);' class="homelink"><img src="template/Theme3_Black/logo.png" alt="Logo" id="wLogoImage" style="border: none;" border="0" /></a> </td>
 					
 					
 					
@@ -633,15 +633,15 @@ margin:0;
 					<a href="index.php.htm"><img src="template/Theme3_Black/home.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/home_hover.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
 				</div>
 				
-				<div class="home" onclick='go_topic();'>
+				<div class="home" onclick='go_topic(event);'>
 					<img src="template/Theme3_Black/icon_back_small2.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/icon_back_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" />
 				</div>
 				
-				<div class="home" onclick="setTopic();go_search()">
+				<div class="home" onclick="setTopic();go_search(event);return false">
 					<img src="template/Theme3_Black/search_buttonbar_small.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/search_hover_buttonbar_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" />
 				</div>
 
-				<div class="home" title="bookmark" onclick="go_bookmark();">
+				<div class="home" title="bookmark" onclick="go_bookmark(event);">
 			    
                            <img src="template/Theme3_Black/index_buttonbar.png" alt=""  id="booknormal" border="0" />
 				
@@ -886,18 +886,18 @@ margin:0;
 			<a onclick="MyFunction();return false;" target="_top" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
 		</div>
 		
-		<div class="bar_topic" id = "test" onclick='go_topic();'>
+		<div class="bar_topic" id = "test" onclick='go_topic(event);'>
 			
 		</div>
        
 		
 		
-		<div class="bar_search" title="Search" onclick="setTopic();go_search()">
+		<div class="bar_search" title="Search" onclick="setTopic();go_search(event);return false">
 			<!--<a data-attr="href: '#ux=search'" onclick="setTopic();go_search()">&#160;</a>-->
 		</div>
 		
 		
-		<div id ="bookm" class="bar_index" title="bookmark" onclick="go_bookmark();">
+		<div id ="bookm" class="bar_index" title="bookmark" onclick="go_bookmark(event);">
 			<!--<a data-attr="href: '#ux=bookmark'" onclick=""></a>-->
 			
 		</div>

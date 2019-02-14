@@ -240,7 +240,7 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 		strHoverEvents += " onmouseover=\"onSearchItemHover(this,'" + gSearchResTitleClassHover + "')\" ";
 		strHoverEvents += " onmouseout=\"onSearchItemHoverOut(this,'" + gSearchResTitleClassName + "')\"";
 	}
-	var anchorStartTag = "<a onclick=\"go_topic();\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl+'&hit=null'+ "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
+	var anchorStartTag = "<a onclick=\"go_topic(event);\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl+'&hit=null'+ "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
 	
 	
 	var title = anchorStartTag ;
