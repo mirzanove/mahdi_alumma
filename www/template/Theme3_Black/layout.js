@@ -211,7 +211,7 @@ else{
 	
 $(document).on('click','.nolink',function(){
 
-
+//jomart
      document.getElementsByClassName("loading2")[0].style.display = 'block';
 	 var $links = $('.nolink');
 	 //$(this).css("background-color", "yellow");
