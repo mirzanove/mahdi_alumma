@@ -106,6 +106,29 @@ gTocUrlIconStyle = "";
 </script>
 
 <style>
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+
 .exthtml{
 display:none;
 }
@@ -876,7 +899,7 @@ margin:0;
 </div>
 
 <div class="buttonbar">
-	<div class="buttonbarholder" style="overflow:auto;width:100%">
+	<div class="buttonbarholder" style="overflow-y:auto;width:100%">
 		
 		<div>
 			<a onclick="get_link_url();" target="_top" style = "background-image:url('template/resources/close.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
