@@ -59,8 +59,8 @@ function doSearch()
 {
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 
-	
-	
+
+
 	
 	
 	//jomart
@@ -69,7 +69,8 @@ function doSearch()
     
 	
 	if(getbooleanindexopage()==3) {
-	
+	 document.getElementById("searhcform").submit();
+	showclear();
      document.getElementById("conpag").className = "container rh-hide";
 	 document.getElementById("searchMsgg").className = "rh-hide";
 	 document.getElementById("pages_bar_note").className = "rh-hide";
@@ -80,6 +81,19 @@ function doSearch()
 	else{
 	
 	removeClass(document.getElementById("stop"),"rh-hide");
+	
+	var textInput = document.getElementById('wSearch'),
+		clearBtn = document.getElementById('clear');
+if(clearBtn){
+	
+if (textInput.value.length > 1) {
+       clearBtn.style.visibility =  "visible" ;
+     }
+	 
+}
+	
+	 
+	 document.getElementById("searhcform").submit();
 	
 	}
 	}

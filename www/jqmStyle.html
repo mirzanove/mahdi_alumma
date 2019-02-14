@@ -8,7 +8,6 @@
 <title>تطبيق موسوعة نون</title>
 
 <script type="text/javascript"> 
-
 function getbooleanindexopage(){
 return "1";
 }
@@ -22,20 +21,23 @@ function MyFunction(){
 	document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",str], "*");
 	
 	//location.href =str.replace("/jqmStyle.html", "/index.html");
-
 //location.href = "index.html";
 }
 function get_link_url(){
-
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
 }
 </script>
 <style>
+
+
+.hidesaerchico:after {
+  content: none !important;
+}
+
 .exthtml{
 display:none;
 }
-
 a[data-icon="mapa"].ui-icon-mapa {
     background-image: url("template/resources/style2.png") !important;
     height: 100%;
@@ -46,7 +48,6 @@ a[data-icon="mapa"].ui-icon-mapa {
     box-shadow: none;
 	
 }
-
 a[data-icon="mapa2"].ui-icon-mapa2 {
     background-image: url("template/resources/close.png") !important;
     height: 100%;
@@ -69,7 +70,6 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
 	width: 100%;
 	z-index :159;
   }
-
 /* The Modal (background) */
 .modal {
     /* Hidden by default */
@@ -84,17 +84,13 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
     /*background-color: rgb(0,0,0); /* Fallback color */
     background-color: grey; /* Black w/ opacity */
 }
-
 /* Modal Content (image) */
 .modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
-
 }
-
-
 /* The Close Button */
 /* The Close Button */
 .close {
@@ -110,7 +106,6 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
 	border-style: solid;
     border-color: white;
 }
-
 .close:hover,
 .close:focus {
     color: #bbb;
@@ -125,7 +120,6 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
 body #men {
    position:relative !important;
    _position: absolute; /*ie6 and above*/
-
    border: 1px solid black; 
    background: rgb(219, 219, 0) none repeat scroll 0% 0%; 
    opacity: 1; 
@@ -136,26 +130,18 @@ body #men {
    z-index: 9; 
    left: 50%;
    top: 10%;
-
    margin-left: -50px;
    margin-right: 50px;
-
 }
-
 .curr{
 background-color: #cfd0d3;
-
 }
-
 .curr2{
 background-color: #cfd0d3;
 }
-
 .curr2 img{
-
 width:20px;
 }
-
 .btn {
     text-shadow:0 0 0!important;
     display: inline-block;
@@ -164,31 +150,24 @@ width:20px;
     border-radius: 4px;
 	color: black!important;
 }
-
 .btn-danger {
 text-decoration: none;
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
 }
-
 .btn-info {
 text-decoration: none;
     color: #fff;
     background-color: #5bc0de;
     border-color: #46b8da;
 }
-
-
 .well{
 padding:5px;
 color:black;
 font-size: 120%;
 font-weight:bold;
-
 }
-
-
 .form-control {
     display: block;
     width: 100%;
@@ -207,25 +186,17 @@ font-weight:bold;
     -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
-
-
 .form-group {
     margin-bottom: 15px;
 	text-align: center;
 }
-
-
 .star_yellow
 {
-
 background-image: url("jqmlib/themes/default/images/icons-png/star-yellow.png")!important;
 background-position: center 40% !important;
 background-repeat: no-repeat !important;
  
 }
-
-
-
 </style>
 
   
@@ -241,7 +212,6 @@ $(document).on("mobileinit", function(){
 		$.mobile.hashListeningEnabled = false; 
              
 });
-
  
  </script>
   
@@ -399,6 +369,8 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 
 
 <div id ="search_header" data-role="header" >
+<iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
+<form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
 	<table style='width:100%'>
 	  
 	  <tr>
@@ -423,7 +395,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
      </form>
 	 
 	 </tr>
-	  
+</form>	 	  
    </table>
 	 
 	  
@@ -501,13 +473,13 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 <form id="bookmarksForm"  onsubmit="return false">
 			<div class="form-group">
 			    <label style ="font-weight:bold; color:black;">عنوان الموضوع:</label>
-			    <input type="search" class="form-control" autocomplete="off" id="websiteName" placeholder="عنوان الموضوع">
+			    <input style= "padding-right: 0.75em !important;" type="search" class="form-control" autocomplete="off" id="websiteName" placeholder="عنوان الموضوع">
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
-			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			    <input  type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
-			 <center><button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
+			 <center><button id ="bookit" type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
 			 
 			 
 		</form> 
@@ -610,13 +582,9 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 </div>
 
 <script>
-
 var link_disable = false;
 var elts = document.getElementsByTagName('div');
-
-
 $(document).on( "pagecontainershow", function(){
-
    ScaleContentToDevice();
     
     $(window).on("resize orientationchange", function(){
@@ -624,92 +592,60 @@ $(document).on( "pagecontainershow", function(){
 	 ScaleContentToDevice();
     })
 });
-
-
-
-
 function ScaleContentToDevice(){
  
 	scroll(0, 0);
-
 	if(!$('#one').hasClass("hide"))
     {
 	
 var screen = $.mobile.getScreenHeight();
-
 var header = $("#home_header").hasClass("ui-header-fixed") ? $("#home_header").outerHeight() - 1 : $("#home_header").outerHeight();
-
 var footer = $("#home_footer").hasClass("ui-footer-fixed") ? $("#home_footer").outerHeight() - 1 : $("#home_footer").outerHeight();
-
 var contentCurrent = $(".ui-contentt").outerHeight() - $(".ui-contentt").height();
-
 var content = screen - header - footer - contentCurrent;
-
 $(".ui-contentt").height(content);
 	
     }
 else if(!$('#two').hasClass("hide")){
 	
 var screen = $.mobile.getScreenHeight();
-
 var header = $("#toc_header").hasClass("ui-header-fixed") ? $("#toc_header").outerHeight() - 1 : $("#toc_header").outerHeight();
-
 var footer = $("#toc_footer").hasClass("ui-footer-fixed") ? $("#toc_footer").outerHeight() - 1 : $("#toc_footer").outerHeight();
-
 var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
-
 var content = screen - header - footer - contentCurrent;
-
 $(".ui-content").height(content);
 	
 	
 	}
 else if(!$('#three').hasClass("hide")){
-
 var screen = $.mobile.getScreenHeight();
-
 var header = $("#search_header").hasClass("ui-header-fixed") ? $("#search_header").outerHeight() - 1 : $("#search_header").outerHeight();
-
 var footer = $("#search_footer").hasClass("ui-footer-fixed") ? $("#search_footer").outerHeight() - 1 : $("#search_footer").outerHeight();
-
 var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
-
 var content = screen - header - footer - contentCurrent;
-
 $(".ui-content").height(content);
-
 	}
 }
-
-
-
-
-
 $(document).ready(function(){
+
+$("#websiteName").parent(".ui-input-search").addClass('hidesaerchico');
 
 
 $(document).on('click','.wSearchResultTitle',function(){
-
 	 var $links = $('.wSearchResultTitle');
 	 $links.removeClass('curr');
 	 $(this).addClass('curr');
 	 
 })
-
-
 var show = function() { 
-
 //alert(link_disable); 
 if(link_disable == true){
 			return false;
 		}
-
 }
 for (var i = elts.length - 1; i >= 0; --i) {
     elts[i].onclick = show;
 }
-
-
  
 //alert(document.location.href.includes("&checkbox=0"));
  
@@ -717,23 +653,14 @@ if (document.location.href.indexOf("&checkbox=00")!= -1){
 $('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
 $('#checkbox_id0').prop('checked', true).checkboxradio('refresh');
 $('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
-
 $('#checkbox_id4').prop('checked', true).checkboxradio('refresh');
-
 }
-
-
 if (document.location.href.indexOf("&checkbox=01")!= -1){
 $('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
 $('#checkbox_id0').prop('checked', true).checkboxradio('refresh');
 $('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
-
 $('#checkbox_id4').prop('checked', false).checkboxradio('refresh');
-
 }
-
-
-
 if (document.location.href.indexOf("&checkbox=1")!= -1){
 $('#checkbox_id1').prop('checked', true).checkboxradio('refresh');
 $('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
@@ -744,41 +671,29 @@ if (document.location.href.indexOf("&checkbox=20")!= -1){
 $('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
 $('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
 $('#checkbox_id2').prop('checked', true).checkboxradio('refresh');
-
 $('#checkbox_id4').prop('checked', true).checkboxradio('refresh');
 }  
-
 if (document.location.href.indexOf("&checkbox=21")!= -1){
 $('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
 $('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
 $('#checkbox_id2').prop('checked', true).checkboxradio('refresh');
-
 $('#checkbox_id4').prop('checked', false).checkboxradio('refresh');
 }  
  
  
  
 if (document.getElementById("checkbox_id1").checked){
-
 $('#checkbox_id4').checkboxradio('disable');
-
 }
 else{
-
 $('#checkbox_id4').checkboxradio('enable');
-
 }
-
 $('#checkbox_id1').on('click', function () {
   $('#checkbox_id4').checkboxradio('disable');
 });
-
 $('#checkbox_id0,#checkbox_id2').on('click', function () {
   $('#checkbox_id4').checkboxradio('enable');
 });
-
-
-
 	   $("div.toc-holder li").removeClass("ui-li-static").removeClass("ui-body-inherit").removeClass("ui-last-child");
 		
 		 $(".close").on("vclick", function(){
@@ -795,33 +710,23 @@ $('#checkbox_id0,#checkbox_id2').on('click', function () {
 	
 		
 });//end ready
-
-
 function  go_topic(){
-
 }
-
-
-
 var content = document.getElementById('two');
 function scrollTo_up(){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 content.scrollTop = 0;
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
-
 }
 function scrollTo_down(){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 content.scrollTop = content.scrollHeight;
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
-
-
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 eventer(messageEvent,function(e) {
-
     var eventName = e.data[0];
     var data = e.data[1];
 	var data2 = e.data[2];
@@ -904,13 +809,11 @@ eventer(messageEvent,function(e) {
 	if(lsTest() === true){
 	document.getElementById("websiteName").value = data; 
 	document.getElementById("websiteUrl").value = data2;
-
 	
 	 if(localStorage.getItem('bookmarks') != null){
 	 	   
 		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
 	        
-
 			
 			if(bookmarks.length == "0"){
 			
@@ -921,7 +824,6 @@ eventer(messageEvent,function(e) {
 			else{
 			
 			for(var i = 0; i < bookmarks.length; i++){
-
 			 
 		    if(bookmarks[i].url == get_current_url(data2)){
 			   
@@ -932,10 +834,8 @@ eventer(messageEvent,function(e) {
                       if(href.substr(href.indexOf('#')) === "#two"){
 					    $(this).removeClass('ui-icon-star').addClass("star_yellow");
 					  }
-
                });
 			   $(".toc_footer").removeClass('ui-icon-star').addClass("star_yellow");
-
 			   break;
 		    }
 			else{
@@ -962,15 +862,10 @@ eventer(messageEvent,function(e) {
 	break;
 	
   }
-
 },false);
-
-
-
 </script> 
 
 <script>
-
 </script>
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>

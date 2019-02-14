@@ -63,6 +63,9 @@ setTimeout(function() {
 
 }
 }
+
+
+
 	
 </script>
 
@@ -316,25 +319,65 @@ background-repeat: no-repeat !important;
 }
 
  
-.form-wrapper input {
-    height: 100%;
-    width: 100%;
-    float: left;   
-    color: #000;
-    height: 2.2em !important;
-	height: 3em;
-    max-height: 3em;
-    font-size: 100%;
-    -webkit-appearance: none;
-	
-	
+ 
+ 
+.search-bar{
+padding:2px;
+margin:0;
+background:grey!important;
 }
 
-.input-wrapper2 {
-   
-	padding:5px!important;
+
+.searchform{
+padding:2px;
+margin:0;
+background:grey;
 }
- 
+
+
+.clear
+ {
+	
+    position: relative;
+    float: left;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background: grey;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+	visibility:hidden;
+
+}
+
+
+.searchinput{
+position: relative;
+width:99%;
+border:none;
+float:left;
+  outline:none;
+  padding:0 0;
+  margin:0 0;
+  font-size: 100%;
+  height: 2em;
+}
+
+
+
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+
+
+th, td {
+padding:0;
+margin:0;
+} 
 
 </style>
 <link rel="SHORTCUT ICON" href="87px.png" />
@@ -421,19 +464,29 @@ background-repeat: no-repeat !important;
  <form id="bookmarksForm"  onsubmit="return false">
 			 <center>
 			 <label class = "bookmarktitle" style ="font-weight:bold;">عنوان الموضوع:</label>
-			<div class="form-group form-wrapper">
-			   
-			   <div class="input-wrapper2">
-                    <input style ="width:100%;" type="search" autocomplete="off" class="form-control2" id="websiteName" placeholder="عنوان الموضوع"/>
-                </div>
-			 </div>
+			 <div style = "padding:4px;" class="search-bar">
+                    <table style="width:100%" border="0" width="100%">
+	                <tbody>
+					<td style="width:2em;display:none;" >
+		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
+     </td>
+					<td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+					<input style ="border-radius: 10px;" oninput="showclear2(this)" type="text" autocomplete="off" class="searchinput" id="websiteName" placeholder="عنوان الموضوع"/>
+                   </td>
+				   <td style="background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;width:2em;">
+		            <span id="clear2" class="clear" title="Clear">x</span>
+                   </a>
+                 </td>
+               </tbody>
+               </table>
+			   </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
-			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			    <input  autocomplete="off" type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
 			 <br>
 			  <br>
-			 <button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
+			 <button id ="bookit" type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
 			 </center>
 			 
 			 
@@ -491,12 +544,39 @@ background-repeat: no-repeat !important;
 <!-- Search field -->
 <div class="searchbar left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="searchpage-mode, layout-visible: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content';">
 	<div class="mobileheader"><span data-text="@KEY_LNG.SearchPageTitle"></span><div class="totopic" data-if="@KEY_ACTIVE_TAB == 'fts'" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
-	
-	
-	<table style='width:100%'>
+<div id="search_header" class="search-bar">	
+<iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
+<form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
+	<table style="width:100%" border="0" width="100%">
+	  <tbody>
+	  <tr>
+	 <td style="width:2em;display:none;" >
+
+		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
+     </td>
+	 <td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+
+	<input style ="outline: none !important;"id="wSearch" autocomplete="on" class="wSearchField searchinput" type="text" data-type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search" data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)" placeholder="بحث">
+  
+	 </td>
+	  
+	 <td style="width:1em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;" >
+	<span id="clear" class="clear title="Clear">x</span>
+     </td>  
+     <td style="width:2em;">
+		<a style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">		<img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
+     </a>
+     </td>
+	 </tr>
+   </tbody>
+   </table>
+</form>	 
+</div>
+
+<table style='display:none;width:100%'>
      <tr>
 	 <td style="margin:0;padding:0">
-	 <input style='width:100%' autocomplete="on" id = "wSearchField" class="wSearchField" type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	 <input style='outline: none;width:100%' autocomplete="on" id = "wSearchField" class="wSearchField" type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>
 	 </td>
      <td style='width:2.5em;margin:0;padding:0'>
@@ -504,10 +584,13 @@ background-repeat: no-repeat !important;
      </td>
 	 </tr>
    </table>
+
+
+	
 	</div>
 <!-- Search results -->
-<div style ="-webkit-overflow-scrolling: touch;" class="searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(false) | debounce: 50, delta: 100">
-	
+<div id="three" style ="-webkit-overflow-scrolling: touch;" class="clusterize-scroll searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(false) | debounce: 50, delta: 100">
+
 	<label for="checkbox_id1">
     <input onchange="toggleCheckbox('checkbox_id1')" type="radio" value="1" name="genderS" id="checkbox_id1" checked> 
 	<span>&nbsp;عرض نتائج البحث مطابق للكلمات&nbsp;&nbsp;</span>
@@ -531,7 +614,7 @@ background-repeat: no-repeat !important;
 	<span>&nbsp;البحث عن الكلمات المستبعدة ايضا..&nbsp;&nbsp;</span>
     </label>
 	
-	
+ 
 	
 	<div class="wSearchResults" id="searchresults">
 		<div class="wSearchResultSettings rh-hide">
@@ -539,9 +622,11 @@ background-repeat: no-repeat !important;
 				<input id="highlightsearch" type="checkbox" checked="" class="wSearchHighlight" onclick="onToggleHighlightSearch()" />
 			</div>
 		</div>
+		<hr>
 		<div id ="wSearchMessage" class="wSearchMessage" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<span id="searchMsg" class="wSearchMessage"></span>
 		</div>
+		<br>
 		<div id ="loading" data-class="loading: EVT_SEARCH_IN_PROGRESS" data-if="EVT_SEARCH_IN_PROGRESS"></div>
 		<p style = "text-align:center" id = "progressbar" class="progressbar" data-if="KEY_SEARCH_PROGRESS"><span data-text="KEY_SEARCH_PROGRESS"></span>%<br></p>
 		<CENTER><P style = "cursor: pointer" class = "rh-hide" id ="stop" onclick="context.stop();">إلغاء</P></CENTER>
@@ -564,9 +649,18 @@ background-repeat: no-repeat !important;
 				</div>
 			</div>
 		</div>
-		<div data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" class="wSearchResultsEnd">
+		
+		 <div id="contentArea" class="clusterize-content">
+    <div class="clusterize-no-data"></div>
+  </div>
+		
+		<div id = "foundresult" hidden>
 			<span>نهاية نتائج البحث</span>
 		</div>
+		
+	<!--<div data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" class="wSearchResultsEnd">
+			<span>نهاية نتائج البحث</span>
+		</div>-->
 	</div>
 </div>
 <!-- Topics -->
@@ -777,6 +871,59 @@ setTimeout(function() {
 }
 
 
+(function() {
+
+
+
+	var textInput = document.getElementById('wSearch'),textInput2 = document.getElementById('websiteName'),
+		clearBtn = document.getElementById('clear'),clearBtn2 = document.getElementById('clear2');
+	
+	// Hide the clear button on click, and reset the input value
+	clearBtn.onclick = function() {
+		this.style.visibility = "hidden";
+		textInput.value = "";
+	};
+	
+	clearBtn2.onclick = function() {
+		this.style.visibility = "hidden";
+		textInput2.value = "";
+	};
+	
+	if (textInput.value.length > 1) {
+       clearBtn.style.visibility =  "visible" ;
+     }
+	 
+	
+})();
+
+
+function showclear2(input) {
+
+var textInput = document.getElementById('websiteName'),
+		clearBtn2 = document.getElementById('clear2');
+		
+if (document.getElementById("websiteName").value.length >= 1) {
+
+		if(clearBtn2){
+			
+				clearBtn2.style.visibility = (textInput.value.length) ? "visible" : "hidden";
+		}     
+}
+
+if (document.getElementById("websiteName").value.length < 1) {
+
+		if(clearBtn2){
+			
+				clearBtn2.style.visibility =  "hidden";
+		} 
+	 
+}
+
+
+}
+
+
+
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
@@ -845,7 +992,7 @@ if(lsTest() === true){
 
     document.getElementById("websiteName").value = data; 
 	document.getElementById("websiteUrl").value = data2;
-	
+	showclear2();
     if(localStorage.getItem('bookmarks') != null){
 	 	   
 		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));

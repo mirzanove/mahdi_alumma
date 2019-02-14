@@ -7,10 +7,10 @@ var isIE = /*@cc_on!@*/false || !!document.documentMode, // Internet Explorer 6-
 
 
 
-if(document.getElementById('bookmarksForm')){
+if(document.getElementById('bookit')){
 
 // listen for form submit
-document.getElementById('bookmarksForm').addEventListener('submit', saveBookmark);	
+document.getElementById('bookit').addEventListener('click', saveBookmark);	
 	
 }
 
@@ -18,6 +18,7 @@ document.getElementById('bookmarksForm').addEventListener('submit', saveBookmark
 
 
 function saveBookmark(e){
+	
 	// get form values
 	var websiteName = document.getElementById('websiteName').value;
 	var websiteUrl = document.getElementById('websiteUrl').value;	

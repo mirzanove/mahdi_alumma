@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=100%, initial-scale=1" />
 <meta name="generator" content="Adobe RoboHelp 11" />
 <title>تطبيق موسوعة نون</title>
-
+<script>history.scrollRestoration = "manual"</script>
 <script type="text/javascript"> 
 var frame_loaded;
 
@@ -444,81 +444,66 @@ background-repeat: no-repeat !important;
 }
 
 
-#searchbar {
+.search-bar{
+padding:2px;
+margin:0;
+background:grey!important;
+}
+
+
+.searchform{
+padding:2px;
+margin:0;
+background:grey;
+}
+
+
+.clear
+ {
+	
     position: relative;
-    top: 20px;
-    left: 0;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    float: left;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    background: grey;
+    color: white;
+    font-weight: bold;
     text-align: center;
-}
-
-.input-wrapper {
-    position: absolute;
-    right: 60px;
-    left: 0px;
-    top : 0px;
-    bottom: 0px;
-}
-
-.input-wrapper2 {
-    position: absolute;
-    right: 0px;
-    left: 0px;
-    top : 0px;
-    bottom: 0px;
-	padding:5px!important;
-}
-
-/* Form wrapper styling */
-.form-wrapper {
-     position: relative;
-    left: 0px;
-    top: 0px;
-	bottom:0px;
-    width: 100%;
-    height: 40px;
-    display: inline-block;
-	
-}
- 
-.form-wrapper input {
-    height: 100%;
-    width: 100%;
-    float: left;   
-    color: #000;
-    height: 2.2em !important;
-	    height: 3em;
-    max-height: 3em;
-         
-	 font-size: 100%;
-    -webkit-appearance: none;
-	
-	
-}
- 
-/* Form submit button */
-.form-wrapper button {
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    overflow: visible;
-
-    
-    border: 0;
-    padding: 0;
     cursor: pointer;
-    height: 37px;
-    width: 60px;
-    color: #ffffff;
-    background: #676767;
-}  
-   
+	visibility:hidden;
+
+}
+
+
+.searchinput{
+position: relative;
+width:100%;
+border:none;
+
+  outline:none;
+  padding:0 0;
+  margin:0 0;
+  font-size: 100%;
+  height: 2em;
+}
+
+
+
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+
+
+th, td {
+padding:0;
+margin:0;
+} 
+
+
  
-.form-wrapper button::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
-    border: 0;
-    
 </style>
 
 
@@ -648,18 +633,18 @@ background-repeat: no-repeat !important;
 					<a href="index.php.htm"><img src="template/Theme3_Black/home.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/home_hover.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
 				</div>
 				
-				<div class="home">
-					<a onclick='go_topic(); location.href= location.href.replace(/(.*?)\&ux\=(search|bookmark)(.*?)(&([^"]*)|$)/mg, "$1");'><img src="template/Theme3_Black/icon_back_small2.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/icon_back_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
+				<div class="home" onclick='go_topic();'>
+					<img src="template/Theme3_Black/icon_back_small2.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/icon_back_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" />
 				</div>
 				
-				<div class="home">
-					<a data-attr="href: '#ux=search'" onclick="setTopic();go_search()"><img src="template/Theme3_Black/search_buttonbar_small.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/search_hover_buttonbar_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" /></a> 
+				<div class="home" onclick="setTopic();go_search()">
+					<img src="template/Theme3_Black/search_buttonbar_small.png" alt="" class="homebutton normal" id="xmlEditorHomeButton" border="0" /><img src="template/Theme3_Black/search_hover_buttonbar_small.png" alt="" class="homebutton hover" id="xmlEditorHomeButtonHover" border="0" />
 				</div>
 
 				<div class="home" title="bookmark" onclick="go_bookmark();">
-			       <a data-attr="href: '#ux=bookmark'" onclick="">
+			    
                            <img src="template/Theme3_Black/index_buttonbar.png" alt=""  id="booknormal" border="0" />
-				   </a>
+				
 		       </div>
 
 				
@@ -708,15 +693,25 @@ background-repeat: no-repeat !important;
 			 </div>
 			<div class="form-wrapper form-group">
 			   
-			   <div class="input-wrapper2">
-                    <input type="search" autocomplete="off" class="form-control2" id="websiteName" placeholder="عنوان الموضوع"/>
-                </div>
+			   <div style = "padding:4px;" class="search-bar">
+                    <table style="width:100%" border="0" width="100%">
+	                <tbody>
+					<td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+					<input oninput="showclear2(this)" type="text" autocomplete="off" class="searchinput" id="websiteName" placeholder="عنوان الموضوع"/>
+                   </td>
+				   <td style="width:1em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;width:2em;">
+		            <span id="clear2" class="clear" title="Clear">x</span>
+                   </a>
+                 </td>
+               </tbody>
+               </table>
+			   </div>
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
-			    <input type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			    <input autocomplete="off" type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
-			 <button type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
+			 <button id ="bookit" type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button>
 			 </center>
 			 
 			 
@@ -731,18 +726,43 @@ background-repeat: no-repeat !important;
 				
 				<div class="wSearchResults rh-hide" id="searchresults" data-if="@.l.uimode=='search'" dir ="rtl">
 
-						<div class="wSearchField">
+			
 						
-						  <div id="searchbar">
-            <form class="form-wrapper">
-                <div class="input-wrapper">
-                    <input autocomplete="on" class="wSearchField" id="searchBoxSearchPage"  type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBoxSearchPage')" data-search="true"/>
-                </div>
-<button onclick="searchHelp(null, 'searchBoxSearchPage')" href="#" type="submit"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0" /></button>
-            </form>
-        </div>	 
-						</div>
-		
+						
+
+						
+					<div dir="rtl" class="search-bar">	
+
+<iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
+<form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
+	<table style="width:100%" border="0" width="100%">
+	  <tbody>
+	  <tr>
+	 <td style="width:2em;display:none;" >
+
+		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
+     </td>
+	 <td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+
+  <input  placeholder="بحث" id="searchBoxSearchPage" class="wSearchField searchinput" style ="outline: none !important;" name="user" type="text" id="searchBoxSearchPage" oninput="showclear(this)" autocomplete="on" data-search="true">
+	 </td>
+	  
+	 <td style="width:1em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;" >
+	<span id="clear" class="clear title="Clear">x</span>
+     </td>  
+     <td style="width:2em;">
+		<a style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">		<img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
+     </a>
+     </td>
+	 </tr>
+   </tbody>
+   </table>
+</form>	 
+</div>	
+						
+						
+
+<br>		
 				
 
 					<div class="cSearchSettingsToggle">
@@ -751,6 +771,9 @@ background-repeat: no-repeat !important;
 					<div class="wSearchResultSettings">
 	
 	<br>
+	
+
+	
 	
 	<div class="cSearchAND">	
 	<div class="switch2">				
@@ -814,6 +837,10 @@ background-repeat: no-repeat !important;
 </div>
 <hr>
 
+
+
+
+
 					<div class="wSearchMessage rh-hide" id = "searchMsgg">
 						<span id="searchMsg" class="wSearchMessage"></span> 
 						<br>
@@ -821,6 +848,9 @@ background-repeat: no-repeat !important;
 					</div>
 					
 
+				
+					
+					
 				
 <div id="searchResList"></div>
 			
@@ -855,18 +885,21 @@ background-repeat: no-repeat !important;
 		<div>
 			<a onclick="MyFunction();return false;" target="_top" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
 		</div>
-		<div data-class="bar_topic_active: !@.l.uimode; bar_topic: @.l.uimode">
-			<a onclick='go_topic();location.href= location.href.replace(/(.*?)\&ux\=(search|bookmark)(.*?)(&([^"]*)|$)/mg, "$1");'>&#160;</a>
+		
+		<div class="bar_topic" id = "test" onclick='go_topic();'>
+			
 		</div>
        
 		
-		<div class="bar_search" title="Search">
-			<a data-attr="href: '#ux=search'" onclick="setTopic();go_search()">&#160;</a>
+		
+		<div class="bar_search" title="Search" onclick="setTopic();go_search()">
+			<!--<a data-attr="href: '#ux=search'" onclick="setTopic();go_search()">&#160;</a>-->
 		</div>
 		
 		
-		<div class="bar_index" title="bookmark" onclick="go_bookmark();">
-			<a data-attr="href: '#ux=bookmark'" onclick=""></a>
+		<div id ="bookm" class="bar_index" title="bookmark" onclick="go_bookmark();">
+			<!--<a data-attr="href: '#ux=bookmark'" onclick=""></a>-->
+			
 		</div>
 		
 		

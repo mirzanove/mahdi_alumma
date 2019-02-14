@@ -559,21 +559,21 @@ body.media-mobile div.searchresults.layout-visible p.progressbar, body.media-lan
 }
 body.media-landscape div.searchbar input, body.media-desktop div.searchbar input {
 	/*jomart*/
-    margin: .6em .3em;
+    /*margin: .6em .3em;
 	height: 3em;
-	max-height: 3em;
+	max-height: 3em;*/
 	padding: 0 0 0 0.3em;
 	font-size: 100%;
 	-webkit-appearance: none;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
-	border-radius: 0.5em
+	border-radius: 0.5em*/
 }
 body.media-mobile div.searchbar input
  {
 	/*jomart*/
-	height: 3em;
-	max-height: 3em;
+	/*height: 3em;
+	max-height: 3em;*/
 	padding: 0 0 0 0.3em;
 	font-size: 100%;
 	-webkit-appearance: none;
@@ -840,7 +840,7 @@ body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-m
 }
 body.media-mobile div.idx-holder div.Index input, body.media-mobile div.glo-holder div.Glossary input, body.media-landscape div.idx-holder div.Index input, body.media-landscape div.glo-holder div.Glossary input, body.media-mobile div.searchbar input, body.media-landscape div.searchbar input {
 
-	border-top-width: 0.1em;
+	/*border-top-width: 0.1em;
 	border-top-style: solid;
 	border-top-color: #e6e6e6;
 	border-bottom-width: 0.1em;
@@ -854,15 +854,15 @@ body.media-mobile div.idx-holder div.Index input, body.media-mobile div.glo-hold
 	border-left-color: #e6e6e6;
 	background-color: #fafafa;
 	color: #000;
-	height: 2.2em !important;
+	height: 2.2em !important;*/
 	/*width: 90% !important;*/
 	/*margin: .1em 5% .25em !important*/
 }
 body.media-landscape div.idx-holder input, body.media-landscape div.glo-holder input, body.media-landscape div.searchbar input {
-	margin: .55em 5% 1em !important
+	/*margin: .55em 5% 1em !important*/
 }
 body.media-desktop div.idx-holder div.Index input, body.media-desktop div.glo-holder div.Glossary input, div.searchbar input.wSearchField {
-	border-top-width: 0.1em;
+	/*border-top-width: 0.1em;
 	border-top-style: solid;
 	border-top-color: #232323;
 	border-bottom-width: 0.1em;
@@ -875,7 +875,7 @@ body.media-desktop div.idx-holder div.Index input, body.media-desktop div.glo-ho
 	border-left-style: solid;
 	border-left-color: #232323;
 	background-color: #232323;
-	color: #fff
+	color: #fff*/
 }
 body.media-mobile div.idx-holder div.Index, body.media-mobile div.glo-holder div.Glossary, body.media-landscape div.idx-holder div.Index, body.media-landscape div.glo-holder div.Glossary {
 	color: #575555
