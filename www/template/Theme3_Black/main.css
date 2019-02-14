@@ -174,13 +174,36 @@ div.buttonbarholder {
                      margin:0 auto;
 }
 div.buttonbarholder > div {
-                           width:5em;
-                           height:5em;
-                           margin:0 2em 2em;
+                           width:3.5em;
+                           height:3.5em;
+                           margin:0;
                            padding:0;
                            float:left;
                            cursor:pointer;
 }
+
+
+
+@media screen and (min-width: 43.69em) and (max-width: 59.49em) {
+div.buttonbarholder > div {
+    width: 20%;
+    margin: 0;
+    padding: 0;
+    height: 5em;
+    float: left;
+}
+
+div.buttonbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.5em;
+}
+}
+
+
+
 div.buttonbar div img {
                        max-width:100%;
 }

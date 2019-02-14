@@ -173,6 +173,17 @@ function px(input) {
 
 $(document).ready( function (){
 	
+if($(window).innerWidth() >= em(59.49) && $(window).innerWidth() <= em(80.99)){
+
+			$(".buttonbar").slimScroll({width: '80',
+    height: '100%',
+    position: 'left'});
+}
+else{
+    $(".buttonbar").slimScroll({destroy:true});
+	$(".buttonbar").css("width", "").css("height", "");
+}	
+	
 //$(".buttonbarholder").tinyscrollbar();
 
 //new MiniBar('.buttonbarholder');
@@ -799,6 +810,19 @@ function initializeLayout() {/* This function makes changes to the layout, inclu
 	readSetting(desktopSidebar.lastSideBarWidthSetting, setLastSidebarWidth, false, false);/* Load sidebar width setting */
 	readSetting(sidebarCSHRunCheck, setSidebarCSHRunCheck, false, false);/* Begin the CSH check for the sidebar. Only show/hide the sidebar in CSH mode the first time the help is opened. */
 	$(window).resize(function() {
+		
+if($(window).innerWidth() >= em(59.49) && $(window).innerWidth() <= em(80.99)){
+
+			$(".buttonbar").slimScroll({width: '80',
+    height: '100%',
+    position: 'left'});
+}
+else{
+
+    $(".buttonbar").slimScroll({destroy:true}); 
+	$(".buttonbar").css("width", "").css("height", "");
+}
+		
 		
 		if($('#searchresults').hasClass("rh-hide")) 
 		{
