@@ -173,6 +173,16 @@ function px(input) {
 
 $(document).ready( function (){
 	
+$(window).on('hashchange', function() {
+
+ 
+		 window.location.hash = window.location.hash;
+		 go_topic(null);
+
+ 
+ 
+});	
+	
 if($(window).innerWidth() >= em(59.49) && $(window).innerWidth() <= em(80.99)){
 
 			$(".buttonbar").slimScroll({width: '80',
