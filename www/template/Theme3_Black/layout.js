@@ -186,7 +186,17 @@ $(window).on('hashchange', function() {
   else{
 	   
 	   window.location.hash = window.location.hash;
-		 go_topic(null);
+	
+		
+		if($("#searchresults").is(":visible")) {
+		
+			go_topic(null);
+		}
+		
+		if($("#tocold").is(":visible")) {
+		
+			go_topic(null);
+		}
   }
  
  
@@ -211,7 +221,7 @@ else{
 	
 $(document).on('click','.nolink',function(){
 
-//jomart
+
      document.getElementsByClassName("loading2")[0].style.display = 'block';
 	 var $links = $('.nolink');
 	 //$(this).css("background-color", "yellow");
