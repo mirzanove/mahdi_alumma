@@ -235,8 +235,10 @@ if(bookmarks.length == "0"){
 	
 	
 	setTimeout(function() { 
-			
+	
+			if (document.getElementById("curr2")){
 			document.getElementById("curr2").scrollIntoView(1);
+			}
 			
       }, 500);
 	
