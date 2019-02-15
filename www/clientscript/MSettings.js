@@ -3,6 +3,13 @@
 
 var posttopid;
 
+function enable_select_text(xx){
+var x= jQueryM_v1_4_5(xx);
+for(var i=0; i<x.length; i++) {
+			makeselectable(x[i]);
+}
+}
+
 
 function get_current_url(url){
 	
@@ -427,7 +434,10 @@ if (typeof encryptedMsg != 'undefined')
 	
 		}
 		
-		
+enable_select_text('.posttext');
+enable_select_text('.thread_title');
+enable_select_text('span.padd');
+enable_select_text('#content>ul');
 		
 		if(lsTest() === true){
 		var checked2 = localStorage.getItem('autolog');
@@ -631,12 +641,7 @@ else{
 
 
 
-function enable_select_text(xx){
-var x= jQueryM_v1_4_5(xx);
-for(var i=0; i<x.length; i++) {
-			makeselectable(x[i]);
-}
-}
+
 
 enable_select_text('.posttext');
 enable_select_text('.thread_title');

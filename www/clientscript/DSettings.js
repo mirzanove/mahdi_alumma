@@ -1,6 +1,13 @@
 
 var posttopid;
 
+function enable_select_text(xx){
+var x= jQueryD_1_4_2(xx);
+for(var i=0; i<x.length; i++) {
+			makeselectable(x[i]);
+}
+}
+
 
 function get_current_url(url){
 	
@@ -417,15 +424,22 @@ if (typeof encryptedMsg != 'undefined')
 	    jQueryD_1_4_2( ".staticrypt-page" ).hide();
 	
 		if (fontstylelist == true) { 
-         
+ 
 		jQueryD_1_4_2( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>");
-        }
+        
+
+		}
 		else{
 		jQueryD_1_4_2( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML);
 	
 		}
-		
-		
+
+
+enable_select_text('.posttext');
+enable_select_text('.thread_title');
+enable_select_text('span.padd');
+enable_select_text('#content>ul');
+
 		
 		if(lsTest() === true){
 		var checked2 = localStorage.getItem('autolog');
@@ -655,12 +669,7 @@ if (!document.getElementsByClassName) {
 
 
  
-function enable_select_text(xx){
-var x= jQueryD_1_4_2(xx);
-for(var i=0; i<x.length; i++) {
-			makeselectable(x[i]);
-}
-}
+
 
 enable_select_text('.posttext');
 enable_select_text('.thread_title');
