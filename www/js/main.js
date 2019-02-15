@@ -205,7 +205,7 @@ if(bookmarks.length == "0"){
 
 		
 		if(url == lol || lol==""){
-			bookmarksResults.innerHTML += '<div class="curr2 well">'+
+			bookmarksResults.innerHTML += '<div id ="curr2" class="curr2 well">'+
 										'<span  class= "title" style = ""><img src=\"template/Charcoal_Grey/booked.png\"> ' + name +"</span>"+
 										'<BR><span  style = "display:none;" class= "url" style = "word-break: break-all;">'+url+'</span>'+
 										' <a style= "text-decoration: none!important;"onclick="go_topic()" class="nolink ui-link btn btn-info" href="./'+url+'">الذهاب الى الرابط</a>' + 
@@ -213,6 +213,9 @@ if(bookmarks.length == "0"){
 										''+ 
 										'</div><hr>';
 			
+			
+			
+		 		
 			
 		}else{
 			
@@ -232,31 +235,10 @@ if(bookmarks.length == "0"){
 	
 	
 	setTimeout(function() { 
-			var elements = document.getElementsByClassName('curr2')[0];
-			 if(elements){
-			   
-               if(getbooleanindexopage()!=3){
-				   
-				   elements.scrollIntoView(!1);
-			  }else{
-			  
 			
-			      if(document.getElementById('tocold')){
-					  
-					  if(document.getElementById('tocold').getAttribute('hidden') == null){
-					      
-						  elements.scrollIntoView(!1);
-					  }
-					  
-					  
-				  }
- 
-			  }
-			  
-			  
-			  
-			 }
-      }, 0);
+			document.getElementById("curr2").scrollIntoView(1);
+			
+      }, 500);
 	
 	
 	
