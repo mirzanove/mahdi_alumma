@@ -265,8 +265,18 @@ function go_bookmark(event){
 	if(document.location.href.indexOf("&ux=bookmark")== -1){
 	history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(search)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=bookmark");
 	}		 
-			 
-			}
+			
+
+
+	
+setTimeout(function() {
+	if ($('.curr2').length > 0){
+		
+		$('.curr2')[0].scrollIntoView(1);	
+	}
+	}, 500);
+
+}
 
 
 
