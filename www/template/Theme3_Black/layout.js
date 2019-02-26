@@ -871,7 +871,7 @@ else{
 		
 		if($('#searchresults').hasClass("rh-hide")) 
 		{
-			go_topic(event);
+			go_topic(null);
 		}
 		else{
 			go_search();

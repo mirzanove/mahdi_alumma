@@ -66,11 +66,11 @@ function doSearch()
 	//jomart
 	if(searchText) {
 	
-    
+    document.getElementById("searhcform").submit();
 	
 	if(getbooleanindexopage()==3) {
 	
-	showclear();
+	 showclear();
      document.getElementById("conpag").className = "container rh-hide";
 	 document.getElementById("searchMsgg").className = "rh-hide";
 	 document.getElementById("pages_bar_note").className = "rh-hide";
@@ -3230,7 +3230,7 @@ function updateResultView()
 		displaySearchProgressBar( goOdinHunter.nProgress );
 	else if ( g_CurState == ECS_FOUND ) {
 		
-		 //document.getElementById("searhcform").submit();
+		 
 		displayTopics( goOdinHunter.queryResult );
 		
 		
