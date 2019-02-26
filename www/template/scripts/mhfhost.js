@@ -69,7 +69,7 @@ function doSearch()
     
 	
 	if(getbooleanindexopage()==3) {
-	 document.getElementById("searhcform").submit();
+	
 	showclear();
      document.getElementById("conpag").className = "container rh-hide";
 	 document.getElementById("searchMsgg").className = "rh-hide";
@@ -93,7 +93,7 @@ if (textInput.value.length > 1) {
 }
 	
 	 
-	 document.getElementById("searhcform").submit();
+	
 	
 	}
 	}
@@ -3229,6 +3229,8 @@ function updateResultView()
 	if ( g_CurState == ECS_SEARCHING )
 		displaySearchProgressBar( goOdinHunter.nProgress );
 	else if ( g_CurState == ECS_FOUND ) {
+		
+		 //document.getElementById("searhcform").submit();
 		displayTopics( goOdinHunter.queryResult );
 		
 		

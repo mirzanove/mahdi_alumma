@@ -338,7 +338,7 @@ background:grey;
 .clear
  {
 	
-    position: relative;
+    /*position: relative;
     float: left;
     height: 20px;
     width: 20px;
@@ -348,8 +348,25 @@ background:grey;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
-	visibility:hidden;
+	visibility:hidden;*/
 
+}
+
+.clear img
+{
+
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+}
+
+.searchico{
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
 }
 
 
@@ -474,7 +491,7 @@ margin:0;
 					<input style ="border-radius: 10px;" oninput="showclear2(this)" type="text" autocomplete="off" class="searchinput" id="websiteName" placeholder="عنوان الموضوع"/>
                    </td>
 				   <td style="background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;width:2em;">
-		            <span id="clear2" class="clear" title="Clear">x</span>
+		            <span id="clear2" class="clear" title="Clear"><img src="template/Theme3_Black/clear.png" /</span>
                    </a>
                  </td>
                </tbody>
@@ -560,11 +577,11 @@ margin:0;
   
 	 </td>
 	  
-	 <td style="width:1em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;" >
-	<span id="clear" class="clear title="Clear">x</span>
+	 <td style="width:1.9em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;" >
+	<span id="clear" class="clear" title="Clear"><img src="template/Theme3_Black/clear.png" /</span>
      </td>  
      <td style="width:2em;">
-		<a style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'">		<img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
+		<a style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'"><img class = "searchico" src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
      </a>
      </td>
 	 </tr>

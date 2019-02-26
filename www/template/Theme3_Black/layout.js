@@ -1,9 +1,15 @@
 ﻿
 
 
-$("#searhcform").submit(function(event){
+/*$("#searhcform").submit(function(event){
 
-searchHelp(event, 'searchBoxSearchPage');
+
+});*/
+
+$("#searhcform").on('keypress',function(event) {
+    if(event.which == 13) {
+     searchHelp(event, 'searchBoxSearchPage');
+}
 });
 
 /*$("#searhcform").submit(function(event){
