@@ -560,7 +560,12 @@ margin:0;
 </div>
 <!-- Search field -->
 <div class="searchbar left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="searchpage-mode, layout-visible: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content';">
-	<div class="mobileheader"><span data-text="@KEY_LNG.SearchPageTitle"></span><div class="totopic" data-if="@KEY_ACTIVE_TAB == 'fts'" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
+	<div class="mobileheader"><span data-text="@KEY_LNG.SearchPageTitle"></span>
+	
+<div class="totopic1" style = "padding:5px;"><a onclick="scrollTo_down();"></a></div>
+<div  class="totopic2" style = "padding:5px;"><a onclick="scrollTo_up();"></a></div>	
+	
+	</div>
 <div id="search_header" class="search-bar">	
 <iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
 <form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
@@ -715,7 +720,7 @@ margin:0;
 </div>
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
-<script>
+<script type="application/javascript">
 var link_disable = false;
 var elts = document.getElementsByTagName('div');
 
@@ -819,14 +824,22 @@ for (var i = elts.length - 1; i >= 0; --i) {
 }
 
 var toc = document.getElementById('toc');
+
+var three = document.getElementById('three');
+
 function scrollTo_up(){
+
 document.getElementsByClassName("loading2")[0].style.display = 'block';
-toc.scrollTop = 0;
+three.scrollTop = 0;
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
 function scrollTo_down(){
+
 document.getElementsByClassName("loading2")[0].style.display = 'block';
-toc.scrollTop = toc.scrollHeight;
+
+three.scrollTop = three.scrollHeight;
+
+
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
 
