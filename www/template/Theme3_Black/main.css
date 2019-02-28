@@ -236,25 +236,25 @@ div.bar_toc_active {
 }
 div.bar_index {
                background-color:transparent;
-               background-image:url("index_buttonbar.png");
+               background-image:url("bookmarkbig.png");
                background-repeat:no-repeat;
                background-position:center center;
 }
 div.bar_index:hover {
                      background-color:#ffffff;
-                     background-image:url("index_buttonbar_hover.png");
+                     background-image:url("bookmarkbig_hover.png");
                      background-repeat:no-repeat;
                      background-position:center center;
 }
 div.bar_index:active {
                       background-color:#ffffff;
-                      background-image:url("index_buttonbar_hover.png");
+                      background-image:url("bookmarkbig_hover.png");
                       background-repeat:no-repeat;
                       background-position:center center;
 }
 div.bar_index_active {
                       background-color:#ffffff;
-                      background-image:url("index_buttonbar_hover.png");
+                      background-image:url("bookmarkbig_hover.png");
                       background-repeat:no-repeat;
                       background-position:center center;
 }
