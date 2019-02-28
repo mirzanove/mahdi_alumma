@@ -1489,8 +1489,8 @@ setTimeout(function() {
 
 			
 			if(bookmarks.length == "0"){
-				
-			$('.bar_index').removeAttr( "style" );
+		    $('#bookm').attr("class", "bar_index");
+			$('#bookm').removeAttr( "style" );
 			$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
 
 			}
@@ -1501,16 +1501,18 @@ setTimeout(function() {
 			 
 		    if(bookmarks[i].url == data2){
 	       
-		   $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
-			$('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
+		     $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked_small.png");
+			
+			//$('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png");
+			$('#bookm').attr("class", "bar_index_book");
 		
  
 			   break;
 		    }
 			else{
-			
-			
-			$('.bar_index').removeAttr( "style" );
+			//alert();
+            $('#bookm').attr("class", "bar_index").removeAttr( "style" );
+		
 			$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
 			  
 			}

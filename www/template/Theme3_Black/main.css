@@ -184,6 +184,8 @@ div.buttonbarholder > div {
 
 
 
+
+
 @media screen and (min-width: 43.69em) and (max-width: 59.49em) {
 div.buttonbarholder > div {
     width: 20%;
@@ -234,6 +236,14 @@ div.bar_toc_active {
                     background-position:center center;
                     border-bottom-width:thin;
 }
+
+div.bar_index_book {
+               background-color:transparent;
+               background-image:url("index_buttonbar_booked.png");
+               background-repeat:no-repeat;
+               background-position:center center;
+}
+
 div.bar_index {
                background-color:transparent;
                background-image:url("bookmarkbig.png");
@@ -650,6 +660,12 @@ div.bar_toc_active {
 }
 }
 @media screen and (max-width: 43.68em) {
+div.bar_index_book {
+               background-color:transparent;
+               background-image:url("index_buttonbar_booked_small.png");
+               background-repeat:no-repeat;
+               background-position:center center;
+}
 div.bar_index {
                background-image:url("index_buttonbar_small.png");
 }
