@@ -69,10 +69,11 @@ function saveBookmark(e){
 	  }
 	  
 	   if(document.getElementsByClassName("bar_index")[0]){ 
-	 $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
-	 $('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
+	 //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
+	 //$('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
 }
-	  
+	    //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked_small.png");
+	    $('#bookm').attr("class", "bar_index_book");
 
 	
 		
@@ -109,8 +110,9 @@ localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
  }
 	
  if(document.getElementsByClassName("bar_index")[0]){ 
-	 $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
-	 $('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
+	 //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
+	 //$('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
+	 $('#bookm').attr("class", "bar_index_book");
 }	
 	
  
@@ -182,10 +184,11 @@ if(bookmarks.length == "0"){
 	  if(document.getElementsByClassName("toc_footer")[0]){
 	  $(".toc_footer").removeClass('star_yellow').addClass("ui-icon-star");
 	  }
-	  
-	  if(document.getElementsByClassName("bar_index")[0]){ 
-	 $('.bar_index').removeAttr( "style" );
-	  $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
+
+	  if(document.getElementsByClassName("bar_index_book")[0]){ 
+	  $('#bookm').removeAttr( "style" );
+	  //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
+	   $('#bookm').attr("class", "bar_index");
 	  }
 	
 }
