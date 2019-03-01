@@ -187,8 +187,8 @@ if(bookmarks.length == "0"){
 
 	  if(document.getElementsByClassName("bar_index_book")[0]){ 
 	  $('#bookm').removeAttr( "style" );
-	  //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
-	   $('#bookm').attr("class", "bar_index");
+	  $('#booknormal').attr("src","template/Theme3_Black/index_buttonbar.png");
+	  $('#bookm').attr("class", "bar_index");
 	  }
 	
 }
