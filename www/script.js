@@ -56,17 +56,17 @@ $("#home_footer").removeClass("hide").trigger('resize');
 $("#toc_footer").addClass("hide");
 $("#search_footer").addClass("hide");	
 
-$(".tabView").addClass("hide");
-$("#one").removeClass("hide").trigger('resize');
+$(".tabView").addClass("visibility");
+$("#one").removeClass("visibility").trigger('resize');
 
 $(".tabButton").on("click", function(){
 
-$(".tabView").addClass("hide");
+$(".tabView").addClass("visibility");
 
 var href = $(this).prop("href");
     
 if(href.substr(href.indexOf('#')) === "#one"){
-$(".tabView").addClass("hide");	
+$(".tabView").addClass("visibility");	
 
 $("#home_header").removeClass("hide").trigger('resize');
 $("#toc_header").addClass("hide");
@@ -77,7 +77,7 @@ $("#toc_footer").addClass("hide");
 $("#search_footer").addClass("hide");	
 
 
-$("#one").removeClass("hide").trigger('resize');
+$("#one").removeClass("visibility").trigger('resize');
 
 	
 }	 
@@ -96,8 +96,8 @@ $("#toc_footer").removeClass("hide").trigger('resize');
 $("#search_footer").addClass("hide");	
 
 
-$(".tabView").addClass("hide").trigger('resize');
-$("#two").removeClass("hide").trigger('resize');
+$(".tabView").addClass("visibility").trigger('resize');
+$("#two").removeClass("visibility").trigger('resize');
 
 //var element = document.getElementsByClassName("selected");
 
@@ -133,14 +133,33 @@ $("#home_footer").addClass("hide");
 $("#toc_footer").addClass("hide");
 $("#search_footer").removeClass("hide");	
 
-$(".tabView").addClass("hide").trigger('resize');
-$("#three").removeClass("hide").trigger('resize');
+$(".tabView").addClass("visibility").trigger('resize');
+$("#three").removeClass("visibility").trigger('resize');
+$("#content_t").css("overflow"," hidden");
 
-if($(".curr").length){
-	
-$(".curr")[0].scrollIntoView();
-	
-}
+
+
+
+
+
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   if(window.myScroll){ 
+ 
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+			
+}, 300);
+
+
+
+
 
 	
 }

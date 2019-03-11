@@ -45,26 +45,75 @@ document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location
 }
 
 
-
+var stop =false;
 
 function chkvisiblty(cc){
-
+//document.getElementById("three2").	 = "absolute"; 
 if (cc.className == "fts active"){
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   git =true;
+   stop = false; 
+			
+}, 300);
+  
+
 
 }
 else{
+
+//document.getElementById("three2").className = "relative"; 
+git = false;
+stop = true; 
+  
 setTimeout(function() { 
-			var elements = document.getElementsByClassName('curr')[0];
-			 if(elements){
-			  elements.scrollIntoView();
-			 }
-}, 500);
-
-
+  
+   if(window.myScroll){ 
+ 
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+			
+}, 300);
+ 
+ 
 }
 }
 
+function go_index(){
+//document.getElementsByClassName("loading2")[0].style.display = 'block';
+if(window.myScroll){
 
+window.myScroll.destroy();
+
+
+// 		   
+}
+
+
+git = false;
+stop = true; 
+lunch_vlist(a_QueryResultt,strParams);
+git = false; 
+setTimeout(function() { 
+  
+   if(window.myScroll){ 
+    
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+   //git =true;			
+}, 300);
+
+//document.getElementsByClassName("loading2")[0].style.display = 'none';
+}
 
 	
 </script>
@@ -94,6 +143,7 @@ setTimeout(function() {
 <link rel="stylesheet" type="text/css" href="template/styles/layout.min.css">
 <script type="text/javascript" src="template/scripts/mhfhost.js"></script>
 <script type="text/javascript" src="template/scripts/search.js"></script>
+<script type="text/javascript" src="template/exjs/vscroll.js"></script>
 
 <script type="text/javascript" src="clientscript/xregexp-all.js"></script>
 
@@ -116,6 +166,68 @@ gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 	gIdxCategoryHtml = "<span  class=\"wIdxAlphabetText\">{%LINK_NAME%}</span>";
 </script>
  <style type="text/css">
+
+.itemcon{ 
+  height: 100%!important;
+ }
+
+.wSearchResultItem {
+
+/*min-height:119px;*/
+}
+		
+#three {
+ overflow-y:hidden;
+ overflow-x:hidden;
+ /*background:white;*/
+}
+
+#three2 {
+
+}
+
+
+
+.absolute {
+ position:absolute;
+ top:0px;
+ right:0px;
+ left:0px;
+ bottom:0px;
+ overflow-y:auto;
+ overflow-x:hidden;
+ margin:0px;
+ padding:1em;
+ z-index:0;
+}
+
+.relative{
+
+wdith:100%;
+height:100%;
+ position:relative;
+ 
+ overflow-y:auto;
+ overflow-x:hidden;
+ margin:0px;
+ padding:1em;
+ z-index:0;
+ 
+}
+
+
+.functionbar{
+
+ z-index:3;
+ 
+}
+ 
+#topic{
+ 
+z-index:4;
+}
+
+
 
  .exthtml{
 display:none;
@@ -381,11 +493,11 @@ float:left;
   font-size: 100%;
   height: 2em;
 }
+
 .searchinput::-ms-clear {
   color: red;
   display:none;
 }
-
 
 table {
   border-collapse: collapse;
@@ -398,6 +510,8 @@ th, td {
 padding:0;
 margin:0;
 } 
+
+
 
 </style>
 <link rel="SHORTCUT ICON" href="87px.png" />
@@ -562,7 +676,8 @@ margin:0;
 </div>
 <!-- Search field -->
 <div class="searchbar left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="searchpage-mode, layout-visible: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content';">
-	<div class="mobileheader"><span data-text="@KEY_LNG.SearchPageTitle"></span>
+	
+	<div class="mobileheader"><a onclick="go_index();"><span data-text="@KEY_LNG.SearchPageTitle"></a></span>
 	
 <div class="totopic1" style = "padding:5px;"><a onclick="scrollTo_down();"></a></div>
 <div  class="totopic2" style = "padding:5px;"><a onclick="scrollTo_up();"></a></div>	
@@ -614,7 +729,7 @@ margin:0;
 	</div>
 <!-- Search results -->
 <div id="three" style ="-webkit-overflow-scrolling: touch;" class="clusterize-scroll searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(false) | debounce: 50, delta: 100">
-
+<div id="three2"  class ="absolute" style ="-webkit-overflow-scrolling: touch;">
 	<label for="checkbox_id1">
     <input onchange="toggleCheckbox('checkbox_id1')" type="radio" value="1" name="genderS" id="checkbox_id1" checked> 
 	<span>&nbsp;عرض نتائج البحث مطابق للكلمات&nbsp;&nbsp;</span>
@@ -641,6 +756,8 @@ margin:0;
  
 	
 	<div class="wSearchResults" id="searchresults">
+	
+	
 		<div class="wSearchResultSettings rh-hide">
 			<div class="wSearchHighlight">
 				<input id="highlightsearch" type="checkbox" checked="" class="wSearchHighlight" onclick="onToggleHighlightSearch()" />
@@ -673,16 +790,13 @@ margin:0;
 				</div>
 			</div>
 		</div>
-		
-		 <div id="contentArea" class="clusterize-content">
-    <div class="clusterize-no-data"></div>
-  </div>
-		
-		
-	<div data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" class="wSearchResultsEnd">
-			<span>نهاية نتائج البحث</span>
+<div id="mycontainer"></div>
+<div id="end">end</div>
+<div id="test_item" style= "visibility: hidden;"></div>
+
+
 	</div>
-	</div>
+</div>	
 </div>
 <!-- Topics -->
 <div id= "topic_wrapper">
@@ -824,22 +938,33 @@ for (var i = elts.length - 1; i >= 0; --i) {
 
 var toc = document.getElementById('toc');
 
-var three = document.getElementById('three');
+var three = document.getElementById('three2');
 
 function scrollTo_up(){
+//myScroll.scrollto();
 
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 three.scrollTop = 0;
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
+
+
+function gotoBottom(id){
+   var element = document.getElementById(id);
+   element.scrollTop = element.scrollHeight - element.clientHeight;
+}
+
 function scrollTo_down(){
 
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 
-three.scrollTop = three.scrollHeight;
+gotoBottom("three2");
 
+//three.scrollTop = 400000000;
 
-setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
+setTimeout(function() {
+ gotoBottom("three2");
+ document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
 
 document.getElementsByClassName("close")[0].addEventListener("click", close_modal);
@@ -881,7 +1006,17 @@ var element, name, arr;
         element.className += " " + name;
     }
 
+current_select  = element.id;
 
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   git =true;
+   stop = false; 
+			
+}, 300);
 }
 
 function  go_topic(){

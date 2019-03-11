@@ -522,8 +522,8 @@ body.media-desktop div.filter-holder>ul * {
 	font-size: 100%
 }
 body.media-mobile div.searchresults.layout-visible, body.media-landscape div.searchresults.layout-visible, body.media-desktop div.searchresults.search-content, body.media-desktop div.searchresults.search-sidebar {
-	padding-right: 2em;
-	padding-left: 1em
+	/*padding-right: 10px;
+	padding-left:10px;*/
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultSettings, body.media-landscape div.searchresults.layout-visible .wSearchResultSettings, body.media-desktop div.searchresults.search-content .wSearchResultSettings, body.media-desktop div.searchresults.search-sidebar .wSearchResultSettings {
 	display: none
@@ -533,7 +533,7 @@ body.media-mobile div.searchresults.layout-visible .wSearchMessage, body.media-l
 	margin-bottom: .3em
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultItem, body.media-landscape div.searchresults.layout-visible .wSearchResultItem, body.media-desktop div.searchresults.search-content .wSearchResultItem, body.media-desktop div.searchresults.search-sidebar .wSearchResultItem {
-	margin: 1em 0
+	/*margin: 1em 0*/
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultItem a.nolink, body.media-landscape div.searchresults.layout-visible .wSearchResultItem a.nolink, body.media-desktop div.searchresults.search-content .wSearchResultItem a.nolink, body.media-desktop div.searchresults.search-sidebar .wSearchResultItem a.nolink {
 	text-decoration: none
@@ -1263,14 +1263,14 @@ body.media-mobile div.searchresults.layout-visible div.wSearchURL, body.media-la
 	color: #575555
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultItem, body.media-landscape div.searchresults.layout-visible .wSearchResultItem, body.media-desktop div.searchresults.search-content .wSearchResultItem {
-	padding-bottom: .5em;
-	margin-bottom: .5em;
+	/*padding-bottom: .5em;*/
+	/*margin-bottom: .5em;*/
 	border-top-width: 0.1em;
 	border-top-style: solid;
 	border-top-color: #e6e6e6
 }
 body.media-desktop div.searchresults.search-sidebar {
-	padding-top: 1em;
+	/*padding-top: 1em;*/
 	color: #e1e1e1
 }
 body.media-desktop div.searchresults.search-sidebar div.search-alert {
@@ -1429,8 +1429,8 @@ body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-m
 	bottom: 3em;
 	width: 100%;
 	padding-top: 0em;
-	padding-right: 0.25em;
-	padding-left: 0.25em;
+	/*padding-right: 0.25em;
+	padding-left: 0.25em;*/
 	padding-bottom: 0
  }
 
@@ -1762,7 +1762,7 @@ body.media-mobile div.searchresults.layout-visible {
 	z-index: 10;
 	overflow-x: hidden;
 	overflow-y: visible;
-	padding: 0 0.85em 0 0.85em
+	/*padding: 0 0.85em 0 0.85em*/
 }
 body.media-mobile div.searchresults.layout-visible label.wSearchAndLabelResults {
 	background-image: url("andsearch_nomark.png");
@@ -1864,7 +1864,9 @@ body.media-landscape div.layout-visible.toc-holder, body.media-landscape div.lay
 }
 body.media-landscape div.header {
 	height: 4em;
-	padding-top: 1.25em
+	padding-top: 1.25em;
+	position: relative;
+	z-index:10;
 }
 body.media-landscape div.header div {
 	height: 1.875em
@@ -2336,7 +2338,7 @@ body.media-desktop div.searchresults label.wSearchAndLabelResults span {
 	font-size: 1.4em
 }
 body.media-desktop div.searchresults.search-sidebar {
-	top: 15.8em;
+	top: 14.8em;
 	right: 0 !important
 }
 body.media-desktop div.searchresults.search-sidebar>div {
