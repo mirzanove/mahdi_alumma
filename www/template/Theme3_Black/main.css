@@ -2581,7 +2581,7 @@ span.wSearchMessage {
 div.wSearchResultItemsBlock {
 }
 div.wSearchResultItem {
-                       margin:0 0 1em 0;
+                       /*margin:0 0 1em 0;*/
 }
 div.wSearchResultTitle {
                         color:#0F5091;

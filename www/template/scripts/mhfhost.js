@@ -3094,6 +3094,9 @@ longest="";
 			var lgth = 0;
             
             for (; i < total; i++){
+				
+			
+				
 			array[i] = '<div  class = "itemcon">'+
 			'<a class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
 			   '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
@@ -3123,10 +3126,79 @@ longest="";
 
 			
 			
-			//alert(longest);
+			
             return array;
             
 };
+
+
+
+function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_CurPage,bShowAll){
+			longestH=0; 
+            longest="";  
+	       
+            var maxlen = 0;
+			var maxtext= "";
+			var lgth = 0;
+			var count =0;
+            var array = new Array();	
+				//alert(i);
+			for( ; (i < a_QueryResultArray.length); i++ )
+			{
+				
+				
+		
+				
+				if(bShowAll == false && i>=(g_CurPage*g_nMaxResult)){
+					
+					break;	
+				}
+				
+				var szTopicURL = a_QueryResultArray[i].strUrl;
+				if(!_isRemoteUrl(szTopicURL))
+				{
+					szTopicURL += strParams;
+				}
+				
+				//console.log(i+"ggggg");
+                
+		       array[count] = '<div  class = "itemcon">'+
+			        '<a class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
+			        '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			        '</a>'+
+			        '<div class="">'+
+			        '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
+			        '</div>'+
+			        '<div class="">'+
+			        '<span class="">'+a_QueryResultArray[i].strBreadcrumbs+'</span>'+
+			        '</div>'+
+			        '<div class ="img_wrapper">'+
+					'<img src="template/resources/loading.gif" height="20" width="20">'+
+			        '</div>'+
+			        '</div>';
+					
+		     //console.log(i+"ggggg");	
+					
+					
+             
+			 maxtext = (a_QueryResultArray[i].strTitle+a_QueryResultArray[i].strSummary+a_QueryResultArray[i].strBreadcrumbs);
+			  //maxtext = strip_And_Normlize(maxtext);
+			  //unicodeLength(maxtext);
+			 if(unicodeLength(maxtext)> lgth){
+                  var lgth = unicodeLength(maxtext);
+                  longest = array[count];
+             }	
+					
+			count++;		
+			}
+			
+           
+    
+			return array;
+}
+			
+
+
  
 
 function test_item_hight(longest){
@@ -3136,6 +3208,9 @@ document.getElementById('mycontainer').innerHTML = '<div class="vscroll-wrapper"
 			longest+
 			'</div>'+
 			'</div>';
+			
+			//console.log(longest);
+			
 			longestH = (getAbsoluteHeight(document.getElementById('mycontainer')));
 			document.getElementById('mycontainer').innerHTML = "";
 	
@@ -3151,6 +3226,7 @@ function lunch_vlist(a_QueryResult,strParams,_container,_scrollParent){
 	
 
 if(data ==true){
+	
 	myData = createArrayOfNumbers(a_QueryResult.length,a_QueryResult,strParams);
 	data =false;
 	
@@ -3201,7 +3277,56 @@ test_item_hight(longest);
 
 
 
+function lunch_vlist2(a_QueryResult,strParams,_container,_scrollParent,i,g_nMaxResult,g_CurPage,bShowAll){
+	
+	
 
+if(data ==true){
+	
+	myData = generate_search_results(a_QueryResult,strParams,i,g_nMaxResult,g_CurPage,bShowAll);
+	
+	
+	data =false;
+	
+	conoffset = document.getElementById(_container).offsetTop;
+}
+
+test_item_hight(longest);
+		
+//alert(longest);
+        // Template function must return HTML element
+        
+		longestH= (longestH);
+		//alert(longestH);
+		var createTemplateFunction = function(item, index, startIndex, endIndex) {
+
+            // Create your HTML template of each record, it could be anything, an img, li, div etc.
+            var div = document.createElement('div');
+            div.className = 'wSearchResultItem';
+			div.style.minHeight =longestH+'px';
+            div.innerHTML = item;
+            
+            return div;
+
+        };
+
+        //console.log(longestH);
+        options = {
+            container: "#"+_container,
+            scrollParent: "#"+_scrollParent,
+            data: myData,
+            smartBuffer: false,
+            itemHeight: longestH, // which's the default
+            createItem: createTemplateFunction,
+			responsive:false,
+			scrollOffset:conoffset
+			//scrollOffset:230
+			
+        };
+     //console.log(myData);
+		window.myScroll = new VScroll(options);  
+	
+}
 
 
 var szSearchStrings;
@@ -3296,7 +3421,28 @@ function displayTopics( a_QueryResult )
 		
 		if (checkResultDiv()) {
 			// Old search widget workflow: Render html.
-			for( ; (i < a_QueryResult.aTopics.length); i++ )
+			
+			
+			if(window.myScroll){
+
+               window.myScroll.destroy();
+		   
+            }
+			
+		    a_QueryResultt = a_QueryResult.aTopics;
+            strParamss=strParams ;
+	        data =true;
+			curr_index =0;
+			current_select =null;	
+			
+			
+		 lunch_vlist2(a_QueryResult.aTopics,strParams,"mycontainer","rh_scrollable_content",i,g_nMaxResult,g_CurPage,bShowAll)
+			
+		
+			
+//console.log(hh);
+			
+		/*	for( ; (i < a_QueryResult.aTopics.length); i++ )
 			{
 				if(bShowAll == false && i>=(g_CurPage*g_nMaxResult))
 					break;
@@ -3325,21 +3471,14 @@ function displayTopics( a_QueryResult )
 				sHTML += sLine;
 			
 			updateNavigationPagesBar(g_CurPage, nNumPages);
+			updatePrevNextButtons(g_CurPage, nNumPages);*/
+			
+			//changeResultView( sHTML );
+			
+			updateNavigationPagesBar(g_CurPage, nNumPages);
 			updatePrevNextButtons(g_CurPage, nNumPages);
-			
-			changeResultView( sHTML );
-			
-			
-		/*	a_QueryResultt = a_QueryResult.aTopics;
-            strParamss=strParams ;
-	        data =true;
-			curr_index =0;
-			current_select =null;*/
-			//lunch_vlist(a_QueryResult.aTopics,strParams,"mycontainer","rh_scrollable_content");
-			//removeClass(document.getElementById("end"),"rh-hide");
-			
-			
-			
+			changeResultView("");
+		
 		}
 		else
 		{
@@ -3347,8 +3486,8 @@ function displayTopics( a_QueryResult )
 			//rh.model.publish(rh.consts('KEY_SEARCH_RESULT_PARAMS'), strParams);
 			//rh.model.publish(rh.consts("KEY_SEARCH_RESULTS"), a_QueryResult.aTopics);
 
-		a_QueryResultt = a_QueryResult.aTopics;
-        strParamss=strParams ;
+		    a_QueryResultt = a_QueryResult.aTopics;
+            strParamss=strParams ;
 	        data =true;
 			curr_index =0;
 			current_select =null;
