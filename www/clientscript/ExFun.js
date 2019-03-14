@@ -161,10 +161,18 @@ function printDiv2(divID) {
 	  }
 	  
 	    //var contents = document.getElementById(divID).innerHTML;
-		
-	    var contents = divID[0].outerHTML
+		//console.log(divID.innerHTML);
+	    //var contents = divID.innerHTML;
 		//alert();
-		//var contents = jQueryD_1_4_2('#'+divID).parent().html();
+	
+    if(_isMobile() == mobiletrue) {
+
+	     var contents = jQueryM_v1_4_5(divID).parent().html();
+	}else{
+	     var contents = jQueryD_1_4_2(divID).parent().html();
+	}
+		
+		
 		var wrapper = document.createElement('div');
 	    wrapper.innerHTML = contents;
        
