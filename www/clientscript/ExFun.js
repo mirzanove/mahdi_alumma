@@ -260,7 +260,7 @@ function printDiv2(divID) {
 				window.frames["frame1"].focus();
                 window.frames["frame1"].print();
 				
-                //document.body.removeChild(frame1);
+                document.body.removeChild(frame1);
 				
 				//jQueryM_v1_4_5('body').trigger('resize');
 				//jQueryM_v1_4_5('.posttop').css("background-color", "#d5dc91");
