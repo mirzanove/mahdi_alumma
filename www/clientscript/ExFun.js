@@ -164,12 +164,12 @@ function printDiv2(divID) {
 		//console.log(divID.innerHTML);
 	    //var contents = divID.innerHTML;
 		//alert();
-	
+	var contents ="";
     if(_isMobile() == mobiletrue) {
 
-	     var contents = jQueryM_v1_4_5(divID).parent().html();
+	    contents = jQueryM_v1_4_5(divID).parent().html();
 	}else{
-	     var contents = jQueryD_1_4_2(divID).parent().html();
+	    contents = jQueryD_1_4_2(divID).parent().html();
 	}
 		
 		
