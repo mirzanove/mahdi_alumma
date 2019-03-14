@@ -71,7 +71,6 @@ function doSearch()
 		   window.myScroll.destroy();
 	}
 	
-	
     document.getElementById("searhcform").submit();
 	
 	if(getbooleanindexopage()==3) {
@@ -85,7 +84,7 @@ function doSearch()
 	 $('.wSearchResultSettings').css("display", "none");
 	}
 	else{
-	
+	document.getElementById("end").className = "rh-hide";
 	removeClass(document.getElementById("stop"),"rh-hide");
 	
 	var textInput = document.getElementById('wSearch'),
@@ -93,7 +92,7 @@ function doSearch()
 if(clearBtn){
 	
 if (textInput.value.length > 1) {
-       clearBtn.style.visibility =  "visible" ;
+       //clearBtn.style.visibility =  "visible" ;
      }
 	 
 }
@@ -3110,10 +3109,10 @@ longest="";
 			  '</div>'+
 			 '</div>';
 		      maxtext = (a_QueryResultArray[i].strTitle+a_QueryResultArray[i].strSummary+a_QueryResultArray[i].strBreadcrumbs);
-			  maxtext = strip_And_Normlize(maxtext);
+			  //maxtext = strip_And_Normlize(maxtext);
 			  //unicodeLength(maxtext);
-			 if(maxtext.length > lgth){
-                  var lgth = maxtext.length;
+			 if(unicodeLength(maxtext)> lgth){
+                  var lgth = unicodeLength(maxtext);
                   longest = array[i];
              }
 			
@@ -3148,14 +3147,14 @@ var myData;
 var curr_index = null;
 var current_select = null;
 var conoffset = null;
-function lunch_vlist(a_QueryResult,strParams){
+function lunch_vlist(a_QueryResult,strParams,_container,_scrollParent){
 	
 
 if(data ==true){
 	myData = createArrayOfNumbers(a_QueryResult.length,a_QueryResult,strParams);
 	data =false;
 	
-	conoffset = document.getElementById("mycontainer").offsetTop;
+	conoffset = document.getElementById(_container).offsetTop;
 }
 
 test_item_hight(longest);
@@ -3179,8 +3178,8 @@ test_item_hight(longest);
 
         //console.log(longestH);
         options = {
-            container: "#mycontainer",
-            scrollParent: '#three2',
+            container: "#"+_container,
+            scrollParent: "#"+_scrollParent,
             data: myData,
             smartBuffer: false,
             itemHeight: longestH, // which's the default
@@ -3327,6 +3326,20 @@ function displayTopics( a_QueryResult )
 			
 			updateNavigationPagesBar(g_CurPage, nNumPages);
 			updatePrevNextButtons(g_CurPage, nNumPages);
+			
+			changeResultView( sHTML );
+			
+			
+		/*	a_QueryResultt = a_QueryResult.aTopics;
+            strParamss=strParams ;
+	        data =true;
+			curr_index =0;
+			current_select =null;*/
+			//lunch_vlist(a_QueryResult.aTopics,strParams,"mycontainer","rh_scrollable_content");
+			//removeClass(document.getElementById("end"),"rh-hide");
+			
+			
+			
 		}
 		else
 		{
@@ -3339,20 +3352,22 @@ function displayTopics( a_QueryResult )
 	        data =true;
 			curr_index =0;
 			current_select =null;
-			lunch_vlist(a_QueryResult.aTopics,strParams);
-			
-			
-			
+
+			lunch_vlist(a_QueryResult.aTopics,strParams,"mycontainer","three2");
+			removeClass(document.getElementById("end"),"rh-hide");
 			
 		}
 	
 	}
 	
 	if( a_QueryResult.aTopics.length == 0 ) {
+	
 		displayMsg(gsNoTopics);
-	}
-
-	changeResultView( sHTML );
+		if(document.getElementById("end")){
+			document.getElementById("end").className = "rh-hide";
+		}
+	
+	}	
 }
 
 

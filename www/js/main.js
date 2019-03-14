@@ -68,12 +68,14 @@ function saveBookmark(e){
 	  $(".toc_footer").removeClass('ui-icon-star').addClass("star_yellow");
 	  }
 	  
-	   if(document.getElementsByClassName("bar_index")[0]){ 
+	   if(document.getElementsByClassName("bar_index")[0]){
+
+        $('#bookm').attr("class", "bar_index_book");	   
 	 //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked.png");
 	 //$('.bar_index').css("background-image", "url(template/Theme3_Black/index_buttonbar_booked.png)");
 }
 	    //$('#booknormal').attr("src","template/Theme3_Black/index_buttonbar_booked_small.png");
-	    $('#bookm').attr("class", "bar_index_book");
+	   
 
 	
 		

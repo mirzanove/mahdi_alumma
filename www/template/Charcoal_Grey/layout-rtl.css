@@ -626,8 +626,11 @@ body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-m
 	overflow-y: auto !important
 }
 div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchbar, body.media-mobile div.searchresults, body.media-landscape div.toc-holder, body.media-landscape div.idx-holder, body.media-landscape div.glo-holder, body.media-landscape div.filter-holder, body.media-landscape div.searchbar, body.media-landscape div.searchresults, body.media-desktop div.toc-holder, body.media-desktop div.idx-holder, body.media-desktop div.glo-holder, body.media-desktop div.filter-holder, body.media-desktop div.searchbar, body.media-desktop div.searchresults, body.media-desktop div.topic div.functionholder div.searchbar-extra div.searchAND {
-	max-height: 0px;
-	overflow: hidden;
+	
+	
+	visibility:hidden;
+	/*max-height: 0px;*/
+	/*overflow: hidden;
 	opacity: 0;
 	-o-transition-duration: 0.35s;
 	-o-transition-timing-function: ease-out;
@@ -652,11 +655,14 @@ div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-m
 	-moz-perspective: 1000;
 	-ms-perspective: 1000;
 	perspective: 1000;
-	z-index: 0
+	z-index: 0*/
 }
 .layout-visible {
-	max-height: 10000em !important;
-	-o-transition-duration: 0.35s;
+	
+	visibility:visible !important;
+	
+	/*max-height: 10000em !important;*/
+	/*-o-transition-duration: 0.35s;
 	-o-transition-timing-function: ease-out;
 	-o-transition-property: opacity;
 	-ms-transition-duration: 0.35s;
@@ -679,7 +685,7 @@ div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-m
 	-moz-perspective: 1000;
 	-ms-perspective: 1000;
 	perspective: 1000;
-	opacity: 1 !important
+	opacity: 1 !important*/
 }
 .loading {
 	background-image: url("loading.gif") !important;
@@ -1423,7 +1429,7 @@ body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-m
 
  body.media-mobile div.searchresults.layout-visible{
 	 
-	 position: inherit;
+	position: absolute;
 	top: 3.1em;
 	right: 0;
 	bottom: 3em;

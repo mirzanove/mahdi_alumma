@@ -10,7 +10,6 @@
 <div class = "loading2 topic-state"></div>
 <script type="text/javascript">
 
-
 document.getElementsByClassName("loading2")[0].style.display = 'block';  
 
 </script>
@@ -98,7 +97,7 @@ window.myScroll.destroy();
 
 git = false;
 stop = true; 
-lunch_vlist(a_QueryResultt,strParams);
+lunch_vlist(a_QueryResultt,strParams,"mycontainer","three2");
 git = false; 
 setTimeout(function() { 
   
@@ -169,6 +168,7 @@ gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 
 .itemcon{ 
   height: 100%!important;
+  line-height: 1.5em;
  }
 
 .wSearchResultItem {
@@ -205,7 +205,7 @@ gIdxKWHtml = "<span  class=\"wIdxKeywordText\">{%LINK_NAME%}</span>";
 
 wdith:100%;
 height:100%;
- position:relative;
+position:relative;
  
  overflow-y:auto;
  overflow-x:hidden;
@@ -790,8 +790,13 @@ margin:0;
 				</div>
 			</div>
 		</div>
+<a onclick = "lol(this);">
+</a>
+
+
+
 <div id="mycontainer"></div>
-<div id="end">end</div>
+<div id="end" class ="rh-hide"><span>نهاية نتائج البحث</span></div>
 <div id="test_item" style= "visibility: hidden;"></div>
 
 
@@ -958,13 +963,13 @@ function scrollTo_down(){
 
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 
-gotoBottom("three2");
+//gotoBottom("three2");
 
 //three.scrollTop = 400000000;
 
 setTimeout(function() {
  gotoBottom("three2");
- document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
+ document.getElementsByClassName("loading2")[0].style.display = 'none'}, 200);
 }
 
 document.getElementsByClassName("close")[0].addEventListener("click", close_modal);
@@ -1024,14 +1029,14 @@ function  go_topic(){
 }
 
 function chkbookmark(thiss){
-
+if(thiss.className == "toc active"){
 setTimeout(function() { 
-			  if(thiss.className == "toc active"){
+			 
 			   document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href2",null], "*");
-			  }
+			  
 			 }, 300);
 
-
+}
 }
 
 
@@ -1054,8 +1059,8 @@ setTimeout(function() {
 	};
 	
 	if (textInput.value.length > 1) {
-       clearBtn.style.visibility =  "visible" ;
-     }
+       //clearBtn.style.visibility =  "visible" ;
+    }
 	 
 	
 })();
@@ -1156,7 +1161,7 @@ if(lsTest() === true){
 
     document.getElementById("websiteName").value = data; 
 	document.getElementById("websiteUrl").value = data2;
-	showclear2();
+	//showclear2();
     if(localStorage.getItem('bookmarks') != null){
 	 	   
 		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));

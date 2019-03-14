@@ -58,7 +58,7 @@ return "3";
 <script type="text/javascript" src="template/scripts/search.js"></script>
 <script type="text/javascript" src="template/scripts/searchfield.js"></script>
 <script type="text/javascript" src="template/scripts/tabpanels.js"></script>
-
+<script type="text/javascript" src="template/exjs/vscroll.js"></script>
 <script type="text/javascript" src="clientscript/xregexp-all.js"></script>
 
 
@@ -754,7 +754,7 @@ margin:0;
 </div>
 				</div>
 				
-				<div class="wSearchResults rh-hide" id="searchresults" data-if="@.l.uimode=='search'" dir ="rtl">
+<div class="wSearchResults rh-hide" id="searchresults" data-if="@.l.uimode=='search'" dir ="rtl">
 
 			
 						
@@ -883,13 +883,24 @@ margin:0;
 					
 				
 <div id="searchResList"></div>
+
+<div dir ="rtl"  id="mycontainer"></div>
+
 			
 			<div class="content_top_link" data-if="!@.l.uimode">
 				<span class="desktop"><a>&#160;</a></span>
 			</div>
 		</div>
 	</div>
+
+	
+	
+	
 </div>
+
+
+
+
 
 <div id = "pages_bar_note" class = "rh-hide">
 <div style= "font-weight:bold; font-size:.9em; text-align:center; padding:3px; background-color:grey;color:white;">قم بازاحة شريط الصفحات بشكل افقي</div>								

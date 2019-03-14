@@ -127,11 +127,11 @@ aa =0;
         // the update function is optimized and it's ultra fast.
         // Calling an empty function () {} is only 4 times faster than update();
         that._scrollEvent = function () {
-			if(stop==false){
-				//alert();
+			//if(stop==false){
+			
 				that.update();
 			
-			}
+			//}
            
         };
 
@@ -139,6 +139,8 @@ aa =0;
             that.refresh();
         };
 
+		//alert(that.scrollParent);
+		
         that.scrollParent.addEventListener('scroll', that._scrollEvent, false);
 
         if (that.responsive) window.addEventListener('resize', that._resizeEvent, false);
@@ -157,11 +159,14 @@ aa =0;
             var that = this;
             
             var units = getUnits(that.scrollParent);
-            //that.scrollOffset=  that.container.offsetTop;
+           
+          if(getbooleanindexopage()==3) {
+		   that.scrollOffset=  that.container.offsetTop;
+          }
             // Here we calcaute the indexes (start, end)
             var _startIndex = Math.floor((units.scrollTop - that.offsetBefore - that.scrollOffset) / that.itemHeight) * 1;
            
-            //alert(that.container.offsetTop);
+            //alert(units.clientHeight);
 	
 			if (navigator.userAgent.indexOf("Firefox") > 0) {
                 units.clientHeight = (units.clientHeight+that.itemHeight);
@@ -235,13 +240,13 @@ aa =0;
             // When it comes to startIndex, and here's the smart trick here, we append and remove what we calcaute and taking columns into account.
            
 		  if(that.itemsWrapper.childNodes[0]){
-			 console.log(startIndex);
+			 //console.log(getAbsoluteHeight(that.itemsWrapper.childNodes[0]));
 			    	 
                 
              if(tt&&that.scrollParent.scrollTop > (that.itemsWrapper.childNodes[0].offsetTop+getAbsoluteHeight(that.itemsWrapper.childNodes[0]))){
-			  //console.log(that.itemsWrapper.childNodes[0].childNodes[1]);
+			  //console.log(that.itemsWrapper.childNodes[0]);
 			  
-			 // that.itemsWrapper.childNodes[0].childNodes[0].childNodes[1].innerHTML= "ffffffffffffff"
+			  //that.itemsWrapper.childNodes[0].style.minHeight =that.itemHeight+'px';
 			 if(that.scrollParent.scrollTop > 10+(that.itemsWrapper.childNodes[0].offsetTop+getAbsoluteHeight(that.itemsWrapper.childNodes[0]))){ 
 			
                   
@@ -384,7 +389,7 @@ aa =0;
 			
 			  if(git == true){
 				
-					 curr_index = (startIndex);  
+					 curr_index = (startIndex+1);  
 				  
 			  }
 	
