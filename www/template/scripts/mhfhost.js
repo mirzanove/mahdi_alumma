@@ -76,9 +76,9 @@ function doSearch()
 	if(getbooleanindexopage()==3) {
 	
 	 showclear();
-     document.getElementById("conpag").className = "container rh-hide";
+    // document.getElementById("conpag").className = "container rh-hide";
 	 document.getElementById("searchMsgg").className = "rh-hide";
-	 document.getElementById("pages_bar_note").className = "rh-hide";
+	 $("#pages_bar_note").css("display", "none");
 	 $('.cSearchSettingsToggle a').removeClass('collapsed');
 	 $('.cSearchSettingsToggle a').addClass('opened');
 	 $('.wSearchResultSettings').css("display", "none");
@@ -3275,11 +3275,17 @@ test_item_hight(longest);
 }
 
 
-
+var _i;
+var _g_nMaxResult;
+var _g_CurPage;
+var _bShowAll;
 
 function lunch_vlist2(a_QueryResult,strParams,_container,_scrollParent,i,g_nMaxResult,g_CurPage,bShowAll){
 	
-	
+ _i =i;
+ _g_nMaxResult = g_nMaxResult;
+ _g_CurPage = g_CurPage;
+ _bShowAll = bShowAll;	
 
 if(data ==true){
 	
@@ -3435,8 +3441,26 @@ function displayTopics( a_QueryResult )
 			curr_index =0;
 			current_select =null;	
 			
+		
+		    updateNavigationPagesBar(g_CurPage, nNumPages);
+			updatePrevNextButtons(g_CurPage, nNumPages);
+			changeResultView("");
+		
+	        
+	
+            setTimeout(function(){ 
 			
-		 lunch_vlist2(a_QueryResult.aTopics,strParams,"mycontainer","rh_scrollable_content",i,g_nMaxResult,g_CurPage,bShowAll)
+			
+			lunch_vlist2(a_QueryResult.aTopics,strParams,"mycontainer","searchresults",i,g_nMaxResult,g_CurPage,bShowAll);
+			
+			
+			
+			
+			}, 200);
+
+
+			
+		 
 			
 		
 			
@@ -3475,9 +3499,7 @@ function displayTopics( a_QueryResult )
 			
 			//changeResultView( sHTML );
 			
-			updateNavigationPagesBar(g_CurPage, nNumPages);
-			updatePrevNextButtons(g_CurPage, nNumPages);
-			changeResultView("");
+			
 		
 		}
 		else
@@ -3565,16 +3587,21 @@ function updateResultView()
 		
 		
 		//jomart
-		
+	
 		if(getbooleanindexopage()==3) {
+		if(!($('#searchresults').hasClass("rh-hide"))) {
 		if($('.wSearchPageNumberSelected').length) 
 		{	
-	      removeClass(document.getElementById("conpag"),"rh-hide");
-		 
-if($('#searchBoxSearchPage').is(':visible')) {
-		  removeClass(document.getElementById("pages_bar_note"),"rh-hide");
-          $('#pages_bar_note').show(); 		  
-}
+	     
+		//removeClass(document.getElementById("conpag"),"rh-hide");
+        
+			  
+		//removeClass(document.getElementById("pages_bar_note"),"rh-hide");
+					   
+ 
+			$("#pages_bar_note").css("display", "block");  
+		
+
 		  $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
 		 
 		   
@@ -3615,7 +3642,7 @@ if($('#searchBoxSearchPage').is(':visible')) {
 			 }
 			
 		}
-		
+		}
 		removeClass(document.getElementById("searchMsgg"),"rh-hide");
 		}
 		else{

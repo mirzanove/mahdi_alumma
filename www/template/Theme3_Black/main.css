@@ -55,6 +55,12 @@ td {
 	overflow: hidden;
 }
 
+html,body
+{
+    height:100%;
+    width:100%;
+}
+
 
 body {
       font-size:100%;
@@ -2524,7 +2530,6 @@ div.cSearchSettingsToggle a.opened {
 }
 div.wSearchResultSettings {
                            margin:0 0 1em 0;
-                           display:none;
                            border-top-width:.1em;
                            border-top-style:solid;
                            border-top-color:#e1e1e1;
