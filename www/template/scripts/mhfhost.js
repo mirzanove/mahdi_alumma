@@ -3163,20 +3163,23 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
 				//console.log(i+"ggggg");
                 
 		       array[count] = '<div  class = "itemcon">'+
-			        '<a class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
-			        '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
-			        '</a>'+
-			        '<div class="">'+
-			        '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
-			        '</div>'+
-			        '<div class="">'+
-			        '<span class="">'+a_QueryResultArray[i].strBreadcrumbs+'</span>'+
-			        '</div>'+
-			        '<div class ="img_wrapper">'+
-					'<img src="template/resources/loading.gif" height="20" width="20">'+
-			        '</div>'+
-			        '</div>';
-					
+			  '<a onclick="go_topic(event);" class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</a>'+
+			  '<div class="">'+
+			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
+			  '</div>'+
+			  '<div class="">'+
+			     '<span class="">'+a_QueryResultArray[i].strBreadcrumbs+'</span>'+
+			  '</div>'+
+			  '<div class ="img_wrapper">'+
+					 '<img src="template/resources/loading.gif" height="20" width="20">'+
+			  '</div>'+
+			 '</div>';
+	
+
+
+
+
+				
 		     //console.log(i+"ggggg");	
 					
 					
@@ -3466,7 +3469,7 @@ function displayTopics( a_QueryResult )
 			
 //console.log(hh);
 			
-		/*	for( ; (i < a_QueryResult.aTopics.length); i++ )
+		/*for( ; (i < a_QueryResult.aTopics.length); i++ )
 			{
 				if(bShowAll == false && i>=(g_CurPage*g_nMaxResult))
 					break;
@@ -3495,9 +3498,9 @@ function displayTopics( a_QueryResult )
 				sHTML += sLine;
 			
 			updateNavigationPagesBar(g_CurPage, nNumPages);
-			updatePrevNextButtons(g_CurPage, nNumPages);*/
+			updatePrevNextButtons(g_CurPage, nNumPages);
 			
-			//changeResultView( sHTML );
+			changeResultView( sHTML );*/
 			
 			
 		

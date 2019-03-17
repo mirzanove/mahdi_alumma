@@ -160,13 +160,13 @@ aa =0;
             
 			
 			
-            var units = getUnits(that.scrollParent);
+          var units = getUnits(that.scrollParent);
            
-          //if(getbooleanindexopage()==3) {
-		  that.scrollOffset=  (that.container.offsetTop+getAbsoluteHeight(desktop_functionholder));
+          if(getbooleanindexopage()==3) {
+		  that.scrollOffset=  (that.container.offsetTop+getAbsoluteHeight(document.getElementById('desktop_functionholder')));
 		  
-		  //console.log(that.scrollOffset);
-          //}
+		  console.log(that.scrollOffset);
+          }
             // Here we calcaute the indexes (start, end)
             var _startIndex = Math.floor((units.scrollTop - that.offsetBefore - that.scrollOffset) / that.itemHeight) * 1;
            
@@ -177,20 +177,19 @@ aa =0;
             }
 			else{
 				
-		
-			
+		      
 				if(isChrome==true){
 					
 				if(_isMobile() == true){
 				
-					units.clientHeight = (units.clientHeight+that.itemHeight);
+					units.clientHeight = (units.clientHeight+(that.itemHeight*2));
 						//console.log("بببببببببببب");
 				}else{
-					units.clientHeight = (units.clientHeight+that.itemHeight);
+					units.clientHeight = (units.clientHeight+(that.itemHeight*2));
 				}
 					
 				}else{
-					units.clientHeight = (units.clientHeight+that.itemHeight+20);
+					units.clientHeight = (units.clientHeight+(that.itemHeight*2));
 				}
 				
 		
@@ -275,8 +274,8 @@ aa =0;
 						
 						
 			if (navigator.userAgent.indexOf("Firefox") > 0) {
-                removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-1) - that.lastStartIndex))));
-                startIndex =(startIndex-1);		
+                removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-2) - that.lastStartIndex))));
+                startIndex =(startIndex-2);		
             }
 			else{
 			
@@ -284,17 +283,17 @@ aa =0;
 		        if(isChrome ==true){
 				if(_isMobile() == true){
 				
-					removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-1) - that.lastStartIndex))));
-                    startIndex =(startIndex-1);					
+					removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-2) - that.lastStartIndex))));
+                    startIndex =(startIndex-2);					
 				}
                 else{
-                    removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-1) - that.lastStartIndex))));
-                    startIndex =(startIndex-1);	
+                    removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-2) - that.lastStartIndex))));
+                    startIndex =(startIndex-2);	
                 }	
 				}
 				else{
-					removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-1) - that.lastStartIndex))));
-					startIndex =(startIndex-1);	
+					removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (((startIndex-2) - that.lastStartIndex))));
+					startIndex =(startIndex-2);	
 				}
 		
 		
