@@ -162,11 +162,11 @@ aa =0;
 			
             var units = getUnits(that.scrollParent);
            
-          if(getbooleanindexopage()==3) {
+          //if(getbooleanindexopage()==3) {
 		  that.scrollOffset=  (that.container.offsetTop+getAbsoluteHeight(desktop_functionholder));
 		  
-		  console.log(that.scrollOffset);
-          }
+		  //console.log(that.scrollOffset);
+          //}
             // Here we calcaute the indexes (start, end)
             var _startIndex = Math.floor((units.scrollTop - that.offsetBefore - that.scrollOffset) / that.itemHeight) * 1;
            
