@@ -161,18 +161,10 @@ function printDiv2(divID) {
 	  }
 	  
 	    //var contents = document.getElementById(divID).innerHTML;
-		//console.log(divID.innerHTML);
-	    //var contents = divID.innerHTML;
+		
+	    var contents = divID[0].outerHTML
 		//alert();
-	var contents ="";
-    if(_isMobile() == mobiletrue) {
-
-	    contents = jQueryM_v1_4_5(divID).parent().html();
-	}else{
-	    contents = jQueryD_1_4_2(divID).parent().html();
-	}
-		
-		
+		//var contents = jQueryD_1_4_2('#'+divID).parent().html();
 		var wrapper = document.createElement('div');
 	    wrapper.innerHTML = contents;
        
@@ -260,7 +252,7 @@ function printDiv2(divID) {
 				window.frames["frame1"].focus();
                 window.frames["frame1"].print();
 				
-                document.body.removeChild(frame1);
+                //document.body.removeChild(frame1);
 				
 				//jQueryM_v1_4_5('body').trigger('resize');
 				//jQueryM_v1_4_5('.posttop').css("background-color", "#d5dc91");

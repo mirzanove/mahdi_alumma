@@ -150,7 +150,9 @@ function clearSelection()
 //alert("first");
 
 
-
+function isVisible(e) {
+    return !!( e.offsetWidth || e.offsetHeight || e.getClientRects().length );
+}
 
 
 
