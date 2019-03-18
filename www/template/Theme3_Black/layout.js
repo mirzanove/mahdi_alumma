@@ -230,7 +230,7 @@ else{
 	
 
 	
-$(document).on('click','.nolink',function(){
+/*$(document).on('click','.nolink',function(){
 
 
      document.getElementsByClassName("loading2")[0].style.display = 'block';
@@ -239,8 +239,49 @@ $(document).on('click','.nolink',function(){
 	 $links.removeClass('curr');
 	 $(this).addClass('curr');
 	 
+})*/
+
+
+
+
+
 })
-});
+
+
+
+function highlite(gg){
+var elements = document.getElementsByClassName('wSearchResultTitle');
+
+for (var i = 0; i < elements.length; i++) {
+   elements[i].classList.remove('curr');
+}
+
+
+var element, name, arr;
+    element = gg;
+    name = "curr";
+    arr = element.className.split(" ");
+    if (arr.indexOf(name) == -1) {
+        element.className += " " + name;
+    }
+
+current_select  = element.id;
+
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   git =true;
+   stop = false; 
+			
+}, 300);
+}
+
+
+
+
+
 
 
 function go_bookmark(event){
@@ -1169,6 +1210,32 @@ function setTopic() {
 		saveSetting(lastVisitedTopic, url, false);
 		changeTopicLink(url);
 	}*/
+	
+	
+	
+	
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   if(window.myScroll){ 
+ 
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+			
+}, 300);
+ 
+	
+	
+	
+	
+	
+	
+	
 }
 function changeTopicLink(url, arg1, arg2) {/* Amend return link. Change default topic to last visited topic. */
 	if(url != "") {

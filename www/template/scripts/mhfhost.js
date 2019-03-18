@@ -74,7 +74,7 @@ function doSearch()
     document.getElementById("searhcform").submit();
 	
 	if(getbooleanindexopage()==3) {
-	
+	$("#end").hide();
 	 showclear();
     // document.getElementById("conpag").className = "container rh-hide";
 	 document.getElementById("searchMsgg").className = "rh-hide";
@@ -839,6 +839,7 @@ function HuginContext()
 	   document.getElementById("progressbar").className = "rh-hide";
 	   context.bCancel = true;
 	   document.getElementById("loading").className = "rh-hide";
+	   $("#end").hide();
 	}
 	   
 	
@@ -3080,6 +3081,37 @@ function unicodeLength(str) {
 }
 
 
+function countCodePoints(str) {
+  var point;
+  var index;
+  var width = 0;
+  var len = 0;
+  for (index = 0; index < str.length;) {
+      point = str.codePointAt(index);
+      width = 0;
+      while (point) {
+          width += 1;
+          point = point >> 8;
+      }
+      index += Math.round(width/2);
+      len += 1;
+  }
+  return len;
+}
+
+
+var regexSymbolWithCombiningMarks = /(\P{Mark})(\p{Mark}+)/gu;
+
+function countSymbolsIgnoringCombiningMarks(string) {
+	// Remove any combining marks, leaving only the symbols they belong to:
+	var stripped = string.replace(regexSymbolWithCombiningMarks, function($0, symbol, combiningMarks) {
+		return symbol;
+	});
+	// Account for astral symbols / surrogates, just like we did before:
+	return stripped.length;
+}
+
+
 var longestH=0;
 var options;
 var longest;
@@ -3114,8 +3146,8 @@ longest="";
 		      maxtext = (a_QueryResultArray[i].strTitle+a_QueryResultArray[i].strSummary+a_QueryResultArray[i].strBreadcrumbs);
 			  //maxtext = strip_And_Normlize(maxtext);
 			  //unicodeLength(maxtext);
-			 if(unicodeLength(maxtext)> lgth){
-                  var lgth = unicodeLength(maxtext);
+			if(countSymbolsIgnoringCombiningMarks(maxtext)> lgth){
+                  var lgth = countSymbolsIgnoringCombiningMarks(maxtext);
                   longest = array[i];
              }
 			
@@ -3124,7 +3156,7 @@ longest="";
 			
 			
 
-			
+			// console.log(longest);
 			
 			
             return array;
@@ -3132,7 +3164,7 @@ longest="";
 };
 
 
-
+var end =false;
 function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_CurPage,bShowAll){
 			longestH=0; 
             longest="";  
@@ -3162,8 +3194,10 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
 				
 				//console.log(i+"ggggg");
                 
-		       array[count] = '<div  class = "itemcon">'+
-			  '<a onclick="go_topic(event);" class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</a>'+
+		      array[count] = '<div  class = "itemcon">'+
+			   '<a onclick="go_topic(event);" class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
+			    '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			  '</a>'+
 			  '<div class="">'+
 			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
 			  '</div>'+
@@ -3174,28 +3208,40 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
 					 '<img src="template/resources/loading.gif" height="20" width="20">'+
 			  '</div>'+
 			 '</div>';
+		     
 	
 
-
-
-
-				
-		     //console.log(i+"ggggg");	
+ 
+	
+               if((i+1)==a_QueryResultArray.length){
+               console.log(i+" "+a_QueryResultArray.length);
+			   
+			   $("#end").show();
+			   end = true;
+			
+			   }
+			   else{
+			   $("#end").hide();   
+			   end = false;
+  
+			   }
+		
+		   
 					
 					
              
 			 maxtext = (a_QueryResultArray[i].strTitle+a_QueryResultArray[i].strSummary+a_QueryResultArray[i].strBreadcrumbs);
 			  //maxtext = strip_And_Normlize(maxtext);
 			  //unicodeLength(maxtext);
-			 if(unicodeLength(maxtext)> lgth){
-                  var lgth = unicodeLength(maxtext);
+			 if(countSymbolsIgnoringCombiningMarks(maxtext)> lgth){
+                  var lgth = countSymbolsIgnoringCombiningMarks(maxtext);
                   longest = array[count];
-             }	
+             }
 					
 			count++;		
 			}
 			
-           
+               //console.log(longest);
     
 			return array;
 }
@@ -3299,10 +3345,20 @@ if(data ==true){
 	
 	conoffset = document.getElementById(_container).offsetTop;
 }
+else{
+	if(end == true){
+		 
+		 $("#end").show();
+		
+	}else{
+		 $("#end").hide();
+	}
+	
+}
 
 test_item_hight(longest);
 		
-//alert(longest);
+
         // Template function must return HTML element
         
 		longestH= (longestH);
@@ -3443,7 +3499,7 @@ function displayTopics( a_QueryResult )
 	        data =true;
 			curr_index =0;
 			current_select =null;	
-			
+			end = false;
 		
 		    updateNavigationPagesBar(g_CurPage, nNumPages);
 			updatePrevNextButtons(g_CurPage, nNumPages);
