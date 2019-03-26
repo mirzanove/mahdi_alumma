@@ -3413,6 +3413,9 @@ test_item_hight(longest);
 var szSearchStrings;
 var a_QueryResult;
 var strParams;
+
+var ii,g_nMaxResultt,g_CurPagee,bShowAlll;
+
 function displayTopics( a_QueryResult )
 {
 	var sHTML = "";
@@ -3520,7 +3523,10 @@ function displayTopics( a_QueryResult )
 		    updateNavigationPagesBar(g_CurPage, nNumPages);
 			updatePrevNextButtons(g_CurPage, nNumPages);
 			changeResultView("");
-		
+		    ii= i;
+			g_nMaxResultt = g_nMaxResult;
+			g_CurPagee = g_CurPage;
+			bShowAlll= bShowAll;
 	        
 	
             setTimeout(function(){ 
@@ -3605,6 +3611,30 @@ function displayTopics( a_QueryResult )
 	
 	}	
 }
+
+
+var resizeId;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeId);
+    resizeId = setTimeout(doneResizing, 500);
+});
+
+function doneResizing(){
+   
+	
+	if (typeof getbooleanindexopage !== "undefined") { 
+		if(getbooleanindexopage()==3) {
+	
+			 go_index();
+		}
+		else{
+			 go_index();
+		}
+	}
+	
+	
+}
+
 
 
 

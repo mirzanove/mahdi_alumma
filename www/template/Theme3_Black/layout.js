@@ -1,4 +1,44 @@
-﻿
+﻿function go_index(){
+//document.getElementsByClassName("loading2")[0].style.display = 'block';
+if(window.myScroll){
+
+window.myScroll.destroy();
+
+
+// 		   
+}
+
+
+git = false;
+stop = true; 
+
+lunch_vlist2(a_QueryResultt, strParamss,"mycontainer","searchresults",ii,g_nMaxResultt,g_CurPagee,bShowAlll);
+
+git = false; 
+setTimeout(function() { 
+  
+   if(window.myScroll){ 
+    
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+   //git =true;			
+}, 300);
+
+//document.getElementsByClassName("loading2")[0].style.display = 'none';
+}
+
+
+
+
+
+
+
+
+
+
 /*$("#searhcform").submit(function(event){
 
 
