@@ -636,7 +636,13 @@ toc = document.getElementById('tocold');
 
 }
 document.getElementsByClassName("loading2")[0].style.display = 'block';
-toc.scrollTop = 0;
+
+if(toc){
+toc.scrollTop = 0;	
+}
+
+
+
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
 }
 
@@ -644,7 +650,7 @@ setTimeout(function() { document.getElementsByClassName("loading2")[0].style.dis
 
 
 
-function scrollTo_down(){
+function scrollTo_down(e){
 	
 if(!($('#searchresults').hasClass("rh-hide"))) 
 {
@@ -658,9 +664,23 @@ toc = document.getElementById('tocold');
 
 }
 	
-document.getElementsByClassName("loading2")[0].style.display = 'block';
-toc.scrollTop = toc.scrollHeight;
-setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 100);
+
+
+if(toc){
+document.getElementsByClassName("loading2")[0].style.display = 'block';	
+setTimeout(function() {
+toc.scrollTop = toc.scrollHeight+100000;
+ document.getElementsByClassName("loading2")[0].style.display = 'none'
+ 
+}, 200);
+
+}
+else{
+document.getElementsByClassName("loading2")[0].style.display = 'block';	
+setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
+	
+}
+
 }
 
 

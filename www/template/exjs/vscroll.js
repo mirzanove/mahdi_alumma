@@ -170,11 +170,11 @@ aa =0;
 			 that.scrollOffset= (that.container.offsetTop);
 			 
 		  }else{
-			that.scrollOffset=  (that.container.offsetTop);  
+			that.scrollOffset=  (that.container.offsetTop+getAbsoluteHeight(document.getElementById("floatholder")));  
 		  }
 		 
           //that.scrollOffset= 230;
-		  console.log(that.scrollOffset);
+		  //console.log(that.scrollOffset);
           }
             // Here we calcaute the indexes (start, end)
             var _startIndex = Math.floor((units.scrollTop - that.offsetBefore - that.scrollOffset) / that.itemHeight) * 1;
@@ -182,7 +182,7 @@ aa =0;
             //alert(units.clientHeight);
 	
 			if (navigator.userAgent.indexOf("Firefox") > 0) {
-                units.clientHeight = (units.clientHeight+that.itemHeight);
+                units.clientHeight = (units.clientHeight+that.itemHeight*2);
             }
 			else{
 				
@@ -195,7 +195,6 @@ aa =0;
 					
 				}else{
 					units.clientHeight = (units.clientHeight+(that.itemHeight*2));
-					console.log("بببببببببببب");
 				}
 					
 				}else{

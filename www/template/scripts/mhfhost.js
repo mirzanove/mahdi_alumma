@@ -3378,11 +3378,12 @@ test_item_hight(longest);
         //console.log(longestH);
 		if(getbooleanindexopage()==3) {
 		 
-		  if($(window).innerWidth() >= em(81)){
+		   if($(window).innerWidth() >= em(81)){
 			
 		   }else{
 
            conoffset= 230;
+		   //alert();
 		   }		   
          
 		 
