@@ -685,7 +685,7 @@ jQueryD_1_4_2(document).click(function() {
 			
 			
 
-if (typeof process !== "undefined" && typeof require !== "undefined") {              
+ if (typeof process !== "undefined" && typeof require !== "undefined") {              
 
  function copyToClipboard(text){
     var dummy = document.createElement("input");
@@ -708,24 +708,7 @@ var gui = require('nw.gui');
 var win = gui.Window.get();
 
 var menu = new gui.Menu();
-  /*menu.append(new gui.MenuItem({
-    label: "Cut",
-    click: function() {
-      document.execCommand("cut");
-    }
-  }));*/
-  
-
-  
-
-  /*menu.append(new gui.MenuItem({
-    label: "Paste",
-    click: function() {
-      document.execCommand("paste");
-    }
-	
-  }));*/
-  
+ 
 if(ev.path[0].href){ 
   menu.append(new gui.MenuItem({ 
             label: 'open in browser',
@@ -752,6 +735,24 @@ copyToClipboard(ev.path[0].href)
       document.execCommand("copy");
     }
   })); 
+  
+   menu.append(new gui.MenuItem({
+    label: "Cut",
+    click: function() {
+      document.execCommand("cut");
+    }
+  }));
+  
+
+  
+
+  menu.append(new gui.MenuItem({
+    label: "Paste",
+    click: function() {
+      document.execCommand("paste");
+    }
+	
+  }));
  }
 
 menu.popup(ev.x, ev.y);
