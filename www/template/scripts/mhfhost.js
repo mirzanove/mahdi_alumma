@@ -3076,9 +3076,9 @@ function getAbsoluteHeight(el) {
 }
 
 
-function unicodeLength(str) {
+/*function unicodeLength(str) {
   return [...str].length
-}
+}*/
 
 
 function countCodePoints(str) {
@@ -3100,7 +3100,7 @@ function countCodePoints(str) {
 }
 
 
-var regexSymbolWithCombiningMarks = /(\P{Mark})(\p{Mark}+)/gu;
+var regexSymbolWithCombiningMarks = XRegExp('(\\P{Mark})(\\p{Mark}+)', "i");
 
 function countSymbolsIgnoringCombiningMarks(string) {
 	// Remove any combining marks, leaving only the symbols they belong to:
@@ -3376,7 +3376,22 @@ test_item_hight(longest);
         };
 
         //console.log(longestH);
-        options = {
+		if(getbooleanindexopage()==3) {
+		 
+		  if($(window).innerWidth() >= em(81)){
+			
+		   }else{
+
+           conoffset= 230;
+		   }		   
+         
+		 
+        }
+        else{
+			  	  
+        }
+		  
+		options = {
             container: "#"+_container,
             scrollParent: "#"+_scrollParent,
             data: myData,

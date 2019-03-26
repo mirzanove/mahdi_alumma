@@ -1482,6 +1482,81 @@ $.ui.plugin.add("resizable", "alsoResizeReverseWidth", {
 });
 
 
+ if (typeof process !== "undefined" && typeof require !== "undefined") {              
+
+ function copyToClipboard(text){
+    var dummy = document.createElement("input");
+    document.body.appendChild(dummy);
+    dummy.setAttribute('value', text);
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+}
+
+ 
+ 
+document.body.addEventListener('contextmenu', function(ev) {
+ev.preventDefault();
+
+//get node webkit GUI
+var gui = require('nw.gui');
+
+// get the window object
+var win = gui.Window.get();
+
+var menu = new gui.Menu();
+  /*menu.append(new gui.MenuItem({
+    label: "Cut",
+    click: function() {
+      document.execCommand("cut");
+    }
+  }));*/
+  
+
+  
+
+  /*menu.append(new gui.MenuItem({
+    label: "Paste",
+    click: function() {
+      document.execCommand("paste");
+    }
+	
+  }));*/
+  
+if(ev.path[0].href){ 
+  menu.append(new gui.MenuItem({ 
+            label: 'open in browser',
+            click: function(e) {
+gui.Shell.openExternal(ev.path[0].href);
+
+
+            }
+        }));
+		
+		menu.append(new gui.MenuItem({ 
+            label: 'copy link address',
+            click: function(e) {
+//gui.Shell.openExternal();
+copyToClipboard(ev.path[0].href)
+
+            }
+        }));
+		
+ }else{
+	menu.append(new gui.MenuItem({
+    label: "Copy",
+    click: function() {
+      document.execCommand("copy");
+    }
+  })); 
+ }
+
+menu.popup(ev.x, ev.y);
+
+
+return false;
+});
+}
 
 
 

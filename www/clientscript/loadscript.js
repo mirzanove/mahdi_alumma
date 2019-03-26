@@ -14,6 +14,10 @@ url = url.substring(0, url.indexOf(v));
  
 if(disable_resoures == false){
 
+
+//document.write('<script>if (typeof process !== "undefined" && typeof require !== "undefined") {global.window = window;}</script>');
+
+
 if (typeof encryptedMsg != 'undefined')
 {
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/kryptojs-3.1.9-1-lib.js\'><\/script>');  

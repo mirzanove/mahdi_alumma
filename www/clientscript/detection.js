@@ -155,6 +155,3 @@ function isVisible(e) {
 }
 
 
-
-
-

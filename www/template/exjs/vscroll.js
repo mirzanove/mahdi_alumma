@@ -163,8 +163,17 @@ aa =0;
           var units = getUnits(that.scrollParent);
            
           if(getbooleanindexopage()==3) {
-		  that.scrollOffset=  (that.container.offsetTop+getAbsoluteHeight(document.getElementById('desktop_functionholder')));
-		  
+
+		 
+		 if($(window).innerWidth() >= em(81)){
+			 
+			 that.scrollOffset= (that.container.offsetTop);
+			 
+		  }else{
+			that.scrollOffset=  (that.container.offsetTop);  
+		  }
+		 
+          //that.scrollOffset= 230;
 		  console.log(that.scrollOffset);
           }
             // Here we calcaute the indexes (start, end)
@@ -183,9 +192,10 @@ aa =0;
 				if(_isMobile() == true){
 				
 					units.clientHeight = (units.clientHeight+(that.itemHeight*2));
-						//console.log("بببببببببببب");
+					
 				}else{
 					units.clientHeight = (units.clientHeight+(that.itemHeight*2));
+					console.log("بببببببببببب");
 				}
 					
 				}else{
