@@ -58,7 +58,7 @@ document.getElementById('searchresults').addEventListener('wheel',function (even
 		myStopFunctiond();
 		myStopFunctionu();
 
-	}, 600);
+	}, 400);
   
   
 })
