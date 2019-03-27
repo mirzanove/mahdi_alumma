@@ -1,4 +1,138 @@
-﻿function go_index(){
+﻿
+if (typeof process !== "undefined" && typeof require !== "undefined") {
+
+var isScrolling;
+var stopacrolld = true;
+var stopacrollu = true;
+var myVar;
+var myVar2;
+
+
+  
+document.getElementById('searchresults').addEventListener('wheel',function (event){
+  
+   
+	
+	console.log( 'Scrolling' );
+	// Clear our timeout throughout the scroll
+	window.clearTimeout( isScrolling );
+	
+	    var delta;
+
+        if (event.wheelDelta){
+            delta = event.wheelDelta;
+        }else{
+            delta = -1 * event.deltaY;
+        }
+
+        if (delta < 0){
+           //console.log(event.deltaY);
+			if (event.deltaY > 0)
+            {       myStopFunctionu();
+                    event.preventDefault();
+                    stopacrolld = false;
+					stopacrollu = true;
+	                smoothScrolld(document.getElementById('searchresults'),50,200)
+            }
+        }else if (delta > 0){
+            //console.log(event.deltaY);
+			if (event.deltaY < 0)
+            {
+			        myStopFunctiond();
+                    event.preventDefault();
+                    stopacrolld = true;
+					stopacrollu = false;
+	                smoothScrollu(document.getElementById('searchresults'),50,200)
+			}
+            
+        }
+	
+	
+    
+	// Set a timeout to run after scrolling ends
+	isScrolling = setTimeout(function() {
+
+		// Run the callback
+		//console.log( 'Scrolling has stopped.' );
+		//stopacroll = true;
+		myStopFunctiond();
+		myStopFunctionu();
+
+	}, 600);
+  
+  
+})
+
+function myStopFunctiond() {
+  clearTimeout(myVar);
+  stopacrolld = true;
+}
+
+function myStopFunctionu() {
+  clearTimeout(myVar2);
+  stopacrollu = true;
+}
+
+function smoothScrolld(domElement,pixel,delay)
+{
+
+  const intervalToRepeat = 25;
+  const step = (intervalToRepeat * pixel) / delay;
+  console.log(step);
+  
+  if ( step < pixel)
+  {
+    
+    
+	
+	 if(stopacrolld == false){
+	  domElement.scrollTop += step;
+	 myVar = setTimeout(function (){
+	 //console.log("hhhh"); 
+     if(stopacrolld == false){
+	 smoothScrolld(domElement,pixel - step,delay)
+	 }
+	
+    },intervalToRepeat);
+	}
+	
+  } 
+}
+function smoothScrollu(domElement,pixel,delay)
+{
+
+  const intervalToRepeat = 25;
+  const step = (intervalToRepeat * pixel) / delay;
+  console.log(step);
+  
+  if ( step < pixel)
+  {
+    
+    
+	
+	 if(stopacrollu == false){
+	  domElement.scrollTop -= step;
+	 myVar2 = setTimeout(function (){
+	 //console.log("dddddd"); 
+      if(stopacrollu == false){
+	 smoothScrollu(domElement,pixel - step,delay)
+	  }
+	
+    },intervalToRepeat);
+	}
+	
+  } 
+}
+
+
+}
+
+
+
+
+
+
+function go_index(){
 //document.getElementsByClassName("loading2")[0].style.display = 'block';
 if(window.myScroll){
 
@@ -694,6 +828,7 @@ function scrollTo_down(e){
 	
 if(!($('#searchresults').hasClass("rh-hide"))) 
 {
+
 toc = document.getElementById('searchresults');	
 
 }
@@ -709,7 +844,7 @@ toc = document.getElementById('tocold');
 if(toc){
 document.getElementsByClassName("loading2")[0].style.display = 'block';	
 setTimeout(function() {
-toc.scrollTop = toc.scrollHeight+100000;
+toc.scrollTop = toc.scrollHeight;
  document.getElementsByClassName("loading2")[0].style.display = 'none'
  
 }, 200);

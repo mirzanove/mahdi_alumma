@@ -78,8 +78,9 @@ $("#search_footer").addClass("hide");
 
 
 $("#one").removeClass("visibility").trigger('resize');
+$("#content_t").css("overflow"," hidden");
+document.getElementById('iframe').contentWindow.postMessage(["loaddsett",null], "*");
 
-	
 }	 
 else if(href.substr(href.indexOf('#')) === "#two"){
 
@@ -98,7 +99,7 @@ $("#search_footer").addClass("hide");
 
 $(".tabView").addClass("visibility").trigger('resize');
 $("#two").removeClass("visibility").trigger('resize');
-
+$("#content_t").css("overflow"," hidden");
 //var element = document.getElementsByClassName("selected");
 
 

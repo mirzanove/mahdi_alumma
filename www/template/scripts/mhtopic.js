@@ -2485,7 +2485,9 @@ var data2 = e.data[2];
 
     switch(eventName) {
       
-	  
+	  case 'loaddsett':
+	        loaddsett();
+	  break;
 	  case 'send_href':
 	  
 	  StartHighLightSearch2(data)

@@ -3100,7 +3100,7 @@ function countCodePoints(str) {
 }
 
 
-var regexSymbolWithCombiningMarks = XRegExp('(\\P{Mark})(\\p{Mark}+)', "i");
+var regexSymbolWithCombiningMarks = XRegExp('[\\p{L}]', "ig");
 
 function countSymbolsIgnoringCombiningMarks(string) {
 	// Remove any combining marks, leaving only the symbols they belong to:
@@ -3109,6 +3109,22 @@ function countSymbolsIgnoringCombiningMarks(string) {
 	});
 	// Account for astral symbols / surrogates, just like we did before:
 	return stripped.length;
+}
+
+
+function test_item_hight(longest){
+	
+document.getElementById('mycontainer').innerHTML = '<div class="vscroll-wrapper" id="vscroll-wrapper" data-columns="1">'+
+			'<div class="wSearchResultItem">'+
+			longest+
+			'</div>'+
+			'</div>';
+			
+			console.log(longest);
+			
+			longestH = (getAbsoluteHeight(document.getElementById('mycontainer')));
+			document.getElementById('mycontainer').innerHTML = "";
+	
 }
 
 
@@ -3250,20 +3266,7 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
 
  
 
-function test_item_hight(longest){
-	
-document.getElementById('mycontainer').innerHTML = '<div class="vscroll-wrapper" id="vscroll-wrapper" data-columns="1">'+
-			'<div class="wSearchResultItem">'+
-			longest+
-			'</div>'+
-			'</div>';
-			
-			//console.log(longest);
-			
-			longestH = (getAbsoluteHeight(document.getElementById('mycontainer')));
-			document.getElementById('mycontainer').innerHTML = "";
-	
-}
+
 
  
 var data =true;
@@ -3362,7 +3365,7 @@ test_item_hight(longest);
         // Template function must return HTML element
         
 		longestH= (longestH);
-		//alert(longestH);
+	
 		var createTemplateFunction = function(item, index, startIndex, endIndex) {
 
             // Create your HTML template of each record, it could be anything, an img, li, div etc.
@@ -3629,6 +3632,7 @@ function doneResizing(){
 		}
 		else{
 			 go_index();
+	
 		}
 	}
 	
