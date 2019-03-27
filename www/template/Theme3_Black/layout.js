@@ -407,7 +407,7 @@ else{
 $(document).on('click','.nolink',function(){
 
 
-     document.getElementsByClassName("loading2")[0].style.display = 'block';
+     //document.getElementsByClassName("loading2")[0].style.display = 'block';
 	 //var $links = $('.nolink');
 	 //$(this).css("background-color", "yellow");
 	// $links.removeClass('curr');
@@ -424,6 +424,7 @@ $(document).on('click','.nolink',function(){
 
 
 function highlite(gg){
+		
 var elements = document.getElementsByClassName('wSearchResultTitle');
 
 for (var i = 0; i < elements.length; i++) {
@@ -441,7 +442,7 @@ var element, name, arr;
 
 current_select  = element.id;
 
-git = false;
+/*git = false;
 stop = true; 
   
 setTimeout(function() { 
@@ -449,7 +450,9 @@ setTimeout(function() {
    git =true;
    stop = false; 
 			
-}, 300);
+}, 300);*/
+
+
 }
 
 
@@ -591,7 +594,7 @@ removeClass(document.getElementById("iframe"),"rh-hide");
 
 window.history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, ""));
 
-document.getElementsByClassName("loading2")[0].style.display = 'none'; 
+//document.getElementsByClassName("loading2")[0].style.display = 'none'; 
 }
 
 
@@ -1787,41 +1790,14 @@ eventer(messageEvent,function(e) {
 	break;case 'loading': 
     if(data == "stop"){
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';
-	
-if(!document.getElementById("iframe").classList.contains("rh-hide")){
-
-
-setTimeout(function() { 
-	
-	
-	if ('scrollRestoration' in history) {
-		//alert();
-  // Back off, browser, I got this...
- // history.scrollRestoration = 'manual';
-  //window.history.replaceState("", '', '')
-//history.pushState("", "", location.href.replace(/(.*?)(\&|#)ux\=(search|bookmark)(.*?)(&([^"]*)|$)/mg, "$1"));		 
-
-}
-
-
-			 }, 1000);
-
-}
-
-
-  	
-
-
-  
-		
-
-	 
+	   
 	}else{
 	   document.getElementsByClassName("loading2")[0].style.display = 'block';
 	}
 	break;
 	case 'get_ifram_location_href': 
 	 location.href = data;
+
 	break;
 	case 'get_href': 
 	 e.source.postMessage(["send_href",document.location.href], "*");
