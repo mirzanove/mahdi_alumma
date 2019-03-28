@@ -174,7 +174,7 @@ aa =0;
 		  }
 		 
           //that.scrollOffset= 230;
-		  //console.log(that.scrollOffset);
+		  ///console.log(that.container);
           }
             // Here we calcaute the indexes (start, end)
             var _startIndex = Math.floor((units.scrollTop - that.offsetBefore - that.scrollOffset) / that.itemHeight) * 1;
@@ -537,16 +537,16 @@ aa =0;
       
          var that = this;
 		 var jj;
-		
+	
 if(current_select){
 	
-	
-jj =  (((current_select*that.itemHeight)/that.columns)+that.offsetBefore +that.container.offsetTop);		
+jj =  (((current_select*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);		
 }else{
 	
-jj =  ((((hh)*that.itemHeight)/that.columns)+that.offsetBefore +that.container.offsetTop);	
+jj =  ((((hh)*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);	
 
 }
+
           
  
 

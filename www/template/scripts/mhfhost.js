@@ -3120,7 +3120,7 @@ document.getElementById('mycontainer').innerHTML = '<div class="vscroll-wrapper"
 			'</div>'+
 			'</div>';
 			
-			console.log(longest);
+			//console.log(longest);
 			
 			longestH = (getAbsoluteHeight(document.getElementById('mycontainer')));
 			document.getElementById('mycontainer').innerHTML = "";
@@ -3212,7 +3212,7 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
                 
 		      array[count] = '<div  class = "itemcon">'+
 			   '<a onclick="go_topic(event);" class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
-			    '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			    '<div onclick = "highlite(this);" id = "'+(count)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
 			  '</a>'+
 			  '<div class="">'+
 			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
@@ -3304,9 +3304,11 @@ test_item_hight(longest);
 
         };
 
-        //console.log(longestH);
+        
         options = {
-            container: "#"+_container,
+            
+			
+			container: "#"+_container,
             scrollParent: "#"+_scrollParent,
             data: myData,
             smartBuffer: false,
@@ -3394,7 +3396,7 @@ test_item_hight(longest);
         else{
 			  	  
         }
-		  
+		 console.log(_container); 
 		options = {
             container: "#"+_container,
             scrollParent: "#"+_scrollParent,
