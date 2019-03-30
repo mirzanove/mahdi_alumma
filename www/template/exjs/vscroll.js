@@ -549,8 +549,12 @@ jj =  ((((hh)*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.contain
 }
           
  
-
+if(that.scrollParent){
+	
 that.scrollParent.scrollTop = (jj);	
+	
+}
+
 
 if(document.getElementById(current_select)){
 
