@@ -537,7 +537,7 @@ aa =0;
       
          var that = this;
 		 var jj;
-	
+if(that.container){	
 if(current_select){
 	
 jj =  (((current_select*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);		
@@ -546,7 +546,7 @@ jj =  (((current_select*(that.itemHeight*1))/that.columns)+that.offsetBefore +th
 jj =  ((((hh)*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);	
 
 }
-
+}
           
  
 

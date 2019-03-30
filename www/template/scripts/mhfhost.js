@@ -59,7 +59,8 @@ function doSearch()
 {
 	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 
-
+a_QueryResultt = null
+strParamss=null;
 
 	
 	
@@ -3396,7 +3397,7 @@ test_item_hight(longest);
         else{
 			  	  
         }
-		 console.log(_container); 
+		// console.log(_container); 
 		options = {
             container: "#"+_container,
             scrollParent: "#"+_scrollParent,
@@ -3540,12 +3541,15 @@ function displayTopics( a_QueryResult )
 			lunch_vlist2(a_QueryResult.aTopics,strParams,"mycontainer","searchresults",i,g_nMaxResult,g_CurPage,bShowAll);
 			
 			
-			
+
 			
 			}, 200);
 
+             
+			 
 
-			
+			 
+
 		 
 			
 		
@@ -3621,7 +3625,10 @@ function displayTopics( a_QueryResult )
 var resizeId;
 window.addEventListener('resize', function() {
     clearTimeout(resizeId);
-    resizeId = setTimeout(doneResizing, 500);
+    if(a_QueryResultt){
+        resizeId = setTimeout(doneResizing, 500);
+	}
+	
 });
 
 function doneResizing(){

@@ -679,88 +679,165 @@ enable_select_text('#content>ul');
 
 
 
-
-jQueryD_1_4_2(document).click(function() {
-//clearSelection();
-});
-			
-			
-
- if (typeof process !== "undefined" && typeof require !== "undefined") {              
-
- function copyToClipboard(text){
+if (typeof process !== "undefined" && typeof require !== "undefined") {              
+function copyToClipboard(text){
     var dummy = document.createElement("input");
     document.body.appendChild(dummy);
     dummy.setAttribute('value', text);
     dummy.select();
     document.execCommand("copy");
     document.body.removeChild(dummy);
+}			
+
+var el;
+function isEditable() {
+  el = document.activeElement; // focused element
+  if(el && ~['input','textarea'].indexOf(el.tagName.toLowerCase())) {
+    return !el.readOnly && !el.disabled;
+  }
+  el = getSelection().anchorNode; // selected node
+  if(!el) return undefined; // no selected node
+  el = el.parentNode; // selected element
+  return el.isContentEditable;
 }
 
- 
- 
-document.body.addEventListener('contextmenu', function(ev) {
-ev.preventDefault();
 
-//get node webkit GUI
+
+document.addEventListener("contextmenu", function(e) {
 var gui = require('nw.gui');
-
-// get the window object
 var win = gui.Window.get();
-
-var menu = new gui.Menu();
- 
-if(ev.path[0].href){ 
-  menu.append(new gui.MenuItem({ 
-            label: 'open in browser',
+var menu = new gui.Menu();	
+e.preventDefault();
+e.stopPropagation();
+var link =this.href;
+var clipboard = gui.Clipboard.get();
+var text = clipboard.get('text');	
+	
+	
+var ff= false;
+var showcntx= false;
+var link =this.href;
+   for (var target=e.target; target && target!=this; target=target.parentNode) {
+    // loop parent nodes from the target to the delegation node
+        if (target.matches("A")) {
+           
+		   
+		   if(target.href != ""){
+			   
+			menu.append(new gui.MenuItem({ 
+            label: 'Open in browser',
             click: function(e) {
-gui.Shell.openExternal(ev.path[0].href);
-
-
-            }
-        }));
-		
-		menu.append(new gui.MenuItem({ 
-            label: 'copy link address',
+             gui.Shell.openExternal(target.href);
+               }
+            }));
+            menu.append(new gui.MenuItem({ 
+            label: 'Copy link address',
             click: function(e) {
-//gui.Shell.openExternal();
-copyToClipboard(ev.path[0].href)
-
-            }
-        }));
-		
- }else{
+             copyToClipboard(target.href)
+			 }
+             }));
+		   showcntx =true;
+		   
+		   }
+		   
+		   if(window.getSelection()!=""){
+	
+	       menu.append(new gui.MenuItem({
+           label: "Copy",
+           click: function() {
+           document.execCommand("copy");
+           }
+           })); 
+           
+		   showcntx =true;
+		   }
+		   
+		   
+		   
+           ff = true;
+		   break;
+		   
+        }	
+    }
+	if(ff == false){
+	for (var target=e.target; target && target!=this; target=target.parentNode) {
+    if (target.matches("Div")) {
+           
+	console.log(target.getAttribute("href"));
+	
+if((target.getAttribute("href") !="")&&(target.getAttribute("href") !=null)){
+			   
+			menu.append(new gui.MenuItem({ 
+            label: 'Open in browser',
+            click: function(e) {
+             gui.Shell.openExternal(target.getAttribute("href"));
+               }
+            }));
+            menu.append(new gui.MenuItem({ 
+            label: 'Copy link address',
+            click: function(e) {
+             copyToClipboard(target.getAttribute("href"))
+			 }
+             }));
+		   showcntx =true;
+		   
+}
+	
+	
+	
+	
+	if(window.getSelection()!=""){
 	menu.append(new gui.MenuItem({
     label: "Copy",
     click: function() {
       document.execCommand("copy");
     }
-  })); 
-  
-   menu.append(new gui.MenuItem({
+})); 
+
+if(isEditable()== true){
+    menu.append(new gui.MenuItem({
     label: "Cut",
     click: function() {
       document.execCommand("cut");
     }
   }));
-  
+  }
 
-  
+showcntx =true;
+}
 
-  menu.append(new gui.MenuItem({
+if(isEditable()== true){
+
+  if(text != ""){
+	
+    menu.append(new gui.MenuItem({
     label: "Paste",
     click: function() {
       document.execCommand("paste");
     }
 	
   }));
- }
+showcntx =true;	
+}  
 
-menu.popup(ev.x, ev.y);
+
+}
+		   
+		   
+		   
+           break;
+            }
+    }
+	}
+	
 
 
-return false;
-});
+if(showcntx ==true){
+menu.popup(e.pageX, e.pageY);
+}	
+	
+}, false);
+
 }
 
 
@@ -769,8 +846,7 @@ return false;
 			
 jQueryD_1_4_2("a").live("click", function(event) {
             link_img_show = true;
-          
-		
+
 		var classname = jQueryD_1_4_2(this).attr('class');
             var link = this.href;
 
