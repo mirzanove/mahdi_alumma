@@ -70,7 +70,11 @@ td {
 }
 
 
-html, body {height:100%; overflow:hidden; 
+html, body {
+	
+	/*height:100%; */
+	
+	/*overflow:hidden;*/
 -webkit-overflow-scrolling: touch;
 
  
@@ -566,16 +570,17 @@ font-size:inherit;
 
 /* The Modal (background) */
 .modal {
-    position: absolute; /* Stay in place */
-    z-index: 999999; /* Sit on top */
     display :none;
+	  position: fixed; /* Stay in place */
+    z-index: 999999; /* Sit on top */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+	right:0;
+	bottom:0;
     overflow-x: hidden; /* Enable scroll if needed */
     overflow-y: auto;
     background-color: grey; /* Black w/ opacity */
+
 
 
 }

@@ -36,6 +36,10 @@ var gstrSyn = "";
 
 var gbSearchInitialized = false;
 
+var a_QueryResultt = null;
+var strParamss=null ;
+
+
 //jomart
 function removeClass(e,c) {e.className = e.className.replace( new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');}
 
@@ -3231,7 +3235,7 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
  
 	
                if((i+1)==a_QueryResultArray.length){
-               console.log(i+" "+a_QueryResultArray.length);
+               //console.log(i+" "+a_QueryResultArray.length);
 			   
 			   $("#end").show();
 			   end = true;

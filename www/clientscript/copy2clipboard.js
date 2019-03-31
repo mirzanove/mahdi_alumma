@@ -147,6 +147,7 @@ function select_all_and_copy(el)
         textRange.moveToElementText(el);
         textRange.select();
         textRange.execCommand("Copy");   
+		
 		if(el.className == "selected moveoff"||el.className == "selected") {
 		 tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
 		}
@@ -176,8 +177,8 @@ function select_all_and_copy(el)
 			var successful = document.execCommand('copy');  
 		    if (successful){
 				
-                //alert(el.className);
-				if(el.className == "selected moveoff"||el.className == "selected") {
+            
+				if(el.className == "selected enableselect" || el.className == "selected moveoff enableselect"||el.className == "selected") {
 		          tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
 		        }
                 else{

@@ -511,6 +511,18 @@ return false;
 jQueryM_v1_4_5(document).ready(function() {
 
 
+
+
+  if (window.location == window.parent.location) {} else {
+                jQueryM_v1_4_5("html,body")
+                    .css("height", "100%");
+  }
+
+
+
+
+
+
 if (typeof encryptedMsg != 'undefined')
 {
    
@@ -1362,8 +1374,15 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				
             }
 
-            jQueryM_v1_4_5("#wrapper").scrollTop(jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop());
+                        if (window.location == window.parent.location) {
+                         
+						 jQueryM_v1_4_5("html,body").animate({ scrollTop: jQueryM_v1_4_5(this).position().top }, 50);
 
+                        } else {
+                          jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
+
+
+                        } 
 
         });
 		
@@ -1494,39 +1513,62 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			
 		   
 		    jQueryM_v1_4_5(document).on("click", ".extImag_copy", function(event) {
-                 event.stopPropagation();
-	
-					var c = event.currentTarget.parentNode.parentNode.childNodes;
-					var i;
-                    for(i = 0; i < c.length; i++) {
-                    //alert(c[i].className);
-					
-					if(c[i].className == "link_pic") {
-                       var cc = c[i].childNodes;
-                           for(ii = 0; ii < cc.length; ii++) {
-							  
-							   		 if(c[ii].className!=null){
-	
-    
-			   if(c[ii].className.indexOf("selected moveoff")!=-1) {
+                
+				event.stopPropagation();
+                                var c = event.currentTarget.parentNode.parentNode.childNodes;
+                                var i;
+                                for (i = 0; i < c.length; i++) {
 
-                 select_all_and_copy(c[ii]);
-			//jQueryD_1_4_2(c[i]).selectText();
 
-                }
-				
-			   }
-							   
-						   }
-                    }
-                    
-                    } 
+                                    if (c[i].className == "link_pic enableselect") {
+                                        var cc = c[i].childNodes;
+                                        for (var ii = 0; ii < cc.length; ii++) {
+
+                                            if (c[i].className != null) {
+
+                                                if (cc[ii].className != null) {
+
+
+                                                    if (cc[ii].className.indexOf("selected moveoff enableselect") != -1) {
+
+
+                                                        select_all_and_copy(cc[ii]);
+
+
+                                                    }
+
+                                                }
+
+
+
+                                            }
+
+
+
+
+                                        }
+                                    }
+
+                                }
 				
             });
 		   
 		   
 
-		   jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
+		   
+		   
+		   
+		   
+		   
+		                if (window.location == window.parent.location) {
+                         
+						 jQueryM_v1_4_5("html,body").animate({ scrollTop: jQueryM_v1_4_5(this).position().top }, 50);
+
+                        } else {
+                          jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(this).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 50);
+
+
+                        } 
         });
 	
 
@@ -1537,9 +1579,10 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 
 
             jQueryM_v1_4_5(".modal").hide();
-            jQueryM_v1_4_5("#wrapper").css({
-                'overflow-y': 'auto'
-            });
+              jQueryM_v1_4_5("html,body")
+                            .css({
+                                'overflow-y': 'auto'
+                            });
             setTimeout(function() {
                 link_disable = false;
                 model_visible = false;

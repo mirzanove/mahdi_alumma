@@ -9,6 +9,12 @@
   url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
 }
 
+body { 
+/*overflow:hidden; */
+-webkit-overflow-scrolling: touch; 
+}
+
+
 
 #wrapper {
      
