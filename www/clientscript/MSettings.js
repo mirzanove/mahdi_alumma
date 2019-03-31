@@ -1963,7 +1963,18 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				   //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
                     section= section.replace(/(#post(.*?))(#([^"]*)|$)/mg, "$1");
 					if(jQueryM_v1_4_5(section).position()){
+
+
+                     if (window.location == window.parent.location) {
+
+					jQueryM_v1_4_5("html,body").animate({ scrollTop: jQueryM_v1_4_5(section).position().top}, 0);
+
+                    } else {
 					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
+
+                    }
+
+
 					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
 					}
 				   }
@@ -1973,7 +1984,21 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				   //jQueryM_v1_4_5.mobile.defaultHomeScroll = activePage.find(section).offset().top;
                     section= section.replace(/(#td_threadtitle_(.*?))(\?([^"]*)|$)/mg, "$1");
 					if(jQueryM_v1_4_5(section).position()){
+					
+					
+					if (window.location == window.parent.location) {
+
+					jQueryM_v1_4_5("html,body").animate({ scrollTop: jQueryM_v1_4_5(section).position().top}, 0);
+
+                    } else {
 					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
+
+                    }
+					
+					
+					
+					
+					
 					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
 					}
 				   }
