@@ -738,30 +738,6 @@ $(".ui-content").height(content);
 $(document).ready(function(){
 
 
-
-
-if (typeof process !== "undefined" && typeof require !== "undefined") {              
-function copyToClipboard(text){
-    var dummy = document.createElement("input");
-    document.body.appendChild(dummy);
-    dummy.setAttribute('value', text);
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-}			
-
-var el;
-function isEditable() {
-  el = document.activeElement; // focused element
-  if(el && ~['input','textarea'].indexOf(el.tagName.toLowerCase())) {
-    return !el.readOnly && !el.disabled;
-  }
-  el = getSelection().anchorNode; // selected node
-  if(!el) return undefined; // no selected node
-  el = el.parentNode; // selected element
-  return el.isContentEditable;
-}
-
 if (typeof process !== "undefined" && typeof require !== "undefined") {
 
 var isScrolling;
@@ -892,121 +868,170 @@ function smoothScrollu(domElement,pixel,delay)
 
 
 
+if (typeof process !== "undefined" && typeof require !== "undefined") {
+                function copyToClipboard(text) {
+                    var dummy = document.createElement("input");
+                    document.body.appendChild(dummy);
+                    dummy.setAttribute('value', text);
+                    dummy.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(dummy);
+                }
+
+                var el;
+
+                function isEditable() {
+                    el = document.activeElement; // focused element
+                    if (el && ~['input', 'textarea'].indexOf(el.tagName.toLowerCase())) {
+                        return !el.readOnly && !el.disabled;
+                    }
+                    el = getSelection()
+                        .anchorNode; // selected node
+                    if (!el) return undefined; // no selected node
+                    el = el.parentNode; // selected element
+                    return el.isContentEditable;
+                }
 
 
-document.addEventListener("contextmenu", function(e) {
-var gui = require('nw.gui');
-var win = gui.Window.get();
-var menu = new gui.Menu();	
-e.preventDefault();
-e.stopPropagation();
-var link =this.href;
-var clipboard = gui.Clipboard.get();
-var text = clipboard.get('text');	
-	
-	
-var ff= false;
-var showcntx= false;
-var link =this.href;
-   for (var target=e.target; target && target!=this; target=target.parentNode) {
-    // loop parent nodes from the target to the delegation node
-        if (target.matches("A")) {
-           console.log(target.href);
-		   
-		   if(target.href != ""){
-			   
-			menu.append(new gui.MenuItem({ 
-            label: 'Open in browser',
-            click: function(e) {
-             gui.Shell.openExternal(target.href);
-               }
-            }));
-            menu.append(new gui.MenuItem({ 
-            label: 'Copy link address',
-            click: function(e) {
-             copyToClipboard(target.href)
-			 }
-             }));
-		   showcntx =true;
-		   
-		   }
-		   
-		   if(window.getSelection()!=""){
-	
-	       menu.append(new gui.MenuItem({
-           label: "Copy",
-           click: function() {
-           document.execCommand("copy");
-           }
-           })); 
-           
-		   showcntx =true;
-		   }
-		   
-		   
-		   
-           ff = true;
-		   break;
-		   
-        }	
-    }
-	if(ff == false){
-	for (var target=e.target; target && target!=this; target=target.parentNode) {
-    if (target.matches("Div")) {
-           
-		   if(window.getSelection()!=""){
-	menu.append(new gui.MenuItem({
-    label: "Copy",
-    click: function() {
-      document.execCommand("copy");
-    }
-})); 
 
-if(isEditable()== true){
-    menu.append(new gui.MenuItem({
-    label: "Cut",
-    click: function() {
-      document.execCommand("cut");
-    }
-  }));
-  }
+                document.addEventListener("contextmenu", function (e) {
+                    var gui = require('nw.gui');
+                    var win = gui.Window.get();
+                    var menu = new gui.Menu();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var link = this.href;
+                    var clipboard = gui.Clipboard.get();
+                    var text = clipboard.get('text');
 
-showcntx =true;
+
+                    var ff = false;
+                    var showcntx = false;
+                    var link = this.href;
+                    for (var target = e.target; target && target != this; target = target.parentNode) {
+                        // loop parent nodes from the target to the delegation node
+                       
+					   if (target.matches("A")) {
+
+                            if (target.href != "") {
+
+                                menu.append(new gui.MenuItem({
+                                    label: 'Open in browser'
+                                    , click: function (e) {
+                                        gui.Shell.openExternal(target.href);
+                                    }
+                                }));
+                                menu.append(new gui.MenuItem({
+                                    label: 'Copy link address'
+                                    , click: function (e) {
+                                        copyToClipboard(target.href)
+                                    }
+                                }));
+                                showcntx = true;
+
+                            }
+
+                            if (window.getSelection() != "") {
+
+                                menu.append(new gui.MenuItem({
+                                    label: "Copy"
+                                    , click: function () {
+                                        document.execCommand("copy");
+                                    }
+                                }));
+
+                                showcntx = true;
+                            }
+
+
+
+                            ff = true;
+                            break;
+
+                        }
+                    }
+                    if (ff == false) {
+                        for (var target = e.target; target && target != this; target = target.parentNode) {
+                            if (target.matches("Div")) {
+
+                                console.log(target.getAttribute("href"));
+
+                                if ((target.getAttribute("href") != "") && (target.getAttribute("href") != null)) {
+
+                                    menu.append(new gui.MenuItem({
+                                        label: 'Open in browser'
+                                        , click: function (e) {
+                                            gui.Shell.openExternal(target.getAttribute("href"));
+                                        }
+                                    }));
+                                    menu.append(new gui.MenuItem({
+                                        label: 'Copy link address'
+                                        , click: function (e) {
+                                            copyToClipboard(target.getAttribute("href"))
+                                        }
+                                    }));
+                                    showcntx = true;
+
+                                }
+
+
+
+
+                                if (window.getSelection() != "") {
+                                    menu.append(new gui.MenuItem({
+                                        label: "Copy"
+                                        , click: function () {
+                                            document.execCommand("copy");
+                                        }
+                                    }));
+
+                                    if (isEditable() == true) {
+                                        menu.append(new gui.MenuItem({
+                                            label: "Cut"
+                                            , click: function () {
+                                                document.execCommand("cut");
+                                            }
+                                        }));
+                                    }
+
+                                    showcntx = true;
+                                }
+
+                                if (isEditable() == true) {
+
+                                    if (text != "") {
+
+                                        menu.append(new gui.MenuItem({
+                                            label: "Paste"
+                                            , click: function () {
+                                                document.execCommand("paste");
+                                            }
+
+                                        }));
+                                        showcntx = true;
+                                    }
+
+
+                                }
+
+
+
+                                break;
+                            }
+                        }
+                    }
+
+
+
+                    if (showcntx == true) {
+						//consol
+                        menu.popup(e.clientX, e.clientY);
+                    }
+
+                }, false);
+
 }
 
-if(isEditable()== true){
-
-  if(text != ""){
-	
-    menu.append(new gui.MenuItem({
-    label: "Paste",
-    click: function() {
-      document.execCommand("paste");
-    }
-	
-  }));
-showcntx =true;	
-}  
-
-
-}
-		   
-		   
-		   
-           break;
-            }
-    }
-	}
-	
-
-
-if(showcntx ==true){
-menu.popup(e.pageX, e.pageY);
-}	
-	
-}, false);
-
-}
 
 
 

@@ -744,8 +744,8 @@ else {
                     var link = this.href;
                     for (var target = e.target; target && target != this; target = target.parentNode) {
                         // loop parent nodes from the target to the delegation node
-                        if (target.matches("A")) {
-
+                       
+					   if (target.matches("A")) {
 
                             if (target.href != "") {
 
@@ -858,7 +858,8 @@ else {
 
 
                     if (showcntx == true) {
-                        menu.popup(e.pageX, e.pageY);
+						//consol
+                        menu.popup(e.clientX, e.clientY);
                     }
 
                 }, false);
