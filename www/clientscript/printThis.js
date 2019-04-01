@@ -101,7 +101,7 @@ function print(mode){
 		$("#content").printThis();
 	}
 	else{
-		
+		$(mode).printThis();
 	}
     
 	 //location.reload();

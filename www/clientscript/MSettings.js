@@ -1220,10 +1220,11 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 		  
 		  setTimeout(function () {
 			 //jQueryM_v1_4_5.print(c);
-			 printDiv2(c);
+			 //printDiv2(c);
+			 print(c);
 			 setTimeout(function () {
                 //jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttop').selectText();
-				 location.reload(); 
+				 //location.reload(); 
 				 
 				 printin_prosses = false;
 				 }, 300);

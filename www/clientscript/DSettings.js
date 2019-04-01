@@ -1442,10 +1442,11 @@ else {
 
                             setTimeout(function () {
                                 //jQueryD_1_4_2.print(c);
-                                printDiv2(c);
+                                //printDiv2(c);
+								print(c);
                                 setTimeout(function () {
                                     //jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttop').selectText();
-                                    location.reload();
+                                    //location.reload();
 
                                     printin_prosses = false;
                                 }, 300);
