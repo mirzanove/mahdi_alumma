@@ -144,7 +144,26 @@ function printDiv(divID) {
 
 
 
-function printDiv2(divID) {
+function printDiv2(divId) {
+    window.frames["print_frame"].document.body.innerHTML= document.getElementById(divId).innerHTML
+    window.frames["print_frame"].window.focus()
+    window.frames["print_frame"].window.print()
+}
+
+
+function printpage()
+    {
+        var originalContents = document.body.innerHTML;
+        var printReport = document.getElementById('content').innerHTML;
+        document.body.innerHTML = printReport;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+
+
+
+
+function printDivr(divID) {
 
        if(_isMobile() == mobiletrue) {
 		 jQueryM_v1_4_5("#frame1").remove(); 
