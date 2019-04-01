@@ -3644,7 +3644,7 @@ var x = document.getElementById("searchBoxSearchPage");
 if (x === document.activeElement) {
 
 } else {
- // go_index();
+  go_index();
 }			 
 			 
 		}
