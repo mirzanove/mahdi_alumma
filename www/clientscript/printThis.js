@@ -28,11 +28,11 @@ function print(mode){
         {
         var strFrameName = ("printThis-" + (new Date()).getTime());
          
-            var $iframe = $("<iframe id='" + strFrameName +"' src='about:blank'/>");
+            var $iframee = $("<iframe id='" + strFrameName +"' src='about:blank'/>");
  
-            if (!opt.debug) { $iframe.css({ position: "absolute", width: "0px", height: "0px", left: "-600px", top: "-600px",  direction: "rtl" }); }
+           $iframee.css({ visibility:"hidden" ,position: "fixed", width: "0px", height: "0px", left: "-600px", top: "-600px",  direction: "rtl" });
  
-            $iframe.appendTo("body");
+            $iframee.appendTo("body");
          
             var $doc = $("#" + strFrameName).contents();
         }
@@ -44,42 +44,47 @@ function print(mode){
 		 url = url.substring(0, url.indexOf(v)); 
 		 
 		   if(_isMobile() == mobiletrue) {
-		   $doc.find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
-		   $doc.find("head").append("<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryM_v1_4_5('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryM_v1_4_5('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryM_v1_4_5('#wrapper').css("font-family")+"'}</style>" );
+		    $("#" + strFrameName).contents().find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		    $("#" + strFrameName).contents().find("head").append("<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryM_v1_4_5('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryM_v1_4_5('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryM_v1_4_5('#wrapper').css("font-family")+"'}</style>" );
 		   }
 	       else{
-	       $doc.find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
-		   $doc.find("head").append("<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryD_1_4_2('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryD_1_4_2('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryD_1_4_2('#wrapper').css("font-family")+"'}</style>" );
+	        $("#" + strFrameName).contents().find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		    $("#" + strFrameName).contents().find("head").append("<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryD_1_4_2('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryD_1_4_2('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryD_1_4_2('#wrapper').css("font-family")+"'}</style>" );
 	       }
         
 		 if(_isMobile() == mobiletrue) {
-          $doc.find("head").append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/andriod_ios_fixFont.css\'/>');
+          $("#" + strFrameName).contents().find("head").append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/andriod_ios_fixFont.css\'/>');
 
           }
 	      else{
-		  $doc.find("head").append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/ff_ch_ie9_edg_fixFont.css\'/>');
+		  $("#" + strFrameName).contents().find("head").append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/ff_ch_ie9_edg_fixFont.css\'/>');
 
 	      }
 		
-		$doc.find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		$("#" + strFrameName).contents().find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
          
         
          
         //grab outer container
-        if (opt.printContainer) { $doc.find("body").append($element.outer()); }
+        if (opt.printContainer) { 
+		
+		$("#" + strFrameName).contents().find("body").append($element.outer());
+		//$doc.find("body").append($element.outer()); 
+		
+		}
         else { $element.each( function() { $doc.find("body").append($(this).html()); }); }
      
         //$doc.close();
         // print
-        ($.browser.opera ? tab : $iframe[0].contentWindow).focus();
-        setTimeout( function() { ($.browser.opera ? tab : $iframe[0].contentWindow).print(); if (tab) { tab.close(); } }, 1000);
+        ($.browser.opera ? tab : $iframee[0].contentWindow).focus();
+        setTimeout( function() { ($.browser.opera ? tab : $iframee[0].contentWindow).print(); if (tab) { tab.close(); } }, 1000);
          
         //removed iframe after 60 seconds
         setTimeout(
         function(){
-        $iframe.remove();
+        $("#" + strFrameName).remove();
         },
-        (60 * 1000)
+        (1000)
         );
     }, 333 );
     }
