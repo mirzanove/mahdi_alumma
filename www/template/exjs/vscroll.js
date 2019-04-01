@@ -401,7 +401,7 @@ aa =0;
 			
 			  if(git == true){
 				
-					 curr_index = (startIndex+1);  
+					 curr_index = (startIndex);  
 				  
 			  }
 	
