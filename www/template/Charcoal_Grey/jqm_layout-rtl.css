@@ -68,43 +68,8 @@ overflow-x: hidden;}
 }
 */
 .hide {
-display:none;
-  
-}
 
-.visibility {
- 
- visibility: hidden;
-  
-}
-
-.hide2 {
-
-max-height: 10000em !important;
-	-o-transition-duration: 0.35s;
-	-o-transition-timing-function: ease-out;
-	-o-transition-property: opacity;
-	-ms-transition-duration: 0.35s;
-	-ms-transition-timing-function: ease-out;
-	-ms-transition-property: opacity;
-	-moz-transition-duration: 0.35s;
-	-moz-transition-timing-function: ease-out;
-	-moz-transition-property: opacity;
-	-webkit-transition-duration: 0.35s;
-	-webkit-transition-timing-function: ease-out;
-	-webkit-transition-property: opacity;
-	transition-duration: 0.35s;
-	transition-timing-function: ease-out;
-	transition-property: opacity;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-perspective: 1000;
-	-moz-perspective: 1000;
-	-ms-perspective: 1000;
-	perspective: 1000;
-	opacity: 1 !important
+display: none;
   
 }
 
@@ -183,7 +148,7 @@ div.topic-state {
 	width: 100%
 }
 .wSearchResultItem {
-   /* margin: 1em 0*/
+    margin: 1em 0
 }
 
 .wSearchResultItem a.nolink {
@@ -214,8 +179,8 @@ div.topic-state {
 
 
 .wSearchResultItem {
-   /* padding-bottom: .5em;*/
-    /*margin-bottom: .5em;*/
+    padding-bottom: .5em;
+    margin-bottom: .5em;
     border-top-width: 0.1em;
     border-top-style: solid;
     border-top-color: #e6e6e6

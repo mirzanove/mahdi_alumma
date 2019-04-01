@@ -24,38 +24,23 @@ jQuery(document).ready(function( $ ) {
              arrEdited2.push($(this).attr('id'));
         });
 	
-	 var con;
-	  if(window.location == window.parent.location) {
-          con =   $(window);					 
-	  }
-      else{
-
-       con =  $('#wrapper');
-	  
-      }
-
 	
 	
-	
-	
-	
-	
-	
-	con.scroll(function () {
+	$('#wrapper').scroll(function () {
         //alert();
 		/*var vpH = $('#wrapper').innerHeight(),
             scrolltop = ($('#wrapper').scrollTop()),
             elems = [];*/
 			
 		  var vpH = getViewportHeight(),
-            scrolltop = (con.scrollTop() ?
-                con.scrollTop() :
-                con.scrollTop()),
+            scrolltop = ($('#wrapper').scrollTop() ?
+                $('#wrapper').scrollTop() :
+                $('#wrapper').scrollTop()),
             elems = [];
 			
+	
 
-	
-	
+
             $.each(arrEdited2, function( i, l ){
               
 				var $el = $('#id_'+(i+1)),
@@ -112,7 +97,7 @@ img.src = $el.attr('data-src');
           });
 
     });
- con.scroll();
+ $('#wrapper').scroll();
 });
 
   

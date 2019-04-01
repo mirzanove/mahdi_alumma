@@ -1,7 +1,7 @@
 
 var gSearchMsgId = "searchMsg";
 var gResultsFoundString = "%1 نتيجة (نتائج) تم العثور عليها لـ %2";
-var gSearchResultHtml = "{%LINK_NAME%}\n<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n<br />\n<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span>";
+var gSearchResultHtml = "{%LINK_NAME%}\n							\n							<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n							 <br />\n							<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span>";
 var gSearchResClassName = "wSearchResultItem";
 var gSearchResTitleClassName = "wSearchResultTitle";
 var gSearchResTitleClassHover = "wSearchResultTitleHover";
@@ -85,15 +85,12 @@ function onToggleHighlightSearch()
 function onMaxPageCountChange(maxVal)
 {
 	
+	
 	if(maxVal ==-1){
-		
-		$("#pages_bar_note").css("display", "none");
+		document.getElementById("pages_bar_note").className = "rh-hide";
 	}
 	else{
-	if($('.wSearchPageNumberSelected').length) 
-	{
-        $("#pages_bar_note").css("display", "block");
-	}	
+		removeClass(document.getElementById("pages_bar_note"),"rh-hide");
 	}
 	
 	g_nMaxResult = maxVal;
@@ -154,16 +151,17 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 			startPage = 1;
 	}
 	var sHTML = "";
-	sHTML += "<ul class=\"row-reverse\" style='margin: 0px; padding: 0px;' reversed>";
+	sHTML += "<ul style='margin: 0px; padding: 0px;'>";
 	
 	
 	
-	for(var i=nNumPages; i>=1; i--)
+	
+	for(var i=1; i<=nNumPages; i++)
 	{
 		
 		
 		if(i == nCurPage)
-			sHTML += "<li class='" + gPageClass + "'>" + i.toString() + "</li>";
+			sHTML += "<li class='" + gPageClass + "' style='display:inline;'>" + i.toString() + "</li>";
 		else
 			sHTML += "<li class='' onclick=\"onClickPrevNext(this,'" + i.toString() + "')\" >" + i.toString() + "</li>";
 	}
@@ -221,9 +219,7 @@ function initSearchPage()
 	updatePrevNextButtons(0,0);
 }
 
-
-
-function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs,szSearchStrings,id)
+function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs )
 {
 	var strTitleStyle = "";
 	if(gSearchResTitleStyle != "")
@@ -240,11 +236,11 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 		strHoverEvents += " onmouseover=\"onSearchItemHover(this,'" + gSearchResTitleClassHover + "')\" ";
 		strHoverEvents += " onmouseout=\"onSearchItemHoverOut(this,'" + gSearchResTitleClassName + "')\"";
 	}
-	var anchorStartTag = "<a onclick=\"go_topic(event);\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl+'&hit=null'+ "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
-	
-	
+	var anchorStartTag = "<a onclick=\"go_topic();\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl + "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
 	var title = anchorStartTag ;
+	
 
+	
 	var html = gSearchResultHtml.replace(LINK_NAME_MACRO, title);
 	if(a_sSummary.length > 0)
 	{
@@ -263,13 +259,7 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	if(gSearchResStyle != "")
 		strStyle = "style=\"" + gSearchResStyle + "\" ";
 
-	var getsnippt ="<div class=\"exthtml\" id='hitcount_"+id+"'><img src=\"template/resources/loading.gif\" height=\"42\" width=\"42\"></div>"
-	
-	var gg = "<div  class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html +getsnippt+"</div>";
-	
-	
-	
-	return  gg
+	return "<div class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
 	
 
 	

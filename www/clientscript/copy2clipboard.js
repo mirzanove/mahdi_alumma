@@ -126,16 +126,7 @@ function paste(el)
 
 function select_all_and_copy(el) 
 {   
-    if(_isMobile() == mobiletrue) {
-		
-		jQueryM_v1_4_5('em').contents().unwrap();
-		
-	}
-	else{
-		
-		jQueryD_1_4_2('em').contents().unwrap();
-	}
-	
+  
      if(printin_prosses == false){
 			printin_prosses = true;
 
@@ -147,7 +138,6 @@ function select_all_and_copy(el)
         textRange.moveToElementText(el);
         textRange.select();
         textRange.execCommand("Copy");   
-		
 		if(el.className == "selected moveoff"||el.className == "selected") {
 		 tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
 		}
@@ -177,8 +167,8 @@ function select_all_and_copy(el)
 			var successful = document.execCommand('copy');  
 		    if (successful){
 				
-            
-				if(el.className == "selected enableselect" || el.className == "selected moveoff enableselect"||el.className == "selected") {
+                //alert(el.className);
+				if(el.className == "selected moveoff"||el.className == "selected") {
 		          tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
 		        }
                 else{

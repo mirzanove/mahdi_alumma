@@ -5,12 +5,7 @@ var encrypted = false;
 var wke = false;
 var iee = false;
 var wkchrom = false;
-var fontstylelist =true;
 
-var othersizelist;
-var lateefsizelist;
-
- 
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
 //var isInIFrame = (window.location != window.parent.location);
@@ -47,36 +42,6 @@ String.prototype.hexEncode = function(){
 
     return result
 }
-
-function lsTest(){
-    var test = 'test';
-    try {
-        localStorage.setItem(test, test);
-        localStorage.removeItem(test);
-        return true;
-    } catch(e) {
-        return false;
-    }
-}
-
-function IsSafari() {
-
- var ua = navigator.userAgent.toLowerCase(); 
-if (ua.indexOf('safari') != -1) { 
-  if (ua.indexOf('chrome') > -1) {
-   
-	is_safari = false;
-	return is_safari;
-  } else {
-	 is_safari = true; 
-	 return is_safari;
-    
-  }
-}
-  
-
-}
-
 
 
 String.prototype.hexDecode = function(){
@@ -123,35 +88,12 @@ function _isMobile(){
 
 
 
-function makeselectable(node) {
-   // alert(node.nodeType);
-	if (node.nodeType == 1) {
-        node.setAttribute("unselectable", "off");
-		//jQueryD_1_4_2(node).addClass("enableselect");
-		node.classList.add("enableselect");
-		/*node.setAttribute("unselectable", "yes");
-		node.setAttribute("onselectstart", "return false;");*/
-    }
-    var child = node.firstChild;
-    while (child) {
-        makeselectable(child);
-        child = child.nextSibling;
-    }
-}
-
-
-function clearSelection()
-{
- if (window.getSelection) {window.getSelection().removeAllRanges();}
- else if (document.selection) {document.selection.empty();}
-}
-
-
 //alert("first");
 
 
-function isVisible(e) {
-    return !!( e.offsetWidth || e.offsetHeight || e.getClientRects().length );
-}
+
+
+
+
 
 

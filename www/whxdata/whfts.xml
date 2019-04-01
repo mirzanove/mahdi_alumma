@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <odb>
 	<odbtype type="WebHelp"/>
-	<language name="ar_AE"/>
+	<language name="en_US"/>
 	<index type="TopicIndex" url="topictableindex.xml"/>
 	<index type="PackageIndex" url="packageindex.xml"/>
 	<index type="Synonym" url="synonym.xml"/>
@@ -2435,46 +2435,6 @@
 		<file url="whxdata\package_2426_xml.js"/>
 		<file url="whxdata\package_2427_xml.js"/>
 		<file url="whxdata\package_2428_xml.js"/>
-		<file url="whxdata\package_2429_xml.js"/>
-		<file url="whxdata\package_2430_xml.js"/>
-		<file url="whxdata\package_2431_xml.js"/>
-		<file url="whxdata\package_2432_xml.js"/>
-		<file url="whxdata\package_2433_xml.js"/>
-		<file url="whxdata\package_2434_xml.js"/>
-		<file url="whxdata\package_2435_xml.js"/>
-		<file url="whxdata\package_2436_xml.js"/>
-		<file url="whxdata\package_2437_xml.js"/>
-		<file url="whxdata\package_2438_xml.js"/>
-		<file url="whxdata\package_2439_xml.js"/>
-		<file url="whxdata\package_2440_xml.js"/>
-		<file url="whxdata\package_2441_xml.js"/>
-		<file url="whxdata\package_2442_xml.js"/>
-		<file url="whxdata\package_2443_xml.js"/>
-		<file url="whxdata\package_2444_xml.js"/>
-		<file url="whxdata\package_2445_xml.js"/>
-		<file url="whxdata\package_2446_xml.js"/>
-		<file url="whxdata\package_2447_xml.js"/>
-		<file url="whxdata\package_2448_xml.js"/>
-		<file url="whxdata\package_2449_xml.js"/>
-		<file url="whxdata\package_2450_xml.js"/>
-		<file url="whxdata\package_2451_xml.js"/>
-		<file url="whxdata\package_2452_xml.js"/>
-		<file url="whxdata\package_2453_xml.js"/>
-		<file url="whxdata\package_2454_xml.js"/>
-		<file url="whxdata\package_2455_xml.js"/>
-		<file url="whxdata\package_2456_xml.js"/>
-		<file url="whxdata\package_2457_xml.js"/>
-		<file url="whxdata\package_2458_xml.js"/>
-		<file url="whxdata\package_2459_xml.js"/>
-		<file url="whxdata\package_2460_xml.js"/>
-		<file url="whxdata\package_2461_xml.js"/>
-		<file url="whxdata\package_2462_xml.js"/>
-		<file url="whxdata\package_2463_xml.js"/>
-		<file url="whxdata\package_2464_xml.js"/>
-		<file url="whxdata\package_2465_xml.js"/>
-		<file url="whxdata\package_2466_xml.js"/>
-		<file url="whxdata\package_2467_xml.js"/>
-		<file url="whxdata\package_2468_xml.js"/>
 		<file url="whxdata\packageindex_xml.js"/>
 		<file url="whxdata\synonym.xml"/>
 		<file url="whxdata\synonym_xml.js"/>
@@ -2522,10 +2482,6 @@
 		<file url="whxdata\topictable_41_xml.js"/>
 		<file url="whxdata\topictable_42_xml.js"/>
 		<file url="whxdata\topictable_43_xml.js"/>
-		<file url="whxdata\topictable_44_xml.js"/>
-		<file url="whxdata\topictable_45_xml.js"/>
-		<file url="whxdata\topictable_46_xml.js"/>
-		<file url="whxdata\topictable_47_xml.js"/>
 		<file url="whxdata\topictableindex_xml.js"/>
 		<file url="whxdata\whfts.xml"/>
 		<file url="whxdata\whfts_xml.js"/>

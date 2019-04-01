@@ -39,7 +39,7 @@ function getUrlParamString(url)
 	return paramstr;
 }
 function getUrlParameter(paramName, url)
-{ //alert(paramName);
+{
   if(url == null || url == 'undefined')
 	url = document.location.href;
   paramName = paramName.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
@@ -51,24 +51,6 @@ function getUrlParameter(paramName, url)
   else
     return results[1] && decodeURIComponent(results[1]);
 }
-
-function getUrlParameter2(paramName, url)
-{ //alert(paramName);
-  if(url == null || url == 'undefined')
-	url = document.location.href;
-  paramName = paramName.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-  var regexS = "[\\?&#]"+paramName+"=([^&#]*)";
-  var regex = new RegExp(regexS);
-  var results = regex.exec(url);
-  if( results == null )
-    return "";
-  else
-    return results[1] && decodeURIComponent(results[1]);
-}
-
-
-
-
 function getUrlBookmark(url)
 {
   var bookmark = "";
@@ -110,21 +92,10 @@ function GetSynonymsFromURL()
 	var strQuery = getUrlParameter(RHSYNSTR);
 	return strQuery.split(" ");
 }
-function GetSynonymsFromURL2()
-{
-	var strQuery = getUrlParameter2(RHSEARCHSTR);
-	return strQuery.split(" ");
-}
-
 
 function GetHighlightTextFromURL()
 {
 	return getUrlParameter(RHHIGHLIGHTTERM);
-}
-
-function GetHighlightTextFromURL2()
-{
-	return getUrlParameter(RHSEARCHSTR);
 }
 
 function lTrim(str)

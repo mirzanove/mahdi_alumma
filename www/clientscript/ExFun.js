@@ -1,7 +1,5 @@
 var link_disable = false;
 var fontSize;
-var fontSize2;
-var fontSize3;
 var printin_prosses = false;
 var imag_loading = false;
 var model_visible = false;
@@ -217,14 +215,14 @@ function printDiv2(divID) {
 		   
 		   frameDoc.document.open();
            frameDoc.document.write('<html dir = "rtl"><head>');
-       
+
 		   if(_isMobile() == mobiletrue) {
 		   frameDoc.document.write('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
-		   frameDoc.document.write( "<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryM_v1_4_5('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryM_v1_4_5('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryM_v1_4_5('#wrapper').css("font-family")+"'}</style>" );
-		   }
+		   frameDoc.document.write( "<style>font{font-size:"+jQueryM_v1_4_5('.posttext').css('font-size')+"}</style>" );
+	       }
 	       else{
-	       frameDoc.document.write('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
-		   frameDoc.document.write( "<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryD_1_4_2('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryD_1_4_2('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryD_1_4_2('#wrapper').css("font-family")+"'}</style>" );
+		   frameDoc.document.write('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		   frameDoc.document.write( "<style>font{font-size:"+jQueryD_1_4_2('.posttext').css('font-size')+"}</style>" );
 	       }
 			
 		  if (IE <=8) {     

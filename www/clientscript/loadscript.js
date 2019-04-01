@@ -14,10 +14,6 @@ url = url.substring(0, url.indexOf(v));
  
 if(disable_resoures == false){
 
-
-//document.write('<script>if (typeof process !== "undefined" && typeof require !== "undefined") {global.window = window;}</script>');
-
-
 if (typeof encryptedMsg != 'undefined')
 {
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/kryptojs-3.1.9-1-lib.js\'><\/script>');  
@@ -49,7 +45,6 @@ else{
 }
 document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archive.css\'/>');
 
-document.write('<script type=\"text/javascript\" src=\''+url+'js/index.js\'><\/script>'); 
 
 if(_isMobile() == mobiletrue) {
 
@@ -65,7 +60,6 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/json2
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/simple-postmessage.js\'><\/script>');  
 
 }
-document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/printThis.js\'><\/script>');  
 
 
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/ExFun.js\'><\/script>');  
@@ -81,7 +75,6 @@ if(_isMobile() == mobiletrue) {
 else{
    document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/DSettings.js\'><\/script>');  
 }
-
 
 	
 	

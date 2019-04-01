@@ -2,66 +2,7 @@
    -webkit-tap-highlight-color:rgba(0,0,0,0);
    -webkit-tap-highlight-color:transparent;
    outline-style:none;
-  
-   
 }
-
-pdf,
-up,
-div,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-a,
-abbr,
-acronym,
-del,
-font,
-img,
-ins,
-q,
-strike,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-}
-
-html,body
-{
-    height:100%;
-    width:100%;
-}
-
-
 body {
       font-size:100%;
       font-family:"Helvetica Medium"                                  , Arial, sans-serif;
@@ -70,17 +11,9 @@ body {
       min-width:250px;
       color:#3f4344;
       background-color:#ffffff;
-	  overflow: hidden ;
-	 
 }
-
-
-
-
-
 div.content {
              background-color:#ffffff;
-			 
 }
 div.header {
             background-color:#232323;
@@ -180,38 +113,13 @@ div.buttonbarholder {
                      margin:0 auto;
 }
 div.buttonbarholder > div {
-                           width:3.5em;
-                           height:3.5em;
-                           margin:0;
+                           width:5em;
+                           height:5em;
+                           margin:0 2em 2em;
                            padding:0;
                            float:left;
                            cursor:pointer;
 }
-
-
-
-
-
-@media screen and (min-width: 43.69em) and (max-width: 59.49em) {
-div.buttonbarholder > div {
-    width: 20%;
-    margin: 0;
-    padding: 0;
-    height: 5em;
-    float: left;
-}
-
-div.buttonbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2.5em;
-}
-}
-
-
-
 div.buttonbar div img {
                        max-width:100%;
 }
@@ -242,35 +150,27 @@ div.bar_toc_active {
                     background-position:center center;
                     border-bottom-width:thin;
 }
-
-div.bar_index_book {
-               background-color:transparent;
-               background-image:url("index_buttonbar_booked.png");
-               background-repeat:no-repeat;
-               background-position:center center;
-}
-
 div.bar_index {
                background-color:transparent;
-               background-image:url("bookmarkbig.png");
+               background-image:url("index_buttonbar.png");
                background-repeat:no-repeat;
                background-position:center center;
 }
 div.bar_index:hover {
                      background-color:#ffffff;
-                     background-image:url("bookmarkbig_hover.png");
+                     background-image:url("index_buttonbar_hover.png");
                      background-repeat:no-repeat;
                      background-position:center center;
 }
 div.bar_index:active {
                       background-color:#ffffff;
-                      background-image:url("bookmarkbig_hover.png");
+                      background-image:url("index_buttonbar_hover.png");
                       background-repeat:no-repeat;
                       background-position:center center;
 }
 div.bar_index_active {
                       background-color:#ffffff;
-                      background-image:url("bookmarkbig_hover.png");
+                      background-image:url("index_buttonbar_hover.png");
                       background-repeat:no-repeat;
                       background-position:center center;
 }
@@ -380,8 +280,7 @@ label.switch-toggle2 {
 
 
 label.switch-toggle {
-                    
-					background-image:url("switch.png");
+                     background-image:url("switch.png");
                      background-repeat:repeat-y;
                      height:26px;
                      width:52px;
@@ -400,7 +299,7 @@ label.switch-toggle {
 }
 
 label.switch-toggle.disabled {
-                     opacity:0.5;
+                     background-image:url("switch_disabled.png");
                      background-repeat:repeat-y;
                      height:26px;
                      width:52px;
@@ -580,7 +479,8 @@ div.content {
              top:3.4em;
              bottom:2.65em;
              left:0;
-			 right:0;
+             padding-bottom:1em;
+             width:100%;
              overflow:auto;
              -webkit-overflow-scrolling:touch;
 }
@@ -666,12 +566,6 @@ div.bar_toc_active {
 }
 }
 @media screen and (max-width: 43.68em) {
-div.bar_index_book {
-               background-color:transparent;
-               background-image:url("index_buttonbar_booked_small.png");
-               background-repeat:no-repeat;
-               background-position:center center;
-}
 div.bar_index {
                background-image:url("index_buttonbar_small.png");
 }
@@ -992,9 +886,9 @@ div.sidebar {
 div.content {
              position:absolute;
              top:4em;
-             left:5em;
-             right:0em;
-             bottom:0em;
+             left:5.25em;
+             right:.1em;
+             bottom:.25em;
              overflow:auto;
              -webkit-overflow-scrolling:touch;
 }
@@ -1124,8 +1018,8 @@ div.title {
 div.content {
              position:absolute;
              top:4.5em;
-             right:0;
-			 left:0;
+             right:0%;
+             width:100%;
              bottom:0;
              overflow:hidden;
 }
@@ -1279,7 +1173,8 @@ div.contentholder {
                    position:absolute;
                    top:2.7em;
                    bottom:0em;
-                   width:100%;
+                   left:0em;
+                   right:0em;
                    overflow:auto;
 }
 }
@@ -2509,7 +2404,7 @@ img.wBSNextButton {
                    border:none;
 }
 div.wSearchResults {
-                    margin:10px 10px 10px 10px;
+                    margin:1em 1em 2em 1em;
                     font-size:1.1em;
 }
 div.cSearchSettingsToggle {
@@ -2530,6 +2425,7 @@ div.cSearchSettingsToggle a.opened {
 }
 div.wSearchResultSettings {
                            margin:0 0 1em 0;
+                           display:none;
                            border-top-width:.1em;
                            border-top-style:solid;
                            border-top-color:#e1e1e1;
@@ -2586,7 +2482,7 @@ span.wSearchMessage {
 div.wSearchResultItemsBlock {
 }
 div.wSearchResultItem {
-                       /*margin:0 0 1em 0;*/
+                       margin:0 0 1em 0;
 }
 div.wSearchResultTitle {
                         color:#0F5091;
@@ -2899,7 +2795,7 @@ div.wSearchField {
                   position:relative;
 }
 input.wSearchField {
-                    /*font-size:1em;
+                    font-size:1em;
                     height:2.4em;
                     margin:1.2em 2% 1em;
                     padding:0 2%;
@@ -2914,41 +2810,12 @@ input.wSearchField {
                     border-style:solid;
                     background-color:#fafafa;
                     -moz-box-sizing:border-box;
-                    box-sizing:border-box;*/
-}
-
-input.wSearchField2 {
-                    font-size:1em;
-                    height:2.4em;
-                    margin:1.2em 2% 1em;
-                    padding:0 2%;
-                    padding-left:10%;
-                    width:96%;
-                    outline:0;
-                    -webkit-border-radius:.5em;
-                    -moz-border-radius:.5em;
-                    border-radius:.5em;
-                    border-color:#e6e6e6;
-                    border-width:.1em;
-                    border-style:solid;
-                    background-color:#fafafa;
-                    -moz-box-sizing:border-box;
                     box-sizing:border-box;
 }
-
-
 a.wSearchLink {
                position:absolute;
                top:1.7em;
                right:4%;
-               -webkit-appearance:none;
-}
-
-
-a.wSearchLink2 {
-               position:absolute;
-               top:1.7em;
-               left:4%;
                -webkit-appearance:none;
 }
 img.wSearchLink {
@@ -2957,15 +2824,6 @@ img.wSearchLink {
                  width:auto !important;
                  margin-top:0;
 }
-img.wSearchLink 2{
-                 max-width:24px;
-                 max-height:24px;
-                 width:auto !important;
-                 margin-top:0;
-}
-
-
-
 input.wSearchAND {
 }
 span.wSearchAND {
@@ -2989,7 +2847,6 @@ div.desktop_functionholder input.wSearchField {
                                                -moz-border-radius:.3em;
                                                border-color:#232323;
                                                color:#e1e1e1;
-											   padding-right:8%;
 }
 }
 @media screen and (min-width: 81em) {

@@ -1,4 +1,3 @@
-
 /* lateef-regular - arabic */
 @font-face {
   font-family: 'Lateef';
@@ -9,29 +8,10 @@
   url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
 }
 
-body { 
-/*overflow:hidden; */
--webkit-overflow-scrolling: touch; 
-}
-
-
-
-#wrapper {
-     
-	 font-family:'Lateef', serif;
-	 height:100%;
-     overflow-y: auto;
-	-webkit-overflow-scrolling: touch;
-	position: relative;
-	font-size: 140%;
-	cursor: pointer;
-	font-family:'Lateef', serif;
-	-webkit-text-size-adjust:80%;
-}
-
-
 
 div.posttext {
+	
+font-family:'Lateef', serif;
 padding:15px;
-font-size: 120%;
+
 }

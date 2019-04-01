@@ -49,8 +49,6 @@ var	EST_TERM		= 1;
 var	EST_PHRASE		= 2;
 var	EST_STEM		= 3;
 
-var ii = 1;
-
 //Code for breadcrumb variable check for bookmark
 (function() {
 	gbBreadCrumb 	= 0;
@@ -248,13 +246,13 @@ function DomTextNode( a_Node, a_nFrom )
 		}
 		return i;
 	}
-    
+
 	this.doHighlight = function( a_aRanges, a_nStart )
 	{   //jomart
 	    document.getElementById("loading").style.display = 'none';
 		window.parent.postMessage(["loading","stop"], "*");
-	
-		s_strHlStart = "<em class='enableselect' id='hit_'"+ii+">";
+		//jomart
+		s_strHlStart = "<em>";
 		s_strHlEnd = "</em>";
 		
 		/*s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
@@ -279,31 +277,17 @@ function DomTextNode( a_Node, a_nFrom )
 		var nLastStart = 0;
 		for ( var i = 0; i < this.aClosedRanges.length; i++ )
 		{
-			
-			
 			strHTML += _textToHtml_nonbsp(strText.substring( nLastStart, this.aClosedRanges[i].nStart - this.nFrom ));
-			//console.log("jjjjj"+_textToHtml_nonbsp(strText.substring( this.aClosedRanges[i].nStart - this.nFrom,
-										  //this.aClosedRanges[i].nEnd - this.nFrom )));
-			if(_textToHtml_nonbsp(strText.substring( this.aClosedRanges[i].nStart - this.nFrom,
-										  this.aClosedRanges[i].nEnd - this.nFrom )) !=""){
-			
-			
-			strHTML += "<em class='enableselect' id='hit_"+ii+"'>";
+			strHTML += s_strHlStart;
 			strHTML += _textToHtml_nonbsp(strText.substring( this.aClosedRanges[i].nStart - this.nFrom,
 										  this.aClosedRanges[i].nEnd - this.nFrom ));
 			strHTML += s_strHlEnd;
-            ii++;
-			
-			}
+
 			nLastStart = this.aClosedRanges[i].nEnd - this.nFrom;
-			
-			
 		}
 		strHTML += _textToHtml_nonbsp(strText.substr( nLastStart ));
 		
 		var spanElement = document.createElement( "span" );
-		spanElement.classList.add("hitmark","enableselect");
-		
 		spanElement.innerHTML = strHTML;
 		if (gbIE)
 		{
@@ -607,32 +591,30 @@ function highlightDocument()
 }
 
 /////// start routine /////////
-function applyHighlight(hitid)
+function applyHighlight()
 {   
-
-	callbackHighlightSettingRead(null,hitid);
+	callbackHighlightSettingRead();
 }
-function callbackHighlightSettingRead(bHighlight,hitid)
+function callbackHighlightSettingRead(bHighlight)
 {
-		 callbackHighlightTxtColorRead(null,hitid);
+		 callbackHighlightTxtColorRead();
 }
-function callbackHighlightTxtColorRead(txtColor,hitid)
+function callbackHighlightTxtColorRead(txtColor)
 {   
 	gsTextColor = txtColor;
-	 callbackHighlightBgColorRead(null,hitid);
+	 callbackHighlightBgColorRead();
 }
-function callbackHighlightBgColorRead(bgColor,hitid)
+function callbackHighlightBgColorRead(bgColor)
 {    
 	gsBkgndColor = bgColor;
-	StartHighLightSearch(hitid);
+	StartHighLightSearch();
 }
 
-function StartHighLightSearch(hitid)
+function StartHighLightSearch()
 {
 	var strTerms = GetHighlightTextFromURL();
-	
 	var arrSyns = GetSynonymsFromURL();
-
+	
 	findSearchTerms(strTerms, false);
 	// Repeat for all synonyms
 	for (var i = 0; i < arrSyns.length; i++)
@@ -648,90 +630,6 @@ window.parent.postMessage(["loading","stop"], "*");
 }
 
 }
-
-
-function StartHighLightSearch2(url)
-{   
-   
-	var strTerms = getUrlParameter2("rhsearch",url);
-	
-	strTerms = strip_And_Normlize(strTerms);
-	
-var loc_target;
-	
-if (url.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc_target= url.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
-			
-}		
-		
-if(loc_target == "&checkbox=1"){
-
-strTerms = '"'+strTerms+'"'
-}
-else{
-	
-	if(loc_target == "&checkbox=01"){
-
-strTerms = remove_stopWrods(strTerms);
-     }
-	 
-	 
-	 if(loc_target == "&checkbox=21"){
-
-strTerms = remove_stopWrods(strTerms);
-     }
-}
-	
-	
-	
-	
-	var arrSyns = GetSynonymsFromURL2();
-	findSearchTerms(strTerms, false);
-	// Repeat for all synonyms
-	for (var i = 0; i < arrSyns.length; i++)
-		if (trim(arrSyns[i]) != "")
-			findSearchTerms(trim(arrSyns[i]), false);
-	
-	
-
-  if(url){
-		  
-		  	
-		  var arr = url.match(/hit=([\w]+)/);
-      
-		 if(arr){ 
-		 
-          var hitid = arr[1];		 
-		  if(hitid !="null"){
-			 
-			 hitid = hitid; 
-		  }else{
-			
-			 hitid = null; 
-		  }
-         } 
-		 
-        }
-else{
-
-hitid = null; 
-}	
-	
-	
-
-if(strTerms){
- hit(strTerms,hitid);	
-}
-else{
-
-window.parent.postMessage(["loading","stop"], "*");	
-}
-
-}
-
-
-
-
 
 //////// common with FTS routines to identify stop word etc. ////////////
 
@@ -2345,59 +2243,23 @@ window.findAndReplaceDOMText = (function() {
 
 //jomart
 function hit(xx){
-
-ii = 1;
-
- if (_isMobile() == mobiletrue) {
-                    jQueryM_v1_4_5('span.hitmark').contents().unwrap();
-					jQueryM_v1_4_5('em').contents().unwrap();
-					
-					
-if (jQueryM_v1_4_5('em').is(':empty')){
-  jQueryM_v1_4_5('em').remove();
-}
-                } else {
-                    jQueryD_1_4_2('span.hitmark').contents().unwrap();
-					jQueryD_1_4_2('em').contents().unwrap();
-					
-					
-
-if (jQueryD_1_4_2('em').is(':empty')){
-  jQueryD_1_4_2('em').remove();
-}
-					   
-                }
-
-
 var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 	var term = hh;
-    
-	
-	term= term.replace(/["']/g, "");
+    term= term.replace(/["']/g, "");
+		//alert(hh);
 		if(/^".*"$/.test(hh)==true){
 		
 		term = createAccentRegexp(term).split(' ').join('(<[^>]+>|[\\n\\r\\s\\p{P}\\p{S}\\p{Mn}\\u0640\u200F])*')
         var pattern = XRegExp("("+term+")", "gi");
 		
-		//var container = document;
-        var i = 1;
-		findAndReplaceDOMText(document.getElementById('pagebody'), {
+		var container = document;
+        
+		findAndReplaceDOMText(container, {
 				find: pattern,
 				replace: function(portion, match) {
 					called = true;
-					
 					var el = document.createElement('em');
-					el.classList.add("enableselect");
-
-					if(portion.text.replace(/\s/g,"") != ""){
-					el.setAttribute('id','hit_'+i);
-					i++;
-					
-					}
-					
 					el.innerHTML = portion.text;
-					
-					
 					return el;
 				}
         });
@@ -2407,16 +2269,13 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 		 
 		 
 if (_isMobile() == mobiletrue) {
-if(jQueryM_v1_4_5("em").get(0)){		     			    
+		     			    
 jQueryM_v1_4_5("em").get(0).scrollIntoView();
-}
 
 }
 else{
-
-if(jQueryD_1_4_2("em").get(0)){
+	
 jQueryD_1_4_2("em").get(0).scrollIntoView();
-}
 
 }	
 		
@@ -2434,43 +2293,6 @@ jQueryD_1_4_2("em").get(0).scrollIntoView();
 		
 }
 
-var c = window.location.href;
-		          if(c.indexOf("&checkbox=") !== -1) {
-						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
-                    }
-					
-                    if(c.indexOf("#post") !== -1) {
-                        c = c.substring(0, c.indexOf("#post") - 0);
-                    }
-                    if(c.indexOf("?random=") !== -1) {
-						c = c.substring(0, c.indexOf("?random=") - 0); 
-				   }
-				   if(c.indexOf("?rhsyns=") !== -1) {
-                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
-                   }
-				   if(c.indexOf("?rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
-                   }
-				   if(c.indexOf("&rhsearch=") !== -1) {
-                        c = c.substring(0, c.indexOf("&rhsearch=") - 0);
-                   }
-				   if(c.indexOf("&rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("&rhhlterm=") - 0);
-                   }
-				   
-				   if (c.match(/[^"]*(\#|\?)&pass\=(.*?)(&([^"]*)|$)/mg)) {
-			         c = c.replace(/(.*?)(\#|\?)&pass\=(.*?)(#([^"]*)|$)/mg, "$1");
-		           }
-		
-		c= c.replace('html?', "html");
-        c= c.replace('htm?', "htm");		
-        
-   
-		window.parent.postMessage(["send_page_info",document.title, c], "*");
-
-
-
-
 
 
 
@@ -2481,18 +2303,10 @@ eventer(messageEvent,function(e) {
 enable_highlight = true;
 var eventName = e.data[0];
 var data = e.data[1];
-var data2 = e.data[2];	
+	
 
     switch(eventName) {
-      
-	  case 'loaddsett':
-	        loaddsett();
-	  break;
-	  case 'send_href':
-	  
-	  StartHighLightSearch2(data)
-	  break;
-	  case 'get_ifram_location_href':
+      case 'get_ifram_location_href':
       
 		str = data
 		if (str.match(/(index.html)/mg) ) {
@@ -2517,14 +2331,6 @@ var data2 = e.data[2];
 		if (str.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
 			loc_target+= str.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
 		}
-		
-		if (str.match(/[^"]*(\#|\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg)) {
-			//loc = loc.replace("#", "");
-			loc_target+= str.replace(/[^"]*(\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg, "&pass=$2");
-			//alert(loc);
-		}
-		
-		
 		if (data2.match(/(#post(.*?))/mg) ) {
 					   loc_target+= data2.replace(/[^"]*(#post(.*?))/mg, "$1");
 					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
@@ -2552,34 +2358,10 @@ var data2 = e.data[2];
      	break;
      case 'check_highlight_state':
           if (data =="true"){
-
+		
 		  enable_highlight = true;
 		  //document.getElementById("loading").style.display = 'block';
-		  
-		  if(data2){
-		  
-		  	
-		  var arr = data2.match(/hit=([\w]+)/);
-          
-		 if(arr){ 
-          var hitid = arr[1];		 
-		  if(hitid !="null"){
-			
-			 hitid = hitid; 
-		  }else{
-			
-			 hitid = null; 
-		  }
-         } 
-		 
-        }
-else{
-
-hitid = null; 
-}
-		  
-		  
-		  setTimeout(function(){ applyHighlight(hitid);}, 50);
+		  setTimeout(applyHighlight, 50);
 	
 		  loaddsett();
 		  
@@ -2603,66 +2385,6 @@ hitid = null;
 	 }else{
 		 link_disable = false;
 	 }
-	  case 'get_ifram_location_href2':
-        
-		var c = window.location.href;
-		          if(c.indexOf("&checkbox=") !== -1) {
-						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
-                    }
-					
-                    if(c.indexOf("#post") !== -1) {
-                        c = c.substring(0, c.indexOf("#post") - 0);
-                    }
-                    if(c.indexOf("?random=") !== -1) {
-						c = c.substring(0, c.indexOf("?random=") - 0); 
-				   }
-				   if(c.indexOf("?rhsyns=") !== -1) {
-                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
-                   }
-				   if(c.indexOf("?rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
-                   }
-				   if(c.indexOf("&rhsearch=") !== -1) {
-                        c = c.substring(0, c.indexOf("&rhsearch=") - 0);
-                   }
-				   if(c.indexOf("&rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("&rhhlterm=") - 0);
-                   }
-				   
-				   if (c.match(/[^"]*(\#|\?)&pass\=(.*?)(&([^"]*)|$)/mg)) {
-			         c = c.replace(/(.*?)(\#|\?)&pass\=(.*?)(#([^"]*)|$)/mg, "$1");
-		           }
-		
-		c= c.replace('html?', "html");
-        c= c.replace('htm?', "htm");		 
-
-		window.parent.postMessage(["send_page_info",document.title, c], "*");
-		 
-		 
-     break;
-	 case 'send_pass':
-	if (data != "") { 			
-	if(document.getElementById('staticrypt-password')){
-    
-				if(document.getElementById("pass")){
-		        if(document.getElementById("pass").checked){
-				document.getElementById('staticrypt-password').value =  data.hexDecode();
-				}
-				}
-                
-				
-	}
-	if(document.getElementById("pass2")){
-		    if(document.getElementById("pass2").checked){
-			autolog(null,false,data.hexDecode());
-			}
-			}
-	}
-
-	 break;
-	 
-	 
-	 
 }	
 },false);
 
