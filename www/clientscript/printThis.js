@@ -33,24 +33,31 @@ function print(){
     // allow iframe to fully render before action
     setTimeout ( function () {
          
-        // import page css
-        if (opt.importCSS)
-        {
-                $("link[rel=stylesheet]").each(function(){
-                var href = $(this).attr('href');
-                if(href){
-                        var media = $(this).attr('media') || 'all';
-                        $doc.find("head").append("<link type='text/css' rel='stylesheet' href='" + href + "' media='"+media+"'>");
-                    }
-        });
-        }
+		 var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
+         var url = vburl;
+		 url = url.substring(0, url.indexOf(v)); 
+		 
+		   if(_isMobile() == mobiletrue) {
+		   $doc.find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		   $doc.find("head").append("<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryM_v1_4_5('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryM_v1_4_5('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryM_v1_4_5('#wrapper').css("font-family")+"'}</style>" );
+		   }
+	       else{
+	       $doc.find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
+		   $doc.find("head").append("<style>.posttext > div,.posttext >span ,font{line-height:"+jQueryD_1_4_2('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+jQueryD_1_4_2('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+jQueryD_1_4_2('#wrapper').css("font-family")+"'}</style>" );
+	       }
+        
+		 if(_isMobile() == mobiletrue) {
+          $doc.find("head").append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/andriod_ios_fixFont.css\'/>');
+
+          }
+	      else{
+		  $doc.find("head").append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/ff_ch_ie9_edg_fixFont.css\'/>');
+
+	      }
+		
+		$doc.find("head").append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/print.css\'/>');
          
-        // add another stylesheet
-        if (opt.loadCSS)
-        {
-        $doc.find("head").append("<link type='text/css' rel='stylesheet' href='" + opt.loadCSS + "'>");
-         
-        }
+        
          
         //grab outer container
         if (opt.printContainer) { $doc.find("body").append($element.outer()); }
