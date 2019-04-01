@@ -1,6 +1,12 @@
 
 function print(){
-	var $ = jQueryM_v1_4_5.noConflict(true);
+	
+   var $;
+   if (_isMobile() == mobiletrue) {
+                    $ = jQueryM_v1_4_5.noConflict(true);
+                } else {
+                    $ = jQueryD_1_4_2.noConflict(true);
+                }
    
     var opt;
  
