@@ -85,4 +85,5 @@ function print(){
     }
 
     $("#content").printThis();
+	 //location.reload();
 }
