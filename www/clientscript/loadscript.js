@@ -51,6 +51,9 @@ document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/arc
 
 document.write('<script type=\"text/javascript\" src=\''+url+'js/index.js\'><\/script>'); 
 
+
+
+
 if(_isMobile() == mobiletrue) {
 
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/jquery-1.11.1.min.js\'><\/script>');  
@@ -65,7 +68,9 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/json2
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/simple-postmessage.js\'><\/script>');  
 
 }
-document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/printThis.js\'><\/script>');  
+
+
+
 
 
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/ExFun.js\'><\/script>');  
@@ -73,6 +78,9 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/jquer
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/jquery.ba-hashchange.min.js\'><\/script>');  
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/copy2clipboard.js\'><\/script>');  
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/config.js\'><\/script>');  
+
+document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/printThis.js\'><\/script>');  
+
 
 
 if(_isMobile() == mobiletrue) {	

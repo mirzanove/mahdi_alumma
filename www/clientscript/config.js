@@ -9,8 +9,6 @@ $.mobile.hashListeningEnabled = true;
 $.mobile.pushStateEnabled = false;
 $.mobile.loading().hide();*/	
 
-
-
 var jQueryM_v1_4_5 = $.noConflict(true);
 	   		          
 }//end
