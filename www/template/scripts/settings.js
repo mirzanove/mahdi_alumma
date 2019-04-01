@@ -62,13 +62,20 @@ function isCookieSupportedWithoutPath()
 function isLocalDBSupported()
 {
 	if(gbLocalStorageSupported === null) {
-		try {
-			localStorage.setItem('dummyTestForLocalStorage', 1);
-			localStorage.removeItem('dummyTestForLocalStorage');
-			gbLocalStorageSupported = true;
-		} catch(e) {
+		if(localStorage != undefined) {
+			try {
+				localStorage.setItem('dummyTestForLocalStorage', 1);
+				localStorage.removeItem('dummyTestForLocalStorage');
+			} catch(e) {
+				gbLocalStorageSupported = false;
+			}
+
+			if(gbLocalStorageSupported === null) {
+				gbLocalStorageSupported = true;
+			}
+		} else {
 			gbLocalStorageSupported = false;
-		}
+		}		
 	}
 	return gbLocalStorageSupported;
 }
@@ -76,9 +83,17 @@ function initSettings(commonRootRelPath)
 {
 	if(commonRootRelPath == null || commonRootRelPath == "" || !rh._.isRelativeUrl(commonRootRelPath))
 		return;
-	var data = rh._.getHostData(commonRootRelPath);
-	window.gHost = data.gHost;
-	window.gHostPath = data.gHostPath;
+	var folderAbsPath = _getFullPath(_getPath(document.location.href), commonRootRelPath + "/");
+	if(_isHTTPUrl(folderAbsPath))
+	{
+		gHost = _getHostNameFromURL(folderAbsPath);
+		gHostPath = _getPathFromURL(folderAbsPath);
+	}
+	else
+	{
+		gHost = "";
+		gHostPath = folderAbsPath;
+	}
 }
 function setCookie(name, value, bPersistent)
 {

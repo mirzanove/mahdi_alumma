@@ -1,24 +1,25 @@
+
 var gSearchMsgId = "searchMsg";
 var gResultsFoundString = "%1 نتيجة (نتائج) تم العثور عليها لـ %2";
-var gSearchResultHtml = "";
-var gSearchResClassName = "";
-var gSearchResTitleClassName = "";
-var gSearchResTitleClassHover = "";
+var gSearchResultHtml = "{%LINK_NAME%}\n<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n<br />\n<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span>";
+var gSearchResClassName = "wSearchResultItem";
+var gSearchResTitleClassName = "wSearchResultTitle";
+var gSearchResTitleClassHover = "wSearchResultTitleHover";
 var gSearchResStyle = "";
 var gSearchResTitleStyle = "";
-var gSearchPrevBtnId = "";
-var gSearchNextBtnId = "";
-var gsResultDivID="";
-var gPageListBarID ="";
-var gPageLinkClass = "";
-var gPageClass = "";
-var gSearchDropdownID = "";
+var gSearchPrevBtnId = "searchprev";
+var gSearchNextBtnId = "searchnext";
+var gsResultDivID="searchResList";
+var gPageListBarID ="pageList";
+var gPageLinkClass = "wSearchPageNumberLink";
+var gPageClass = "wSearchPageNumberSelected";
+var gSearchDropdownID = "searchResCount";
 var gSearchPageFilePath = "";
 var gSearchResultsCount = "15";
 var gSearchHighlightControlID = "highlightsearch";
 var gbHighLight = 1;
 var gTextHighlightColor = "#000000";
-var gbgHighlightColor = "#FCFF00";
+var gbgHighlightColor = "#b2b4bf";
 
 gRootRelPath = ".";
 
@@ -83,6 +84,18 @@ function onToggleHighlightSearch()
 }
 function onMaxPageCountChange(maxVal)
 {
+	
+	if(maxVal ==-1){
+		
+		$("#pages_bar_note").css("display", "none");
+	}
+	else{
+	if($('.wSearchPageNumberSelected').length) 
+	{
+        $("#pages_bar_note").css("display", "block");
+	}	
+	}
+	
 	g_nMaxResult = maxVal;
 	
 	if(rh.model.get(rh.consts('KEY_SEARCHED_TERM')))
@@ -91,7 +104,24 @@ function onMaxPageCountChange(maxVal)
 }
 function onClickPrevNext( btn, a_nPageNumber )
 {
-	onClickPage(a_nPageNumber);	
+	
+	if(scrolling){
+		return false;
+	}
+	
+	
+	onClickPage(a_nPageNumber);
+	//jomart
+	
+	
+	$(document).ready(function(){
+
+      
+	      $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
+	
+  
+    }); 
+   	
 }
 function updateNavigationPagesBar(nCurPage, nNumPages)
 {
@@ -104,10 +134,14 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 		return;
 	}	
 		
-	var resDiv = document.getElementById(gsResultDivID);
+	var resDiv = document.getElementById("rh_scrollable_content");
 	if(gPageRange == 0)
-		gPageRange = Math.floor(resDiv.offsetWidth/SEARCHPAGEWIDTHRATIO);
-	var startPage = nCurPage - Math.floor(gPageRange/2);
+		gPageRange = Math.floor(SEARCHPAGEWIDTHRATIO);
+	
+	var startPage = nCurPage - Math.floor(gPageRange);
+	
+	//alert(startPage);
+	
 	var endPage = 0;
 	if(startPage < 1)
 		startPage = 1;
@@ -120,15 +154,23 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 			startPage = 1;
 	}
 	var sHTML = "";
-	sHTML += "<ul style='margin: 0px; padding: 0px;'>";
-	for(var i=startPage; i<=endPage; i++)
+	sHTML += "<ul class=\"row-reverse\" style='margin: 0px; padding: 0px;' reversed>";
+	
+	
+	
+	for(var i=nNumPages; i>=1; i--)
 	{
+		
+		
 		if(i == nCurPage)
-			sHTML += "<li class='" + gPageClass + "' style='display:inline;'>" + i.toString() + "</li>";
+			sHTML += "<li class='" + gPageClass + "'>" + i.toString() + "</li>";
 		else
-			sHTML += "<li class='" + gPageLinkClass + " " + HLISTCLASS + " " + HANDCURSORCLASS + "' onclick=\"onClickPrevNext(this,'" + i.toString() + "')\" >" + i.toString() + "</li>";
+			sHTML += "<li class='' onclick=\"onClickPrevNext(this,'" + i.toString() + "')\" >" + i.toString() + "</li>";
 	}
 	sHTML += "</ul>";
+	
+	
+	
 	pageListBarDiv.innerHTML = sHTML;
 }
 function updatePrevNextButtons(nCurPage, nNumPages)
@@ -148,7 +190,7 @@ function updatePrevNextButtons(nCurPage, nNumPages)
 			if(isPrevBtn)
 			{
 				prevBtn.style.display = "inline";
-				prevBtn.onclick = function(){onClickPrevNext(prevBtn, (parseInt(nCurPage)-1).toString());};
+				prevBtn.onclick = function(){onClickPrevNext(prevBtn, (1).toString());};
 			}
 		}
 		else if(isPrevBtn)
@@ -158,7 +200,7 @@ function updatePrevNextButtons(nCurPage, nNumPages)
 			if(isNextBtn)
 			{
 				nextBtn.style.display = "inline";
-				nextBtn.onclick = function(){onClickPrevNext(nextBtn, (parseInt(nCurPage)+1).toString());};
+				nextBtn.onclick = function(){onClickPrevNext(nextBtn, (nNumPages).toString());};
 			}
 		}
 		else if(isNextBtn)
@@ -179,7 +221,9 @@ function initSearchPage()
 	updatePrevNextButtons(0,0);
 }
 
-function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs )
+
+
+function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_strBreadcrumbs,szSearchStrings,id)
 {
 	var strTitleStyle = "";
 	if(gSearchResTitleStyle != "")
@@ -196,10 +240,11 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 		strHoverEvents += " onmouseover=\"onSearchItemHover(this,'" + gSearchResTitleClassHover + "')\" ";
 		strHoverEvents += " onmouseout=\"onSearchItemHoverOut(this,'" + gSearchResTitleClassName + "')\"";
 	}
-	var anchorStartTag = "<a class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl + "\" >";
-	var divStartTag = "<div class='" + gSearchResTitleClassName + "' " + strTitleStyle + strHoverEvents + ">";
-	var title = anchorStartTag + divStartTag + _textToHtml_nonbsp(a_strTitle) + "</div></a>";
+	var anchorStartTag = "<a onclick=\"go_topic(event);\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl+'&hit=null'+ "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
 	
+	
+	var title = anchorStartTag ;
+
 	var html = gSearchResultHtml.replace(LINK_NAME_MACRO, title);
 	if(a_sSummary.length > 0)
 	{
@@ -217,25 +262,31 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	var strStyle ="";
 	if(gSearchResStyle != "")
 		strStyle = "style=\"" + gSearchResStyle + "\" ";
-	return "<div class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
+
+	var getsnippt ="<div class=\"exthtml\" id='hitcount_"+id+"'><img src=\"template/resources/loading.gif\" height=\"42\" width=\"42\"></div>"
+	
+	var gg = "<div  class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html +getsnippt+"</div>";
+	
+	
+	
+	return  gg
+	
+
+	
 }
 function setResultsStringHTML(results_no, searchStr)
 {
 	var msg = gResultsFoundString;
-	searchStr = document.getElementById("wSearchField").value;
 	
+	
+	var msg = gResultsFoundString;
 	msg = msg.replace("%1", results_no);
 	msg = msg.replace("%2", "\'" + searchStr + "\'");
-	
-	
 	displayMsg(msg);
 }
 function displayMsg(msg)
 {
 	var spanNode = document.getElementById(gSearchMsgId);
-	
-	//alert(msg);
-	
 	if(spanNode != null && spanNode != 'undefined')
 		spanNode.innerHTML = msg;
 }

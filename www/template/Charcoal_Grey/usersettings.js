@@ -1,5 +1,5 @@
 //Variables to override in settings
-var useTOC = false;
+var useTOC = true;
 var useGLO = false;
 var useIDX = false;
 var delayLoadIdx = true;
@@ -8,7 +8,7 @@ var useFilter = true;
 var useFacebook = false;
 var useTwitter = false;
 var useSocial = true;
-var defaultPane = 'toc';
+var defaultPane = 'search';
 var mobileTocDrilldown = true;
 var useANDsearch = true;
 var maxResults = 15;	

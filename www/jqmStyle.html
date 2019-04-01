@@ -1,26 +1,114 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes" />
 <meta name="generator" content="Adobe RoboHelp 12" />
-<title>mawso3a</title>
+<title>تطبيق موسوعة نون</title>
 
 <script type="text/javascript"> 
-
 function getbooleanindexopage(){
 return "1";
 }
 function MyFunction(){
-location.href = "index.html";
+    
+	document.getElementsByClassName("loading2")[0].style.display = 'block';
+	
+	str = document.location.href;
+	str =str.replace("/jqmStyle.html", "/index.html");
+	
+	document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",str], "*");
+	
+	//location.href =str.replace("/jqmStyle.html", "/index.html");
+//location.href = "index.html";
 }
 function get_link_url(){
-document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href","get_ifram_location_href"], "*");
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
 }
+
+
+function go_index(){
+//document.getElementsByClassName("loading2")[0].style.display = 'block';
+if(window.myScroll){
+
+window.myScroll.destroy();
+
+
+// 		   
+}
+
+
+git = false;
+stop = true; 
+lunch_vlist(a_QueryResultt,strParams,"mycontainer","three2");
+git = false; 
+setTimeout(function() { 
+  
+   if(window.myScroll){ 
+    
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+   //git =true;			
+}, 500);
+
+//document.getElementsByClassName("loading2")[0].style.display = 'none';
+}
+
+
+
+
+
+
+
 </script>
 <style>
 
+.img_wrapper{
+	   display:none;
+	  }
+.itemcon{ 
+  height: 100%!important;
+  line-height: 1.5em;
+ }
+
+.wSearchResultItem {
+
+/*min-height:119px;*/
+}
+		
+#three {
+ overflow-y:hidden;
+ overflow-x:hidden;
+ /*background:white;*/
+}
+
+#three2 {
+ wdith:100%;
+ position:absolute;
+ top:0px;
+ right:0px;
+ left:0px;
+ bottom:0px;
+ overflow-y:auto;
+ overflow-x:hidden;
+ margin:0px;
+ padding:1em;
+ z-index:0;
+
+}
+
+.hidesaerchico:after {
+  content: none !important;
+}
+
+.exthtml{
+display:none;
+}
 a[data-icon="mapa"].ui-icon-mapa {
     background-image: url("template/resources/style2.png") !important;
     height: 100%;
@@ -31,7 +119,6 @@ a[data-icon="mapa"].ui-icon-mapa {
     box-shadow: none;
 	
 }
-
 a[data-icon="mapa2"].ui-icon-mapa2 {
     background-image: url("template/resources/close.png") !important;
     height: 100%;
@@ -54,7 +141,6 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
 	width: 100%;
 	z-index :159;
   }
-
 /* The Modal (background) */
 .modal {
     /* Hidden by default */
@@ -69,17 +155,13 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
     /*background-color: rgb(0,0,0); /* Fallback color */
     background-color: grey; /* Black w/ opacity */
 }
-
 /* Modal Content (image) */
 .modal-content {
     margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
-
 }
-
-
 /* The Close Button */
 /* The Close Button */
 .close {
@@ -95,7 +177,6 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
 	border-style: solid;
     border-color: white;
 }
-
 .close:hover,
 .close:focus {
     color: #bbb;
@@ -110,7 +191,6 @@ a[data-icon="mapa2"].ui-icon-mapa2 {
 body #men {
    position:relative !important;
    _position: absolute; /*ie6 and above*/
-
    border: 1px solid black; 
    background: rgb(219, 219, 0) none repeat scroll 0% 0%; 
    opacity: 1; 
@@ -121,27 +201,89 @@ body #men {
    z-index: 9; 
    left: 50%;
    top: 10%;
-
    margin-left: -50px;
    margin-right: 50px;
-
 }
-
-
+.curr{
+background-color: #cfd0d3;
+}
+.curr2{
+background-color: #cfd0d3;
+}
+.curr2 img{
+width:20px;
+}
+.btn {
+    text-shadow:0 0 0!important;
+    display: inline-block;
+    padding: 1px 6px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+	color: black!important;
+	cursor: pointer;
+}
+.btn-danger {
+text-decoration: none;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+.btn-info {
+text-decoration: none;
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+.well{
+padding:5px;
+color:black;
+font-size: 120%;
+font-weight:bold;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.form-group {
+    margin-bottom: 15px;
+	text-align: center;
+}
+.star_yellow
+{
+background-image: url("jqmlib/themes/default/images/icons-png/star-yellow.png")!important;
+background-position: center 40% !important;
+background-repeat: no-repeat !important;
+ 
+}
 </style>
 
   
    <script src="jqmlib/jquery.com_jquery-1.10.2.min.js"></script>
    <link href="jqmlib/themes/default/rtl.jquery.mobile-1.4.0.css" rel="stylesheet" /> 
   
-   <script type="text/javascript">
+<script type="text/javascript">
+ 
+   
 $(document).on("mobileinit", function(){
         $.mobile.ajaxEnabled=false;
         $.mobile.loadingMessage = false;
 		$.mobile.hashListeningEnabled = false; 
              
 });
-
  
  </script>
   
@@ -158,7 +300,9 @@ $(document).on("mobileinit", function(){
  
 
 <link rel="StyleSheet" href="template/Charcoal_Grey/jqm_layout-rtl.css" type="text/css" />
-
+<!-- jomart -->
+<script type="text/javascript" src="clientscript/xregexp-all.js"></script>
+   
 <script type="text/javascript" src="template/scripts/rh.min.js"></script>
 <script type="text/javascript" src="template/scripts/common.min.js"></script>
 <script type="text/javascript" src="template/scripts/layout.min.js"></script>
@@ -180,9 +324,8 @@ $(document).on("mobileinit", function(){
  <link rel="stylesheet" type="text/css" href="template/styles/layout.min.css">
 <script type="text/javascript" src="template/scripts/mhfhost.js"></script>
 <script type="text/javascript" src="template/scripts/search.js"></script>
-<!-- jomart -->
-<script type="text/javascript" src="clientscript/xregexp-all.js"></script>
-   
+<script type="text/javascript" src="template/exjs/vscroll.js"></script>
+
  
 <script type="text/javascript" >
 gTopicFrameName = "rh_default_topic_frame_name";
@@ -204,19 +347,27 @@ gCommonRootRelPath = ".";
 </script>
 <link rel="SHORTCUT ICON" href="87px.png" />
 <div class = "loading2"></div>
+<script type="text/javascript">
+document.getElementsByClassName("loading2")[0].style.display = 'block';   
+</script>
+
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
 </div>
 </head>
 
-<body  style="overflow: hidden; margin: 0; padding: 0;" class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_PHONE; media-landscape: KEY_SCREEN_PHONE; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
+<body  style="height:100%; width:100% ;overflow: hidden; margin: 0; padding: 0;" class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_PHONE; media-landscape: KEY_SCREEN_PHONE; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
 <script type="text/javascript" src="./ehlpdhtm.js"></script>
 
 <div style="overflow: hidden; margin: 0; padding: 0;" data-role="page" id="map-page" class="mainpage" data-theme="a">
 
 
 
+
+  <div id="headerr" style="position:absolute; top:0px; left:0px; height:60px; right:0px;overflow:hidden;background:#e9e9e9;"> 
+    
+	<div id="hed" style = "position:absolute;top:0px; width:100%">
 
 <div id="home_header" data-role="header">
 
@@ -253,10 +404,17 @@ gCommonRootRelPath = ".";
 
 <div style = "padding:0;" data-role="popup" id="popupMenu2" data-theme="a">
 <a style = "padding:3px;" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
+<a style = "padding:3px;" data-trigger="EVT_REMOVE_HIT" data-role="button" data-ajax="false">ازالة تسليط الضوء</a>
+<a style = "padding:3px;" data-trigger="EVT_ADD_HIT" data-role="button" data-ajax="false">اعادة تسليط الضوء</a>
 <a style = "padding:3px;" data-trigger="EVT_REMOVE_FORMAT" data-role="button" data-ajax="false">ازالة التنسيق</a>
-<a style = "padding:3px;" data-trigger="EVT_ZOOMIN" data-role="button" data-ajax="false">A++</a>
-<a style = "padding:3px;" data-trigger="EVT_ZOOMOUT" data-role="button" data-ajax="false">A--</a>
-<a style = "padding:3px;" data-trigger="EVT_RESET" data-role="button" data-ajax="false">0</a>
+<a style = "padding:3px;" data-trigger="EVT_REMOVE_SRC" data-role="button" data-ajax="false">ازالة رابط مصدر البيان</a>
+<a style = "padding:3px;" data-trigger="EVT_REMOVE_TRANZ" data-role="button" data-ajax="false">ازالة روابط عبارات الترجمة</a>
+<a style = "padding:3px;" data-trigger="EVT_ZOOMIN" data-role="button" data-ajax="false">تكبير النص لكل الصفحة</a>
+<a style = "padding:3px;" data-trigger="EVT_ZOOMOUT" data-role="button" data-ajax="false">تصغير النص لكل الصفحة</a>
+<a style = "padding:3px;" data-trigger="EVT_RESET" data-role="button" data-ajax="false">الحجم الإفتراضي للصفحة</a>
+
+
+
 
 </div>
 
@@ -276,7 +434,7 @@ gCommonRootRelPath = ".";
 	  <a onclick="scrollTo_down();return false;" data-ajax="false" data-role="button" data-icon="arrow-d" data-iconpos="notext">&nbsp;</a>
 	  </td>
 	  <td style="text-align: center;">
-		جدول المحتويات
+		المفضلة
      </td>
 	  <td style='width:2em'>
 		<a  onclick="scrollTo_up();return false;" data-ajax="false" data-role="button" data-icon="arrow-u" data-iconpos="notext">&nbsp;</a>
@@ -288,6 +446,8 @@ gCommonRootRelPath = ".";
 
 
 <div id ="search_header" data-role="header" >
+<iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
+<form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
 	<table style='width:100%'>
 	  
 	  <tr>
@@ -297,10 +457,11 @@ gCommonRootRelPath = ".";
 		<a  href="#popupMenu"  data-rel="popup"  data-role="button" style = "padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;"><span style = "font-size: 12px;">خيارات<br>البحث</span></a>
      </td>
 	 
+	<form action="" method="post" autocomplete="on">
+ 
 	 <td>
-	 <input id = "wSearchField" class="wSearchField" type="search"  data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	<input id = "wSearchField" autocomplete="on" class="wSearchField" name="user" type="search"  data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>   
-
 	 </td>
 	  
      <td style='width:2em'>
@@ -308,9 +469,10 @@ gCommonRootRelPath = ".";
 		<a data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'" data-role="button" data-icon="search" data-iconpos="notext">&nbsp;</a>
 		
      </td>
-     
+     </form>
+	 
 	 </tr>
-	  
+</form>	 	  
    </table>
 	 
 	  
@@ -347,41 +509,68 @@ gCommonRootRelPath = ".";
        <li>    
     <label for="checkbox_id3">
     <input type="checkbox" value="3"  name="genderS" id="checkbox_id3" checked> 
-	<span style = "font-size: 12px;">&nbsp;تفعيل تعيين على الكلمات..&nbsp;&nbsp;</span>
+	<span style = "font-size: 12px;">&nbsp;تسليط الضوء على كلمات البحث..&nbsp;&nbsp;</span>
    </label>
       </li>
+	  
+	   <li>    
+    <label for="checkbox_id4">
+    <input type="checkbox" value="4"  name="genderS" id="checkbox_id4" checked> 
+	<span style = "font-size: 12px;">&nbsp;البحث عن الكلمات المستبعدة ايضا..&nbsp;&nbsp;</span>
+   </label>
+      </li> 
 		  
         </ul>
       </div>
     
 </div>
-
-
-
-
-
-
-
-
-
-<div id="one" style="overflow: hidden; margin: 0; padding: 0;" class="topic tabView ui-contentt">	
-<div style="overflow: hidden; margin: 0; padding: 0;" class="topic ui-contentt">
-<div class="topic-state loading" data-class="loading: EVT_TOPIC_LOADING" data-if="EVT_TOPIC_LOADING"></div>
-<iframe  id="iframe" scrolling="yes" frameborder="0"  class="topic map-canvas" name="rh_default_topic_frame_name" style="width:100%; height: 100%; margin: 0; padding: 0;"></iframe>
 </div>
+	
+	</div> 
+
+
+
+
+
+<div id="content_t" style=" margin: 0; padding: 0;position:absolute; top:60px; bottom:42px; left:0px; right:0px;background:white;"> 
+
+<div id="one" style="position:absolute; top:0px; bottom:0px; left:0px; right:0px; overflow: hidden; margin: 0; padding: 0;" class="topic tabView ui-contentt">	
+<!--<div class="topic-state loading" data-class="loading: EVT_TOPIC_LOADING" data-if="EVT_TOPIC_LOADING"></div>-->
+<iframe  id="iframe" scrolling="yes" frameborder="0"  class="topic map-canvas" name="rh_default_topic_frame_name" style="width:100%; height: 100%; margin: 0; padding: 0;"></iframe>
+
 </div>
 
 	
    
 
 
-<div id="two"   style="margin: 0; -webkit-overflow-scrolling: touch;" class="tabView toc-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: @KEY_ACTIVE_TAB == 'toc'; drill-down: KEY_TOC_DRILL_DOWN ; loading: !@EVT_TOC_LOADED">
+<div id="two" style="position:absolute; top:0px; bottom:0px; left:0px; right:0px;margin: 0; -webkit-overflow-scrolling: touch;" class="tabView toc-holder left-pane">
+
+
+<form id="bookmarksForm"  onsubmit="return false">
+			<div class="form-group">
+			    <label style ="font-weight:bold; color:black;">عنوان الموضوع:</label>
+			    <input style= "padding-right: 0.75em !important;" type="search" class="form-control" autocomplete="off" id="websiteName" placeholder="عنوان الموضوع">
+			 </div>
+			 <div class="form-group" style = "display:none;">
+			    <label>رابط الموضوع</label>
+			    <input  type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			 </div>
+			 <center><button id ="bookit" type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
+			 
+			 
+		</form> 
+
+<div id="bookmarksResults">
+      			
+</div>
+
 
 </div>
 
 <!-- Search results -->
-<div id="three"  style="-webkit-overflow-scrolling: touch;" class="map-canvas tabView searchresults left-pane" data-css="width: sidebar_width | screen: 'desktop'; left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'; search-content: @KEY_SEARCH_LOCATION == 'content'; layout-visible: $mc.isSearchMode(@KEY_ACTIVE_TAB, @active_content); " data-scroll="@.l.load_more_results(true) | debounce: 50, delta: 100">
-	
+<div id="three"  style=" margin: 0; padding: 0; webkit-overflow-scrolling: touch;" class="tabView searchresults">
+<div id="three2" class ="" style="padding:1em;-webkit-overflow-scrolling: touch;" >	
 	
 	
 	<div class="wSearchResults" id="searchresults">
@@ -398,7 +587,7 @@ gCommonRootRelPath = ".";
 		<div class="wSearchResultItemsBlock" data-if="!@EVT_SEARCH_IN_PROGRESS">
 			<div data-rhwidget="List: key: @.p.searchresults, spliton: index % @MAX_RESULTS == 14" data-config="loadmore: '.l.load_more_results', loaded: '.l.results_loaded'">
 				<div class="wSearchResultItem">
-					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams">
+					<a class="nolink" data-i-href="item.strUrl+@.p.searchresultparams+'&hit=null'">
 						<div class="wSearchResultTitle" data-itext="item.strTitle"></div>
 					</a>
 					<div class="wSearchContent">
@@ -407,22 +596,54 @@ gCommonRootRelPath = ".";
 					<div class="wSearchURL">
 						<span class="wSearchURL" data-itext="item.strBreadcrumbs"></span>
 					</div>
+					<div class="exthtml" data-h-href="item.strUrl+@.p.searchresultparams">
+					 <img src="template/resources/loading.gif" height="42" width="42"> 
+					</div>
+					
 				</div>
 			</div>
 		</div>
+		
+<div id="mycontainer"></div>
+<div id="end" class ="rh-hide"><span>نهاية نتائج البحث</span></div>
+		
+		
 		<div data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" >
 			<span>نهاية نتائج البحث</span>
 		</div>
 	</div>
 	
+</div>
+</div>
+
 
 </div>
 
 
-<div  id = "home_footer" data-role="footer" data-mini="true"  data-theme="b">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div id="footerr" style="position:absolute; bottom:0px; height:42px; left:0px; right:0px; overflow:hidden;background:green;"> 
+    
+	
+	<div id="fot" style = "position:absolute;top:0px; width:100%">
+
+<div  id = "home_footer" style="" data-role="footer" data-mini="true"  data-theme="b">
       <div data-role="navbar"  data-iconpos="top" >
 			<ul>
 				<li><a href="#one"  class="tabButton ui-btn-active ui-state-persist" data-icon="home"></a></li>
+				<li><a href="#two"  class="toc_footer tabButton" data-icon="star"></a></li>
 				<li><a href="#three" class="tabButton" data-icon="search" data-iconpos="notext"></a></li>
 			    <li><a class ="ui-nodisc-icon" align="middle" onclick="MyFunction();return false;" data-iconpos="notext" data-icon="mapa"></a></li>
 			    <li><a onclick="get_link_url();" class ="ui-nodisc-icon cool" align="middle" data-iconpos="notext" data-icon="mapa2"></a></li>
@@ -433,10 +654,11 @@ gCommonRootRelPath = ".";
 </div>
 
 
-<div  id = "toc_footer" data-role="footer" data-mini="true"  data-theme="b">
+<div  id = "toc_footer" style="" data-role="footer" data-mini="true"  data-theme="b">
       <div data-role="navbar"  data-iconpos="top"  >
 			<ul>
 				<li><a href="#one"  class="tabButton" data-icon="home"></a></li>
+				<li><a href="#two"  class="toc_footer tabButton ui-btn-active ui-state-persist" data-icon="star"></a></li>
 				<li><a href="#three" class="tabButton" data-icon="search" data-iconpos="notext"></a></li>
 				<li><a class ="ui-nodisc-icon" align="middle" onclick="MyFunction();return false;" data-iconpos="notext" data-icon="mapa"></a></li>
 				<li><a onclick="get_link_url();" class ="ui-nodisc-icon cool" align="middle" data-iconpos="notext" data-icon="mapa2"></a></li>
@@ -446,10 +668,11 @@ gCommonRootRelPath = ".";
 </div>
 
 
-<div  id = "search_footer" data-role="footer" data-mini="true"  data-theme="b">
+<div  id = "search_footer" style="" data-role="footer" data-mini="true"  data-theme="b">
       <div data-role="navbar"  data-iconpos="top"  >
 			<ul>
 				<li><a href="#one"  class="tabButton" data-icon="home"></a></li>
+				<li><a href="#two"  class="toc_footer tabButton" data-icon="star"></a></li>
 				<li><a href="#three" class="tabButton ui-btn-active ui-state-persist" data-icon="search" data-iconpos="notext"></a></li>
 				<li><a class ="ui-nodisc-icon" align="middle" onclick="MyFunction();return false;" data-iconpos="notext" data-icon="mapa"></a></li>
 			    <li><a onclick="get_link_url();" class ="ui-nodisc-icon cool" align="middle" data-iconpos="notext" data-icon="mapa2"></a></li>
@@ -457,92 +680,431 @@ gCommonRootRelPath = ".";
 		</div>
 
 </div>
-
-
+</div>
+</div>
 
 </div>
 
 <script>
-
 var link_disable = false;
-
+var elts = document.getElementsByTagName('div');
 $(document).on( "pagecontainershow", function(){
-
-   ScaleContentToDevice();
+   //ScaleContentToDevice();
     
     $(window).on("resize orientationchange", function(){
      
-	 ScaleContentToDevice();
+	// ScaleContentToDevice();
     })
 });
-
-
-
-
 function ScaleContentToDevice(){
  
 	scroll(0, 0);
-
 	if(!$('#one').hasClass("hide"))
     {
 	
 var screen = $.mobile.getScreenHeight();
-
 var header = $("#home_header").hasClass("ui-header-fixed") ? $("#home_header").outerHeight() - 1 : $("#home_header").outerHeight();
-
 var footer = $("#home_footer").hasClass("ui-footer-fixed") ? $("#home_footer").outerHeight() - 1 : $("#home_footer").outerHeight();
-
 var contentCurrent = $(".ui-contentt").outerHeight() - $(".ui-contentt").height();
-
 var content = screen - header - footer - contentCurrent;
-
 $(".ui-contentt").height(content);
 	
     }
 else if(!$('#two').hasClass("hide")){
 	
 var screen = $.mobile.getScreenHeight();
-
 var header = $("#toc_header").hasClass("ui-header-fixed") ? $("#toc_header").outerHeight() - 1 : $("#toc_header").outerHeight();
-
 var footer = $("#toc_footer").hasClass("ui-footer-fixed") ? $("#toc_footer").outerHeight() - 1 : $("#toc_footer").outerHeight();
-
 var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
-
 var content = screen - header - footer - contentCurrent;
-
 $(".ui-content").height(content);
 	
 	
 	}
 else if(!$('#three').hasClass("hide")){
-
 var screen = $.mobile.getScreenHeight();
-
 var header = $("#search_header").hasClass("ui-header-fixed") ? $("#search_header").outerHeight() - 1 : $("#search_header").outerHeight();
-
 var footer = $("#search_footer").hasClass("ui-footer-fixed") ? $("#search_footer").outerHeight() - 1 : $("#search_footer").outerHeight();
-
 var contentCurrent = $(".ui-content").outerHeight() - $(".ui-content").height();
-
 var content = screen - header - footer - contentCurrent;
-
 $(".ui-content").height(content);
-
 	}
 }
 
 
-$("a").on('vclick', function(event) {
-		//alert(link_disable);
-	    if(link_disable == true){
-			return false;
-		}
 
-});
+
 
 $(document).ready(function(){
-        $("div.toc-holder li").removeClass("ui-li-static").removeClass("ui-body-inherit").removeClass("ui-last-child");
+
+
+if (typeof process !== "undefined" && typeof require !== "undefined") {
+
+var isScrolling;
+var stopacrolld = true;
+var stopacrollu = true;
+var myVar;
+var myVar2;
+
+
+  
+document.getElementById('three2').addEventListener('wheel',function (event){
+  
+   
+	
+	console.log( 'Scrolling' );
+	// Clear our timeout throughout the scroll
+	window.clearTimeout( isScrolling );
+	
+	    var delta;
+
+        if (event.wheelDelta){
+            delta = event.wheelDelta;
+        }else{
+            delta = -1 * event.deltaY;
+        }
+
+        if (delta < 0){
+           //console.log(event.deltaY);
+			if (event.deltaY > 0)
+            {       myStopFunctionu();
+                    event.preventDefault();
+                    stopacrolld = false;
+					stopacrollu = true;
+	                smoothScrolld(document.getElementById('three2'),50,200)
+            }
+        }else if (delta > 0){
+            //console.log(event.deltaY);
+			if (event.deltaY < 0)
+            {
+			        myStopFunctiond();
+                    event.preventDefault();
+                    stopacrolld = true;
+					stopacrollu = false;
+	                smoothScrollu(document.getElementById('three2'),50,200)
+			}
+            
+        }
+	
+	
+    
+	// Set a timeout to run after scrolling ends
+	isScrolling = setTimeout(function() {
+
+		// Run the callback
+		//console.log( 'Scrolling has stopped.' );
+		//stopacroll = true;
+		myStopFunctiond();
+		myStopFunctionu();
+
+	}, 400);
+  
+  
+})
+
+function myStopFunctiond() {
+  clearTimeout(myVar);
+  stopacrolld = true;
+}
+
+function myStopFunctionu() {
+  clearTimeout(myVar2);
+  stopacrollu = true;
+}
+
+function smoothScrolld(domElement,pixel,delay)
+{
+
+  const intervalToRepeat = 25;
+  const step = (intervalToRepeat * pixel) / delay;
+  //console.log(step);
+  
+  if ( step < pixel)
+  {
+    
+    
+	
+	 if(stopacrolld == false){
+	  domElement.scrollTop += step;
+	 myVar = setTimeout(function (){
+	 //console.log("hhhh"); 
+     if(stopacrolld == false){
+	 smoothScrolld(domElement,pixel - step,delay)
+	 }
+	
+    },intervalToRepeat);
+	}
+	
+  } 
+}
+function smoothScrollu(domElement,pixel,delay)
+{
+
+  const intervalToRepeat = 25;
+  const step = (intervalToRepeat * pixel) / delay;
+  //console.log(step);
+  
+  if ( step < pixel)
+  {
+    
+    
+	
+	 if(stopacrollu == false){
+	  domElement.scrollTop -= step;
+	 myVar2 = setTimeout(function (){
+	 //console.log("dddddd"); 
+      if(stopacrollu == false){
+	 smoothScrollu(domElement,pixel - step,delay)
+	  }
+	
+    },intervalToRepeat);
+	}
+	
+  } 
+}
+
+
+}
+
+
+
+if (typeof process !== "undefined" && typeof require !== "undefined") {
+                function copyToClipboard(text) {
+                    var dummy = document.createElement("input");
+                    document.body.appendChild(dummy);
+                    dummy.setAttribute('value', text);
+                    dummy.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(dummy);
+                }
+
+                var el;
+
+                function isEditable() {
+                    el = document.activeElement; // focused element
+                    if (el && ~['input', 'textarea'].indexOf(el.tagName.toLowerCase())) {
+                        return !el.readOnly && !el.disabled;
+                    }
+                    el = getSelection()
+                        .anchorNode; // selected node
+                    if (!el) return undefined; // no selected node
+                    el = el.parentNode; // selected element
+                    return el.isContentEditable;
+                }
+
+
+
+                document.addEventListener("contextmenu", function (e) {
+                    var gui = require('nw.gui');
+                    var win = gui.Window.get();
+                    var menu = new gui.Menu();
+                    e.preventDefault();
+                    e.stopPropagation();
+                    var link = this.href;
+                    var clipboard = gui.Clipboard.get();
+                    var text = clipboard.get('text');
+
+
+                    var ff = false;
+                    var showcntx = false;
+                    var link = this.href;
+                    for (var target = e.target; target && target != this; target = target.parentNode) {
+                        // loop parent nodes from the target to the delegation node
+                       
+					   if (target.matches("A")) {
+
+                            if (target.href != "") {
+
+                                menu.append(new gui.MenuItem({
+                                    label: 'Open in browser'
+                                    , click: function (e) {
+                                        gui.Shell.openExternal(target.href);
+                                    }
+                                }));
+                                menu.append(new gui.MenuItem({
+                                    label: 'Copy link address'
+                                    , click: function (e) {
+                                        copyToClipboard(target.href)
+                                    }
+                                }));
+                                showcntx = true;
+
+                            }
+
+                            if (window.getSelection() != "") {
+
+                                menu.append(new gui.MenuItem({
+                                    label: "Copy"
+                                    , click: function () {
+                                        document.execCommand("copy");
+                                    }
+                                }));
+
+                                showcntx = true;
+                            }
+
+
+
+                            ff = true;
+                            break;
+
+                        }
+                    }
+                    if (ff == false) {
+                        for (var target = e.target; target && target != this; target = target.parentNode) {
+                            if (target.matches("Div")) {
+
+                                console.log(target.getAttribute("href"));
+
+                                if ((target.getAttribute("href") != "") && (target.getAttribute("href") != null)) {
+
+                                    menu.append(new gui.MenuItem({
+                                        label: 'Open in browser'
+                                        , click: function (e) {
+                                            gui.Shell.openExternal(target.getAttribute("href"));
+                                        }
+                                    }));
+                                    menu.append(new gui.MenuItem({
+                                        label: 'Copy link address'
+                                        , click: function (e) {
+                                            copyToClipboard(target.getAttribute("href"))
+                                        }
+                                    }));
+                                    showcntx = true;
+
+                                }
+
+
+
+
+                                if (window.getSelection() != "") {
+                                    menu.append(new gui.MenuItem({
+                                        label: "Copy"
+                                        , click: function () {
+                                            document.execCommand("copy");
+                                        }
+                                    }));
+
+                                    if (isEditable() == true) {
+                                        menu.append(new gui.MenuItem({
+                                            label: "Cut"
+                                            , click: function () {
+                                                document.execCommand("cut");
+                                            }
+                                        }));
+                                    }
+
+                                    showcntx = true;
+                                }
+
+                                if (isEditable() == true) {
+
+                                    if (text != "") {
+
+                                        menu.append(new gui.MenuItem({
+                                            label: "Paste"
+                                            , click: function () {
+                                                document.execCommand("paste");
+                                            }
+
+                                        }));
+                                        showcntx = true;
+                                    }
+
+
+                                }
+
+
+
+                                break;
+                            }
+                        }
+                    }
+
+
+
+                    if (showcntx == true) {
+						//consol
+                        menu.popup(e.clientX, e.clientY);
+                    }
+
+                }, false);
+
+}
+
+
+
+
+
+
+
+$("#websiteName").parent(".ui-input-search").addClass('hidesaerchico');
+
+
+/*$(document).on('click','.wSearchResultTitle',function(){
+	 var $links = $('.wSearchResultTitle');
+	 $links.removeClass('curr');
+	 $(this).addClass('curr');
+	 
+})*/
+var show = function() { 
+//alert(link_disable); 
+if(link_disable == true){
+			return false;
+		}
+}
+for (var i = elts.length - 1; i >= 0; --i) {
+    elts[i].onclick = show;
+}
+ 
+//alert(document.location.href.includes("&checkbox=0"));
+ 
+if (document.location.href.indexOf("&checkbox=00")!= -1){
+$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id0').prop('checked', true).checkboxradio('refresh');
+$('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id4').prop('checked', true).checkboxradio('refresh');
+}
+if (document.location.href.indexOf("&checkbox=01")!= -1){
+$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id0').prop('checked', true).checkboxradio('refresh');
+$('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id4').prop('checked', false).checkboxradio('refresh');
+}
+if (document.location.href.indexOf("&checkbox=1")!= -1){
+$('#checkbox_id1').prop('checked', true).checkboxradio('refresh');
+$('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
+} 
+ 
+if (document.location.href.indexOf("&checkbox=20")!= -1){
+$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id2').prop('checked', true).checkboxradio('refresh');
+$('#checkbox_id4').prop('checked', true).checkboxradio('refresh');
+}  
+if (document.location.href.indexOf("&checkbox=21")!= -1){
+$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
+$('#checkbox_id2').prop('checked', true).checkboxradio('refresh');
+$('#checkbox_id4').prop('checked', false).checkboxradio('refresh');
+}  
+ 
+ 
+ 
+if (document.getElementById("checkbox_id1").checked){
+$('#checkbox_id4').checkboxradio('disable');
+}
+else{
+$('#checkbox_id4').checkboxradio('enable');
+}
+$('#checkbox_id1').on('click', function () {
+  $('#checkbox_id4').checkboxradio('disable');
+});
+$('#checkbox_id0,#checkbox_id2').on('click', function () {
+  $('#checkbox_id4').checkboxradio('enable');
+});
+	   $("div.toc-holder li").removeClass("ui-li-static").removeClass("ui-body-inherit").removeClass("ui-last-child");
 		
 		 $(".close").on("vclick", function(){
 		      $(".modal").hide();
@@ -558,14 +1120,13 @@ $(document).ready(function(){
 	
 		
 });//end ready
-
-
+function  go_topic(){
+}
 var content = document.getElementById('two');
 function scrollTo_up(){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 content.scrollTop = 0;
 setTimeout(function() { document.getElementsByClassName("loading2")[0].style.display = 'none'}, 50);
-
 }
 function scrollTo_down(){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
@@ -574,14 +1135,56 @@ setTimeout(function() { document.getElementsByClassName("loading2")[0].style.dis
 }
 
 
+
+
+
+function highlite(gg){
+var elements = document.getElementsByClassName('wSearchResultTitle');
+
+for (var i = 0; i < elements.length; i++) {
+   elements[i].classList.remove('curr');
+}
+
+
+var element, name, arr;
+    element = gg;
+    name = "curr";
+    arr = element.className.split(" ");
+    if (arr.indexOf(name) == -1) {
+        element.className += " " + name;
+    }
+
+current_select  = element.id;
+
+
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   git =true;
+   stop = false; 
+			
+}, 300);	
+
+}
+
+
+
+
+
+
+
+
+
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 eventer(messageEvent,function(e) {
-
     var eventName = e.data[0];
     var data = e.data[1];
-
+	var data2 = e.data[2];
+    data2= get_current_url(data2);
 	switch(eventName) {
     
 	case 'modal_display':
@@ -598,6 +1201,7 @@ eventer(messageEvent,function(e) {
 	break;case 'loading': 
     if(data == "stop"){
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';
+	   show_loading = false;
 	 
 	}else{
 	   document.getElementsByClassName("loading2")[0].style.display = 'block';
@@ -606,6 +1210,9 @@ eventer(messageEvent,function(e) {
 	case 'get_ifram_location_href': 
 	 location.href = data;
 	break;
+	case 'get_href': 
+	 e.source.postMessage(["send_href",document.location.href], "*");
+	break;
 	case 'check_highlight_state': 
 	     var chkBox = document.getElementById('checkbox_id3');
          if (chkBox.checked)
@@ -613,18 +1220,110 @@ eventer(messageEvent,function(e) {
          else
 		 {e.source.postMessage(["check_highlight_state","false"], "*");}
 	break;
+	case 'check_stopwordhit_state': 
+	     var chkBox = document.getElementById('checkbox_id4');
+         if (chkBox.checked)
+         {e.source.postMessage(["check_stopwordhit_state","true"], "*");}
+         else
+		 {e.source.postMessage(["check_stopwordhit_state","false"], "*");}
+	break;
+	case 'hide_drop': 
+	if(data == "hide_drop"){ 
+      $('.ui-popup').popup('close');
+    }		
+	break;
+	case 'get_pass':
+	var c = window.location.href;
+    if (c.match(/[^"]*(\#|\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg)) {
+			var ff = c.replace(/[^"]*(\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg, "$2");
+			e.source.postMessage(["send_pass",ff], "*");
+    }
+	else{
+	        e.source.postMessage(["send_pass",""], "*");
+	}
+	break;
+	case 'put_pass_in_adbr':
+	var dd= location.hash;
+	if (dd.match(/[^"]*\&rhsearch\=(.*?)((&|#)([^"]*)|$)/mg) ) {
+		if (!location.hash.match(/(.*?)((\?|\&|\#\&)pass\=(.*?))(#([^"]*)|$)/mg) )
+		{
+			location.hash = location.hash+"&pass="+data;	
+		}
+		
+		//location.hash = location.hash+"&pass="+data;	
+	}
+	else{
+		var cc= location.hash.replace(/(.*?)((\?|\&|\#\&)pass\=(.*?))(#([^"]*)|$)/mg, "$1$5");
+		location.hash = cc+"&pass="+data;
+	}
+	return false;
+	break;
+	case 'send_page_info':
+	
+	if(lsTest() === true){
+	document.getElementById("websiteName").value = data; 
+	document.getElementById("websiteUrl").value = data2;
+	
+	 if(localStorage.getItem('bookmarks') != null){
+	 	   
+		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+	        
+			
+			if(bookmarks.length == "0"){
+			
+			      if(document.getElementsByClassName("toc_footer")[0]){
+	                       $(".toc_footer").removeClass('star_yellow').addClass("ui-icon-star");
+	               }
+			}
+			else{
+			
+			for(var i = 0; i < bookmarks.length; i++){
+			 
+		    if(bookmarks[i].url == get_current_url(data2)){
+			   
+               
+			   
+			   $(".tabButton").on("click", function(){
+                     var href = $(this).prop("href");
+                      if(href.substr(href.indexOf('#')) === "#two"){
+					    $(this).removeClass('ui-icon-star').addClass("star_yellow");
+					  }
+               });
+			   $(".toc_footer").removeClass('ui-icon-star').addClass("star_yellow");
+			   break;
+		    }
+			else{
+			 if(document.getElementsByClassName("toc_footer")[0]){
+	               $(".toc_footer").removeClass('star_yellow').addClass("ui-icon-star");
+	            }
+			}
+			}
+			
+			
+			}
+			
+	}
+	fetchBookmarks(data2);
+	}
+	else{
+	
+	var ll = document.getElementById('two');
+    ll.innerHTML = '<br><div style = "text-Align:center;padding:4px;color:red;font-size:20px">متصفحك لايدعم خاصية حفظ روابط الموسوعة في المفضلة</div>';
+	
+	}
+	
+	
+	break;
 	
   }
-
 },false);
-
 </script> 
 
 <script>
-
 </script>
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
 <script type="text/javascript" src="whxdata/whtagdata.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

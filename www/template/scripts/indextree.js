@@ -186,7 +186,7 @@ function IdxTree(idxRootPathsArr, dataFolder, rootFile)
 		chunkXmlObj.nodeIndex = 0;
 		chunkXmlObj.length = getChildElementsByTagName(dataNode,KEYNODE).length;
 		this.mergeKeywords();
-		window.rh.util.loadDataHandlers(this.rootHtmlNode);
+		window.rh.util.loadDataHandlers(this.fragment);
 	}
 	IdxTree.prototype.insertKeyword = function(parentHtmlNode, chunksArr, itemType)
 	{
@@ -638,19 +638,19 @@ function IdxTree(idxRootPathsArr, dataFolder, rootFile)
 		var node = document.getElementById(IDXLOADINGDIVID);
 		return node;
 	}
-	IdxTree.prototype.getHtmlChildNodes = function(node, tag, type)
+	IdxTree.prototype.getHtmlChildNode = function(node, tag, type)
 	{
 		if(tag == "" || tag == 'undefined')
-			return [];
+			return null;
 		var nodeChilds = node.getElementsByTagName(tag);
 		var len = nodeChilds.length;
-		var i=0, arr = [];
+		var i=0;
 		for(i=0; i<len; i++)
 		{
 			if(this.isNodeItemTypeThis(nodeChilds[i],type))
-			 arr.push(nodeChilds[i]);		
+			 return nodeChilds[i];		
 		}
-		return arr;
+		return null;
 	}
 	IdxTree.prototype.getFirstTreeNode = function()
 	{
@@ -879,13 +879,11 @@ function IdxTree(idxRootPathsArr, dataFolder, rootFile)
 	IdxTree.prototype.toggleNode = function(htmlNode)
 	{
 		var treeNode = this.getTreeNodeFromHtmlNode(htmlNode);
-		var bookChildsNodes = this.getHtmlChildNodes(treeNode, "div", ITEMTYPEBOOKCHILDS);
-		rh._.each(bookChildsNodes, function(node){
-			if(node.style.display == "none")
-				node.style.display = "block";
-			else
-				node.style.display = "none";
-		});
+		var bookChildsNode = this.getHtmlChildNode(treeNode, "div", ITEMTYPEBOOKCHILDS);
+		if(bookChildsNode.style.display == "none")
+			bookChildsNode.style.display = "block";
+		else
+			bookChildsNode.style.display = "none";
 	}
 	IdxTree.prototype.clickNode = function(htmlNode, clickClass, normalClass, url)
 	{

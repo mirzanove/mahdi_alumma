@@ -4,36 +4,45 @@ function tooltip(el, message)
 {
 	var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
 	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-	var x = parseInt(el.getBoundingClientRect().left) + scrollLeft + 400;
-	var y = parseInt(el.getBoundingClientRect().top) + scrollTop + 100;
-	if (!document.getElementById("copy_tooltip"))
-	{
-		var tooltip = document.createElement('div');
+	//var x = parseInt(el.getBoundingClientRect().left) + scrollLeft + 400;
+	//var y = parseInt(el.getBoundingClientRect().top) + scrollTop + 100;
+	
+	var element =  document.getElementById('copy_tooltip');
+    var tooltip;
+	
+	//alert(element);
+	if (typeof(element) == 'undefined' || element == null)
+	//if (!document.getElementById("copy_tooltip"))
+	{  
+		
+		tooltip = document.createElement('div');
 		tooltip.id = "copy_tooltip";
+		tooltip.style.display = "block";
 		//tooltip.style.position = "fixed";
 		//tooltip.style.position = "absolute"; 
-		tooltip.style.border = "1px solid black";
-		tooltip.style.background = "#dbdb00";
-		tooltip.style.opacity = 1;
-		tooltip.style.width = "100px";
-		tooltip.style.height = "auto";
+		//tooltip.style.border = "1px solid black";
+		//tooltip.style.background = "#dbdb00";
+		//tooltip.style.opacity = 1;
+		//tooltip.style.width = "100px";
+		//tooltip.style.height = "auto";
 		//tooltip.style.marginLeft = "-50px";
 		//tooltip.style.marginTop = "-50px";
-		tooltip.style.textAlign= "center";
-	    tooltip.style.padding= "4px";
-		tooltip.style.zIndex = "9"; 
+		//tooltip.style.textAlign= "center";
+	    //tooltip.style.padding= "4px";
+		//tooltip.style.zIndex = "9"; 
 		
 	
 		
 		
-  document.body.appendChild(tooltip);
+     document.body.appendChild(tooltip);
 		
-		
+	
 	}
-	else
-	{
-		var tooltip = document.getElementById("copy_tooltip")
-	}
+	/**else{
+		 tooltip = element;
+	}*/
+	
+	
 	
 	/*if (/(MSIE\ [0-7]\.\d+)/.test(navigator.userAgent)) {
 
@@ -45,9 +54,14 @@ function tooltip(el, message)
 		
 	}*/
 	
-	tooltip.style.display = "block";
+	
 	tooltip.innerHTML = message;
-	setTimeout(function() { tooltip.outerHTML = ""; delete tooltip; }, 3000);
+	setTimeout(function() { 
+	if (tooltip != null){
+	//alert(tooltip);
+	tooltip.outerHTML = ""; delete tooltip;printin_prosses = false;
+	}
+	}, 3000);
 }
 
 
@@ -111,7 +125,21 @@ function paste(el)
 }
 
 function select_all_and_copy(el) 
-{
+{   
+    if(_isMobile() == mobiletrue) {
+		
+		jQueryM_v1_4_5('em').contents().unwrap();
+		
+	}
+	else{
+		
+		jQueryD_1_4_2('em').contents().unwrap();
+	}
+	
+     if(printin_prosses == false){
+			printin_prosses = true;
+
+      //alert(el.className);
     // Copy textarea, pre, div, etc.
 	if (document.body.createTextRange) {
         // IE 
@@ -119,7 +147,13 @@ function select_all_and_copy(el)
         textRange.moveToElementText(el);
         textRange.select();
         textRange.execCommand("Copy");   
-		tooltip(el, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");  
+		
+		if(el.className == "selected moveoff"||el.className == "selected") {
+		 tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
+		}
+        else{
+         tooltip(el, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+		}		
     }
 	else if (window.getSelection && document.createRange) {
         // non-IE
@@ -141,7 +175,16 @@ function select_all_and_copy(el)
 	    if (document.queryCommandSupported("copy"))
 	    {
 			var successful = document.execCommand('copy');  
-		    if (successful) tooltip(el, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+		    if (successful){
+				
+            
+				if(el.className == "selected enableselect" || el.className == "selected moveoff enableselect"||el.className == "selected") {
+		          tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
+		        }
+                else{
+                tooltip(el, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+		        }
+			}
 		    else tooltip(el, "Press CTRL+C to copy");
 		}
 		else
@@ -150,6 +193,10 @@ function select_all_and_copy(el)
 				tooltip(el, "Press CTRL+C to copy");	
 		}
     }
+
+	
+}	
+	
 } // end function select_all_and_copy(el) 
 
 function make_copy_button(el)

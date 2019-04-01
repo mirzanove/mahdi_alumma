@@ -56,17 +56,17 @@ $("#home_footer").removeClass("hide").trigger('resize');
 $("#toc_footer").addClass("hide");
 $("#search_footer").addClass("hide");	
 
-$(".tabView").addClass("hide");
-$("#one").removeClass("hide").trigger('resize');
+$(".tabView").addClass("visibility");
+$("#one").removeClass("visibility").trigger('resize');
 
 $(".tabButton").on("click", function(){
 
-$(".tabView").addClass("hide");
+$(".tabView").addClass("visibility");
 
 var href = $(this).prop("href");
     
 if(href.substr(href.indexOf('#')) === "#one"){
-$(".tabView").addClass("hide");	
+$(".tabView").addClass("visibility");	
 
 $("#home_header").removeClass("hide").trigger('resize');
 $("#toc_header").addClass("hide");
@@ -77,9 +77,10 @@ $("#toc_footer").addClass("hide");
 $("#search_footer").addClass("hide");	
 
 
-$("#one").removeClass("hide").trigger('resize');
+$("#one").removeClass("visibility").trigger('resize');
+$("#content_t").css("overflow"," hidden");
+document.getElementById('iframe').contentWindow.postMessage(["loaddsett",null], "*");
 
-	
 }	 
 else if(href.substr(href.indexOf('#')) === "#two"){
 
@@ -96,12 +97,21 @@ $("#toc_footer").removeClass("hide").trigger('resize');
 $("#search_footer").addClass("hide");	
 
 
-$(".tabView").addClass("hide").trigger('resize');
-$("#two").removeClass("hide").trigger('resize');
-
+$(".tabView").addClass("visibility").trigger('resize');
+$("#two").removeClass("visibility").trigger('resize');
+$("#content_t").css("overflow"," hidden");
 //var element = document.getElementsByClassName("selected");
 
-$(".selected")[0].scrollIntoView();
+
+setTimeout(function() { 
+			  
+			   document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href2",null], "*");
+			
+			 }, 500);
+			 
+//$(".curr")[0].scrollIntoView();			 
+			 
+
 //alert();
 /*var target1 = $.mobile.activePage.find('.selected').get(0).offsetTop;
 var top = $('.selected').position().top+43;
@@ -124,8 +134,34 @@ $("#home_footer").addClass("hide");
 $("#toc_footer").addClass("hide");
 $("#search_footer").removeClass("hide");	
 
-$(".tabView").addClass("hide").trigger('resize');
-$("#three").removeClass("hide").trigger('resize');
+$(".tabView").addClass("visibility").trigger('resize');
+$("#three").removeClass("visibility").trigger('resize');
+$("#content_t").css("overflow"," hidden");
+
+
+
+
+
+
+git = false;
+stop = true; 
+  
+setTimeout(function() { 
+  
+   if(window.myScroll){ 
+ 
+      window.myScroll.scrollto(curr_index);
+   
+   }
+   //git =true;
+   stop = false; 
+			
+}, 300);
+
+
+
+
+
 	
 }
 

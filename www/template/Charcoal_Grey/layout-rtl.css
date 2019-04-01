@@ -3,8 +3,56 @@ body.media-mobile div.filter-holder ul, body.media-landscape div.filter-holder u
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	-o-user-select: none;
-	user-select: none
+	user-select: none;
+
 }
+
+
+body.media-mobile .curr {
+background-color: #cfd0d3;
+
+}
+
+
+
+
+body.media-landscape  .curr {
+background-color: #cfd0d3;
+
+}
+
+body.media-desktop  .curr {
+background-color: #006699;
+
+}
+
+body.media-mobile .curr2 {
+background-color: #cfd0d3;
+
+}
+
+body.media-landscape  .curr2 {
+background-color: #cfd0d3;
+
+}
+
+body.media-desktop  .curr2 {
+
+background-color: #006699;
+
+}
+
+
+.curr2 img{
+
+width:20px;
+}
+
+
+
+
+
+
 div.toc-holder ul {
 	list-style: none;
 	margin: 0;
@@ -282,7 +330,7 @@ body.media-desktop div.toc-holder {
 }
 body.media-desktop div.toc-holder * {
 	width: auto;
-	white-space: nowrap
+	/*white-space: nowrap*/
 }
 body.media-desktop div.toc-holder>ul li {
 	padding-right: 2em
@@ -474,8 +522,8 @@ body.media-desktop div.filter-holder>ul * {
 	font-size: 100%
 }
 body.media-mobile div.searchresults.layout-visible, body.media-landscape div.searchresults.layout-visible, body.media-desktop div.searchresults.search-content, body.media-desktop div.searchresults.search-sidebar {
-	padding-right: 2em;
-	padding-left: 1em
+	/*padding-right: 10px;
+	padding-left:10px;*/
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultSettings, body.media-landscape div.searchresults.layout-visible .wSearchResultSettings, body.media-desktop div.searchresults.search-content .wSearchResultSettings, body.media-desktop div.searchresults.search-sidebar .wSearchResultSettings {
 	display: none
@@ -485,7 +533,7 @@ body.media-mobile div.searchresults.layout-visible .wSearchMessage, body.media-l
 	margin-bottom: .3em
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultItem, body.media-landscape div.searchresults.layout-visible .wSearchResultItem, body.media-desktop div.searchresults.search-content .wSearchResultItem, body.media-desktop div.searchresults.search-sidebar .wSearchResultItem {
-	margin: 1em 0
+	/*margin: 1em 0*/
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultItem a.nolink, body.media-landscape div.searchresults.layout-visible .wSearchResultItem a.nolink, body.media-desktop div.searchresults.search-content .wSearchResultItem a.nolink, body.media-desktop div.searchresults.search-sidebar .wSearchResultItem a.nolink {
 	text-decoration: none
@@ -511,22 +559,22 @@ body.media-mobile div.searchresults.layout-visible p.progressbar, body.media-lan
 }
 body.media-landscape div.searchbar input, body.media-desktop div.searchbar input {
 	/*jomart*/
-    margin: .6em .3em;
+    /*margin: .6em .3em;
 	height: 3em;
-	max-height: 3em;
-	padding: 0 0.5em 0 0.3em;
+	max-height: 3em;*/
+	padding: 0 0 0 0.3em;
 	font-size: 100%;
 	-webkit-appearance: none;
 	-webkit-border-radius: 0.5em;
 	-moz-border-radius: 0.5em;
-	border-radius: 0.5em
+	border-radius: 0.5em*/
 }
 body.media-mobile div.searchbar input
  {
 	/*jomart*/
-	height: 3em;
-	max-height: 3em;
-	padding: 0 0.5em 0 0.3em;
+	/*height: 3em;
+	max-height: 3em;*/
+	padding: 0 0 0 0.3em;
 	font-size: 100%;
 	-webkit-appearance: none;
 	-webkit-border-radius: 0.5em;
@@ -575,11 +623,14 @@ body.ios {
 }
 body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile.ios div.topic, body.media-landscape.ios div.topic {
 	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll !important
+	overflow-y: auto !important
 }
 div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchbar, body.media-mobile div.searchresults, body.media-landscape div.toc-holder, body.media-landscape div.idx-holder, body.media-landscape div.glo-holder, body.media-landscape div.filter-holder, body.media-landscape div.searchbar, body.media-landscape div.searchresults, body.media-desktop div.toc-holder, body.media-desktop div.idx-holder, body.media-desktop div.glo-holder, body.media-desktop div.filter-holder, body.media-desktop div.searchbar, body.media-desktop div.searchresults, body.media-desktop div.topic div.functionholder div.searchbar-extra div.searchAND {
-	max-height: 0px;
-	overflow: hidden;
+	
+	
+	visibility:hidden;
+	/*max-height: 0px;*/
+	/*overflow: hidden;
 	opacity: 0;
 	-o-transition-duration: 0.35s;
 	-o-transition-timing-function: ease-out;
@@ -604,11 +655,14 @@ div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-m
 	-moz-perspective: 1000;
 	-ms-perspective: 1000;
 	perspective: 1000;
-	z-index: 0
+	z-index: 0*/
 }
 .layout-visible {
-	max-height: 10000em !important;
-	-o-transition-duration: 0.35s;
+	
+	visibility:visible !important;
+	
+	/*max-height: 10000em !important;*/
+	/*-o-transition-duration: 0.35s;
 	-o-transition-timing-function: ease-out;
 	-o-transition-property: opacity;
 	-ms-transition-duration: 0.35s;
@@ -631,7 +685,7 @@ div.filter-holder a.reset-button, body.media-mobile div.toc-holder, body.media-m
 	-moz-perspective: 1000;
 	-ms-perspective: 1000;
 	perspective: 1000;
-	opacity: 1 !important
+	opacity: 1 !important*/
 }
 .loading {
 	background-image: url("loading.gif") !important;
@@ -745,8 +799,13 @@ div.searchbar .mobile_filter {
 div.searchresults {
 	background-color: #fff
 }
+body.media-mobile div.topic{
+	margin: 3px 3px 3px 3px;
+}
+
 div.topic {
-	background-color: #fff
+	background-color: #fff;
+	
 }
 div.topic div.functionholder {
 	display: none
@@ -787,7 +846,7 @@ body.media-mobile div.toc-holder, body.media-mobile div.idx-holder, body.media-m
 }
 body.media-mobile div.idx-holder div.Index input, body.media-mobile div.glo-holder div.Glossary input, body.media-landscape div.idx-holder div.Index input, body.media-landscape div.glo-holder div.Glossary input, body.media-mobile div.searchbar input, body.media-landscape div.searchbar input {
 
-	border-top-width: 0.1em;
+	/*border-top-width: 0.1em;
 	border-top-style: solid;
 	border-top-color: #e6e6e6;
 	border-bottom-width: 0.1em;
@@ -801,15 +860,15 @@ body.media-mobile div.idx-holder div.Index input, body.media-mobile div.glo-hold
 	border-left-color: #e6e6e6;
 	background-color: #fafafa;
 	color: #000;
-	height: 2.2em !important;
+	height: 2.2em !important;*/
 	/*width: 90% !important;*/
 	/*margin: .1em 5% .25em !important*/
 }
 body.media-landscape div.idx-holder input, body.media-landscape div.glo-holder input, body.media-landscape div.searchbar input {
-	margin: .55em 5% 1em !important
+	/*margin: .55em 5% 1em !important*/
 }
 body.media-desktop div.idx-holder div.Index input, body.media-desktop div.glo-holder div.Glossary input, div.searchbar input.wSearchField {
-	border-top-width: 0.1em;
+	/*border-top-width: 0.1em;
 	border-top-style: solid;
 	border-top-color: #232323;
 	border-bottom-width: 0.1em;
@@ -822,7 +881,7 @@ body.media-desktop div.idx-holder div.Index input, body.media-desktop div.glo-ho
 	border-left-style: solid;
 	border-left-color: #232323;
 	background-color: #232323;
-	color: #fff
+	color: #fff*/
 }
 body.media-mobile div.idx-holder div.Index, body.media-mobile div.glo-holder div.Glossary, body.media-landscape div.idx-holder div.Index, body.media-landscape div.glo-holder div.Glossary {
 	color: #575555
@@ -1210,14 +1269,14 @@ body.media-mobile div.searchresults.layout-visible div.wSearchURL, body.media-la
 	color: #575555
 }
 body.media-mobile div.searchresults.layout-visible .wSearchResultItem, body.media-landscape div.searchresults.layout-visible .wSearchResultItem, body.media-desktop div.searchresults.search-content .wSearchResultItem {
-	padding-bottom: .5em;
-	margin-bottom: .5em;
+	/*padding-bottom: .5em;*/
+	/*margin-bottom: .5em;*/
 	border-top-width: 0.1em;
 	border-top-style: solid;
 	border-top-color: #e6e6e6
 }
 body.media-desktop div.searchresults.search-sidebar {
-	padding-top: 1em;
+	/*padding-top: 1em;*/
 	color: #e1e1e1
 }
 body.media-desktop div.searchresults.search-sidebar div.search-alert {
@@ -1356,17 +1415,30 @@ body.media-mobile {
  body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchbar.layout-visible,body.media-mobile div.toc-bar.layout-visible {
 	top: 0 !important
 }
-body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchresults.layout-visible, body.media-mobile div.topic {
+body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.topic {
 	position: absolute;
 	top: 3.1em;
 	right: 0;
 	bottom: 3em;
 	width: 100%;
 	padding-top: 0em;
-	padding-right: 0.25em;
+	/*padding-right: 0.10em;*/
 	padding-left: 0.25em;
 	padding-bottom: 0
 }
+
+ body.media-mobile div.searchresults.layout-visible{
+	 
+	position: absolute;
+	top: 3.1em;
+	right: 0;
+	bottom: 3em;
+	width: 100%;
+	padding-top: 0em;
+	/*padding-right: 0.25em;
+	padding-left: 0.25em;*/
+	padding-bottom: 0
+ }
 
 
 /*this*/ 
@@ -1520,7 +1592,7 @@ body.media-mobile div.functionbar div.nav a.active.toc {
 	background-image: url("toc_mobile_active.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 1.9375em 1.25em
+	background-size: 1.9375em 1.7em
 }
 body.media-mobile div.functionbar div.nav a.active.idx {
 	background-image: url("index_mobile_active.png");
@@ -1556,7 +1628,7 @@ body.media-mobile div.functionbar div.nav a.toc {
 	background-image: url("toc_mobile.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: 1.9375em 1.25em
+	background-size: 1.9375em 1.7em
 }
 body.media-mobile div.functionbar div.nav a.idx {
 	background-image: url("index_mobile.png");
@@ -1696,7 +1768,7 @@ body.media-mobile div.searchresults.layout-visible {
 	z-index: 10;
 	overflow-x: hidden;
 	overflow-y: visible;
-	padding: 0 0.85em 0 0.85em
+	/*padding: 0 0.85em 0 0.85em*/
 }
 body.media-mobile div.searchresults.layout-visible label.wSearchAndLabelResults {
 	background-image: url("andsearch_nomark.png");
@@ -1735,6 +1807,41 @@ body.media-mobile div.mobileheader div.totopic, body.media-mobile div.mobile-fil
 	background-position: center center;
 	background-size: 1.375em 1.375em
 }
+
+
+
+body.media-mobile div.totopic1 a {
+	position: absolute;
+	top: 0.2em;
+	left: 0.2em;
+	width: 1.6em;
+	height: 1.6em;
+	cursor: pointer;
+	background-image: url("toc_book_open_mobile.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 1.375em 1.375em;
+	border-style: solid;
+}
+
+
+body.media-mobile div.totopic2 a {
+	position: absolute;
+	top: 0.2em;
+	right: 0.2em;
+	width: 1.6em;
+	height: 1.6em;
+	cursor: pointer;
+	background-image: url("toc_book_open_drildown.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 1.375em 1.375em;
+	border-style: solid;
+}
+
+
+
+
 body.media-landscape {
 	font-size: 100%
 }
@@ -1763,7 +1870,9 @@ body.media-landscape div.layout-visible.toc-holder, body.media-landscape div.lay
 }
 body.media-landscape div.header {
 	height: 4em;
-	padding-top: 1.25em
+	padding-top: 1.25em;
+	position: relative;
+	z-index:10;
 }
 body.media-landscape div.header div {
 	height: 1.875em
@@ -2000,7 +2109,7 @@ body.media-landscape div.searchbar.searchpage-mode~div.topic {
 	right: 25em
 }
 body.media-landscape div.searchresults.layout-visible {
-	top: 7.3em;
+	top: 6.3em;
 	overflow-x: hidden;
 	overflow-y: auto;
 	border-left-width: 0.1em;
@@ -2140,7 +2249,8 @@ body.media-desktop div.functionbar div.nav a.toc {
 	background-image: url("toc_desktop.png");
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-size: auto
+	background-size: auto;
+	background-size: 3em 3em;
 }
 body.media-desktop div.functionbar div.nav a.idx {
 	background-image: url("index_desktop.png");
@@ -2234,7 +2344,7 @@ body.media-desktop div.searchresults label.wSearchAndLabelResults span {
 	font-size: 1.4em
 }
 body.media-desktop div.searchresults.search-sidebar {
-	top: 15.8em;
+	top: 14.8em;
 	right: 0 !important
 }
 body.media-desktop div.searchresults.search-sidebar>div {
@@ -2379,44 +2489,109 @@ body.media-desktop div.topic div.functionholder div.searchbar-extra {
 	z-index: 10
 }
 body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearchField {
-	display: inline-block;
-	font-size: 1.5em;
-	height: 1.98em;
 	height: 100%;
-	width: 17.5em;
-	border: none;
-	padding: 0;
-	padding-right: 1em;
-	-webkit-border-radius: 0.2em;
-	-moz-border-radius: 0.2em;
-	border-radius: 0.2em;
-	background-color: transparent;
-	color: #fff;
-	vertical-align: bottom;
-	-o-transition-duration: 0.35s;
-	-o-transition-timing-function: ease-out;
-	-o-transition-property: width;
-	-ms-transition-duration: 0.35s;
-	-ms-transition-timing-function: ease-out;
-	-ms-transition-property: width;
-	-moz-transition-duration: 0.35s;
-	-moz-transition-timing-function: ease-out;
-	-moz-transition-property: width;
-	-webkit-transition-duration: 0.35s;
-	-webkit-transition-timing-function: ease-out;
-	-webkit-transition-property: width;
-	transition-duration: 0.35s;
-	transition-timing-function: ease-out;
-	transition-property: width;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
-	-ms-backface-visibility: hidden;
-	backface-visibility: hidden;
-	-webkit-perspective: 1000;
-	-moz-perspective: 1000;
-	-ms-perspective: 1000;
-	perspective: 1000
+    width: 89%;
+    float: right;   
+    color:white;
+    height: 2.8em !important;
+	height: 3em;
+    max-height: 3em;
+    font-size: 100%;
+    -webkit-appearance: none;
+	-webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+	background-color:black;
+	border-color: black;
+	border-top-style: solid;
+	border-top-color: #232323;
+	border-bottom-width: 0.1em;
+	border-bottom-style: solid;
+	border-bottom-color: #232323;
+	border-right-width: 0.1em;
+	border-right-style: solid;
+	border-right-color: #232323;
+	border-left-width: 0.1em;
+	border-left-style: solid;
+	border-left-color: #232323;
+	background-color: #232323;
 }
+
+
+
+
+body.media-desktop  input.form-control {
+
+ font-size: 1em;
+    height: 2.4em;
+    margin: 1.2em 2% 1em;
+    padding: 0 2%;
+   
+    width: 96%;
+    outline: 0;
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    border-color: #e6e6e6;
+    border-width: .1em;
+    border-style: solid;
+    background-color: #fafafa;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+
+}
+
+body.media-desktop  .bookmarktitle {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+
+body.media-desktop  .form-group {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+body.media-desktop  .form-group {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+body.media-desktop  .well   span.title  {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+body.media-desktop  .well   span.title img  {
+
+width:20px;
+
+}
+
+body.media-desktop  .well   a.btn  {
+
+color:white!important;
+font-size: 1.5em;
+
+}
+
+
+body.media-desktop  .well   span.url {
+
+color:white;
+font-size: 1.5em;
+
+}
+
+
 body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearchField:focus, body.media-desktop div.topic div.functionholder div.searchbar-extra input.wSearchField.searchpage-mode {
 	outline: 0
 }
@@ -2426,7 +2601,7 @@ body.media-desktop div.topic div.functionholder div.searchbar-extra a.wSearchLin
 	height: 1.98em;
 	width: 2em;
 	text-decoration: none;
-	margin-right: -.22em;
+	float:left;
 	padding: 0;
 	cursor: pointer;
 	vertical-align: bottom;

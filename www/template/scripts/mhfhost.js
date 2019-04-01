@@ -1,162 +1,3 @@
-function normlizse(lol){
-	
-return 	lol = lol.replace(XRegExp("[\\p{Mn}\\u0640\\u200C]", 'gmi'),'').replace(XRegExp("[\\p{S}\\p{P}\\u06E9\\u06DE{}\"'()\\uFD3F\\uFD3E]", 'gmi'), ' ').replace(/\s\s+/gmi, ' ').replace(XRegExp("^\\s+|\\s+$", 'gmi'),"").replace(XRegExp("[\u200F]", 'gmi'),"").replace(XRegExp("[أإآ\u0671]", 'gmi'),"ا").replace(XRegExp("\u0629", 'gmi'),"\u0647").replace(XRegExp("\u0624", 'gmi'),"\u0648").replace(XRegExp("\u0626", 'gmi'),"\u0649").replace(/[\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669]/g, function (m) {
-        return {
-        '\u0660': '0',
-        '\u0661': '1',
-		'\u0662': '2',
-		'\u0663': '3',
-		'\u0664': '4',
-		'\u0665': '5',
-		'\u0666': '6',
-		'\u0667': '7',
-		'\u0668': '8',
-		'\u0669': '9'	
-        }[m];
-        }).replace(/[\ﺀ\ﺁ\ﺂ\ﺃ\ﺄ\ﺅ\ﺆ\ﺇ\ﺈ\ﺉ\ﺊ\ﺋ\ﺌ\ﺍ\ﺎ\ﺏ\ﺐ\ﺑ\ﺒ\ﺓ\ﺔ\ﺕ\ﺖ\ﺗ\ﺘ\ﺙ\ﺚ\ﺛ\ﺜ\ﺝ\ﺞ\ﺟ\ﺠ\ﺡ\ﺢ\ﺣ\ﺤ\ﺥ\ﺦ\ﺧ\ﺨ\ﺩ\ﺪ\ﺫ\ﺬ\ﺭ\ﺮ\ﺯ\ﺰ\ﺱ\ﺲ\ﺳ\ﺴ\ﺵ\ﺶ\ﺷ\ﺸ\ﺹ\ﺺ\ﺻ\ﺼ\ﺽ\ﺾ\ﺿ\ﻀ\ﻁ\ﻂ\ﻃ\ﻄ\ﻅ\ﻆ\ﻇ\ﻈ\ﻉ\ﻊ\ﻋ\ﻌ\ﻍ\ﻎ\ﻏ\ﻐ\ﻑ\ﻒ\ﻓ\ﻔ\ﻕ\ﻖ\ﻗ\ﻘ\ﻙ\ﻚ\ﻛ\ﻜ\ﻝ\ﻞ\ﻟ\ﻠ\ﻡ\ﻢ\ﻣ\ﻤ\ﻥ\ﻦ\ﻧ\ﻨ\ﻱ\ﻲ\ﻳ\ﻴ\ﻩ\ﻪ\ﻫ\ﻬ\ﻭ\ﻮ\ﻯ\ﻰ\ﻵ\ﻶ\ﻷ\ﻸ\ﻹ\ﻺ\ﻻ\ﻼ]/g, function (m) {
-        return {
-        'ﺀ': 'ء',
-		'ﺁ': 'ا',
-		'ﺂ': 'ا',
-		'ﺃ': 'ا',
-		'ﺄ': 'ا',
-		'ﺅ': 'و',
-		'ﺆ': 'و',
-		'ﺇ': 'ا',
-		'ﺈ': 'ا',
-		'ﺉ': 'ى',
-		'ﺊ': 'ى',
-		'ﺋ': 'ى',
-		'ﺌ': 'ى',
-		'ﺍ': 'ا',
-		'ﺎ': 'ا',
-		'ﺏ': 'ب',
-		'ﺐ': 'ب',
-		'ﺑ': 'ب',
-		'ﺒ': 'ب',
-		'ﺓ': 'ه',
-		'ﺔ': 'ه',
-		'ﺕ': 'ت',
-		'ﺖ': 'ت',
-		'ﺗ': 'ت',
-		'ﺘ': 'ت',
-		'ﺙ': 'ث',
-		'ﺚ': 'ث',
-		'ﺛ': 'ث',
-		'ﺜ': 'ث',
-		'ﺝ': 'ج',
-		'ﺞ': 'ج',
-		'ﺟ': 'ج',
-		'ﺠ': 'ج',
-		'ﺡ': 'ح',
-		'ﺢ': 'ح',
-		'ﺣ': 'ح',
-		'ﺤ': 'ح',
-		'ﺥ': 'خ',
-		'ﺦ': 'خ',
-		'ﺧ': 'خ',
-		'ﺨ': 'خ',
-		'ﺩ': 'د',
-		'ﺪ': 'د',
-		'ﺫ': 'ذ',
-		'ﺬ': 'ذ',
-		'ﺭ': 'ر',
-		'ﺮ': 'ر',
-		'ﺯ': 'ز',
-		'ﺰ': 'ز',
-		'ﺱ': 'س',
-		'ﺲ': 'س',
-		'ﺳ': 'س',
-		'ﺴ': 'س',
-		'ﺵ': 'ش',
-		'ﺶ': 'ش',
-		'ﺷ': 'ش',
-		'ﺸ': 'ش',
-		'ﺹ': 'ص',
-		'ﺺ': 'ص',
-		'ﺻ': 'ص',
-		'ﺼ': 'ص',
-		'ﺽ': 'ض',
-		'ﺾ': 'ض',
-		'ﺿ': 'ض',
-		'ﻀ': 'ض',
-		'ﻁ': 'ط',
-		'ﻂ': 'ط',
-		'ﻃ': 'ط',
-		'ﻄ': 'ط',
-		'ﻅ': 'ظ',
-		'ﻆ': 'ظ',
-	    'ﻇ': 'ظ',
-		'ﻈ': 'ظ',
-		'ﻉ': 'ع',
-		'ﻊ': 'ع',
-		'ﻋ': 'ع',
-		'ﻌ': 'ع',
-		'ﻍ': 'غ',
-		'ﻎ': 'غ',
-	    'ﻏ': 'غ',
-		'ﻐ': 'غ',
-		'ﻑ': 'ف',
-		'ﻒ': 'ف',
-	    'ﻓ': 'ف',
-		'ﻔ': 'ف',
-		'ﻕ': 'ق',
-		'ﻖ': 'ق',
-	    'ﻗ': 'ق',
-		'ﻘ': 'ق',
-		'ﻙ': 'ك',
-		'ﻚ': 'ك',
-		'ﻛ': 'ك',
-		'ﻜ': 'ك',
-		'ﻝ': 'ل',
-		'ﻞ': 'ل',
-		'ﻟ': 'ل',
-		'ﻠ': 'ل',
-		'ﻡ': 'م',
-		'ﻢ': 'م',
-	    'ﻣ': 'م',
-		'ﻤ': 'م',
-		'ﻥ': 'ن',
-		'ﻦ': 'ن',
-	    'ﻧ': 'ن',
-		'ﻨ': 'ن',
-		'ﻱ': 'ي',
-		'ﻲ': 'ي',
-		'ﻳ': 'ي',
-		'ﻴ': 'ي',
-		'ﻩ': 'ه',
-		'ﻪ': 'ه',
-	    'ﻫ': 'ه',
-		'ﻬ': 'ه',
-		'ﻭ': 'و',
-		'ﻮ': 'و',
-	    'ﻯ': 'ى',
-		'ﻰ': 'ى',
-		'ﻵ': 'لا',
-		'ﻶ': 'لا',
-	    'ﻷ': 'لا',
-		'ﻸ': 'لا',
-		'ﻹ': 'لا',
-		'ﻺ': 'لا',
-		'ﻻ': 'لا',
-	    'ﻼ': 'لا'
-        }[m];
-        });
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 var gsNoTopics="لم يتم العثور على موضوعات";
 var gsLoadXmlFailed="خطأ: فشل تحميل ملف xml.";
 var gsInitDatabaseFailed="خطأ: فشل في تهيئة قاعدة البيانات.";
@@ -177,7 +18,7 @@ var g_RunesHelSuffixes=new Array("ed,0","ingly,0","ings,0","ing,0","ly,1","s,1",
 var gsHLColorFront="#000000";
 var gsHLColorBackground="#b2b4bf";
 
-var gsResultDivID="";
+var gsResultDivID="searchResList";
 var gbReady=false;
 var gbXML=false;
 var gbWhFHost=false;
@@ -190,29 +31,19 @@ var g_bServerResult=false;
 
 var gSearchDataFolderName =  "whxdata";
 var gFtsFileName = "whfts.xml";
-var gbANDSearch = 1;
+var gbANDSearch = 0;
 var gstrSyn = "";
 
 var gbSearchInitialized = false;
 
+var a_QueryResultt = null;
+var strParamss=null ;
+
+
 //jomart
-var genderS ;
-function findSelection(field) {
-    var test = document.getElementsByName(field);
-    var sizes = test.length;
+function removeClass(e,c) {e.className = e.className.replace( new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');}
 
-        for (i=0; i < sizes; i++) {
-            if (test[i].checked==true) {  
-            return test[i].value;
-        }
-    }
-}
-function submitForm() {
 
-    genderS =  findSelection("genderS");
-    //alert(genderS);
-    return false;
-}
 
 
 function initializeSearch() {
@@ -224,68 +55,60 @@ function initializeSearch() {
 	
 	if (rh.util.isUsefulString(searchText) && searchText != searchedText) {
 		rh.model.publish(rh.consts('KEY_SEARCH_TERM'), searchText);
-		rh.model.subscribeOnce(rh.consts('EVT_PROJECT_LOADED'), function(value){
-			if (value && !rh.rhs.doSearch()) {
-	      		if(document.getElementById("checkbox_id1").checked){
-				var hh = normlizse(GetSearchTextFromURL());
-	                hh = '"'+hh.replace(/["']/g, "")+'"';
-					window.doSearch(hh);
-				}
-                else{
-                 var hh = normlizse(GetSearchTextFromURL());
-	                 hh = hh.replace(/["']/g, "");
-					window.doSearch(hh);
-				}				 
-		
-	    	}
-		});
+		doSearch();
 	}
-
-	
-	
-
-	
-	
-	
-	
-	
 }
 
-function doSearch(lol)
-{   
-    
-	if(lol) {
-     removeClass(document.getElementById("stop"),"rh-hide");
-	}
+function doSearch()
+{
+	var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
 
-	gbANDSearch=1;
-	//var searchText = rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+a_QueryResultt = null
+strParamss=null;
+
+	
 	
 	//jomart
-	submitForm();
-	var searchText = lol;
-		//alert(searchText);
-		
-		
-	    //alert(searchText);
-		/*if(genderS === "1")
-	     {     
-	           var isquot = /^\"/g.test(searchText) && /\"$/g.test(searchText);
-	           if(isquot === true){
-	           searchText = '"'+searchText.replace(/["']/g, "")+'"';}
-	           else{
-	           searchText =  '"'+searchText+'"'; 
-		       }
-	     
-		 
-		 }*/
-		 
-		 
-		 
-		 
-		 
-	rh.model.publish(".l.searchText_actual", searchText, {sync: true});
-	searchText=removeStopWordsFromInp(searchText);
+	if(searchText) {
+	
+	if(window.myScroll){
+         //document.getElementById("mycontainer").innerHTML=""; 
+		   window.myScroll.destroy();
+	}
+	
+    document.getElementById("searhcform").submit();
+	
+	if(getbooleanindexopage()==3) {
+	$("#end").hide();
+	 showclear();
+    // document.getElementById("conpag").className = "container rh-hide";
+	 document.getElementById("searchMsgg").className = "rh-hide";
+	 $("#pages_bar_note").css("display", "none");
+	 $('.cSearchSettingsToggle a').removeClass('collapsed');
+	 $('.cSearchSettingsToggle a').addClass('opened');
+	 $('.wSearchResultSettings').css("display", "none");
+	}
+	else{
+	document.getElementById("end").className = "rh-hide";
+	removeClass(document.getElementById("stop"),"rh-hide");
+	
+	var textInput = document.getElementById('wSearch'),
+		clearBtn = document.getElementById('clear');
+if(clearBtn){
+	
+if (textInput.value.length > 1) {
+       //clearBtn.style.visibility =  "visible" ;
+     }
+	 
+}
+	
+	 
+	
+	
+	}
+	}
+
+	
 	if(searchText) {
 		rh.model.publish(rh.consts('KEY_SEARCHED_TERM'), searchText, {sync: true});
 		rh.model.publish(rh.consts('EVT_SEARCH_IN_PROGRESS'), true, {sync: true});
@@ -299,35 +122,12 @@ function doSearch(lol)
 	}
 }
 
-function removeStopWordsFromInp(searchText)
-{
-	var openingQuoteFound=false;
-	searchText=searchText.split(" ");
-	var stopWordsRemovedInp=[];
-	for(var i=0;i<searchText.length;i++)
-	{
-		if(openingQuoteFound==false && searchText[i][0]=='"' || searchText[i][0]=="'")
-			openingQuoteFound=true;
-		if(openingQuoteFound==true && searchText[i][searchText[i].length-1]=='"' ||  searchText[i][searchText[i].length-1]=="'")
-			gbANDSearch=0;
-		if((openingQuoteFound || !IsStopWord(searchText[i],gaFtsStop)) && searchText[i]!=="")
-			stopWordsRemovedInp.push(searchText[i]);
-		if(searchText[i]=="or" || searchText[i]=="OR")
-			gbANDSearch=0;
-	}
-	stopWordsRemovedInp=stopWordsRemovedInp.join(" ");
-	return stopWordsRemovedInp;
-}
-
 function callbackAndSearchFlagRead(andFlag)
 {
-	//gbANDSearch is made to 1 by default. It is made 0 only if we find an "or" in the input. 
-	/*
 	if(andFlag == TRUESTR)
 		gbANDSearch = 1;
 	else if(andFlag = FALSESTR)
 		gbANDSearch = 0;
-	*/
 	if(rh.model.get(rh.consts('KEY_SEARCHED_TERM')))
 	{
 		displaySearchProgressBar(0);
@@ -1035,27 +835,24 @@ function HuginContext()
 	}
 	this.stop = function()
 	{   
-	  
-	     //$('#wSearchMessage').removeClass("rh-hide").removeAttr("hidden");
+	
+	if(getbooleanindexopage()!=3) {
+	   document.getElementById("stop").className = "rh-hide";
 	   document.getElementById("wSearchMessage").removeAttribute("hidden");
 	   removeClass(document.getElementById("wSearchMessage"),"rh-hide");
 	   document.getElementById("stop").className = "rh-hide";
-	   //document.getElementById("wSearchMessage").classList.remove("rh-hide");
 	   document.getElementById("progressbar").className = "rh-hide";
 	   context.bCancel = true;
-	 
-	    //document.getElementById("loading").removeAttribute("hidden");
 	   document.getElementById("loading").className = "rh-hide";
-	   document.getElementById("loading").setAttribute("hidden");
+	   $("#end").hide();
+	}
 	   
-	   //document.getElementById("wSearchMessage").className = "vvvvvvvvvvvvvv"; 
-	  
-		
+	
+	
+	
+		context.bCancel = true;
 	}
 }
-
-function removeClass(e,c) {e.className = e.className.replace( new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');}
-
 
 // Base64.js------------------------------------
 
@@ -2996,23 +2793,38 @@ function HuginHunter()
 
 	this.evaluateExpression = function( a_Context, a_this )
 	{
+		//jomart
+		a_this.strQuery = strip_And_Normlize(a_this.strQuery);
+		
+		if ((document.getElementById("checkbox_id4").checked == false)&&(document.getElementById("checkbox_id4").disabled==false)){
+	           a_this.strQuery = remove_stopWrods(a_this.strQuery);
+	    }
+		
+		//jomart
+	    if(document.getElementById("checkbox_id1").checked){
+		
+		a_this.strQuery = '"'+a_this.strQuery.replace(/["']/g, "")+'"';
+		
+	    }
+		
+		
+		//jomart
+		if(document.getElementById("checkbox_id0").checked)
+		{   
+			a_this.strQuery = trimString(a_this.strQuery);
+		    a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
+			
+		}
+		
+
+		
+		
 		/*if(gbANDSearch)
 		{
 			a_this.strQuery = trimString(a_this.strQuery);
             a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
 		}*/
-		
-		
-		//jomart
-		var hasBoth = /^\"/g.test(a_this.strQuery) && /\"$/g.test(a_this.strQuery);
-        if(genderS === "0" && hasBoth=== false)
-		{   //alert(genderS);
-			a_this.strQuery = trimString(a_this.strQuery);
-            a_this.strQuery = a_this.strQuery.split(" ").join(" AND ");
-			//alert(a_this.strQuery);
-		}
-
-		
+			
 		a_this.queryExpression = parseQueryExpression( a_this.strQuery );
 		if ( a_this.queryExpression == null )
 		{
@@ -3240,23 +3052,435 @@ function changeResultView( a_strHTML )
 			return;
 		resultDiv.innerHTML = a_strHTML;
 		rh.util.loadContentFilter(resultDiv);
+		
 	}
 }
 
-function navigateToTopic(topics, params){
-	if(topics.length >0){ 
-		var absUrl = window._getFullPath(rh._.parentPath(), topics[0].strUrl + params);
-		rh.model.publish(rh.consts('EVT_NAVIGATE_TO_URL'), {
-        absUrl: "" + absUrl
-      });
-	}
+function _isMobile(){
+                // if we want a more complete list use this: http://detectmobilebrowsers.com/
+                // str.test() is more efficent than str.match()
+                // remember str.test is case sensitive
+                var check = false;
+                (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
+                return check;
+                
 }
+
+
+
+function getAbsoluteHeight(el) {
+  // Get the DOM Node if you pass in a string
+  el = (typeof el === 'string') ? document.querySelector(el) : el; 
+
+  var styles = window.getComputedStyle(el);
+  var margin = parseFloat(styles['marginTop']);
+			   
+			
+
+  return Math.ceil(el.offsetHeight + margin);
+}
+
+
+/*function unicodeLength(str) {
+  return [...str].length
+}*/
+
+
+function countCodePoints(str) {
+  var point;
+  var index;
+  var width = 0;
+  var len = 0;
+  for (index = 0; index < str.length;) {
+      point = str.codePointAt(index);
+      width = 0;
+      while (point) {
+          width += 1;
+          point = point >> 8;
+      }
+      index += Math.round(width/2);
+      len += 1;
+  }
+  return len;
+}
+
+
+var regexSymbolWithCombiningMarks = XRegExp('[\\p{L}]', "ig");
+
+function countSymbolsIgnoringCombiningMarks(string) {
+	// Remove any combining marks, leaving only the symbols they belong to:
+	var stripped = string.replace(regexSymbolWithCombiningMarks, function($0, symbol, combiningMarks) {
+		return symbol;
+	});
+	// Account for astral symbols / surrogates, just like we did before:
+	return stripped.length;
+}
+
+
+function test_item_hight(longest){
+	
+document.getElementById('mycontainer').innerHTML = '<div class="vscroll-wrapper" id="vscroll-wrapper" data-columns="1">'+
+			'<div class="wSearchResultItem">'+
+			longest+
+			'</div>'+
+			'</div>';
+			
+			//console.log(longest);
+			
+			longestH = (getAbsoluteHeight(document.getElementById('mycontainer')));
+			document.getElementById('mycontainer').innerHTML = "";
+	
+}
+
+
+var longestH=0;
+var options;
+var longest;
+function createArrayOfNumbers(total,a_QueryResultArray, strParams){
+longestH=0; 
+longest="";           
+            var array = new Array(total);
+            
+            var i = 0;
+			var maxlen = 0;
+			var maxtext= "";
+			var lgth = 0;
+            
+            for (; i < total; i++){
+				
+			
+				
+			array[i] = '<div  class = "itemcon">'+
+			'<a class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
+			   '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			  '</a>'+
+			  '<div class="">'+
+			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
+			  '</div>'+
+			  '<div class="">'+
+			     '<span class="">'+a_QueryResultArray[i].strBreadcrumbs+'</span>'+
+			  '</div>'+
+			  '<div class ="img_wrapper">'+
+					 '<img src="template/resources/loading.gif" height="20" width="20">'+
+			  '</div>'+
+			 '</div>';
+		      maxtext = (a_QueryResultArray[i].strTitle+a_QueryResultArray[i].strSummary+a_QueryResultArray[i].strBreadcrumbs);
+			  //maxtext = strip_And_Normlize(maxtext);
+			  //unicodeLength(maxtext);
+			if(countSymbolsIgnoringCombiningMarks(maxtext)> lgth){
+                  var lgth = countSymbolsIgnoringCombiningMarks(maxtext);
+                  longest = array[i];
+             }
+			
+			}
+             
+			
+			
+
+			// console.log(longest);
+			
+			
+            return array;
+            
+};
+
+
+var end =false;
+function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_CurPage,bShowAll){
+			longestH=0; 
+            longest="";  
+	       
+            var maxlen = 0;
+			var maxtext= "";
+			var lgth = 0;
+			var count =0;
+            var array = new Array();	
+				//alert(i);
+			for( ; (i < a_QueryResultArray.length); i++ )
+			{
+				
+				
+		
+				
+				if(bShowAll == false && i>=(g_CurPage*g_nMaxResult)){
+					
+					break;	
+				}
+				
+				var szTopicURL = a_QueryResultArray[i].strUrl;
+				if(!_isRemoteUrl(szTopicURL))
+				{
+					szTopicURL += strParams;
+				}
+				
+				//console.log(i+"ggggg");
+                
+		      array[count] = '<div  class = "itemcon">'+
+			   '<a onclick="go_topic(event);" class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
+			    '<div onclick = "highlite(this);" id = "'+(count)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			  '</a>'+
+			  '<div class="">'+
+			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
+			  '</div>'+
+			  '<div class="">'+
+			     '<span class="">'+a_QueryResultArray[i].strBreadcrumbs+'</span>'+
+			  '</div>'+
+			  '<div class ="img_wrapper">'+
+					 '<img src="template/resources/loading.gif" height="20" width="20">'+
+			  '</div>'+
+			 '</div>';
+		     
+	
+
+ 
+	
+               if((i+1)==a_QueryResultArray.length){
+               //console.log(i+" "+a_QueryResultArray.length);
+			   
+			   $("#end").show();
+			   end = true;
+			
+			   }
+			   else{
+			   $("#end").hide();   
+			   end = false;
+  
+			   }
+		
+		   
+					
+					
+             
+			 maxtext = (a_QueryResultArray[i].strTitle+a_QueryResultArray[i].strSummary+a_QueryResultArray[i].strBreadcrumbs);
+			  //maxtext = strip_And_Normlize(maxtext);
+			  //unicodeLength(maxtext);
+			 if(countSymbolsIgnoringCombiningMarks(maxtext)> lgth){
+                  var lgth = countSymbolsIgnoringCombiningMarks(maxtext);
+                  longest = array[count];
+             }
+					
+			count++;		
+			}
+			
+               //console.log(longest);
+    
+			return array;
+}
+			
+
+
+ 
+
+
+
+ 
+var data =true;
+var myData;
+var curr_index = null;
+var current_select = null;
+var conoffset = null;
+function lunch_vlist(a_QueryResult,strParams,_container,_scrollParent){
+	
+
+if(data ==true){
+	
+	myData = createArrayOfNumbers(a_QueryResult.length,a_QueryResult,strParams);
+	data =false;
+	
+	conoffset = document.getElementById(_container).offsetTop;
+}
+
+test_item_hight(longest);
+		
+//alert(longest);
+        // Template function must return HTML element
+        
+		longestH= (longestH);
+		//alert(longestH);
+		var createTemplateFunction = function(item, index, startIndex, endIndex) {
+
+            // Create your HTML template of each record, it could be anything, an img, li, div etc.
+            var div = document.createElement('div');
+            div.className = 'wSearchResultItem';
+			div.style.minHeight =longestH+'px';
+            div.innerHTML = item;
+            
+            return div;
+
+        };
+
+        
+        options = {
+            
+			
+			container: "#"+_container,
+            scrollParent: "#"+_scrollParent,
+            data: myData,
+            smartBuffer: false,
+            itemHeight: longestH, // which's the default
+            createItem: createTemplateFunction,
+			responsive:false,
+			scrollOffset:conoffset
+			//scrollOffset:230
+			
+        };
+     //console.log(myData);
+		window.myScroll = new VScroll(options);  
+		
+		
+        
+		
+	
+}
+
+
+var _i;
+var _g_nMaxResult;
+var _g_CurPage;
+var _bShowAll;
+
+function lunch_vlist2(a_QueryResult,strParams,_container,_scrollParent,i,g_nMaxResult,g_CurPage,bShowAll){
+	
+ _i =i;
+ _g_nMaxResult = g_nMaxResult;
+ _g_CurPage = g_CurPage;
+ _bShowAll = bShowAll;	
+
+if(data ==true){
+	
+	myData = generate_search_results(a_QueryResult,strParams,i,g_nMaxResult,g_CurPage,bShowAll);
+	
+	
+	data =false;
+	
+	conoffset = document.getElementById(_container).offsetTop;
+}
+else{
+	if(end == true){
+		 
+		 $("#end").show();
+		
+	}else{
+		 $("#end").hide();
+	}
+	
+}
+
+test_item_hight(longest);
+		
+
+        // Template function must return HTML element
+        
+		longestH= (longestH);
+	
+		var createTemplateFunction = function(item, index, startIndex, endIndex) {
+
+            // Create your HTML template of each record, it could be anything, an img, li, div etc.
+            var div = document.createElement('div');
+            div.className = 'wSearchResultItem';
+			div.style.minHeight =longestH+'px';
+            div.innerHTML = item;
+            
+            return div;
+
+        };
+
+        //console.log(longestH);
+		if(getbooleanindexopage()==3) {
+		 
+		   if($(window).innerWidth() >= em(81)){
+			
+		   }else{
+
+           conoffset= 230;
+		   //alert();
+		   }		   
+         
+		 
+        }
+        else{
+			  	  
+        }
+		// console.log(_container); 
+		options = {
+            container: "#"+_container,
+            scrollParent: "#"+_scrollParent,
+            data: myData,
+            smartBuffer: false,
+            itemHeight: longestH, // which's the default
+            createItem: createTemplateFunction,
+			responsive:false,
+			scrollOffset:conoffset
+			//scrollOffset:230
+			
+        };
+     //console.log(myData);
+		window.myScroll = new VScroll(options);  
+	
+}
+
+
+var szSearchStrings;
+var a_QueryResult;
+var strParams;
+
+var ii,g_nMaxResultt,g_CurPagee,bShowAlll;
 
 function displayTopics( a_QueryResult )
 {
 	var sHTML = "";
 	var sLine = "";
-	var szSearchStrings= rh.model.get(".l.searchText_actual");
+    var strParams;
+	
+	//jomart
+	//var szSearchStrings= rh.model.get(rh.consts('KEY_SEARCH_TERM'));
+	szSearchStrings= rh.model.get(rh.consts('KEY_SEARCHED_TERM'));
+	//jomart
+	szSearchStrings = strip_And_Normlize(szSearchStrings);
+	
+	if(document.getElementById("checkbox_id1").checked){
+		
+		
+		szSearchStrings = '"'+szSearchStrings.replace(/["']/g, "")+'"';
+		
+		 strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=1';
+		
+	}
+	
+    if(document.getElementById("checkbox_id0").checked){
+		
+		if (document.getElementById("checkbox_id4").checked){
+			
+			 strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=00';
+		}
+		else{
+			
+			szSearchStrings =remove_stopWrods(szSearchStrings);
+			
+			 strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=01';
+		}
+	
+	}
+	
+	
+	if(document.getElementById("checkbox_id2").checked){
+		
+		if (document.getElementById("checkbox_id4").checked){
+			
+			strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=20';
+		}
+		else{
+			
+			
+			szSearchStrings =remove_stopWrods(szSearchStrings);
+			
+			strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn)+ "&checkbox" +'=21';
+		}
+	
+	}
+	
+	
+	
 	var sHighlight = "CLRF=" + gsHLColorFront +
 					 ",CLRB=" + gsHLColorBackground + ",HL=";
 	
@@ -3267,8 +3491,11 @@ function displayTopics( a_QueryResult )
 	if ( a_QueryResult != null )
 	{
 	
-		var strParams = "?" + RHHIGHLIGHTTERM + "=" + encodeURIComponent( szSearchStrings ) + "&" + RHSYNSTR + "=" + encodeURIComponent(gstrSyn);
-
+		 strParams = strParams;
+        
+		//jomart
+        //szSearchStrings = rh.model.get(rh.consts('KEY_SEARCHED_TERM')); 
+		 
 		if(a_QueryResult.aTopics.length > 0)
 			setResultsStringHTML(a_QueryResult.aTopics.length, _textToHtml_nonbsp(szSearchStrings));
 		
@@ -3288,7 +3515,52 @@ function displayTopics( a_QueryResult )
 		
 		if (checkResultDiv()) {
 			// Old search widget workflow: Render html.
-			for( ; (i < a_QueryResult.aTopics.length); i++ )
+			
+			
+			if(window.myScroll){
+
+               window.myScroll.destroy();
+		   
+            }
+			
+		    a_QueryResultt = a_QueryResult.aTopics;
+            strParamss=strParams ;
+	        data =true;
+			curr_index =0;
+			current_select =null;	
+			end = false;
+		
+		    updateNavigationPagesBar(g_CurPage, nNumPages);
+			updatePrevNextButtons(g_CurPage, nNumPages);
+			changeResultView("");
+		    ii= i;
+			g_nMaxResultt = g_nMaxResult;
+			g_CurPagee = g_CurPage;
+			bShowAlll= bShowAll;
+	        
+	
+            setTimeout(function(){ 
+			
+			
+			lunch_vlist2(a_QueryResult.aTopics,strParams,"mycontainer","searchresults",i,g_nMaxResult,g_CurPage,bShowAll);
+			
+			
+
+			
+			}, 200);
+
+             
+			 
+
+			 
+
+		 
+			
+		
+			
+//console.log(hh);
+			
+		/*for( ; (i < a_QueryResult.aTopics.length); i++ )
 			{
 				if(bShowAll == false && i>=(g_CurPage*g_nMaxResult))
 					break;
@@ -3298,39 +3570,117 @@ function displayTopics( a_QueryResult )
 				{
 					szTopicURL += strParams;
 				}
+
 				sLine += writeResult( szTopicURL,
 									  a_QueryResult.aTopics[i].strTitle,
 									  a_QueryResult.aTopics[i].nIndex,
 									  a_QueryResult.aTopics[i].strSummary,
 									  a_QueryResult.aTopics[i].rhTags,
-									  a_QueryResult.aTopics[i].strBreadcrumbs);
+									  a_QueryResult.aTopics[i].strBreadcrumbs,szSearchStrings,i);
 				if( i & 0xF == 0 )
 				{
 					sHTML += sLine;
 					sLine = "";
 				}
+			
+			
 			}
 			if( sLine.length > 0 )
 				sHTML += sLine;
 			
 			updateNavigationPagesBar(g_CurPage, nNumPages);
 			updatePrevNextButtons(g_CurPage, nNumPages);
+			
+			changeResultView( sHTML );*/
+			
+			
+		
 		}
 		else
 		{
 			// New search widget workflow. Publish search results.
-			rh.model.publish(rh.consts('KEY_SEARCH_RESULT_PARAMS'), strParams);
-			rh.model.publish(rh.consts("KEY_SEARCH_RESULTS"), a_QueryResult.aTopics);
-			//navigateToTopic(a_QueryResult.aTopics, strParams);
+			//rh.model.publish(rh.consts('KEY_SEARCH_RESULT_PARAMS'), strParams);
+			//rh.model.publish(rh.consts("KEY_SEARCH_RESULTS"), a_QueryResult.aTopics);
+
+		    a_QueryResultt = a_QueryResult.aTopics;
+            strParamss=strParams ;
+	        data =true;
+			curr_index =0;
+			current_select =null;
+
+			lunch_vlist(a_QueryResult.aTopics,strParams,"mycontainer","three2");
+			removeClass(document.getElementById("end"),"rh-hide");
+			
 		}
+	
 	}
 	
 	if( a_QueryResult.aTopics.length == 0 ) {
+	
 		displayMsg(gsNoTopics);
-	}
-
-	changeResultView( sHTML );
+		if(document.getElementById("end")){
+			document.getElementById("end").className = "rh-hide";
+		}
+	
+	}	
 }
+
+
+var resizeId;
+window.addEventListener('resize', function() {
+    clearTimeout(resizeId);
+    if(a_QueryResultt){
+        resizeId = setTimeout(doneResizing, 500);
+	}	
+});
+
+function doneResizing(){
+	if (typeof getbooleanindexopage !== "undefined") { 
+		if(getbooleanindexopage()==3) {
+	
+			 
+			
+var x = document.getElementById("searchBoxSearchPage");
+if (x === document.activeElement) {
+
+} else {
+  go_index();
+}			 
+			 
+		}
+		else{
+	
+
+if(getbooleanindexopage()==2){
+	
+var x = document.getElementById("wSearch");
+if (x === document.activeElement) {
+
+} else {
+  go_index();
+}	
+}
+else{
+	
+
+var x = document.getElementById("wSearchField");
+if (x === document.activeElement) {
+
+} else {
+  go_index();
+}
+
+	
+}
+	
+ 
+	
+		}
+	}	
+}
+
+
+
 
 function scrollContentDiv(scrollTop) {
   var elem = document.getElementById('searchresults');
@@ -3380,20 +3730,105 @@ function updateResultView()
 	if ( g_CurState == ECS_SEARCHING )
 		displaySearchProgressBar( goOdinHunter.nProgress );
 	else if ( g_CurState == ECS_FOUND ) {
+		
+		 
 		displayTopics( goOdinHunter.queryResult );
+		
+		
+		//jomart
+	
+		if(getbooleanindexopage()==3) {
+		if(!($('#searchresults').hasClass("rh-hide"))) {
+		if($('.wSearchPageNumberSelected').length) 
+		{	
+	     
+		//removeClass(document.getElementById("conpag"),"rh-hide");
+        
+			  
+		//removeClass(document.getElementById("pages_bar_note"),"rh-hide");
+					   
+ 
+			$("#pages_bar_note").css("display", "block");  
+		
+
+		  $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
+		 
+		   
+
+
+		   if(!$('#searchresults').hasClass("rh-hide")) 
+		   {
+			if($(window).innerWidth() < em(43.68)) {
+              $('.content').css("bottom", "98px");
+             } 
+		    else if($(window).innerWidth() >= em(43.68) && $(window).innerWidth() <= em(59.49)){
+			  $('.content').css("bottom", "135px");
+			 }
+			 else if($(window).innerWidth() >= em(59.5) && $(window).innerWidth() <= em(80.99)){
+			  $('.content').css("bottom", "55px");
+			 }
+			 else if($(window).innerWidth() >= em(81)){
+			  $('.content').css("bottom", "55px");
+			 }
+		   }
+		   
+		   
+		   
+        }
+		else{
+			
+			if($(window).innerWidth() < em(43.68)) {
+              $('.content').css("bottom", "40px");
+            }
+			else if($(window).innerWidth() >= em(43.68) && $(window).innerWidth() <= em(59.49)){
+			  $('.content').css("bottom", "80px");
+			}
+			else if($(window).innerWidth() >= em(59.5) && $(window).innerWidth() <= em(80.99)){
+			  $('.content').css("bottom", "0px");
+			}
+			else if($(window).innerWidth() >= em(81)){
+			  $('.content').css("bottom", "0px");
+			 }
+			
+		}
+		}
+		removeClass(document.getElementById("searchMsgg"),"rh-hide");
+		}
+		else{
 		document.getElementById("stop").className = "rh-hide";
+	    }
 	}		
 	else if ( g_CurState == ECS_SEARCHFAILED ){
+		
 		displayErrorMsg( context.strMsg );
-	    document.getElementById("stop").className = "rh-hide";
-	}	
-	else if ( g_CurState == ECS_FATALERROR ){
-		displayErrorMsg( context.strMsg );
+		if(getbooleanindexopage()==3) {
+		removeClass(document.getElementById("searchMsgg"),"rh-hide");
+		}
+		else{
 		document.getElementById("stop").className = "rh-hide";
-	}	
-    else if ( g_CurState == ECS_CANCELED ){
-	displayErrorMsg( gsCanceled );
-    document.getElementById("stop").className = "rh-hide";
+	    }
+	}
+		
+	else if ( g_CurState == ECS_FATALERROR ){
+	displayErrorMsg( context.strMsg );	
+	    if(getbooleanindexopage()==3) {
+		removeClass(document.getElementById("searchMsgg"),"rh-hide");
+		}
+        else{
+		document.getElementById("stop").className = "rh-hide";
+	    }		
+	}
+	
+	else if ( g_CurState == ECS_CANCELED ){
+	if(getbooleanindexopage()==3) {
+		removeClass(document.getElementById("searchMsgg"),"rh-hide");
+
+	}
+	else{
+		document.getElementById("stop").className = "rh-hide";
+	}
+     displayErrorMsg( gsCanceled );
+	
 	}
 		
 		
