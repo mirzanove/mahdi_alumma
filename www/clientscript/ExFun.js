@@ -154,7 +154,7 @@ function printDiv2(divId) {
 function printpage()
     {
         var originalContents = document.body.innerHTML;
-        var printReport = document.getElementById('content').innerHTML;
+        var printReport = document.getElementById('pagebody').innerHTML;
         document.body.innerHTML = printReport;
         window.print();
         document.body.innerHTML = originalContents;
