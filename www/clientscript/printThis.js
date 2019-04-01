@@ -30,7 +30,7 @@ function print(mode){
          
             var $iframe = $("<iframe id='" + strFrameName +"' src='about:blank'/>");
  
-            if (!opt.debug) { $iframe.css({ position: "absolute", width: "0px", height: "0px", left: "-600px", top: "-600px" }); }
+            if (!opt.debug) { $iframe.css({ position: "absolute", width: "0px", height: "0px", left: "-600px", top: "-600px",  direction: "rtl" }); }
  
             $iframe.appendTo("body");
          
