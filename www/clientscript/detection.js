@@ -1,81 +1,8 @@
-
-var disable_resoures = false;
 var mobiletrue = true;
-var encrypted = false;
-var wke = false;
-var iee = false;
-var wkchrom = false;
-
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
 //var isInIFrame = (window.location != window.parent.location);
 var isInIFrame = false;
-
-//used for futer
-/*navigator.browserSpecs = (function(){
-    var ua= navigator.userAgent, tem, 
-    M= ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || [];
-    if(/trident/i.test(M[1])){
-        tem=  /\brv[ :]+(\d+)/g.exec(ua) || [];
-        return {name:'IE',version:(tem[1] || '')};
-    }
-    if(M[1]=== 'Chrome'){
-        tem= ua.match(/\b(OPR|Edge)\/(\d+)/);
-        if(tem!= null) return {name:tem[1].replace('OPR', 'Opera'),version:tem[2]};
-    }
-    M= M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
-    if((tem= ua.match(/version\/(\d+)/i))!= null) M.splice(1, 1, tem[1]);
-    return {name:M[0],version:M[1]};
-})();
-
-alert(navigator.browserSpecs.name+navigator.browserSpecs.version); //Object { name: "Firefox", version: "42" }*/
-
-
-String.prototype.hexEncode = function(){
-    var hex, i;
-
-    var result = "";
-    for (i=0; i<this.length; i++) {
-        hex = this.charCodeAt(i).toString(16);
-        result += ("000"+hex).slice(-4);
-    }
-
-    return result
-}
-
-
-String.prototype.hexDecode = function(){
-    var j;
-    var hexes = this.match(/.{1,4}/g) || [];
-    var back = "";
-    for(j = 0; j<hexes.length; j++) {
-        back += String.fromCharCode(parseInt(hexes[j], 16));
-    }
-
-    return back;
-}
-
-
-
-
-var IE = (function() { 
-    if (document.documentMode) {
-        return document.documentMode;
-    } else {
-        for (var i = 7; i > 0; i--) {
-            var div = document.createElement("div");
-
-            div.innerHTML = "<!--[if IE " + i + "]><span></span><![endif]-->";
-
-            if (div.getElementsByTagName("span").length) {
-                return i;
-            }
-        }
-    }
-
-    return undefined;
-})();
-
 function _isMobile(){
                 // if we want a more complete list use this: http://detectmobilebrowsers.com/
                 // str.test() is more efficent than str.match()
@@ -85,15 +12,3 @@ function _isMobile(){
                 return check;
                 
 }
-
-
-
-//alert("first");
-
-
-
-
-
-
-
-

@@ -1,11 +1,11 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
 <head>
  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes" />
 <meta name="generator" content="Adobe RoboHelp 12" />
-<title>تطبيق موسوعة نون</title>
+<title>mawso3a</title>
 
 <script type="text/javascript"> 
 
@@ -13,22 +13,10 @@ function getbooleanindexopage(){
 return "1";
 }
 function MyFunction(){
-    
-	document.getElementsByClassName("loading2")[0].style.display = 'block';
-	
-	str = document.location.href;
-	str =str.replace("/jqmStyle.html", "/index.html");
-	
-	document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",str], "*");
-	
-	//location.href =str.replace("/jqmStyle.html", "/index.html");
-
-//location.href = "index.html";
+location.href = "index.html";
 }
 function get_link_url(){
-
-document.getElementsByClassName("loading2")[0].style.display = 'block';
-document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href",document.location.href], "*");
+document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href","get_ifram_location_href"], "*");
 }
 </script>
 <style>
@@ -146,9 +134,7 @@ body #men {
    <script src="jqmlib/jquery.com_jquery-1.10.2.min.js"></script>
    <link href="jqmlib/themes/default/rtl.jquery.mobile-1.4.0.css" rel="stylesheet" /> 
   
-<script type="text/javascript">
-   
-   
+   <script type="text/javascript">
 $(document).on("mobileinit", function(){
         $.mobile.ajaxEnabled=false;
         $.mobile.loadingMessage = false;
@@ -218,10 +204,6 @@ gCommonRootRelPath = ".";
 </script>
 <link rel="SHORTCUT ICON" href="87px.png" />
 <div class = "loading2"></div>
-<script type="text/javascript">
-document.getElementsByClassName("loading2")[0].style.display = 'block';   
-</script>
-
 <div id="myModal" class="modal">
   <span class="close">&times;</span>
   <img class="modal-content" id="img01">
@@ -271,16 +253,10 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 
 <div style = "padding:0;" data-role="popup" id="popupMenu2" data-theme="a">
 <a style = "padding:3px;" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_HIT" data-role="button" data-ajax="false">ازالة تسليط الضوء</a>
 <a style = "padding:3px;" data-trigger="EVT_REMOVE_FORMAT" data-role="button" data-ajax="false">ازالة التنسيق</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_SRC" data-role="button" data-ajax="false">ازالة رابط مصدر البيان</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_TRANZ" data-role="button" data-ajax="false">ازالة روابط عبارات الترجمة</a>
-<a style = "padding:3px;" data-trigger="EVT_ZOOMIN" data-role="button" data-ajax="false">تكبير النص لكل الصفحة</a>
-<a style = "padding:3px;" data-trigger="EVT_ZOOMOUT" data-role="button" data-ajax="false">تصغير النص لكل الصفحة</a>
-<a style = "padding:3px;" data-trigger="EVT_RESET" data-role="button" data-ajax="false">الحجم الإفتراضي للصفحة</a>
-
-
-
+<a style = "padding:3px;" data-trigger="EVT_ZOOMIN" data-role="button" data-ajax="false">A++</a>
+<a style = "padding:3px;" data-trigger="EVT_ZOOMOUT" data-role="button" data-ajax="false">A--</a>
+<a style = "padding:3px;" data-trigger="EVT_RESET" data-role="button" data-ajax="false">0</a>
 
 </div>
 
@@ -371,16 +347,9 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
        <li>    
     <label for="checkbox_id3">
     <input type="checkbox" value="3"  name="genderS" id="checkbox_id3" checked> 
-	<span style = "font-size: 12px;">&nbsp;تسليط الضوء على كلمات البحث..&nbsp;&nbsp;</span>
+	<span style = "font-size: 12px;">&nbsp;تفعيل تعيين على الكلمات..&nbsp;&nbsp;</span>
    </label>
       </li>
-	  
-	   <li>    
-    <label for="checkbox_id4">
-    <input type="checkbox" value="4"  name="genderS" id="checkbox_id4" checked> 
-	<span style = "font-size: 12px;">&nbsp;البحث عن الكلمات المستبعدة ايضا..&nbsp;&nbsp;</span>
-   </label>
-      </li> 
 		  
         </ul>
       </div>
@@ -397,7 +366,7 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 
 <div id="one" style="overflow: hidden; margin: 0; padding: 0;" class="topic tabView ui-contentt">	
 <div style="overflow: hidden; margin: 0; padding: 0;" class="topic ui-contentt">
-<!--<div class="topic-state loading" data-class="loading: EVT_TOPIC_LOADING" data-if="EVT_TOPIC_LOADING"></div>-->
+<div class="topic-state loading" data-class="loading: EVT_TOPIC_LOADING" data-if="EVT_TOPIC_LOADING"></div>
 <iframe  id="iframe" scrolling="yes" frameborder="0"  class="topic map-canvas" name="rh_default_topic_frame_name" style="width:100%; height: 100%; margin: 0; padding: 0;"></iframe>
 </div>
 </div>
@@ -496,8 +465,6 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 <script>
 
 var link_disable = false;
-var elts = document.getElementsByTagName('div');
-
 
 $(document).on( "pagecontainershow", function(){
 
@@ -566,94 +533,16 @@ $(".ui-content").height(content);
 }
 
 
-
-
-
-$(document).ready(function(){
-
-var show = function() { 
-
-//alert(link_disable); 
-if(link_disable == true){
+$("a").on('vclick', function(event) {
+		//alert(link_disable);
+	    if(link_disable == true){
 			return false;
 		}
 
-}
-for (var i = elts.length - 1; i >= 0; --i) {
-    elts[i].onclick = show;
-}
-
-
- 
-//alert(document.location.href.includes("&checkbox=0"));
- 
-if (document.location.href.indexOf("&checkbox=00")!= -1){
-$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id0').prop('checked', true).checkboxradio('refresh');
-$('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
-
-$('#checkbox_id4').prop('checked', true).checkboxradio('refresh');
-
-}
-
-
-if (document.location.href.indexOf("&checkbox=01")!= -1){
-$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id0').prop('checked', true).checkboxradio('refresh');
-$('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
-
-$('#checkbox_id4').prop('checked', false).checkboxradio('refresh');
-
-}
-
-
-
-if (document.location.href.indexOf("&checkbox=1")!= -1){
-$('#checkbox_id1').prop('checked', true).checkboxradio('refresh');
-$('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id2').prop('checked', false).checkboxradio('refresh');
-} 
- 
-if (document.location.href.indexOf("&checkbox=20")!= -1){
-$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id2').prop('checked', true).checkboxradio('refresh');
-
-$('#checkbox_id4').prop('checked', true).checkboxradio('refresh');
-}  
-
-if (document.location.href.indexOf("&checkbox=21")!= -1){
-$('#checkbox_id1').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id0').prop('checked', false).checkboxradio('refresh');
-$('#checkbox_id2').prop('checked', true).checkboxradio('refresh');
-
-$('#checkbox_id4').prop('checked', false).checkboxradio('refresh');
-}  
- 
- 
- 
-if (document.getElementById("checkbox_id1").checked){
-
-$('#checkbox_id4').checkboxradio('disable');
-
-}
-else{
-
-$('#checkbox_id4').checkboxradio('enable');
-
-}
-
-$('#checkbox_id1').on('click', function () {
-  $('#checkbox_id4').checkboxradio('disable');
 });
 
-$('#checkbox_id0,#checkbox_id2').on('click', function () {
-  $('#checkbox_id4').checkboxradio('enable');
-});
-
-
-
-	   $("div.toc-holder li").removeClass("ui-li-static").removeClass("ui-body-inherit").removeClass("ui-last-child");
+$(document).ready(function(){
+        $("div.toc-holder li").removeClass("ui-li-static").removeClass("ui-body-inherit").removeClass("ui-last-child");
 		
 		 $(".close").on("vclick", function(){
 		      $(".modal").hide();
@@ -709,7 +598,6 @@ eventer(messageEvent,function(e) {
 	break;case 'loading': 
     if(data == "stop"){
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';
-	   show_loading = false;
 	 
 	}else{
 	   document.getElementsByClassName("loading2")[0].style.display = 'block';
@@ -725,24 +613,10 @@ eventer(messageEvent,function(e) {
          else
 		 {e.source.postMessage(["check_highlight_state","false"], "*");}
 	break;
-	case 'check_stopwordhit_state': 
-	     var chkBox = document.getElementById('checkbox_id4');
-         if (chkBox.checked)
-         {e.source.postMessage(["check_stopwordhit_state","true"], "*");}
-         else
-		 {e.source.postMessage(["check_stopwordhit_state","false"], "*");}
-	break;
-	case 'hide_drop': 
-	if(data == "hide_drop"){ 
-      $('.ui-popup').popup('close');
-    }		
-	break;
 	
   }
 
 },false);
-
-
 
 </script> 
 

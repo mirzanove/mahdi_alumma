@@ -80,8 +80,7 @@
 	}
 
 		window.returnProjDataCall = function()
-	{
-			window.rh.model.publish(window.rh.consts('KEY_PROJECT_LIST'), projList);
+	{		
 		gbLoadingProjData = false;
 		gbProjDataLoaded = true;
 		for(var i=0; i<gFlowTypeArrProjData.length; i++)

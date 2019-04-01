@@ -3,11 +3,8 @@ body.media-mobile div.filter-holder ul, body.media-landscape div.filter-holder u
 	-khtml-user-select: none;
 	-webkit-user-select: none;
 	-o-user-select: none;
-	user-select: none;
-
+	user-select: none
 }
-
-
 div.toc-holder ul {
 	list-style: none;
 	margin: 0;
@@ -748,13 +745,8 @@ div.searchbar .mobile_filter {
 div.searchresults {
 	background-color: #fff
 }
-body.media-mobile div.topic{
-	margin: 3px 3px 3px 3px;
-}
-
 div.topic {
-	background-color: #fff;
-	
+	background-color: #fff
 }
 div.topic div.functionholder {
 	display: none
@@ -1364,7 +1356,7 @@ body.media-mobile {
  body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchbar.layout-visible,body.media-mobile div.toc-bar.layout-visible {
 	top: 0 !important
 }
-body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.topic {
+body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-mobile div.filter-holder, body.media-mobile div.searchresults.layout-visible, body.media-mobile div.topic {
 	position: absolute;
 	top: 3.1em;
 	right: 0;
@@ -1375,19 +1367,6 @@ body.media-mobile div.idx-holder, body.media-mobile div.glo-holder, body.media-m
 	padding-left: 0.25em;
 	padding-bottom: 0
 }
-
- body.media-mobile div.searchresults.layout-visible{
-	 
-	 position: inherit;
-	top: 3.1em;
-	right: 0;
-	bottom: 3em;
-	width: 100%;
-	padding-top: 0em;
-	padding-right: 0.25em;
-	padding-left: 0.25em;
-	padding-bottom: 0
- }
 
 
 /*this*/ 

@@ -1,3 +1,8 @@
+alert();
+
+
+/*jomart*/
+var link_disable = false;
 
 var gTopicElemId = "";
 var gsPPath="";
@@ -49,6 +54,8 @@ var	EST_TERM		= 1;
 var	EST_PHRASE		= 2;
 var	EST_STEM		= 3;
 
+var enable_highlight = false;
+
 //Code for breadcrumb variable check for bookmark
 (function() {
 	gbBreadCrumb 	= 0;
@@ -68,7 +75,10 @@ rh.util.addEventListener(document, 'DOMContentLoaded', verifyEnvironment);
 function verifyEnvironment() {
 	if (window.self === window.top) {
 		// Loaded without a parent.
-		addRhLoadCompleteEvent(rh._.redirectToLayout);
+		//addRhLoadCompleteEvent(rh._.redirectToLayout);
+		rh.model.subscribe(rh.consts('EVT_PROJECT_LOADED'), function() {
+			rh._.onTopicLoad();
+		});
 	}
 	else {
 		addRhLoadCompleteEvent(initializeTopic);
@@ -76,24 +86,23 @@ function verifyEnvironment() {
 	loadScreens(SCR_NONE, gCommonRootRelPath);
 }
 
-
 function initializeTopic() {
-	//jomart	
-    window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");
-	
+	window.parent.postMessage(["check_highlight_state","check_highlight_state"], "*");
 	publishTopicData();
-	/*rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
-		setTimeout(applyHighlight, 50);
-	});*/
+	//rh.model.subscribe(rh.consts('KEY_TOPIC_ORIGIN'), function() {
+		//if(enable_highlight == true){
+			//window.parent.postMessage(["loading", "strat"], "*");
+			//document.getElementsByClassName("loading")[0].style.display = 'block';
+			//setTimeout(applyHighlight, 50);
+		//}
+		
+	//});
 	loadParentDataForSyncing(gCommonRootRelPath, SCR_PARENT_TOCSYNC);
-	
 }
 
 function publishTopicData()
 {
 	// Active topic URL
-	
-
 	rh.model.publish(rh.consts('KEY_TOPIC_URL'), decodeURI(document.location.href));
 	
 	// Active topic title
@@ -248,15 +257,11 @@ function DomTextNode( a_Node, a_nFrom )
 	}
 
 	this.doHighlight = function( a_aRanges, a_nStart )
-	{   //jomart
-	    document.getElementById("loading").style.display = 'none';
-		window.parent.postMessage(["loading","stop"], "*");
-		//jomart
-		s_strHlStart = "<em>";
-		s_strHlEnd = "</em>";
-		
-		/*s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
-		s_strHlEnd = "</font>";*/
+	{  // window.parent.postMessage(["loading", "stop"], "*");
+	    //document.getElementsByClassName("loading")[0].style.display = 'none';
+		document.getElementById("loading").style.display = 'none';
+		s_strHlStart = "<font style='color:" + gsTextColor + "; background-color:" + gsBkgndColor + "'>";
+		s_strHlEnd = "</font>";
 
 		if ( a_nStart >= a_aRanges.length )
 			return a_nStart;
@@ -387,12 +392,20 @@ function DomTexts()
 	{
 		return a_strTextWord.indexOf(a_strHlWord.toLowerCase()) != -1;
 	}
-					 
+	this.calculateMatchLength = function(countTerms)
+	{
+		var nMatch = 0;
+		for (key in countTerms){
+			nMatch += countTerms[key];
+		}
+		this.nMatch = nMatch;
+	}				 
+
 	this.makeHighlightRanges = function()
 	{
 		if(typeof(gaSearchTerms[0]) == "undefined")
 			return;
-
+		var count = 0;
 		var str = gaSearchTerms.reduce(function(result, value, index) {
 			var term = escapeRegExp(value.toLowerCase());
 			if (!(gsSubstrSrch || rh.util.hasNonAsciiChar(term))) {
@@ -402,20 +415,37 @@ function DomTexts()
 			result += (result != '' ? '|' : '') + term;
 			return result;
 		}, '');
-         
-		//jomart
-		//var regexp = new RegExp(str, "i");
+
+		var countTerms = {};
+		gaSearchTerms.forEach(function(value) {
+			var term = escapeRegExp(value.toLowerCase());
+			if (!(gsSubstrSrch || rh.util.hasNonAsciiChar(term))) {
+				//term = '\\b' + term + '\\b';
+				term = term;
+			}
+			
+			countTerms [term] = 0;
+		});
+		var str = gaSearchTerms.reduce(function(result, value, index) {
+			var term = escapeRegExp(value.toLowerCase());
+			if (!(gsSubstrSrch || rh.util.hasNonAsciiChar(term))) {
+				//term = '\\b' + term + '\\b';
+			}
+			result += (result != '' ? '|' : '') + term;
+			return result;
+		}, '');
 		
+		//var regexp = new RegExp(str, "i");
+
+		
+		//jomart
 		var regex = /(\|)/g;
 		if (regex.test(str)) {
-			
-			var regexp =  XRegExp('(^|[\\s\\p{P}\\p{S}\u200F])('+createAccentRegexp(str)+')(?=[\\s\\p{P}\\p{S}\u200F]|$)', "i");
+		 var regexp =  XRegExp('(^|[\\s\\p{P}\\p{S}\u200F])('+createAccentRegexp(str)+')(?=[\\s\\p{P}\\p{S}\u200F]|$)', "i");
         }
 		else{
-			
-		var regexp =  XRegExp('(^|[\\s\\p{P}\\p{S}\u200F])('+createAccentRegexp(str)+')(?=[\\s\\p{P}\\p{S}\u200F]|$)', "i");
+		var regexp =  XRegExp(createAccentRegexp(str).split(' ').join('[\\n\\r\\s\\p{P}\\p{S}\\p{Mn}\\u0640\u200F]+'), "i");
 		}
-		
 		
 		
 		var aWords ;
@@ -440,13 +470,22 @@ function DomTexts()
 
 				if (n != null &&  n.index > -1 )
 				{
+					
+
 					var strWord = n[0];
+					for (var key in countTerms) {
+						var regexp_term = new RegExp(key, "i");
+						if(regexp_term.test(strWord)){
+							countTerms[key] = 1;
+						}
+					}
 					this.aRanges[this.aRanges.length] = new ClosedRange( aWords[i].nCharLocation + prevLen + n.index,
 								aWords[i].nCharLocation + prevLen + n.index + strWord.length);
 					prevLen = prevLen + n.index + strWord.length;
 					tmpStr1 = tmpStr1.substring(n.index + strWord.length, tmpStr1.length);
 				}
 			}
+			this.calculateMatchLength(countTerms);
 		}
 	}
 	
@@ -459,10 +498,7 @@ function DomTexts()
 
 	this.jump2FirstHighlightedWord = function()
 	{
-			//jomart
-			
-			
-			if (gnYPos > 51){
+		if (gnYPos > 51){
 			window.scrollTo(0, gnYPos-50);
 			window.parent.postMessage(["scrollTop", gnYPos-50], "*");
 			
@@ -487,7 +523,7 @@ function DomTexts()
 	}
 }
 
-function processSuspendNodes( a_aNodes )
+function processSuspendNodes( a_aNodes)
 {
 	if ( a_aNodes.length == 0 )
 		return false;
@@ -509,7 +545,15 @@ function processSuspendNodes( a_aNodes )
 	}
 	
 	dt.makeHighlightRanges();
+	if (dt.nMatch > aLongestlength){
+		aLongestlength = dt.nMatch;
+		aLongestNodes.length = 0;
+		gnYPos = -1;
+		for(var i = 0, len = dt.aRanges.length; i < len; ++i)
+			aLongestNodes.push (dt.aNodes[i]);
+	}	
 	dt.highlightNodes();
+
 	dt.jump2FirstHighlightedWord();
 }
 
@@ -544,7 +588,7 @@ function isValidParentForSpan(a_Node)
 	return ss == null;
 }
 
-function doHighLightDomElement( a_aSuspendedNodes, a_Node )
+function doHighLightDomElement( a_aSuspendedNodes, a_Node)
 {
 	var childNodes = a_Node.childNodes;
 	
@@ -564,11 +608,11 @@ function doHighLightDomElement( a_aSuspendedNodes, a_Node )
 			{
 				if ( a_aSuspendedNodes.length > 0 )
 				{
-					processSuspendNodes( a_aSuspendedNodes );
+					processSuspendNodes( a_aSuspendedNodes);
 					a_aSuspendedNodes.length = 0;
 				}
 			}
-			doHighLightDomElement( a_aSuspendedNodes, node );
+			doHighLightDomElement(a_aSuspendedNodes, node);
 		}
 		else if ( node.nodeType == 3 )
 		{	//text
@@ -583,33 +627,39 @@ function highlightDocument()
 		return;
 		
 	var aSuspendedNodes = new Array();
+	aLongestNodes = new Array();
+	aLongestlength = 0;
 	var topicNode = document.getElementById(gTopicElemId);
 	if(!topicNode)
 		topicNode = document.body;
-	doHighLightDomElement( aSuspendedNodes, topicNode );
+	doHighLightDomElement( aSuspendedNodes, topicNode);
 	processSuspendNodes( aSuspendedNodes );
 }
 
 /////// start routine /////////
 function applyHighlight()
-{   
-	callbackHighlightSettingRead();
+{
+	//readSetting(RHHIGHLIGHT, callbackHighlightSettingRead);
+	callbackHighlightSettingRead(true);
+	
 }
 function callbackHighlightSettingRead(bHighlight)
 {
-		 callbackHighlightTxtColorRead();
+	if(bHighlight == TRUESTR)
+	//readSetting(RHHIGHLIGHTTEXTCOLOR, callbackHighlightTxtColorRead);
+	callbackHighlightTxtColorRead("#000000");
 }
 function callbackHighlightTxtColorRead(txtColor)
-{   
+{  
 	gsTextColor = txtColor;
-	 callbackHighlightBgColorRead();
+	//readSetting(RHHIGHLIGHTBGCOLOR, callbackHighlightBgColorRead);
+	callbackHighlightBgColorRead("#FCFF00");
 }
 function callbackHighlightBgColorRead(bgColor)
-{    
+{   //alert(bgColor);
 	gsBkgndColor = bgColor;
 	StartHighLightSearch();
 }
-
 function StartHighLightSearch()
 {
 	var strTerms = GetHighlightTextFromURL();
@@ -620,15 +670,8 @@ function StartHighLightSearch()
 	for (var i = 0; i < arrSyns.length; i++)
 		if (trim(arrSyns[i]) != "")
 			findSearchTerms(trim(arrSyns[i]), false);
- 
-if(strTerms){
- hit(strTerms);	
-}
-else{
 
-window.parent.postMessage(["loading","stop"], "*");	
-}
-
+	highlightDocument();
 }
 
 //////// common with FTS routines to identify stop word etc. ////////////
@@ -1601,6 +1644,61 @@ function escapeRegExp(str)
 
 
 
+
+
+
+
+if (_isMobile() == mobiletrue){
+	
+     jQueryM_v1_4_5(window).on("resize orientationchange", function(event) {
+       //wrapperhight()
+    });
+    jQueryM_v1_4_5(window).load(function() {
+	   //wrapperhight()		
+     });
+	
+}else{
+       jQueryD_1_4_2(window).resize(function() {
+			//wrapperhight()
+		});
+		jQueryD_1_4_2(window).load(function() {
+			//wrapperhight()		
+		});	
+}
+
+function wrapperhight() {
+	
+     if (_isMobile() == mobiletrue){	
+	
+	        if(window.location != window.parent.location){
+		      jQueryM_v1_4_5('#wrapper').height(jQueryM_v1_4_5(window).height());
+	        }else{
+              jQueryM_v1_4_5('#wrapper').height(jQueryM_v1_4_5(window).height() - 40);
+	        }
+	
+     }else{
+              
+			  if(window.location != window.parent.location){
+		        jQueryD_1_4_2('#wrapper').height(jQueryD_1_4_2(window).height());
+	          }else{
+		        jQueryD_1_4_2('#wrapper').height(jQueryD_1_4_2(window).height() - 40);
+	          }
+
+     }	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 ///////////////////////////jomart/////////////////////////////////
 
 function createAccentRegexp(characters) {
@@ -1728,571 +1826,6 @@ var charToAccentedCharClassMap = {
 'Z' : '[Zz\u0179-\u017e\u01f1-\u01f3\u1dbb\u1e90-\u1e95\u2124\u2128\u24b5\u24cf\u24e9\u3390-\u3394\uff3a\uff5a]'
 };
 
-//jomart
-/**
- * findAndReplaceDOMText v 0.4.0
- * @author James Padolsey http://james.padolsey.com
- * @license http://unlicense.org/UNLICENSE
- *
- * Matches the text of a DOM node against a regular expression
- * and replaces each match (or node-separated portions of the match)
- * in the specified element.
- */
-window.findAndReplaceDOMText = (function() {
-
-	var PORTION_MODE_RETAIN = 'retain';
-	var PORTION_MODE_FIRST = 'first';
-
-	var doc = document;
-	var toString = {}.toString;
-
-	function isArray(a) {
-		return toString.call(a) == '[object Array]';
-	}
-
-	function escapeRegExp(s) {
-		return String(s).replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
-	}
-
-	function exposed() {
-		// Try deprecated arg signature first:
-		return deprecated.apply(null, arguments) || findAndReplaceDOMText.apply(null, arguments);
-	}
-
-	function deprecated(regex, node, replacement, captureGroup, elFilter) {
-		if ((node && !node.nodeType) && arguments.length <= 2) {
-			return false;
-		}
-		var isReplacementFunction = typeof replacement == 'function';
-
-		if (isReplacementFunction) {
-			replacement = (function(original) {
-				return function(portion, match) {
-					return original(portion.text, match.startIndex);
-				};
-			}(replacement));
-		}
-
-		// Awkward support for deprecated argument signature (<0.4.0)
-		var instance = findAndReplaceDOMText(node, {
-
-			find: regex,
-
-			wrap: isReplacementFunction ? null : replacement,
-			replace: isReplacementFunction ? replacement : '$' + (captureGroup || '&'),
-
-			prepMatch: function(m, mi) {
-
-				// Support captureGroup (a deprecated feature)
-
-				if (!m[0]) throw 'findAndReplaceDOMText cannot handle zero-length matches';
-
-				if (captureGroup > 0) {
-					var cg = m[captureGroup];
-					m.index += m[0].indexOf(cg);
-					m[0] = cg;
-				}
-		 
-				m.endIndex = m.index + m[0].length;
-				m.startIndex = m.index;
-				m.index = mi;
-
-				return m;
-			},
-			filterElements: elFilter
-		});
-
-		exposed.revert = function() {
-			return instance.revert();
-		};
-
-		return true;
-	}
-
-	/** 
-	 * findAndReplaceDOMText
-	 * 
-	 * Locates matches and replaces with replacementNode
-	 *
-	 * @param {Node} node Element or Text node to search within
-	 * @param {RegExp} options.find The regular expression to match
-	 * @param {String|Element} [options.wrap] A NodeName, or a Node to clone
-	 * @param {String|Function} [options.replace='$&'] What to replace each match with
-	 * @param {Function} [options.filterElements] A Function to be called to check whether to
-	 *	process an element. (returning true = process element,
-	 *	returning false = avoid element)
-	 */
-	function findAndReplaceDOMText(node, options) {
-		return new Finder(node, options);
-	}
-
-	exposed.Finder = Finder;
-
-	/**
-	 * Finder -- encapsulates logic to find and replace.
-	 */
-	function Finder(node, options) {
-
-		options.portionMode = options.portionMode || PORTION_MODE_RETAIN;
-
-		this.node = node;
-		this.options = options;
-
-		// ENable match-preparation method to be passed as option:
-		this.prepMatch = options.prepMatch || this.prepMatch;
-
-		this.reverts = [];
-
-		this.matches = this.search();
-
-		if (this.matches.length) {
-			this.processMatches();
-		}
-
-	}
-
-	Finder.prototype = {
-
-		/**
-		 * Searches for all matches that comply with the instance's 'match' option
-		 */
-		search: function() {
-
-			var match;
-			var matchIndex = 0;
-			var regex = this.options.find;
-			var text = this.getAggregateText();
-			var matches = [];
-
-			regex = typeof regex === 'string' ? RegExp(escapeRegExp(regex), 'g') : regex;
-
-			if (regex.global) {
-				while (match = regex.exec(text)) {
-					matches.push(this.prepMatch(match, matchIndex++));
-				}
-			} else {
-				if (match = text.match(regex)) {
-					matches.push(this.prepMatch(match, 0));
-				}
-			}
-
-			return matches;
-
-		},
-
-		/**
-		 * Prepares a single match with useful meta info:
-		 */
-		prepMatch: function(match, matchIndex) {
-
-			if (!match[0]) {
-				throw new Error('findAndReplaceDOMText cannot handle zero-length matches');
-			}
-	 
-			match.endIndex = match.index + match[0].length;
-			match.startIndex = match.index;
-			match.index = matchIndex;
-
-			return match;
-		},
-
-		/**
-		 * Gets aggregate text within subject node
-		 */
-		getAggregateText: function() {
-
-			var elementFilter = this.options.filterElements;
-
-			return getText(this.node);
-
-			/**
-			 * Gets aggregate text of a node without resorting
-			 * to broken innerText/textContent
-			 */
-			function getText(node) {
-
-				if (node.nodeType === 3) {
-					return node.data;
-				}
-
-				if (elementFilter && !elementFilter(node)) {
-					return '';
-				}
-
-				var txt = '';
-
-				if (node = node.firstChild) do {
-					txt += getText(node);
-				} while (node = node.nextSibling);
-
-				return txt;
-
-			}
-
-		},
-
-		/** 
-		 * Steps through the target node, looking for matches, and
-		 * calling replaceFn when a match is found.
-		 */
-		processMatches: function() {
-
-			var matches = this.matches;
-			var node = this.node;
-			var elementFilter = this.options.filterElements;
-
-			var startPortion,
-				endPortion,
-				innerPortions = [],
-				curNode = node,
-				match = matches.shift(),
-				atIndex = 0, // i.e. nodeAtIndex
-				matchIndex = 0,
-				portionIndex = 0,
-				doAvoidNode;
-
-			out: while (true) {
-
-				if (curNode.nodeType === 3) {
-
-					if (!endPortion && curNode.length + atIndex >= match.endIndex) {
-
-						// We've found the ending
-						endPortion = {
-							node: curNode,
-							index: portionIndex++,
-							text: curNode.data.substring(match.startIndex - atIndex, match.endIndex - atIndex),
-							indexInMatch: atIndex - match.startIndex,
-							indexInNode: match.startIndex - atIndex, // always zero for end-portions
-							endIndexInNode: match.endIndex - atIndex,
-							isEnd: true
-						};
-
-					} else if (startPortion) {
-						// Intersecting node
-						innerPortions.push({
-							node: curNode,
-							index: portionIndex++,
-							text: curNode.data,
-							indexInMatch: atIndex - match.startIndex,
-							indexInNode: 0 // always zero for inner-portions
-						});
-					}
-
-					if (!startPortion && curNode.length + atIndex > match.startIndex) {
-						// We've found the match start
-						startPortion = {
-							node: curNode,
-							index: portionIndex++,
-							indexInMatch: 0,
-							indexInNode: match.startIndex - atIndex,
-							endIndexInNode: match.endIndex - atIndex,
-							text: curNode.data.substring(match.startIndex - atIndex, match.endIndex - atIndex)
-						};
-					}
-
-					atIndex += curNode.data.length;
-
-				}
-
-				doAvoidNode = curNode.nodeType === 1 && elementFilter && !elementFilter(curNode);
-
-				if (startPortion && endPortion) {
-
-					curNode = this.replaceMatch(match, startPortion, innerPortions, endPortion);
-
-					// processMatches has to return the node that replaced the endNode
-					// and then we step back so we can continue from the end of the 
-					// match:
-
-					atIndex -= (endPortion.node.data.length - endPortion.endIndexInNode);
-
-					startPortion = null;
-					endPortion = null;
-					innerPortions = [];
-					match = matches.shift();
-					portionIndex = 0;
-					matchIndex++;
-
-					if (!match) {
-						break; // no more matches
-					}
-
-				} else if (
-					!doAvoidNode &&
-					(curNode.firstChild || curNode.nextSibling)
-				) {
-					// Move down or forward:
-					curNode = curNode.firstChild || curNode.nextSibling;
-					continue;
-				}
-
-				// Move forward or up:
-				while (true) {
-					if (curNode.nextSibling) {
-						curNode = curNode.nextSibling;
-						break;
-					} else if (curNode.parentNode !== node) {
-						curNode = curNode.parentNode;
-					} else {
-						break out;
-					}
-				}
-
-			}
-
-		},
-
-		/**
-		 * Reverts ... TODO
-		 */
-		revert: function() {
-			// Reversion occurs backwards so as to avoid nodes subsequently
-			// replaced during the matching phase (a forward process):
-			for (var l = this.reverts.length; l--;) {
-				this.reverts[l]();
-			}
-			this.reverts = [];
-		},
-
-		prepareReplacementString: function(string, portion, match, matchIndex) {
-			var portionMode = this.options.portionMode;
-			if (
-				portionMode === PORTION_MODE_FIRST &&
-				portion.indexInMatch > 0
-			) {
-				return '';
-			}
-			string = string.replace(/\$(\d+|&|`|')/g, function($0, t) {
-				var replacement;
-				switch(t) {
-					case '&':
-						replacement = match[0];
-						break;
-					case '`':
-						replacement = match.input.substring(0, match.startIndex);
-						break;
-					case '\'':
-						replacement = match.input.substring(match.endIndex);
-						break;
-					default:
-						replacement = match[+t];
-				}
-				return replacement;
-			});
-
-			if (portionMode === PORTION_MODE_FIRST) {
-				return string;
-			}
-
-			if (portion.isEnd) {
-				return string.substring(portion.indexInMatch);
-			}
-
-			return string.substring(portion.indexInMatch, portion.indexInMatch + portion.text.length);
-		},
-
-		getPortionReplacementNode: function(portion, match, matchIndex) {
-
-			var replacement = this.options.replace || '$&';
-			var wrapper = this.options.wrap;
-
-			if (wrapper && wrapper.nodeType) {
-				// Wrapper has been provided as a stencil-node for us to clone:
-				var clone = doc.createElement('div');
-				clone.innerHTML = wrapper.outerHTML || new XMLSerializer().serializeToString(wrapper);
-				wrapper = clone.firstChild;
-			}
-
-			if (typeof replacement == 'function') {
-				replacement = replacement(portion, match, matchIndex);
-				if (replacement && replacement.nodeType) {
-					return replacement;
-				}
-				return doc.createTextNode(String(replacement));
-			}
-
-			var el = typeof wrapper == 'string' ? doc.createElement(wrapper) : wrapper;
-
-			replacement = doc.createTextNode(
-				this.prepareReplacementString(
-					replacement, portion, match, matchIndex
-				)
-			);
-
-			if (!el) {
-				return replacement;
-			}
-
-			el.appendChild(replacement);
-
-			return el;
-		},
-
-		replaceMatch: function(match, startPortion, innerPortions, endPortion) {
-
-			var matchStartNode = startPortion.node;
-			var matchEndNode = endPortion.node;
-
-			var preceedingTextNode;
-			var followingTextNode;
-
-			if (matchStartNode === matchEndNode) {
-
-				var node = matchStartNode;
-
-				if (startPortion.indexInNode > 0) {
-					// Add `before` text node (before the match)
-					preceedingTextNode = doc.createTextNode(node.data.substring(0, startPortion.indexInNode));
-					node.parentNode.insertBefore(preceedingTextNode, node);
-				}
-
-				// Create the replacement node:
-				var newNode = this.getPortionReplacementNode(
-					endPortion,
-					match
-				);
-
-				node.parentNode.insertBefore(newNode, node);
-
-				if (endPortion.endIndexInNode < node.length) { // ?????
-					// Add `after` text node (after the match)
-					followingTextNode = doc.createTextNode(node.data.substring(endPortion.endIndexInNode));
-					node.parentNode.insertBefore(followingTextNode, node);
-				}
-
-				node.parentNode.removeChild(node);
-
-				this.reverts.push(function() {
-					if (preceedingTextNode === newNode.previousSibling) {
-						preceedingTextNode.parentNode.removeChild(preceedingTextNode);
-					}
-					if (followingTextNode === newNode.nextSibling) {
-						followingTextNode.parentNode.removeChild(followingTextNode);
-					}
-					newNode.parentNode.replaceChild(node, newNode);
-				});
-
-				return newNode;
-
-			} else {
-				// Replace matchStartNode -> [innerMatchNodes...] -> matchEndNode (in that order)
-
-
-				preceedingTextNode = doc.createTextNode(
-					matchStartNode.data.substring(0, startPortion.indexInNode)
-				);
-
-				followingTextNode = doc.createTextNode(
-					matchEndNode.data.substring(endPortion.endIndexInNode)
-				);
-
-				var firstNode = this.getPortionReplacementNode(
-					startPortion,
-					match
-				);
-
-				var innerNodes = [];
-
-				for (var i = 0, l = innerPortions.length; i < l; ++i) {
-					var portion = innerPortions[i];
-					var innerNode = this.getPortionReplacementNode(
-						portion,
-						match
-					);
-					portion.node.parentNode.replaceChild(innerNode, portion.node);
-					this.reverts.push((function(portion, innerNode) {
-						return function() {
-							innerNode.parentNode.replaceChild(portion.node, innerNode);
-						};
-					}(portion, innerNode)));
-					innerNodes.push(innerNode);
-				}
-
-				var lastNode = this.getPortionReplacementNode(
-					endPortion,
-					match
-				);
-
-				matchStartNode.parentNode.insertBefore(preceedingTextNode, matchStartNode);
-				matchStartNode.parentNode.insertBefore(firstNode, matchStartNode);
-				matchStartNode.parentNode.removeChild(matchStartNode);
-
-				matchEndNode.parentNode.insertBefore(lastNode, matchEndNode);
-				matchEndNode.parentNode.insertBefore(followingTextNode, matchEndNode);
-				matchEndNode.parentNode.removeChild(matchEndNode);
-
-				this.reverts.push(function() {
-					preceedingTextNode.parentNode.removeChild(preceedingTextNode);
-					firstNode.parentNode.replaceChild(matchStartNode, firstNode);
-					followingTextNode.parentNode.removeChild(followingTextNode);
-					lastNode.parentNode.replaceChild(matchEndNode, lastNode);
-				});
-
-				return lastNode;
-			}
-		}
-
-	};
-
-	return exposed;
-
-}());
-
-
-
-//jomart
-function hit(xx){
-var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
-	var term = hh;
-    term= term.replace(/["']/g, "");
-		//alert(hh);
-		if(/^".*"$/.test(hh)==true){
-		
-		term = createAccentRegexp(term).split(' ').join('(<[^>]+>|[\\n\\r\\s\\p{P}\\p{S}\\p{Mn}\\u0640\u200F])*')
-        var pattern = XRegExp("("+term+")", "gi");
-		
-		var container = document;
-        
-		findAndReplaceDOMText(container, {
-				find: pattern,
-				replace: function(portion, match) {
-					called = true;
-					var el = document.createElement('em');
-					el.innerHTML = portion.text;
-					return el;
-				}
-        });
-	
-		window.parent.postMessage(["loading","stop"], "*");
-		//document.getElementById("loading").style.display = 'none'; 
-		 
-		 
-if (_isMobile() == mobiletrue) {
-		     			    
-jQueryM_v1_4_5("em").get(0).scrollIntoView();
-
-}
-else{
-	
-jQueryD_1_4_2("em").get(0).scrollIntoView();
-
-}	
-		
-		}
-		else{
-           
-			highlightDocument();
-			
-		}
-
-		
-		
-	
-		
-		
-}
-
 
 
 
@@ -2307,75 +1840,15 @@ var data = e.data[1];
 
     switch(eventName) {
       case 'get_ifram_location_href':
-      
-		str = data
-		if (str.match(/(index.html)/mg) ) {
-			window.parent.postMessage(["get_ifram_location_href",str], "*");
-		}
-		else{	
-		
-		var loc_target="";
-		data2 = document.location.href;
-		/*rhsearch = str.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
-		rhhlterm = str.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");*/
-		rhsyns = data2.replace(/(.*?)\?(rhhlterm=[^"]*|&rhsyns=[^"]*)/mg, "$1");
-       
-	    if (str.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc_target= str.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
-			
-		}
-	   
-		if (str.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc_target+= str.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
-		}
-		if (str.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc_target+= str.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
-		}
-		if (data2.match(/(#post(.*?))/mg) ) {
-					   loc_target+= data2.replace(/[^"]*(#post(.*?))/mg, "$1");
-					   rhsyns= rhsyns.replace(/(#post[^"]*)/mg, "");			 
-		}
-		if (data2.match(/(#td_threadtitle(.*?))/mg) ) {
-					   loc_target+= data2.replace(/[^"]*(#td_threadtitle(.*?))/mg, "$1");
-					   rhsyns= rhsyns.replace(/(#td_threadtitle[^"]*)/mg, "");			 
-		}
-		if (rhsyns.match(/(rhsyns=%20)/mg) ) {
-					   //loc_target+= dd.replace(/[^"]*(#td_threadtitle(.*?))/mg, "$1");
-			rhsyns= rhsyns.replace(/(rhsyns=%20)/mg, "");	
-            			
-	    }
-		//alert(rhsyns+'bbbbbbbbb'+loc_target);
-		
-		if(loc_target != ''){
-		loc_target = '?'+loc_target;
-		}
-		
-		window.parent.postMessage(["get_ifram_location_href",rhsyns+loc_target], "*");
-		//alert(rhsyns);
-			
-			
-		}
-     	break;
+         window.parent.postMessage(["get_ifram_location_href",location.href], "*");
+     break;
      case 'check_highlight_state':
           if (data =="true"){
-		
 		  enable_highlight = true;
-		  //document.getElementById("loading").style.display = 'block';
+		  document.getElementById("loading").style.display = 'block';
 		  setTimeout(applyHighlight, 50);
-	
-		  loaddsett();
-		  
 		  }
-		  else{
-		  loaddsett();
-		  
-          //document.getElementById("loading").style.display = 'none';
-          setTimeout(stopload, 50);
-		  function stopload() {
-             window.parent.postMessage(["loading","stop"], "*");
-          }		  
-		  enable_highlight = false;
-		  }
+		  else{enable_highlight = false;}
      break;
      case 'link_disable':
 	 if (data =="true"){
@@ -2387,10 +1860,3 @@ var data = e.data[1];
 	 }
 }	
 },false);
-
-
-
-
-
-
-

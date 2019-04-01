@@ -1,25 +1,24 @@
-
 var gSearchMsgId = "searchMsg";
 var gResultsFoundString = "%1 نتيجة (نتائج) تم العثور عليها لـ %2";
-var gSearchResultHtml = "{%LINK_NAME%}\n							\n							<span  class=\"wSearchURL\">{%SEARCH_URL%}</span> \n							 <br />\n							<span  class=\"wSearchContext\">{%SEARCH_SUMMARY%}</span>";
-var gSearchResClassName = "wSearchResultItem";
-var gSearchResTitleClassName = "wSearchResultTitle";
-var gSearchResTitleClassHover = "wSearchResultTitleHover";
+var gSearchResultHtml = "";
+var gSearchResClassName = "";
+var gSearchResTitleClassName = "";
+var gSearchResTitleClassHover = "";
 var gSearchResStyle = "";
 var gSearchResTitleStyle = "";
-var gSearchPrevBtnId = "searchprev";
-var gSearchNextBtnId = "searchnext";
-var gsResultDivID="searchResList";
-var gPageListBarID ="pageList";
-var gPageLinkClass = "wSearchPageNumberLink";
-var gPageClass = "wSearchPageNumberSelected";
-var gSearchDropdownID = "searchResCount";
+var gSearchPrevBtnId = "";
+var gSearchNextBtnId = "";
+var gsResultDivID="";
+var gPageListBarID ="";
+var gPageLinkClass = "";
+var gPageClass = "";
+var gSearchDropdownID = "";
 var gSearchPageFilePath = "";
 var gSearchResultsCount = "15";
 var gSearchHighlightControlID = "highlightsearch";
 var gbHighLight = 1;
 var gTextHighlightColor = "#000000";
-var gbgHighlightColor = "#b2b4bf";
+var gbgHighlightColor = "#FCFF00";
 
 gRootRelPath = ".";
 
@@ -84,15 +83,6 @@ function onToggleHighlightSearch()
 }
 function onMaxPageCountChange(maxVal)
 {
-	
-	
-	if(maxVal ==-1){
-		document.getElementById("pages_bar_note").className = "rh-hide";
-	}
-	else{
-		removeClass(document.getElementById("pages_bar_note"),"rh-hide");
-	}
-	
 	g_nMaxResult = maxVal;
 	
 	if(rh.model.get(rh.consts('KEY_SEARCHED_TERM')))
@@ -101,24 +91,7 @@ function onMaxPageCountChange(maxVal)
 }
 function onClickPrevNext( btn, a_nPageNumber )
 {
-	
-	if(scrolling){
-		return false;
-	}
-	
-	
-	onClickPage(a_nPageNumber);
-	//jomart
-	
-	
-	$(document).ready(function(){
-
-      
-	      $(".m").scrollCenter(".wSearchPageNumberSelected", 0);
-	
-  
-    }); 
-   	
+	onClickPage(a_nPageNumber);	
 }
 function updateNavigationPagesBar(nCurPage, nNumPages)
 {
@@ -131,14 +104,10 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 		return;
 	}	
 		
-	var resDiv = document.getElementById("rh_scrollable_content");
+	var resDiv = document.getElementById(gsResultDivID);
 	if(gPageRange == 0)
-		gPageRange = Math.floor(SEARCHPAGEWIDTHRATIO);
-	
-	var startPage = nCurPage - Math.floor(gPageRange);
-	
-	//alert(startPage);
-	
+		gPageRange = Math.floor(resDiv.offsetWidth/SEARCHPAGEWIDTHRATIO);
+	var startPage = nCurPage - Math.floor(gPageRange/2);
 	var endPage = 0;
 	if(startPage < 1)
 		startPage = 1;
@@ -152,23 +121,14 @@ function updateNavigationPagesBar(nCurPage, nNumPages)
 	}
 	var sHTML = "";
 	sHTML += "<ul style='margin: 0px; padding: 0px;'>";
-	
-	
-	
-	
-	for(var i=1; i<=nNumPages; i++)
+	for(var i=startPage; i<=endPage; i++)
 	{
-		
-		
 		if(i == nCurPage)
 			sHTML += "<li class='" + gPageClass + "' style='display:inline;'>" + i.toString() + "</li>";
 		else
-			sHTML += "<li class='' onclick=\"onClickPrevNext(this,'" + i.toString() + "')\" >" + i.toString() + "</li>";
+			sHTML += "<li class='" + gPageLinkClass + " " + HLISTCLASS + " " + HANDCURSORCLASS + "' onclick=\"onClickPrevNext(this,'" + i.toString() + "')\" >" + i.toString() + "</li>";
 	}
 	sHTML += "</ul>";
-	
-	
-	
 	pageListBarDiv.innerHTML = sHTML;
 }
 function updatePrevNextButtons(nCurPage, nNumPages)
@@ -188,7 +148,7 @@ function updatePrevNextButtons(nCurPage, nNumPages)
 			if(isPrevBtn)
 			{
 				prevBtn.style.display = "inline";
-				prevBtn.onclick = function(){onClickPrevNext(prevBtn, (1).toString());};
+				prevBtn.onclick = function(){onClickPrevNext(prevBtn, (parseInt(nCurPage)-1).toString());};
 			}
 		}
 		else if(isPrevBtn)
@@ -198,7 +158,7 @@ function updatePrevNextButtons(nCurPage, nNumPages)
 			if(isNextBtn)
 			{
 				nextBtn.style.display = "inline";
-				nextBtn.onclick = function(){onClickPrevNext(nextBtn, (nNumPages).toString());};
+				nextBtn.onclick = function(){onClickPrevNext(nextBtn, (parseInt(nCurPage)+1).toString());};
 			}
 		}
 		else if(isNextBtn)
@@ -236,10 +196,9 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 		strHoverEvents += " onmouseover=\"onSearchItemHover(this,'" + gSearchResTitleClassHover + "')\" ";
 		strHoverEvents += " onmouseout=\"onSearchItemHoverOut(this,'" + gSearchResTitleClassName + "')\"";
 	}
-	var anchorStartTag = "<a onclick=\"go_topic();\" class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl + "\" >"+_textToHtml_nonbsp(a_strTitle)+"</a>";
-	var title = anchorStartTag ;
-	
-
+	var anchorStartTag = "<a class='"+ NOLINKANCHORCLASS + "' href=\"" + a_strUrl + "\" >";
+	var divStartTag = "<div class='" + gSearchResTitleClassName + "' " + strTitleStyle + strHoverEvents + ">";
+	var title = anchorStartTag + divStartTag + _textToHtml_nonbsp(a_strTitle) + "</div></a>";
 	
 	var html = gSearchResultHtml.replace(LINK_NAME_MACRO, title);
 	if(a_sSummary.length > 0)
@@ -258,25 +217,25 @@ function writeResult( a_strUrl, a_strTitle, a_nIndex, a_sSummary, a_rhTags, a_st
 	var strStyle ="";
 	if(gSearchResStyle != "")
 		strStyle = "style=\"" + gSearchResStyle + "\" ";
-
 	return "<div class=\'" + gSearchResClassName + "\' " + strStyle + " >" + html + "</div>";
-	
-
-	
 }
 function setResultsStringHTML(results_no, searchStr)
 {
 	var msg = gResultsFoundString;
+	searchStr = document.getElementById("wSearchField").value;
 	
-	
-	var msg = gResultsFoundString;
 	msg = msg.replace("%1", results_no);
 	msg = msg.replace("%2", "\'" + searchStr + "\'");
+	
+	
 	displayMsg(msg);
 }
 function displayMsg(msg)
 {
 	var spanNode = document.getElementById(gSearchMsgId);
+	
+	//alert(msg);
+	
 	if(spanNode != null && spanNode != 'undefined')
 		spanNode.innerHTML = msg;
 }
