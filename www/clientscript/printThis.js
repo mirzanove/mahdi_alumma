@@ -1,5 +1,5 @@
 
-function print(){
+function print(mode){
 	
    var $;
    if (_isMobile() == mobiletrue) {
@@ -97,6 +97,12 @@ function print(){
       return $($('<div></div>').html(this.clone())).html();
     }
 
-    $("#content").printThis();
+	if(mode == "whol"){
+		$("#content").printThis();
+	}
+	else{
+		
+	}
+    
 	 //location.reload();
 }
