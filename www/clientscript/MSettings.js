@@ -514,6 +514,7 @@ jQueryM_v1_4_5(document).ready(function() {
 
 
   if (window.location == window.parent.location) {} else {
+	  
                 jQueryM_v1_4_5("html,body")
                     .css("height", "100%");
   }
