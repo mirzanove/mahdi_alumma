@@ -3631,25 +3631,52 @@ window.addEventListener('resize', function() {
     clearTimeout(resizeId);
     if(a_QueryResultt){
         resizeId = setTimeout(doneResizing, 500);
-	}
-	
+	}	
 });
 
 function doneResizing(){
-   
-	
 	if (typeof getbooleanindexopage !== "undefined") { 
 		if(getbooleanindexopage()==3) {
 	
-			 go_index();
+			 
+			
+var x = document.getElementById("searchBoxSearchPage");
+if (x === document.activeElement) {
+
+} else {
+ // go_index();
+}			 
+			 
 		}
 		else{
-			 go_index();
+	
+
+if(getbooleanindexopage()==2){
+	
+var x = document.getElementById("wSearch");
+if (x === document.activeElement) {
+
+} else {
+  go_index();
+}	
+}
+else{
+	
+
+var x = document.getElementById("wSearchField");
+if (x === document.activeElement) {
+
+} else {
+  go_index();
+}
+
+	
+}
+	
+ 
 	
 		}
-	}
-	
-	
+	}	
 }
 
 
