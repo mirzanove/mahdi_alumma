@@ -65,6 +65,7 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/json2
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/simple-postmessage.js\'><\/script>');  
 
 }
+document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/printThis.js\'><\/script>');  
 
 
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/ExFun.js\'><\/script>');  
@@ -80,6 +81,7 @@ if(_isMobile() == mobiletrue) {
 else{
    document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/DSettings.js\'><\/script>');  
 }
+
 
 	
 	
