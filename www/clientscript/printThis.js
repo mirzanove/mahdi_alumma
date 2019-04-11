@@ -1,4 +1,6 @@
 
+var oldfram = null;
+
 function print(mode){
 	
    var $;
@@ -14,7 +16,13 @@ function print(mode){
         opt = $.extend({}, $.fn.printThis.defaults, options);
  
         var $element =$(this);
-     
+   
+	   
+	 if(oldfram){	
+          $("#"+oldfram).remove();
+      }
+	 
+	 
     // if Opera, open a new tab
         if ($.browser.opera)
         {
@@ -26,8 +34,10 @@ function print(mode){
     // add dynamic iframe to DOM
         else
         {
-        var strFrameName = ("printThis-" + (new Date()).getTime());
-         
+			
+				
+        var strFrameName = ("printThis");
+        oldfram = strFrameName;
             var $iframee = $("<iframe id='" + strFrameName +"'/>");
  
            $iframee.css({ visibility:"hidden" ,position: "fixed", width: "0px", height: "0px", left: "-600px", top: "-600px",  direction: "rtl" });
@@ -36,9 +46,7 @@ function print(mode){
          
             var $doc = $("#" + strFrameName).contents();
         }
-    // allow iframe to fully render before action
-    setTimeout ( function () {
-         
+      
 		 var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
          var url = vburl;
 		 url = url.substring(0, url.indexOf(v)); 
@@ -78,17 +86,32 @@ function print(mode){
      
         //$doc.close();
         // print
-        ($.browser.opera ? tab : $iframee[0].contentWindow).focus();
-        setTimeout( function() { ($.browser.opera ? tab : $iframee[0].contentWindow).print(); if (tab) { tab.close(); } }, 1000);
+        //($.browser.opera ? tab : $iframee[0].contentWindow).focus();
+        //setTimeout( function() { ($.browser.opera ? tab : $iframee[0].contentWindow).print(); if (tab) { tab.close(); } }, 1000);
          
-        //removed iframe after 60 seconds
-        setTimeout(
-        function(){
-        $("#" + strFrameName).remove();
-        },
-        (1000)
-        );
-    }, 333 );
+	    $("#" + strFrameName).ready(function(){
+        
+		
+		
+		($.browser.opera ? tab : $iframee[0].contentWindow).focus();
+        setTimeout( function() {
+
+        tooltip("cool", null);
+		$iframee[0].contentWindow.print()
+		
+		//setTimeout(function () { $("#" + strFrameName).remove(); }, 3000);
+		
+		}, 2000);
+         //console.log("ggggggggg");
+		
+		
+		
+		
+       });
+		 
+		 
+		 
+
     }
      
  

@@ -2,13 +2,17 @@
 
 function tooltip(el, message)
 {
+	var element =  document.getElementById('copy_tooltip');
+    var tooltip;
+	
+	if(el ==null){
+		
 	var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
 	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 	//var x = parseInt(el.getBoundingClientRect().left) + scrollLeft + 400;
 	//var y = parseInt(el.getBoundingClientRect().top) + scrollTop + 100;
 	
-	var element =  document.getElementById('copy_tooltip');
-    var tooltip;
+	
 	
 	//alert(element);
 	if (typeof(element) == 'undefined' || element == null)
@@ -53,15 +57,14 @@ function tooltip(el, message)
 	tooltip.style.marginLeft = "-50px";
 		
 	}*/
-	
-	
 	tooltip.innerHTML = message;
-	setTimeout(function() { 
-	if (tooltip != null){
-	//alert(tooltip);
-	tooltip.outerHTML = ""; delete tooltip;printin_prosses = false;
 	}
-	}, 3000);
+	else{
+	
+	document.getElementById('copy_tooltip').outerHTML = ""; delete document.getElementById('copy_tooltip'); printin_prosses = false;
+	
+	}
+		
 }
 
 

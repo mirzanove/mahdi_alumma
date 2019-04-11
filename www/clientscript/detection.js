@@ -10,6 +10,8 @@ var fontstylelist =true;
 var othersizelist;
 var lateefsizelist;
 
+
+
  
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
