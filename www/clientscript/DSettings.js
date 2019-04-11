@@ -518,10 +518,13 @@ else {
         .ready(function () {
 
 
-            if (window.location == window.parent.location) {} else {
-                jQueryD_1_4_2("html,body")
-                    .css("height", "100%");
+            if (window.location == window.parent.location) {
+			   //jQueryD_1_4_2("#wrapper").css("height", "100%");
+			}
+			else {
+                jQueryD_1_4_2("html,body").css("height", "100%");
             }
+			
 
 
 
