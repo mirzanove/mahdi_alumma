@@ -1,0 +1,243 @@
+<html>
+<head>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+
+	   <!-- Normalize or reset CSS with your favorite library -->
+  <link rel="stylesheet" href="normalize.min.css">
+
+  <!-- Load paper.css for happy printing -->
+  <link rel="stylesheet" href="paper.css">
+  <link rel="stylesheet" href="bookcss/ff_ch_ie9_edg_fixFont.css">
+
+	
+
+	<script src="jquery.js"></script>
+    <script src="autocolumn.min.js"></script>
+	
+	
+	
+<!-- Set page size here: A5, A4 or A3 -->
+<!-- Set also "landscape" if you need -->
+<style>@page { size: A4 }</style>
+	
+<style type="text/css">
+
+pdf,
+up,
+div,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+a,
+abbr,
+acronym,
+del,
+font,
+img,
+ins,
+q,
+strike,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+	margin: 0;
+	padding: 0;
+	font: inherit;
+	direction: rtl;
+	/*font-size: 100%;*/
+	
+	/*transform: translate3d(0,0,0);*/
+	
+}
+
+
+html, body {
+direction: rtl;
+overflow:hidden;
+background:white;
+/*zoom:65%;*/
+}
+
+html {
+overflow:auto;
+
+}
+
+
+.posttop,#navbar,.thread_title,.selecth1FontFamily,.tooltip4,#pagenumbers,hr,.footer{
+display: none;
+}
+
+
+.sheet .header{
+display: none;
+}
+
+.sheet .footer{ 
+display: none;
+}
+
+#page_template{
+display: none;
+}
+
+.page-break{page-break-after: always;}
+span.columnbreak { display:none;}
+@media print {
+html, body {
+zoom:100%;
+}
+
+.page-break{page-break-after: always;}
+#theDiv {
+    display: none;
+}
+
+}
+
+#theDiv {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    width: 250px;
+    margin-left: -100px;
+    height: auto;
+    margin-top: -25px;
+    background: yellow;
+	font-size: 150% !important;
+	text-align:center;
+	padding:10px;
+}
+
+</style>
+
+
+	 
+	 
+	 
+</head>
+<body class="A4">
+<div id="theDiv">الرجاء الانتظار يتم توليد صفحات عرض الطباعة
+</div> 
+<div id="page_template">  
+	<div class='header'>This is a header<hr></div>  
+	<div class='content'></div>  
+	<div class='footer'><hr><span>Page: </span>This is the footer.</div>  
+</div> 
+<div id="newsletterContent" style = "display:none;">
+
+</div>
+</body>
+
+<script>
+
+//var jsdom = require("G:/softwares/tools/nw.012/nwjs-v0.12.3-win-ia32/dont_move_delete_this_folder/www/jsdom/lib/jsdom.js");
+
+			var content_height = 1050;	// the height of the content, discluding the header/footer
+			var page = 1;				// the beginning page number to show in the footer
+			function buildNewsletter(){
+				if($('#newsletterContent').contents().length > 0){
+					// when we need to add a new page, use a jq object for a template
+					// or use a long HTML string, whatever your preference
+					$page = $("#page_template").clone().addClass("sheet padding-10mm").css("display", "block");
+					
+					// fun stuff, like adding page numbers to the footer
+					//$page.find(".footer span").append(page);
+					$("body").append($page);
+					page++;
+					
+					// here is the columnizer magic
+					$('#newsletterContent').columnize({
+						columns: 1,
+						target: ".sheet:last .content",
+						overflow: {
+							height: content_height,
+							id: "#newsletterContent",
+							doneFunc: function(){								
+								buildNewsletter();
+							}
+						}
+						
+						
+					});
+				}
+}
+
+
+
+ 
+
+
+
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+eventer(messageEvent,function(e) {
+
+    var eventName = e.data[0];
+    var data = e.data[1];
+	var data2 = e.data[2];
+	var data3 = e.data[3];
+	var data4 = e.data[4];
+	switch(eventName) {
+
+	case 'send_con':
+	  // document.body.innerHTML  =data;
+	   $("#newsletterContent").html(data);
+	  
+	   //setTimeout(buildNewsletter, 10);
+	   $("#newsletterContent").show();
+	   
+	  
+	   setTimeout(function(){
+	   
+	   $("#theDiv").hide();
+	   
+      $('.posttext > div,.posttext > span ,font').css("line-height",data2);
+	  $('.posttext').css('font-size',data3);
+	  $('#pagebody').css("font-family",data4);
+	   
+	   },(100));
+	break;
+	
+	
+	
+	
+}
+},false);
+
+
+
+</script>
+
+
+</html>
