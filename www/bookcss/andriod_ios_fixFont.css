@@ -9,6 +9,13 @@
   url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
 }
 
+@font-face {
+  font-family: 'Calibri';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Calibri'), url(http://themes.googleusercontent.com/licensed/font?kit=nlKOmF1wqcz6D96Jy0PsIA) format('truetype');
+} 
+
 body { 
 /*overflow:hidden; */
 -webkit-overflow-scrolling: touch; 
