@@ -10,6 +10,15 @@ for(var i=0; i<x.length; i++) {
 }
 }
 
+function disable_select_text(xx)
+{
+	var x = jQueryM_v1_4_5(xx);
+	for (var i = 0; i < x.length; i++)
+	{
+		makeunselectable(x[i])
+	}
+}
+
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, '\\$&');
@@ -516,11 +525,13 @@ if (typeof encryptedMsg != 'undefined')
 		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML);
 	
 		}
-		
-enable_select_text('.posttext');
-enable_select_text('.thread_title');
-enable_select_text('span.padd');
-enable_select_text('#content>ul');
+
+
+disable_select_text('#navbar');
+				disable_select_text('.tooltip4');
+				disable_select_text('.posttop');
+				disable_select_text('.selecth1FontFamily');
+				disable_select_text('.footer');
 		
 		if(lsTest() === true){
 		var checked2 = localStorage.getItem('autolog');
@@ -740,10 +751,11 @@ else{
 
 
 
-enable_select_text('.posttext');
-enable_select_text('.thread_title');
-enable_select_text('span.padd');
-enable_select_text('#content>ul');
+disable_select_text('#navbar');
+				disable_select_text('.tooltip4');
+				disable_select_text('.posttop');
+				disable_select_text('.selecth1FontFamily');
+				disable_select_text('.footer');
 
 
 jQueryM_v1_4_5(document).click(function() {

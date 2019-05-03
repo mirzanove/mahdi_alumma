@@ -1,6 +1,6 @@
 
 var disable_resoures = false;
-var mobiletrue = false;
+var mobiletrue = true;
 var encrypted = false;
 var wke = false;
 var iee = false;
