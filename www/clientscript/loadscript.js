@@ -24,6 +24,10 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/krypt
 	                      
 }
 
+
+
+
+
 if(window.location == window.parent.location) {
 	                      
 }
@@ -47,7 +51,31 @@ else{
 	  }
 
 }
-document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archive.css\'/>');
+if(localStorage.getItem("NDmode")){
+
+if(localStorage.getItem("NDmode")=="night"){
+	
+document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archiveN.css\'/>');
+
+	
+}
+else{
+	
+document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archiveD.css\'/>');
+
+	
+}
+
+	
+}
+else{
+
+document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archiveD.css\'/>');
+	
+}
+
+
+
 
 document.write('<script type=\"text/javascript\" src=\''+url+'js/index.js\'><\/script>'); 
 
@@ -91,10 +119,11 @@ else{
 }
 
 
+//document.write('<script type=\"text/javascript\" src=\''+url+'template/exjs/fullscreen.js\'><\/script>');  
+
+
 	
 	
 }
-
-
 }
 

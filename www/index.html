@@ -457,6 +457,15 @@ window.onclick = function(event) {
     }
   }
 }
+
+if (typeof process !== "undefined" && typeof require !== "undefined")
+{
+	localStorage.setItem("currURL", window.location);
+}
+
+
+
+
 </script>
 <script src="template/exjs/classList.js"></script>
 

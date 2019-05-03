@@ -1,5 +1,7 @@
 ﻿
 
+
+
 if (typeof process !== "undefined" && typeof require !== "undefined") {
                 function copyToClipboard(text) {
                     var dummy = document.createElement("input");
@@ -50,7 +52,8 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                                 menu.append(new gui.MenuItem({
                                     label: 'Open in browser'
                                     , click: function (e) {
-                                        gui.Shell.openExternal(target.href);
+                                        //gui.Shell.openExternal(target.href);
+										gui.Shell.openItem(decodeURIComponent(target.href));
                                     }
                                 }));
                                 menu.append(new gui.MenuItem({
@@ -93,7 +96,9 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                                     menu.append(new gui.MenuItem({
                                         label: 'Open in browser'
                                         , click: function (e) {
-                                            gui.Shell.openExternal(target.getAttribute("href"));
+                                            //gui.Shell.openExternal(target.getAttribute("href"));
+										
+                                             gui.Shell.openItem(decodeURIComponent(target.getAttribute("href")));
                                         }
                                     }));
                                     menu.append(new gui.MenuItem({
@@ -163,6 +168,70 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                 }, false);
 
 }
+
+
+
+function toggleNDmode(e){
+
+ var dropdowns = document.getElementsByClassName("dropdown-content");
+       var i;
+       for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+         if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+         }
+       }
+
+if(localStorage.getItem("NDmode")){
+	
+if(localStorage.getItem("NDmode")=="night"){
+	
+localStorage.setItem("NDmode", "daylight");
+	
+}
+else{
+	
+localStorage.setItem("NDmode", "night");
+	
+}
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+location.reload();	
+}
+else{
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+localStorage.setItem("NDmode", "night");
+location.reload();	
+	
+}
+	
+}
+
+
+window.addEventListener("orientationchange", function() {
+
+
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+
+document.getElementById("myDropdown").style.overflowY = "hidden";
+document.getElementById("myDropdown").style.height = "auto";
+
+}
+else{
+
+document.getElementById("myDropdown").style.overflowY = "scroll";
+document.getElementById("myDropdown").style.height = "235px";
+
+}
+
+
+}
+
+
+}, false);
+
+
 
 
 
@@ -527,6 +596,64 @@ function px(input) {
 
 
 $(document).ready( function (){
+
+
+
+
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+
+document.getElementById("myDropdown").style.overflowY = "scroll";
+document.getElementById("myDropdown").style.height = "235px";
+
+
+}
+else{
+
+document.getElementById("myDropdown").style.overflowY = "hidden";
+document.getElementById("myDropdown").style.height = "auto";
+
+}
+}
+
+
+
+
+
+if(localStorage.getItem("NDmode")){	
+if(localStorage.getItem("NDmode")=="night"){
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+	
+}
+else{
+
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+	
+}
+}
+else{
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+
+	
+}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	
@@ -1011,7 +1138,7 @@ removeClass(document.getElementById("searchresults"),"rh-hide");
     document.getElementById("searchresults").removeAttribute("hidden");
 	document.getElementById("searchresults").classList.remove("rh-hide");
 	if(document.location.href.indexOf("&ux=search")== -1){
-//	history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(bookmark)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=search");
+history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(bookmark)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=search");
 	}	
 		
 
@@ -2103,6 +2230,14 @@ var paramters="";
 
       window.location.href = pur_link+"%23"+data+paramters;
      break;
+	 case 'saveCurrrURL':
+
+	 localStorage.setItem("currURL", window.location.href);
+	 break;
+	 case 'gofull':
+     toggfullScreen.call();  //ouput global:undefined
+	//toggleFull();
+	break;
 	
 }
 },false);

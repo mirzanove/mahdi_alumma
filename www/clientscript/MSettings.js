@@ -203,96 +203,168 @@ function getCookie(cname) {
     return "";
 }
 
-function updateh1family(savefont) {
-        
-var selector, family, h1, fonttype;
 
-	    if(savefont== true){
+function font_options(index,selector,strUser){
+		
+		    var h1 = document.getElementById('wrapper')
+			h1.style.fontFamily = strUser;
+		
 
-		 
-		selector = document.getElementById('selecth1FontFamily');
-		family = selector.options[selector.selectedIndex].value;
-         h1 = document.getElementById('wrapper')
-        h1.style.fontFamily = family; 
-		
-		}
-		else{
-		
-		if(lsTest() === true){
-		fonttype = localStorage.getItem('fonttype'); 
-		if(fonttype || fonttype == null){	
-		selector = document.getElementById('selecth1FontFamily');
-		selector.selectedIndex = fonttype;
-		strUser = selector.options[selector.selectedIndex].value;
-		h1 = document.getElementById('wrapper')
-        h1.style.fontFamily = strUser; 
-		jQueryM_v1_4_5('.posttext').removeAttr("style");	
-		}
-		}
-		else{
-		
-		fonttype = getCookie("fonttype");
-        if(fonttype || fonttype == null){		
-		selector = document.getElementById('selecth1FontFamily');
-		selector.selectedIndex = fonttype;
-		strUser = selector.options[selector.selectedIndex].value;
-		h1 = document.getElementById('wrapper')
-        h1.style.fontFamily = strUser; 
-		jQueryM_v1_4_5('.posttext').removeAttr("style");	
-		}
-		}
-			
-		}
-		
-		
-		
-		
-		if(selector.selectedIndex == 0){
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","100%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
-						 ///jQueryM_v1_4_5('.dropdown-content').css("font-size","0%");*/
-						 
-						  /*jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
-						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");*/
-						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "normal");
-						  jQueryM_v1_4_5('#wrapper').css("font-size","170%");
-						  jQueryM_v1_4_5('.posttext').css("font-size","120%");
-						 
-						 
-		             }
-					 else{
-						 
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");*/
-						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
+					if(index == 0){
+					h1 = document.getElementById('wrapper');
+					
+					if(localStorage.getItem("currsize")){
 						
-						 /*jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");*/
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "140%");
-						 jQueryM_v1_4_5('#wrapper').css("font-size","125%");
-						 jQueryM_v1_4_5('.posttext').css("font-size","120%");
-		 }
-		 
-		 
-		 if(savefont== true){
-		 if(lsTest() === true){
-				 
-				 localStorage.setItem('fonttype',selector.selectedIndex); 
-		 }
-		 else{
-				
-				 setCookie("fonttype", selector.selectedIndex, 1000);
- 
-		 }
-		 }
-		
+						h1.style.fontSize = (180+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "180%";	
+					}
+					
+					localStorage.setItem("defaltsize", "180"); 
 
+					}
+					
+					if(index == 1){
+				
+					h1 = document.getElementById('wrapper');
+				
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (140+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "140%";	
+					}
+					
+					localStorage.setItem("defaltsize", "140");
+					
+					}
+					
+					if(index == 2){
+					h1 = document.getElementById('wrapper');
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (115+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "115%";	
+					}
+					localStorage.setItem("defaltsize", "100");
+				
+					}
+					
+					if(index == 3){
+					h1 = document.getElementById('wrapper');
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (190+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "190%";	
+					}
+					localStorage.setItem("defaltsize", "190");
+				
+					}
+					
+					if(index == 4){
+					h1 = document.getElementById('wrapper');
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (140+parseFloat(localStorage.getItem("currsize")))+"%";
+						
+					}
+					else{
+					  h1.style.fontSize = "140%";	
+					}
+					localStorage.setItem("defaltsize", "140");
+				
+					}
+		
 		
 }
+
+
+
+
+function updateh1family(savefont)
+	{
+
+		var selector, fonttype,index,strUser;
+		
+			
+			
+		if (savefont == !0)
+		{
+
+	        selector = document.getElementById('selecth1FontFamily');
+			strUser = selector.options[selector.selectedIndex].value;
+			index = selector.selectedIndex;
+			selector.selectedIndex = index;
+	
+	
+			if (lsTest() === !0)
+			{
+				
+				localStorage.setItem('fonttype', selector.selectedIndex)
+			}
+			else
+			{
+				setCookie("fonttype", selector.selectedIndex, 1000)
+			}
+			
+			font_options(index,selector,strUser);
+			
+		}
+		else
+		{
+			if (lsTest() === !0)
+			{
+				
+				
+				index = localStorage.getItem('fonttype');
+				if (index)
+				{
+					
+					selector = document.getElementById('selecth1FontFamily');
+			        selector.selectedIndex = index;
+					strUser = selector.options[index].value;
+					font_options(index,selector,strUser);
+				
+					
+				}
+				else{
+					
+					
+			        selector = document.getElementById('selecth1FontFamily');
+				    index = selector.selectedIndex;
+					strUser = selector.options[index].value;
+					font_options(index,selector,strUser);
+					
+			
+				}
+				
+				
+				jQueryM_v1_4_5('.posttext').removeAttr("style")
+			}
+			else
+			{
+				fonttype = getCookie("fonttype");
+				if (fonttype || fonttype == null)
+				{
+					selector = document.getElementById('selecth1FontFamily');
+					selector.selectedIndex = fonttype;
+					strUser = selector.options[selector.selectedIndex].value;
+					h1 = document.getElementById('wrapper')
+					h1.style.fontFamily = strUser;
+					jQueryM_v1_4_5('.posttext').removeAttr("style")
+				}
+			}
+		}
+		
+
+	}
+
 
 
 function autolog(event,hh,pass){
@@ -437,7 +509,8 @@ if (typeof encryptedMsg != 'undefined')
 	
 		if (fontstylelist == true) { 
          
-		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option> Lateef </option><option> Calibri </option><option> Arial </option></select><div>");
+		jQueryM_v1_4_5( "#content" )
+                        .html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>" + plainHTML + "<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option>Lateef</option><option>Amiri</option><option>Droid Arabic Naskh</option><option>Scheherazade</option><option>Arial</option></select><div>");
         }
 		else{
 		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML);
@@ -625,7 +698,8 @@ jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
 
 if (fontstylelist == true) {
 
-jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Calibri </option><option> Arial </option></select><div>');
+jQueryM_v1_4_5("#content")
+                    .append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option>Lateef</option><option>Amiri</option><option>Droid Arabic Naskh</option><option>Scheherazade</option><option>Arial</option></select><div>');
 }
 //jQueryM_v1_4_5("#wrapper").append('<center><a target ="_blank" href="https://info.flagcounter.com/4Yvv"><img src="https://s11.flagcounter.com/count/4Yvv/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Free counters!" border="0"></a></td></center>');
 
@@ -952,7 +1026,22 @@ function loaddsett(){
 
 jQueryM_v1_4_5(document).ready(function() {
 
-        
+   
+document.onkeydown = keydown;
+
+function keydown(e) {
+  var evtobj = window.event ? event : e
+  if (evtobj.keyCode == 122){
+	  
+  evtobj.keyCode = 0;
+  evtobj.returnValue = false;
+    //alert("[JS] Ctrl + F11 pressed");
+	window.parent.postMessage(["gofull", null], "*");
+  }
+}   
+   
+   
+
 jQueryM_v1_4_5("#staticrypt-password").focus(function() {
 jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 });
@@ -1610,12 +1699,12 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			
 			
 			
+				
+		jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').removeAttr("style")
+				
 			
 			
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize2+"%");
-            /*document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';*/
+   
         });
 
         // Increase Font Size 
@@ -1645,7 +1734,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 		    //alert("lol");
 		 }
      
-		if(fontSize == null){
+	
 					    //fontSize = null;
 						//alert("getnewzise");
 						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
@@ -1660,9 +1749,8 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 						
 						}
 						
-						//alert(posttopid);
-						
-		}
+					
+	
 		
 		if(fontSize2 == null){
 					    //fontSize = null;
@@ -1808,7 +1896,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                   
 				
 				
-				jQueryM_v1_4_5('.posttop').removeAttr('style');
+				jQueryM_v1_4_5('.posttop').removeClass( "sectionH" );
                 if(section.indexOf("post") !== -1) {
                    
                    if(jQueryM_v1_4_5(section).length){
@@ -1827,7 +1915,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                     }
 
 
-					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
+					jQueryM_v1_4_5(section).addClass( "sectionH" );
 					}
 				   }
                 }
@@ -1851,7 +1939,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 					
 					
 					
-					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
+					jQueryM_v1_4_5(section).addClass( "sectionH" );
 					}
 				   }
                 }
@@ -1860,9 +1948,8 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
         jQueryM_v1_4_5(window).hashchange();
  
 
- 
-   //alert(jQueryM_v1_4_5('.posttext').css('font-size'));
- 
+   
+   
    }); //end
     	
 

@@ -94,8 +94,7 @@ strParamss=null;
 	
 	var textInput = document.getElementById('wSearch'),
 		clearBtn = document.getElementById('clear');
-if(clearBtn){
-	
+if(clearBtn){	
 if (textInput.value.length > 1) {
        //clearBtn.style.visibility =  "visible" ;
      }

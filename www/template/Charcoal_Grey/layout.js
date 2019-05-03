@@ -69,6 +69,112 @@ document.getElementById("checkbox_id4").disabled = false;
 }
 
 
+function toggleNDmode(e){
+
+ var dropdowns = document.getElementsByClassName("dropdown-content");
+       var i;
+       for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+         if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+         }
+       }
+
+if(localStorage.getItem("NDmode")){
+	
+if(localStorage.getItem("NDmode")=="night"){
+	
+localStorage.setItem("NDmode", "daylight");
+	
+}
+else{
+	
+localStorage.setItem("NDmode", "night");
+	
+}
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+location.reload();	
+}
+else{
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+localStorage.setItem("NDmode", "night");
+location.reload();	
+	
+}
+	
+}
+
+
+if(localStorage.getItem("NDmode")){	
+if(localStorage.getItem("NDmode")=="night"){
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+	
+}
+else{
+
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+	
+}
+}
+else{
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+
+	
+}
+	
+
+
+
+window.addEventListener("orientationchange", function() {
+
+
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+
+document.getElementById("myDropdown").style.overflowY = "hidden";
+document.getElementById("myDropdown").style.height = "auto";
+
+}
+else{
+
+document.getElementById("myDropdown").style.overflowY = "scroll";
+document.getElementById("myDropdown").style.height = "235px";
+
+}
+
+
+}
+
+
+}, false);
+
+
+
+
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+
+document.getElementById("myDropdown").style.overflowY = "scroll";
+document.getElementById("myDropdown").style.height = "235px";
+
+
+}
+else{
+
+document.getElementById("myDropdown").style.overflowY = "hidden";
+document.getElementById("myDropdown").style.height = "auto";
+
+}
+}
+
+
+
+
 function showdropdown() {
 	    document.getElementById("myDropdown").classList.toggle("show");
 }
@@ -200,10 +306,6 @@ setTimeout(function() {
 }
 
 
-(function() {
-
-
-
 	var textInput = document.getElementById('wSearch'),textInput2 = document.getElementById('websiteName'),
 		clearBtn = document.getElementById('clear'),clearBtn2 = document.getElementById('clear2');
 	
@@ -217,13 +319,16 @@ setTimeout(function() {
 		this.style.visibility = "hidden";
 		textInput2.value = "";
 	};
+
+textInput.addEventListener("input",function () {
+  if (textInput.value.length == 0) {
+       clearBtn.style.visibility =  "hidden" ;
+  }
+  else{
 	
-	if (textInput.value.length > 1) {
-       //clearBtn.style.visibility =  "visible" ;
-    }
-	 
-	
-})();
+	 clearBtn.style.visibility =  "visible" ; 
+  }
+})
 
 
 function showclear2(input) {
@@ -381,8 +486,8 @@ function smoothScrollu(domElement,pixel,delay)
 }
 
 
-
 if (typeof process !== "undefined" && typeof require !== "undefined") {
+
                 function copyToClipboard(text) {
                     var dummy = document.createElement("input");
                     document.body.appendChild(dummy);
@@ -432,7 +537,8 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                                 menu.append(new gui.MenuItem({
                                     label: 'Open in browser'
                                     , click: function (e) {
-                                        gui.Shell.openExternal(target.href);
+                                        //gui.Shell.openExternal(target.href);
+										gui.Shell.openItem(decodeURIComponent(target.href));
                                     }
                                 }));
                                 menu.append(new gui.MenuItem({
@@ -475,7 +581,8 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                                     menu.append(new gui.MenuItem({
                                         label: 'Open in browser'
                                         , click: function (e) {
-                                            gui.Shell.openExternal(target.getAttribute("href"));
+                                           // gui.Shell.openExternal(target.getAttribute("href"));
+                                            gui.Shell.openItem(decodeURIComponent(target.getAttribute("href")));
                                         }
                                     }));
                                     menu.append(new gui.MenuItem({
@@ -554,6 +661,20 @@ window.addEventListener('popstate', function(event) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
@@ -620,6 +741,10 @@ eventer(messageEvent,function(e) {
 	
 if(lsTest() === true){
 
+
+
+
+    
     document.getElementById("websiteName").value = data; 
 	document.getElementById("websiteUrl").value = data2;
 	//showclear2();
@@ -657,7 +782,11 @@ if(lsTest() === true){
    
    
  fetchBookmarks(data2);  
-   
+ 
+	if (textInput.value.length == 0) {
+       clearBtn.style.visibility =  "hidden" ;
+    }
+  
    
 }else{
  
@@ -725,6 +854,14 @@ var paramters="";
 
       window.location.href = pur_link+"%23"+data+paramters;
      break;
+	 case 'saveCurrrURL':
+
+	 localStorage.setItem("currURL", window.location.href);
+	 break;
+	 case 'gofull':
+
+	 toggleFull();
+	 break;
 	
 }
 },false);
@@ -743,4 +880,13 @@ function printIFrameContent()
   }
 }
 //printIFrameContent();
+
+
+
+
+
+
+
+
+
 	

@@ -14,7 +14,6 @@ return "1";
 function MyFunction(){
     
 	document.getElementsByClassName("loading2")[0].style.display = 'block';
-	
 	str = document.location.href;
 	str =str.replace("/jqmStyle.html", "/index.html");
 	
@@ -173,6 +172,31 @@ $(document).on("mobileinit", function(){
          gTocUrlIconStyle = "";
       </script>
 <style>
+
+.star_yellow:after
+{
+background-image: url("jqmlib/themes/default/images/icons-png/star-yellow.png")!important;
+background-position: 50.5% 50%!important;
+background-repeat: no-repeat!important;
+ 
+}
+
+
+
+.ui-btn-icon-right:after, .ui-btn-icon-left:after, .ui-btn-icon-top:after, .ui-btn-icon-bottom:after, .ui-btn-icon-notext:after {
+
+    background-color: black;
+  
+}
+
+ui-body-b, .ui-page-theme-b .ui-body-inherit, html .ui-bar-b .ui-body-inherit, html .ui-body-b .ui-body-inherit, html body .ui-group-theme-b .ui-body-inherit, html .ui-panel-page-container-b {
+    background: white /*{b-body-background-color}*/;
+    border-color: #1d1d1d /*{b-body-border}*/;
+    color: black /*{b-body-color}*/;
+    text-shadow: 0 /*{b-body-shadow-x}*/ 1px /*{b-body-shadow-y}*/ 0 /*{b-body-shadow-radius}*/ #111 /*{b-body-shadow-color}*/;
+}
+
+
 
 .img_wrapper{
 	   display:none;
@@ -368,13 +392,7 @@ font-weight:bold;
     margin-bottom: 15px;
 	text-align: center;
 }
-.star_yellow
-{
-background-image: url("jqmlib/themes/default/images/icons-png/star-yellow.png")!important;
-background-position: center 40% !important;
-background-repeat: no-repeat !important;
- 
-}
+
 </style>
 
   
@@ -390,16 +408,16 @@ background-repeat: no-repeat !important;
   <body  style="height:100%; width:100% ;overflow: hidden; margin: 0; padding: 0;" class="hide-children loading" data-rhwidget="Basic" data-class="media-desktop: KEY_SCREEN_PHONE; media-landscape: KEY_SCREEN_PHONE; media-mobile: KEY_SCREEN_PHONE; ios: KEY_SCREEN_IOS" data-controller="ModernLayoutController: mc; JsLoadingController" data-attr="dir:KEY_DIR">
 <script type="text/javascript" src="./ehlpdhtm.js"></script>
 
-<div style="overflow: hidden; margin: 0; padding: 0;" data-role="page" id="map-page" class="mainpage" data-theme="a">
+<div style="overflow: hidden; margin: 0; padding: 0;" data-role="page" id="map-page" class="mainpage">
 
 
 
 
-  <div id="headerr" style="position:absolute; top:0px; left:0px; height:60px; right:0px;overflow:hidden;background:#e9e9e9;"> 
+  <div id="headerr"  style="position:absolute; top:0px; left:0px; height:60px; right:0px;overflow:hidden;background:#e9e9e9;"> 
     
 	<div id="hed" style = "position:absolute;top:0px; width:100%">
 
-<div id="home_header" data-role="header">
+<div id="home_header" data-role="header" data-theme="b">
 
 <table style='width:100%'>
 	  
@@ -411,37 +429,39 @@ background-repeat: no-repeat !important;
      </td>
 
 	 <td style='width:2.5em'>
-		<a href="#popupMenu2" data-transition="none"  data-rel="popup" data-role="button" data-icon="plus" data-iconpos="notext">&nbsp;</a>
+		<a  data-theme="a" href="#popupMenu2" data-transition="none"  data-rel="popup" data-role="button" data-icon="plus" data-iconpos="notext">&nbsp;</a>
 	  </td>
 	 
 	  <td style='width:2.5em'>
-	  <a data-trigger="EVT_SCROLL_TO_DOWN" data-ajax="false" data-role="button" data-icon="arrow-d" data-iconpos="notext">&nbsp;</a>
+	  <a  data-theme="a" data-trigger="EVT_SCROLL_TO_DOWN" data-ajax="false" data-role="button" data-icon="arrow-d" data-iconpos="notext">&nbsp;</a>
 	  </td>
 	  <td style='width:2.5em'>
-		<a data-trigger="EVT_SCROLL_TO_TOP" data-ajax="false" data-role="button" data-icon="arrow-u" data-iconpos="notext">&nbsp;</a>
+		<a data-theme="a" data-trigger="EVT_SCROLL_TO_TOP" data-ajax="false" data-role="button" data-icon="arrow-u" data-iconpos="notext">&nbsp;</a>
      </td>
  
 	  <td style='width:2.5em'>
-	  <a  data-trigger="EVT_SCROLL_TO_NEXTPOST" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="notext">&nbsp;</a>
+	  <a data-theme="a" data-trigger="EVT_SCROLL_TO_NEXTPOST" data-ajax="false" data-role="button" data-icon="arrow-r" data-iconpos="notext">&nbsp;</a>
 	  </td>
 	   <td style='width:2.5em'>
-		<a  data-trigger="EVT_SCROLL_TO_PREPOST" data-ajax="false" data-role="button" data-icon="arrow-l" data-iconpos="notext">&nbsp;</a>
+		<a  data-theme="a" data-trigger="EVT_SCROLL_TO_PREPOST" data-ajax="false" data-role="button" data-icon="arrow-l" data-iconpos="notext">&nbsp;</a>
      </td>
 	   
 </tr>
-</table>
+</table> 
 
 
-<div style = "padding:0;" data-role="popup" id="popupMenu2" data-theme="a">
-<a style = "padding:3px;" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_HIT" data-role="button" data-ajax="false">ازالة تسليط الضوء</a>
-<a style = "padding:3px;" data-trigger="EVT_ADD_HIT" data-role="button" data-ajax="false">اعادة تسليط الضوء</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_FORMAT" data-role="button" data-ajax="false">ازالة التنسيق</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_SRC" data-role="button" data-ajax="false">ازالة رابط مصدر البيان</a>
-<a style = "padding:3px;" data-trigger="EVT_REMOVE_TRANZ" data-role="button" data-ajax="false">ازالة روابط عبارات الترجمة</a>
-<a style = "padding:3px;" data-trigger="EVT_ZOOMIN" data-role="button" data-ajax="false">تكبير النص لكل الصفحة</a>
-<a style = "padding:3px;" data-trigger="EVT_ZOOMOUT" data-role="button" data-ajax="false">تصغير النص لكل الصفحة</a>
-<a style = "padding:3px;" data-trigger="EVT_RESET" data-role="button" data-ajax="false">الحجم الإفتراضي للصفحة</a>
+<div style = "padding:0;" data-role="popup" id="popupMenu2" data-theme="a" style= "webkit-overflow-scrolling: touch;">
+<a style = "margin:0;padding:1px;" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
+<a id = "NDmode" style = "margin:0;padding:1px;" onClick= "toggleNDmode(this);"  data-role="button" data-ajax="false">تعيين التصفح الليلي</a>
+<a id = "FullS" style = "margin:0;padding:1px;" data-role="button" data-ajax="false">تحجيم كلي للشاشة F11</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_REMOVE_HIT" data-role="button" data-ajax="false">ازالة تسليط الضوء</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_ADD_HIT" data-role="button" data-ajax="false">اعادة تسليط الضوء</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_REMOVE_FORMAT" data-role="button" data-ajax="false">ازالة التنسيق</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_REMOVE_SRC" data-role="button" data-ajax="false">ازالة رابط مصدر البيان</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_REMOVE_TRANZ" data-role="button" data-ajax="false">ازالة روابط عبارات الترجمة</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_ZOOMIN" data-role="button" data-ajax="false">تكبير النص لكل الصفحة</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_ZOOMOUT" data-role="button" data-ajax="false">تصغير النص لكل الصفحة</a>
+<a style = "margin:0;padding:1px;" data-trigger="EVT_RESET" data-role="button" data-ajax="false">الحجم الإفتراضي للصفحة</a>
 
 
 
@@ -475,7 +495,7 @@ background-repeat: no-repeat !important;
 
 
 
-<div id ="search_header" data-role="header" >
+<div id ="search_header"  data-role="header" >
 <iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
 <form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
 	<table style='width:100%'>
@@ -496,7 +516,7 @@ background-repeat: no-repeat !important;
 	  
      <td style='width:2em'>
 
-		<a data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'" data-role="button" data-icon="search" data-iconpos="notext">&nbsp;</a>
+		<a  style="background-color :white; color: white;"  data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'" data-role="button" data-icon="search" data-iconpos="notext">&nbsp;</a>
 		
      </td>
      </form>
@@ -724,6 +744,7 @@ background-repeat: no-repeat !important;
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
 <script type="text/javascript" src="template/Theme3_Black/dragscroll.js"></script>
+<script src="template/exjs/fullscreen.js"></script>
 <script type="text/javascript" src="template/Charcoal_Grey/layout_jqm.js"></script>
 <script src="template/Theme3_Black/jquery.slimscroll.js"></script>
 <script type="text/javascript" src="whxdata/whtagdata.js"></script>

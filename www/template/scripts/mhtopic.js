@@ -640,7 +640,16 @@ function StartHighLightSearch(hitid)
 			findSearchTerms(trim(arrSyns[i]), false);
  
 if(strTerms){
- hit(strTerms);	
+ 
+if (typeof process !== "undefined" && typeof require !== "undefined")
+{ 
+setTimeout(function(){ hit(strTerms);}, 2300);
+}
+else{
+setTimeout(function(){ hit(strTerms);}, 100);	
+}
+  
+ 
 }
 else{
 
@@ -2388,7 +2397,7 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					
 					var el = document.createElement('em');
 					el.classList.add("enableselect");
-
+                    el.classList.add("mark");
 					if(portion.text.replace(/\s/g,"") != ""){
 					el.setAttribute('id','hit_'+i);
 					i++;
@@ -2401,6 +2410,9 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					return el;
 				}
         });
+		
+
+
 	
 		window.parent.postMessage(["loading","stop"], "*");
 		//document.getElementById("loading").style.display = 'none'; 
@@ -2545,9 +2557,8 @@ var data2 = e.data[2];
 		}
 		
 		
-        var puer_url = document.location.protocol +"//"+ document.location.hostname + document.location.pathname;
+        var puer_url = document.location.protocol +"//"+ document.location.hostname+(location.port ? ':'+location.port: '') + document.location.pathname;
         var paramters="";
-
 	   if(getParameterByName("rhsearch", str)){	
 		paramters +="&rhsearch="+getParameterByName("rhsearch", str);	
 	   }
@@ -2605,10 +2616,12 @@ else{
 hitid = null; 
 }
 		  
-		  
-		  setTimeout(function(){ applyHighlight(hitid);}, 50);
+		  //alert(hitid);
+		  setTimeout(function(){ applyHighlight(hitid);}, 0);
 	
 		  loaddsett();
+		  
+		
 		  
 		  }
 		  else{
@@ -2632,7 +2645,7 @@ hitid = null;
 	 }
 	  case 'get_ifram_location_href2':
         
-		var c = window.location.href;
+		var c = document.location.pathname;
 		          if(c.indexOf("&checkbox=") !== -1) {
 						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
                     }
@@ -2663,6 +2676,7 @@ hitid = null;
 		c= c.replace('html?', "html");
         c= c.replace('htm?', "htm");		 
 
+	
 		window.parent.postMessage(["send_page_info",document.title, c], "*");
 		 
 		 

@@ -1,0 +1,81 @@
+/* amiri-regular - arabic */
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.eot'); /* IE9 Compat Modes */
+  src: local('Amiri Regular'), local('Amiri-Regular'),
+       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.svg#Amiri') format('svg'); /* Legacy iOS */
+}
+
+
+/* lateef-regular - arabic */
+@font-face {
+  font-family: 'Lateef';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.eot'); /* IE9 Compat Modes */
+  src: local('Lateef'),
+       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
+}
+
+
+@font-face {
+    font-family: 'DroidArabicNaskhBold';
+        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+      }
+
+@font-face {
+    font-family: 'DroidArabicNaskhRegular';
+        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+
+
+ /* The following rules are deprecated. */ 
+
+@font-face {
+    font-family: 'Droid Arabic Naskh';
+        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+      }
+
+
+
+@font-face {
+    font-family: 'Droid Arabic Naskh';
+        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+      }
+	  
+	  
+/* scheherazade-regular - arabic */
+@font-face {
+  font-family: 'Scheherazade';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.eot'); /* IE9 Compat Modes */
+  src: local('Scheherazade'), local('Scheherazade-Regular'),
+       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.svg#Scheherazade') format('svg'); /* Legacy iOS */
+}
+	  
+	  
+	  
+	

@@ -1,4 +1,5 @@
-﻿var link_disable = false;
+﻿
+var link_disable = false;
 var elts = document.getElementsByTagName('div');
 $(document).on( "pagecontainershow", function(){
    //ScaleContentToDevice();
@@ -6,6 +7,18 @@ $(document).on( "pagecontainershow", function(){
     $(window).on("resize orientationchange", function(){
      
 	// ScaleContentToDevice();
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+$('#popupMenu2').css('overflow-y', 'scroll');
+$('#popupMenu2').css('height', '235px');
+}
+else{
+$('#popupMenu2').css('overflow-y', 'hidden');
+$('#popupMenu2').css('height', 'auto');	
+}
+}
+
     })
 });
 function ScaleContentToDevice(){
@@ -44,10 +57,77 @@ $(".ui-content").height(content);
 }
 
 
+function toggleNDmode(e){
+
+$('.ui-popup').popup('close');
+
+if(localStorage.getItem("NDmode")){
+	
+if(localStorage.getItem("NDmode")=="night"){
+	
+localStorage.setItem("NDmode", "daylight");
+	
+}
+else{
+	
+localStorage.setItem("NDmode", "night");
+	
+}
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+location.reload();	
+}
+else{
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+localStorage.setItem("NDmode", "night");
+location.reload();	
+	
+}
+	
+}
+
+
+
 
 
 
 $(document).ready(function(){
+
+
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+$('#popupMenu2').css('overflow-y', 'scroll');
+$('#popupMenu2').css('height', '235px');
+}
+else{
+$('#popupMenu2').css('overflow-y', 'hidden');
+$('#popupMenu2').css('height', 'auto');	
+}
+
+}
+
+	
+if(localStorage.getItem("NDmode")){	
+if(localStorage.getItem("NDmode")=="night"){
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+	
+}
+else{
+
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+	
+}
+}
+else{
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+
+	
+}
+
+
 
 
 if (typeof process !== "undefined" && typeof require !== "undefined") {
@@ -181,6 +261,8 @@ function smoothScrollu(domElement,pixel,delay)
 
 
 if (typeof process !== "undefined" && typeof require !== "undefined") {
+	
+	
                 function copyToClipboard(text) {
                     var dummy = document.createElement("input");
                     document.body.appendChild(dummy);
@@ -204,12 +286,12 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                     return el.isContentEditable;
                 }
 
-
-
                 document.addEventListener("contextmenu", function (e) {
-                    var gui = require('nw.gui');
-                    var win = gui.Window.get();
-                    var menu = new gui.Menu();
+                   
+                    
+					//win.enterFullscreen();
+					
+					var menu = new gui.Menu();
                     e.preventDefault();
                     e.stopPropagation();
                     var link = this.href;
@@ -230,7 +312,9 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                                 menu.append(new gui.MenuItem({
                                     label: 'Open in browser'
                                     , click: function (e) {
-                                        gui.Shell.openExternal(target.href);
+                                        //gui.Shell.openExternal(target.href);
+									    gui.Shell.openItem(decodeURIComponent(target.href));
+                                        
                                     }
                                 }));
                                 menu.append(new gui.MenuItem({
@@ -273,7 +357,8 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                                     menu.append(new gui.MenuItem({
                                         label: 'Open in browser'
                                         , click: function (e) {
-                                            gui.Shell.openExternal(target.getAttribute("href"));
+                                            //gui.Shell.openExternal(target.getAttribute("href"));
+											gui.Shell.openItem(decodeURIComponent(target.getAttribute("href")));
                                         }
                                     }));
                                     menu.append(new gui.MenuItem({
@@ -575,7 +660,7 @@ eventer(messageEvent,function(e) {
 	if(lsTest() === true){
 	document.getElementById("websiteName").value = data; 
 	document.getElementById("websiteUrl").value = data2;
-	
+
 	 if(localStorage.getItem('bookmarks') != null){
 	 	   
 		     var bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
@@ -625,6 +710,12 @@ eventer(messageEvent,function(e) {
 	}
 	break;
 	
+	
+	case 'get_text':
+
+	//document.getElementById('iframe').contentWindow.postMessage(["get",str], "*");
+	break;
+	
 	case 'gotohash':
 
 
@@ -654,6 +745,17 @@ var paramters="";
 
       window.location.href = pur_link+"%23"+data+paramters;
      break;
+	case 'saveCurrrURL':
+
+	 localStorage.setItem("currURL", window.location.href);
+	break;
+	
+	case 'gofull':
+
+	toggfullScreen.call();
+	break;
+	
+	
 	
   }
 },false);

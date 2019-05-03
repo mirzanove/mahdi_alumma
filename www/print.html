@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title></title>
+    <title>عرض الطباعة</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	 
@@ -10,9 +10,7 @@
 
   <!-- Load paper.css for happy printing -->
   <link rel="stylesheet" href="paper.css">
-  <link rel="stylesheet" href="bookcss/ff_ch_ie9_edg_fixFont.css">
-
-	
+  <link rel="stylesheet" href="bookcss/archive2.css">
 
 	<script src="jquery.js"></script>
     <script src="autocolumn.min.js"></script>
@@ -84,7 +82,7 @@ html, body {
 direction: rtl;
 overflow:hidden;
 background:white;
-/*zoom:65%;*/
+zoom:65%;
 }
 
 html {
@@ -92,6 +90,16 @@ overflow:auto;
 
 }
 
+*{
+-webkit-touch-callout:default; /* iOS Safari */
+    -webkit-user-select: text; /* Safari */
+     -khtml-user-select: text; /* Konqueror HTML */
+       -moz-user-select: text; /* Firefox */
+        -ms-user-select: text;/* Internet Explorer/Edge */
+		 -o-user-select: text;
+            user-select: text; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */	
+}
 
 .posttop,#navbar,.thread_title,.selecth1FontFamily,.tooltip4,#pagenumbers,hr,.footer{
 display: none;
@@ -127,15 +135,16 @@ zoom:100%;
 #theDiv {
     position: fixed;
     top: 40%;
-    left: 50%;
+    left: 45%;
     width: 250px;
     margin-left: -100px;
     height: auto;
     margin-top: -25px;
     background: yellow;
-	font-size: 150% !important;
+	
 	text-align:center;
 	padding:10px;
+	zoom:150%;
 }
 
 </style>
@@ -162,7 +171,7 @@ zoom:100%;
 
 //var jsdom = require("G:/softwares/tools/nw.012/nwjs-v0.12.3-win-ia32/dont_move_delete_this_folder/www/jsdom/lib/jsdom.js");
 
-			var content_height = 1050;	// the height of the content, discluding the header/footer
+			var content_height = 1000;	// the height of the content, discluding the header/footer
 			var page = 1;				// the beginning page number to show in the footer
 			function buildNewsletter(){
 				if($('#newsletterContent').contents().length > 0){
@@ -194,7 +203,43 @@ zoom:100%;
 
 
 
+ $(document).ready(function () {
+            // retrieving our data and converting it back into an array
+var retrievedData = localStorage.getItem("quentinTarantino");
+var movies2 = JSON.parse(retrievedData);
+$("#newsletterContent").html(movies2[0]);
+$('.posttext > div,.posttext > span ,font').css("line-height",movies2[1]);
+$('.posttext').css('font-size',"200%");
+$('*').css("font-family",movies2[3]); 
+
+  
+setTimeout(
+        function(){
+
+  	
+	 // $('.posttext > div,.posttext > span ,font').css("line-height",movies2[1]);
+	  //$('.posttext').css('font-size',movies2[2]);
+	 
  
+	 // buildNewsletter();
+	  
+	   
+	   
+	   
+	  $("#newsletterContent").show();
+	  $("#theDiv").hide();
+
+		   
+        },
+        (1000)
+        );
+		
+		
+	
+
+
+});
+
 
 
 
@@ -202,7 +247,6 @@ var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 var eventer = window[eventMethod];
 var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 eventer(messageEvent,function(e) {
-
     var eventName = e.data[0];
     var data = e.data[1];
 	var data2 = e.data[2];
@@ -211,22 +255,26 @@ eventer(messageEvent,function(e) {
 	switch(eventName) {
 
 	case 'send_con':
+	
+	window.opener.postMessage(["get_text"], '*');
+	  /* alert(data);
+	   try {
+       $("#theDiv").hide();
 	  // document.body.innerHTML  =data;
 	   $("#newsletterContent").html(data);
-	  
-	   //setTimeout(buildNewsletter, 10);
-	   $("#newsletterContent").show();
-	   
-	  
-	   setTimeout(function(){
-	   
-	   $("#theDiv").hide();
-	   
-      $('.posttext > div,.posttext > span ,font').css("line-height",data2);
+	  $('.posttext > div,.posttext > span ,font').css("line-height",data2);
 	  $('.posttext').css('font-size',data3);
 	  $('#pagebody').css("font-family",data4);
+
+}
+catch(err) {
+ alert();
+}
 	   
-	   },(100));
+	   $("#newsletterContent").show();
+	   
+	  */
+	 
 	break;
 	
 	

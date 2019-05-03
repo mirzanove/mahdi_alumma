@@ -1,6 +1,11 @@
 
 
-
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
 
  
    
@@ -18,12 +23,26 @@ function printPage(id)
          var url = vburl;
 		 url = url.substring(0, url.indexOf(v));
 
-   var newWindow = window.open(""+url+"print.html",'_blank','toolbar=0,scrollbars=0,status=0');
-  tooltip("remove", null);	   
+   //var newWindow = window.open(""+url+"print.html",'_blank','toolbar=0,scrollbars=0,status=0');
+var gui = require('nw.gui');
+
+var newWindow = gui.Window.open(""+url+"print.html",{toolbar:true,frame:true}, {}, function(newWin) {
+});
+
+ 
+ var movies = [id.html(),$('.posttext > div,.posttext > span ,font').css("line-height"),$('.posttext').css('font-size'),$('#wrapper').css("font-family")];
+ localStorage.setItem("quentinTarantino", JSON.stringify(movies));
+ 
+ 
+tooltip("remove", null);	   
  setTimeout(
         function(){
-		 
-           newWindow.postMessage(["send_con",id.html(),$('.posttext > div,.posttext > span ,font').css("line-height"),$('.posttext').css('font-size'),$('#wrapper').css("font-family")], "*");
+
+  		 //  newWindow.window.postMessage(["send_con",id.html(),$('.posttext > div,.posttext > span ,font').css("line-height"),$('.posttext').css('font-size'),$('#wrapper').css("font-family")], "*");
+
+  		  // newWindow.window.postMessage(["send_con",id.html()], "*");
+
+		   
         },
         (1000)
         );

@@ -1,6 +1,6 @@
 
 var disable_resoures = false;
-var mobiletrue = true;
+var mobiletrue = false;
 var encrypted = false;
 var wke = false;
 var iee = false;
@@ -137,6 +137,23 @@ function makeselectable(node) {
     var child = node.firstChild;
     while (child) {
         makeselectable(child);
+        child = child.nextSibling;
+    }
+}
+
+
+function makeunselectable(node) {
+   // alert(node.nodeType);
+	if (node.nodeType == 1) {
+        node.setAttribute("unselectable", "off");
+		//jQueryD_1_4_2(node).addClass("enableselect");
+		node.classList.add("disableselect");
+		/*node.setAttribute("unselectable", "yes");
+		node.setAttribute("onselectstart", "return false;");*/
+    }
+    var child = node.firstChild;
+    while (child) {
+        makeunselectable(child);
         child = child.nextSibling;
     }
 }

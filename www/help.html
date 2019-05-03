@@ -701,7 +701,23 @@ var data = e.data[1];
 
 
 
+if (typeof process !== "undefined" && typeof require !== "undefined")
+	{
+		
+	
+    if (window.location != window.parent.location)
+	{
+		
+       window.parent.postMessage(["saveCurrrURL", null], "*");
+		
+	}
+	else
+	{
 
+	   localStorage.setItem("currURL", window.location);
+	
+	}
+}
 
 
 //]]>
