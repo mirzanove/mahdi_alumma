@@ -290,7 +290,7 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
                    
                     
 					//win.enterFullscreen();
-					
+					var gui = require('nw.gui');
 					var menu = new gui.Menu();
                     e.preventDefault();
                     e.stopPropagation();

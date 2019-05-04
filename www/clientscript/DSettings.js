@@ -624,7 +624,7 @@ else
 								}, 100)
 							}
 						
-						setTimeout(function(){ jQueryD_1_4_2(section)[0].scrollIntoView();}, 100);
+						setTimeout(function(){ jQueryD_1_4_2(section)[0].scrollIntoView();}, 200);
 						
 						jQueryD_1_4_2(section).addClass( "sectionH" );
 						
@@ -642,7 +642,7 @@ else
 							
 							
 							
-							setTimeout(function(){ jQueryD_1_4_2(section)[0].scrollIntoView();}, 100);
+							setTimeout(function(){ jQueryD_1_4_2(section)[0].scrollIntoView();}, 200);
 
 							
 							/*if (window.location == window.parent.location)

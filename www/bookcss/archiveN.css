@@ -156,7 +156,14 @@ background: black;
 }
 
 
+html, body {
+	
+/*height:100%;	
+overflow:auto;*/
+-webkit-overflow-scrolling: touch;
+background-color:black;	
 
+}
 
 div.pagebody {
 	background: black;
@@ -207,7 +214,8 @@ background-color: #444a0a!important;
 .btn-group button {
 background:green;
 vertical-align: middle;
-
+font-size:13px;
+height:22px;
 }
 
 .btn-group button img {
@@ -640,7 +648,8 @@ font-size:85%;
   margin-left: auto;
 	margin-right: auto;
 	display: block;
-	vertical-align: middle
+	vertical-align: middle;
+
       
 }
 
@@ -676,11 +685,10 @@ transform: translate3d(0,0,0);
 
 
 .dropbtn {
-background-color: #4CAF50;
 vertical-align: middle;
 color:white;
 -webkit-text-size-adjust:100%; 
-font-size:inherit;
+
 }
 
 

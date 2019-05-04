@@ -242,7 +242,14 @@ function toggfullScreen() {
 		}
     }
 
-	
+/*	
+if (_isMobile() == mobiletrue) {
+jQueryM_v1_4_5('#loading').show();
+}
+else{
+jQueryD_1_4_2('#loading').show();	
+}
+*/	
 	
 }
 
