@@ -860,7 +860,7 @@ var paramters="";
 	 break;
 	 case 'gofull':
 
-	 toggleFull();
+	toggfullScreen.call(); 
 	 break;
 	
 }

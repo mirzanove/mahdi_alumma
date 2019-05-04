@@ -155,13 +155,6 @@ html, body {
 overflow:auto;
 -webkit-overflow-scrolling: touch;
 
-    scrollbar-face-color: #000000;
-    scrollbar-shadow-color: #2D2C4D;
-    scrollbar-highlight-color:#7D7E94;
-    scrollbar-3dlight-color: #7D7E94;
-    scrollbar-darkshadow-color: #2D2C4D;
-    scrollbar-track-color: #7D7E94;
-    scrollbar-arrow-color: #C1C1D1; 
 }
 div.pagebody {
 	background: white;
@@ -175,6 +168,31 @@ div.pagebody {
 background-color: #d5dc91!important;
 
 }
+
+
+.btn-group button {
+background:green;
+vertical-align: middle;
+
+}
+
+.btn-group button img {
+
+ display:block;
+    margin:auto;
+	vertical-align: middle;
+	padding:2px;
+	
+	
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 
 
 

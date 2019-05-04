@@ -160,15 +160,6 @@ scrollbar-face-color: #000000;
     scrollbar-arrow-color: #C1C1D1; 	
 }
 
-
-html,body{
-	
-	background:black;
-	
-}
-
-
-
 ::-webkit-scrollbar
 {
 
@@ -191,13 +182,6 @@ html, body {
 overflow:auto;
 -webkit-overflow-scrolling: touch;
 
-       scrollbar-face-color: #000000;
-    scrollbar-shadow-color: #2D2C4D;
-    scrollbar-highlight-color:#7D7E94;
-    scrollbar-3dlight-color: #7D7E94;
-    scrollbar-darkshadow-color: #2D2C4D;
-    scrollbar-track-color: #7D7E94;
-    scrollbar-arrow-color: #C1C1D1; 
 }
 div.pagebody {
 	background: black;
@@ -242,6 +226,34 @@ div.pagebody {
 background-color: #444a0a!important;
 	
 }
+
+
+
+.btn-group button {
+background:green;
+vertical-align: middle;
+
+}
+
+.btn-group button img {
+
+ display:block;
+    margin:auto;
+	vertical-align: middle;
+	padding:2px;
+	
+	
+}
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+
 
 .disableselect{
 	
@@ -696,11 +708,6 @@ color:white;
 font-size:inherit;
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-    direction: rtl;
-}
 
 .dropdown-content {
 	font-size: 130%;

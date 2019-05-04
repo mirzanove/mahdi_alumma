@@ -3,69 +3,126 @@
 
 
 var gg ;
+//if(document.getElementById('FullS')){	
+var logo =null;
+var FullS =null;
+var url =null;
+var v = '87px.png'
+
+if(typeof getbooleanindexopage !== "undefined") 
+{
+
+	
+}
+else{
+
+url = vburl.substring(0, vburl.indexOf(v));	
+}
+
+
+
+
+
+if(document.getElementById('FullS')){
+FullS = document.getElementById('FullS');
+}
+
+
 
 document.addEventListener("fullscreenchange", function () {
     gg = (document.fullscreen)? "full" : "not ";
-
+if(document.getElementById('fullscreenid')){
+logo = document.getElementById('fullscreenid');
+}
 	if(gg == "full"){
-		
-		document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11";
-        	
+		 if(FullS)
+		FullS.innerHTML="تعطيل الحجم الكلي F11";
+	
+	    if(logo)
+        logo.src = ''+url+'clientscript/images/fullSoff.png';	
 	}
 	else{
-		
-		document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
+		 if(FullS)
+		FullS.innerHTML="تحجيم كلي للشاشة F11";
+	
+	if(logo)
+	    logo.src = ''+url+'clientscript/images/fullSon.png';	
         		
 	}
 }, false);
 
 document.addEventListener("mozfullscreenchange", function () {
     gg = (document.mozFullScreen)? "full" : "not ";
-	
+	if(document.getElementById('fullscreenid')){
+logo = document.getElementById('fullscreenid');
+}
 	if(gg == "full"){
-		
-		document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11";	
-		
+		 if(FullS)
+		FullS.innerHTML="تعطيل الحجم الكلي F11";	
+	
+	if(logo)
+		logo.src = ''+url+'clientscript/images/fullSoff.png';
 	}
 	else{
-		document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
-        	
-	
+		
+		 if(FullS)
+		FullS.innerHTML="تحجيم كلي للشاشة F11";
+      if(logo)  	
+	 logo.src = ''+url+'clientscript/images/fullSon.png';
 	}
 	
 }, false);
 
 document.addEventListener("webkitfullscreenchange", function () {
     gg = (document.webkitIsFullScreen)? "full" : "not ";
-		//alert(gg);
-	
+
+	if(document.getElementById('fullscreenid')){
+logo = document.getElementById('fullscreenid');
+}
 	if(gg == "full"){
-	
-		document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11";	
-		
+	    if(FullS)
+		FullS.innerHTML="تعطيل الحجم الكلي F11";	
+		if(logo)
+		logo.src = ''+url+'clientscript/images/fullSoff.png';
+
 		
 		
 	}
 	else{
-		document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
-		
-       		
+		if(FullS)
+		FullS.innerHTML="تحجيم كلي للشاشة F11";
+		if(logo)
+       	 logo.src = ''+url+'clientscript/images/fullSon.png';	
 	}
 }, false);
 
 document.addEventListener("msfullscreenchange", function () {
     gg = (document.msFullscreenElement)? "full" : "not ";
-	
+	if(document.getElementById('fullscreenid')){
+logo = document.getElementById('fullscreenid');
+}
 	if(gg == "full"){
-		
-		document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11";
+		 if(FullS)
+		FullS.innerHTML="تعطيل الحجم الكلي F11";
+		if(logo)
+		logo.src = ''+url+'clientscript/images/fullSoff.png';
         	
 	}
 	else{
-		document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
-       	
+		if(FullS)
+		FullS.innerHTML="تحجيم كلي للشاشة F11";
+       	if(logo)
+		 logo.src = ''+url+'clientscript/images/fullSon.png';
 	}
 }, false);
+
+//}
+
+
+
+
+
+
 
 
 
@@ -82,12 +139,12 @@ if(localStorage.getItem("fullsmode")== "true"){
             docElm.msRequestFullscreen();
         }
 
-
+if(document.getElementById('FullS'))
 document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11";
 
 }
 else{
-	
+if(document.getElementById('FullS'))	
 document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
 }
 }
@@ -177,9 +234,12 @@ function toggfullScreen() {
 		
 		}
     }
+
+	
+	
 }
 
-
+if(document.getElementById("FullS")){
 document.getElementById("FullS").onclick = function () {
 
 
@@ -220,6 +280,8 @@ document.getElementById("FullS").onclick = function () {
 	toggfullScreen.call(); 
 	};
 
+}
+
 
 document.onkeydown = keydown;
 
@@ -228,8 +290,7 @@ function keydown(e) {
   if (evtobj.keyCode == 122){
 	  
   evtobj.keyCode = 0;
-  evtobj.returnValue = false;
-  
+  evtobj.returnValue = false; 
 toggfullScreen.call();
   }
 } 

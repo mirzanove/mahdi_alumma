@@ -1039,7 +1039,7 @@ function loaddsett(){
 jQueryM_v1_4_5(document).ready(function() {
 
    
-document.onkeydown = keydown;
+ document.onkeydown = keydown;
 
 function keydown(e) {
   var evtobj = window.event ? event : e
@@ -1048,9 +1048,18 @@ function keydown(e) {
   evtobj.keyCode = 0;
   evtobj.returnValue = false;
     //alert("[JS] Ctrl + F11 pressed");
-	window.parent.postMessage(["gofull", null], "*");
+	
+	
+	if (window.location == window.parent.location)
+	{
+		toggfullScreen.call();
+	}
+	else{
+		window.parent.postMessage(["gofull", null], "*");
+	}
+	
   }
-}   
+}    
    
    
 

@@ -110,6 +110,8 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/confi
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/printThis.js\'><\/script>');  
 
 
+document.write('<script type=\"text/javascript\" src=\''+url+'template/exjs/fullscreen.js\'><\/script>');  
+
 
 if(_isMobile() == mobiletrue) {	
 	document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/MSettings.js\'><\/script>');  
@@ -119,7 +121,6 @@ else{
 }
 
 
-//document.write('<script type=\"text/javascript\" src=\''+url+'template/exjs/fullscreen.js\'><\/script>');  
 
 
 	

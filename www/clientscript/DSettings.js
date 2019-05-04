@@ -1226,7 +1226,7 @@ else
 		}
 		jQueryD_1_4_2(window).resize(function ()
 		{
-			resize(jQueryD_1_4_2("html"))
+			//resize(jQueryD_1_4_2("html"))
 		});
 		jQueryD_1_4_2(document).ready(function ()
 		{
@@ -1240,7 +1240,16 @@ function keydown(e) {
   evtobj.keyCode = 0;
   evtobj.returnValue = false;
     //alert("[JS] Ctrl + F11 pressed");
-	window.parent.postMessage(["gofull", null], "*");
+	
+	
+	if (window.location == window.parent.location)
+	{
+		toggfullScreen.call();
+	}
+	else{
+		window.parent.postMessage(["gofull", null], "*");
+	}
+	
   }
 } 
 			
