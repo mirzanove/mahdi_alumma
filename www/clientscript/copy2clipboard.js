@@ -159,7 +159,18 @@ function select_all_and_copy(el)
 	}, 3000);
 		}
         else{
-         tooltip(null, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+			
+			
+			
+         if(el.id=="wrapper"){
+					
+					 tooltip(null, "تم نسخ نص الصفحة في الذاكرة يمكنك الان لصقها");
+					  
+					}else{
+					
+					tooltip(null, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+
+					}
 		 
 		 setTimeout(function() { 
 	tooltip("cool", null);
@@ -196,7 +207,19 @@ function select_all_and_copy(el)
 	}, 3000);
 		        }
                 else{
-                  tooltip(null, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+					
+					
+					
+					if(el.id=="wrapper"){
+					
+					
+					 tooltip(null, "تم نسخ نص الصفحة في الذاكرة يمكنك الان لصقها");
+					  
+					}else{
+					
+					tooltip(null, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
+
+					}
 				  
 				  setTimeout(function() { 
 	              tooltip("cool", null);

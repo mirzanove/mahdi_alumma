@@ -117,10 +117,11 @@ if(_isMobile() == mobiletrue) {
 }
 else{
    document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/DSettings.js\'><\/script>');  
+   document.write('<script type=\"text/javascript\" src=\''+url+'js/gui_node.js\'><\/script>'); 
 }
 
 document.write('<script type=\"text/javascript\" src=\''+url+'template/exjs/fullscreen.js\'><\/script>');  
-
+ 
 
 
 	

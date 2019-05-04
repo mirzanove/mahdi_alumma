@@ -336,10 +336,13 @@
          z-index: 9999999999999;
          font-size: 15px;
          }
-         .drop{
-         padding:5px;
-         display:block;
-         }
+        .drop{
+padding:3px;
+display:block;
+border-style: solid;
+border-color: black;
+
+}
          .show{
          display:block;
          } 
@@ -526,7 +529,8 @@
                         <a class = "drop"  data-trigger="EVT_REMOVE_FORMAT">ازالة التنسيق</a>
                         <a class = "drop"  data-trigger="EVT_REMOVE_SRC">ازالة رابط مصدر البيان</a>
                         <a class = "drop"  data-trigger="EVT_REMOVE_TRANZ">ازالة روابط عبارات الترجمة</a>
-                        <a class = "drop"  data-trigger="EVT_ZOOMIN">تكبير النص لكل الصفحة</a>
+                        <a class = "drop"  data-trigger="EVT_SELECT_ALL">تعيين ونسخ النص<br>في الصفحة كلها</a>
+						<a class = "drop"  data-trigger="EVT_ZOOMIN">تكبير النص لكل الصفحة</a>
                         <a class = "drop"  data-trigger="EVT_ZOOMOUT">تصغير النص لكل الصفحة</a>
                         <a class = "drop"  data-trigger="EVT_RESET">الحجم الإفتراضي للصفحة</a>
                      </div>
@@ -858,6 +862,7 @@
       </script>
       <script type="text/javascript" src="whxdata/whtagdata.js"></script>
       <script src="js/main.js"></script>
+	  <script src="js/gui_node.js"></script>
    </body>
 </html>
 

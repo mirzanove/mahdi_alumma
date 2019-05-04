@@ -133,6 +133,18 @@ td {
 	
 }
 
+
+::selection {
+  background: #acf1ff;
+  color:black;
+}
+::-moz-selection {
+   background: #acf1ff;
+  color:black;
+}
+
+
+
 .is-ios * {
     cursor: pointer;
 }
@@ -215,9 +227,12 @@ background-color: #444a0a!important;
 background:green;
 vertical-align: middle;
 font-size:13px;
-height:22px;
+height:24px;
 }
 
+#ndmode,#fullscreenidcon{
+	width:50px;
+}
 .btn-group button img {
 
  display:block;
@@ -930,6 +945,7 @@ hyphens: auto;
 	background-color: #E1E4F2;
 	padding: 0px 1px 0px 1px;
 	text-decoration: none;
+	color:black;
 }
 .container span a {
 	display: inline-block;
@@ -1280,6 +1296,7 @@ span.small {
 	border-bottom: 1px solid #c0c0c0;
 	border-top: 1px solid #c0c0c0;
 	font-size: 110%;
+	color:white;
 }
 .footer {
 	text-align: center;

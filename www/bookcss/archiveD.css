@@ -153,9 +153,33 @@ html, body {
 /*height:100%;	
 overflow:auto;*/
 -webkit-overflow-scrolling: touch;
-background-color:black;	
+background-color:white;	
 
 }
+
+::selection {
+  background: blue;
+  color:white;
+}
+::-moz-selection {
+   background: blue;
+   color:white;
+}
+
+
+
+
+
+
+/*<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#cccccc">
+<!-- Windows Phone (microsoft) -->
+<meta name="msapplication-navbutton-color" content="#cccccc">
+<!-- iOS Safari (apple) -->
+<meta name="apple-mobile-web-app-status-bar-style" content="#cccccc">*/
+
+
+
 
 
 
@@ -177,7 +201,11 @@ background-color: #d5dc91!important;
 background:green;
 vertical-align: middle;
 font-size:13px;
-height:22px;
+height:24px;
+}
+
+#ndmode,#fullscreenidcon{
+	width:50px;
 }
 
 .btn-group button img {
