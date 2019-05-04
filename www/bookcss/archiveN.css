@@ -139,27 +139,6 @@ td {
 
 
 
-* html #wrapper {
-    /*hack IE6*/
-     width:100%;
-     position: absolute;
-	
-    
-}
-
-
-
-#wrapper{
-	
-scrollbar-face-color: #000000;
-    scrollbar-shadow-color: #2D2C4D;
-    scrollbar-highlight-color:#7D7E94;
-    scrollbar-3dlight-color: #7D7E94;
-    scrollbar-darkshadow-color: #2D2C4D;
-    scrollbar-track-color: #7D7E94;
-    scrollbar-arrow-color: #C1C1D1; 	
-}
-
 ::-webkit-scrollbar
 {
 
@@ -175,14 +154,10 @@ background: black;
 {
   background: white;
 }
-html, body {
-	
-/*height:100%;*/
-	
-overflow:auto;
--webkit-overflow-scrolling: touch;
 
-}
+
+
+
 div.pagebody {
 	background: black;
 	padding: 2px;

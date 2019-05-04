@@ -127,6 +127,9 @@ logo = document.getElementById('fullscreenid');
 
 
 if (typeof process !== "undefined" && typeof require !== "undefined") {
+window.onload = function(e){ 
+ 
+
 if(localStorage.getItem("fullsmode")== "true"){
   var docElm = document.documentElement;
   if (docElm.requestFullscreen) {
@@ -146,6 +149,10 @@ document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11
 else{
 if(document.getElementById('FullS'))	
 document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
+}
+
+
+ 
 }
 }
 

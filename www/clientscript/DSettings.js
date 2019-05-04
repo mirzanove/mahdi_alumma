@@ -1218,12 +1218,15 @@ else
 		loaddsett()
 	}
 
+	jQueryD_1_4_2.fn.hasScrollBar = function ()
+	{
+			return this.get(0).scrollHeight > this.height()
+	}
+	
+	
 	function loaddsett()
 	{
-		jQueryD_1_4_2.fn.hasScrollBar = function ()
-		{
-			return this.get(0).scrollHeight > this.height()
-		}
+		
 		jQueryD_1_4_2(window).resize(function ()
 		{
 			//resize(jQueryD_1_4_2("html"))
