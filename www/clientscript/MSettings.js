@@ -1980,9 +1980,37 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                 }
             }
         });
-        jQueryM_v1_4_5(window).hashchange();
+        
+		
+		
+	
+		jQueryM_v1_4_5(window).hashchange();
  
 
+ 
+         jQueryM_v1_4_5(".thread_title a").click(function (event)
+			{
+				//event.preventDefault();
+				//event.stopPropagation();
+				
+				
+				if (window.location == window.parent.location)
+				{
+					
+								jQueryM_v1_4_5('#loading').show()
+						
+				}
+				else{
+					
+					window.parent.postMessage(["loading", "start"], "*");
+				}
+				
+				location.reload();
+				
+			});
+ 
+ 
+ 
    
    
    }); //end

@@ -1974,6 +1974,27 @@ function keydown(e) {
 		
 		
 		
+		jQueryD_1_4_2(".thread_title a").click(function (event)
+			{
+				//event.preventDefault();
+				//event.stopPropagation();
+				
+				
+				if (window.location == window.parent.location)
+				{
+					
+								jQueryD_1_4_2('#loading').show()
+						
+				}
+				else{
+					
+					window.parent.postMessage(["loading", "start"], "*");
+				}
+				
+				location.reload();
+				
+			});
+		
 		
 		
 	

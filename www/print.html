@@ -10,7 +10,7 @@
 
   <!-- Load paper.css for happy printing -->
   <link rel="stylesheet" href="paper.css">
-  <link rel="stylesheet" href="bookcss/archive2.css">
+  <link rel="stylesheet" href="bookcss/archive_print.css">
 
 	<script src="jquery.js"></script>
     <script src="autocolumn.min.js"></script>
@@ -282,6 +282,96 @@ catch(err) {
 	
 }
 },false);
+
+
+
+
+
+
+
+
+if (typeof process !== "undefined" && typeof require !== "undefined") {
+	
+function selectText(containerid) {
+    if (document.selection) { // IE
+        var range = document.body.createTextRange();
+        range.moveToElementText(document.getElementById(containerid));
+        range.select();
+    } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(document.getElementById(containerid));
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+    }
+}
+	
+	
+	
+                function copyToClipboard(text) {
+                    var dummy = document.createElement("input");
+                    document.body.appendChild(dummy);
+                    dummy.setAttribute('value', text);
+                    dummy.select();
+                    document.execCommand("copy");
+                    document.body.removeChild(dummy);
+                }
+
+                var el;
+
+                function isEditable() {
+                    el = document.activeElement; // focused element
+                    if (el && ~['input', 'textarea'].indexOf(el.tagName.toLowerCase())) {
+                        return !el.readOnly && !el.disabled;
+                    }
+                    el = getSelection()
+                        .anchorNode; // selected node
+                    if (!el) return undefined; // no selected node
+                    el = el.parentNode; // selected element
+                    return el.isContentEditable;
+                }
+
+                document.addEventListener("contextmenu", function (e) {
+                   
+                    
+					//win.enterFullscreen();
+					var gui = require('nw.gui');
+					var menu = new gui.Menu();
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    var showcntx = false;
+                    var link = this.href;
+ 
+						menu.append(new gui.MenuItem({
+                                        label: 'طباعة'
+                                        , click: function (e) {
+                                           window.print();
+											
+                                        }
+                                    }));
+									
+									
+									
+					 showcntx = true;
+						
+						
+					
+
+
+
+                    if (showcntx == true) {
+						//consol
+                        menu.popup(e.clientX, e.clientY);
+                    }
+
+                }, false);
+
+}
+
+
+
+
+
 
 
 
