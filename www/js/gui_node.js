@@ -233,7 +233,7 @@ function selectText(containerid) {
 
                                     if (isEditable() == true) {
                                         menu.append(new gui.MenuItem({
-                                            label: "اسْتِقْطاع النص"
+                                            label: "قص النص"
                                             , click: function () {
                                                 document.execCommand("cut");
                                             }

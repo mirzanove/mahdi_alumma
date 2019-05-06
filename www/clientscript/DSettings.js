@@ -327,6 +327,14 @@ else
 					}
 		
 		
+		
+		setTimeout(function ()
+								{
+									jQueryD_1_4_2(window).hashchange();
+								}, 400)
+		
+		
+		
 	}
 	
 	
@@ -405,7 +413,10 @@ else
 			}
 		}
 		
-	jQueryD_1_4_2(window).hashchange();
+	
+	
+	
+	
 	}
 
 	function autolog(event, hh, pass)
@@ -626,13 +637,12 @@ else
 									window.parent.postMessage(["loading", "stop"], "*")
 								}, 100)
 							}
-						
-						setTimeout(function(){ jQueryD_1_4_2(section)[0].scrollIntoView();}, 200);
-						
 						jQueryD_1_4_2(section).addClass( "sectionH" );
+						setTimeout(function(){ jQueryD_1_4_2(section)[0].scrollIntoView();}, 4);
 						
 						
 						
+					
 						
 						}
 					}
@@ -932,7 +942,7 @@ else
 					}
 					if (window.location == window.parent.location)
 					{
-						
+					
 						if (jQueryD_1_4_2(this).attr('class') == "up post_hash")
 						{
 							if (window.location.hash != hash)
@@ -943,9 +953,16 @@ else
 						else
 						{
 							
+							if(hash){
 							if (window.location.hash != hash)
-							{
+							{   
+						alert();
 								jQueryD_1_4_2('#loading').show()
+							}
+							}
+							else{
+								
+                             jQueryD_1_4_2('#loading').show()
 							}
 							
 							

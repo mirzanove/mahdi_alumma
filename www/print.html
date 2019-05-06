@@ -82,7 +82,7 @@ html, body {
 direction: rtl;
 overflow:hidden;
 background:white;
-zoom:65%;
+/*zoom:65%;*/
 }
 
 html {
@@ -209,7 +209,7 @@ var retrievedData = localStorage.getItem("quentinTarantino");
 var movies2 = JSON.parse(retrievedData);
 $("#newsletterContent").html(movies2[0]);
 $('.posttext > div,.posttext > span ,font').css("line-height",movies2[1]);
-$('.posttext').css('font-size',"200%");
+$("#newsletterContent").css('font-size',movies2[2]);
 $('*').css("font-family",movies2[3]); 
 
   

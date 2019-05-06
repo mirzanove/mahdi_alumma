@@ -131,6 +131,8 @@ td {
 	
 	/*transform: translate3d(0,0,0);*/
 	
+
+	
 }
 
 
@@ -274,6 +276,7 @@ height:24px;
 		 -o-user-select: text;
             user-select: text; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */	
+
 }
 
 .posttext{

@@ -896,8 +896,19 @@ jQueryM_v1_4_5(document).on('click', 'a', function(event) {
 								 
 							     }
 								 else{
-									          jQueryM_v1_4_5('#loading').show();  
-								 } 
+							
+							if(hash){
+							if (window.location.hash != hash)
+							{ 
+								jQueryM_v1_4_5('#loading').show()
+							}
+							}
+							else{
+								
+                             jQueryM_v1_4_5('#loading').show()
+							}
+								 
+} 
 		  
 		  
 		  
@@ -1937,6 +1948,9 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 
 
 					jQueryM_v1_4_5(section).addClass( "sectionH" );
+					
+					jQueryM_v1_4_5('#loading').hide();
+					
 					}
 				   }
                 }
