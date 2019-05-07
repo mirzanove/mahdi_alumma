@@ -532,6 +532,7 @@ disable_select_text('#navbar');
 				disable_select_text('.posttop');
 				disable_select_text('.selecth1FontFamily');
 				disable_select_text('.footer');
+				disable_select_text('.pagenumbers');
 		
 		if(lsTest() === true){
 		var checked2 = localStorage.getItem('autolog');
@@ -756,6 +757,7 @@ disable_select_text('#navbar');
 				disable_select_text('.posttop');
 				disable_select_text('.selecth1FontFamily');
 				disable_select_text('.footer');
+				disable_select_text('.pagenumbers');
 
 
 jQueryM_v1_4_5(document).click(function() {
@@ -1176,7 +1178,8 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
          event.stopPropagation();
 		if(printin_prosses == false){
 			printin_prosses = true;
-		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext');
+		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent();
+
             var postID = jQueryM_v1_4_5(event.currentTarget).parent().parent().attr("id");
 			//var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 		  tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
@@ -1581,7 +1584,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
 			}
 			
-            var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
+            var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
             var i;
             for(i = 0; i < c.length; i++) {
 		 if(c[i].className!=null){
@@ -1667,7 +1670,9 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
             jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext2').show().selectText();
         });
 
-        jQueryM_v1_4_5(".txt_resize").on('click', function(event) {
+        jQueryM_v1_4_5(".txt_resize").removeAttr("style");
+		
+		jQueryM_v1_4_5(".txt_resize").on('click', function(event) {
             event.preventDefault();
             event.stopPropagation();
             
@@ -1700,205 +1705,210 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
         });
 		
 
-        // reset 
-        // reset 
-        jQueryM_v1_4_5(".resetMe").click(function(event) {
-           
-		   if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			}
-			//var size = 25;
-			fontSize = null;
-            
-			if(fontSize2 == null){
-						var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
-						
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize2 = ((parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size')))*100);
-
+       jQueryM_v1_4_5(".resetMe").click(function (event)
+			{
+				if (typeof disable_model !== 'undefined')
+				{
+					link_disable = !1;
+					link_disable = !1
+				}
+				else
+				{
+					if (window.location != window.parent.location)
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						else{
-						fontSize2 = parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'));
-						
-						}	
-			
-                   }
-			
-			
-			
-				
-		jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').removeAttr("style")
-				
-			
-			
-   
-        });
-
-        // Increase Font Size 
-        jQueryM_v1_4_5(".increase").click(function(event) {
-          
-		 if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			} 
-		  
-		  
-		 if(posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
-				
-		}
-		else{
-			    
+					}
+					else
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
+						}
+					}
+				}
 				fontSize = null;
-				posttopid = null;
+				if (fontSize2 == null)
+				{
+					var gg = jQueryM_v1_4_5('#wrapper').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5('#wrapper').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize2 = parseFloat(jQueryM_v1_4_5('#wrapper').css('font-size'))
+					}
+				}
 				
-		}
-		 
-		 if(posttopid == null){
-		    posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
-		    //alert("lol");
-		 }
-     
-	
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
+				
+				jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').removeAttr("style")
+				
+				
+			});
+			jQueryM_v1_4_5(".increase").click(function (event)
+			{
+				if (typeof disable_model !== 'undefined')
+				{
+					link_disable = !1;
+					link_disable = !1
+				}
+				else
+				{
+					if (window.location != window.parent.location)
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						else{
-						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
+					}
+					else
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						
+					}
+				}
+				if (posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id'))
+				{
 					
-	
-		
-		if(fontSize2 == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize2 = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
-						}
-						else{
-						fontSize2 = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
-						}
-						
-						//alert(posttopid);
-						
-		}
-		 
-			
-			//var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            //var currentSize = parseFloat(currentSize) + 10;
-           
-			
-			
-			fontSize = fontSize+6;
-
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
-            /*document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';*/
-            return false;
-        });
-
-        // Decrease Font Size 
-        jQueryM_v1_4_5(".decrease").click(function(event) {
-            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			}
-			//var currentFontSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            var currentSize = parseFloat(currentSize) - 3;
-            
-		if(posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
+					
+				}
+				else
+				{
+					fontSize = null;
+					posttopid = null
+				}
+				if (posttopid == null)
+				{
+					
+					posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
+				}
 				
-		}
-		else{
-			    
-				fontSize = null;
-				posttopid = null;
+					
+					
+					var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+										
+
+					//console.log(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent());
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
+					}
 				
-		}
-		
-		 if(posttopid == null){
-		    posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
-		    //alert("lol");
-		 }
-     
-		if(fontSize == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
+				if (fontSize2 == null)
+				{
+					var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize2 = parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'))
+					}
+				}
+				fontSize = fontSize + 6;
+				jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%");
+				return !1
+			});
+			jQueryM_v1_4_5(".decrease").click(function (event)
+			{
+				if (typeof disable_model !== 'undefined')
+				{
+					link_disable = !1;
+					link_disable = !1
+				}
+				else
+				{
+					if (window.location != window.parent.location)
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						else{
-						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
+					}
+					else
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						
-						//alert(posttopid);
-						
-		}
-		
-		
-		if(fontSize2 == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize2 = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
-						}
-						else{
-						fontSize2 = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
-						}
-						
-						//alert(posttopid);
-						
-		}
-			
-			
-			fontSize = fontSize-6;
-			
-			if(currentSize != -1){
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
-			}
-            
-			/*document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';*/
-			
-			return false;
-            
-        });
+					}
+				}
+				var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+				var currentSize = parseFloat(currentSize) - 3;
+				if (posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id'))
+				{}
+				else
+				{
+					fontSize = null;
+					posttopid = null
+				}
+				if (posttopid == null)
+				{
+					posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
+				}
+				if (fontSize == null)
+				{
+					var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
+					}
+				}
+				if (fontSize2 == null)
+				{
+					var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize2 = parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'))
+					}
+				}
+				fontSize = fontSize - 6;
+				if (currentSize != -1)
+				{
+					jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%")
+				}
+				return !1
+			});
+	   
+	   
+	   
+	   
 
         jQueryM_v1_4_5(".tooltiptext").on('click', function(event) {
             //event.stopPropagation();
@@ -1988,10 +1998,15 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
  
 
  
-         jQueryM_v1_4_5(".thread_title a").click(function (event)
+        jQueryM_v1_4_5(".thread_title a").click(function (event)
 			{
 				//event.preventDefault();
 				//event.stopPropagation();
+				if(jQueryM_v1_4_5( ".sectionH")){
+					
+	                jQueryM_v1_4_5('.sectionH').removeClass( "sectionH" );
+					//jQueryM_v1_4_5('.padd').removeClass( "sectionH" );
+				}
 				
 				
 				if (window.location == window.parent.location)
@@ -2003,9 +2018,15 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				else{
 					
 					window.parent.postMessage(["loading", "start"], "*");
+					
+						setTimeout(function () {
+                           location.reload();
+				        }, 150);
 				}
 				
-				location.reload();
+				
+				
+				
 				
 			});
  

@@ -12,8 +12,9 @@ function enable_select_text(xx)
 function disable_select_text(xx)
 {
 	var x = jQueryD_1_4_2(xx);
+	
 	for (var i = 0; i < x.length; i++)
-	{
+	{  
 		makeunselectable(x[i])
 	}
 }
@@ -532,7 +533,7 @@ else
 				disable_select_text('.posttop');
 				disable_select_text('.selecth1FontFamily');
 				disable_select_text('.footer');
-				disable_select_text('#pagenumbers');
+				disable_select_text('.pagenumbers');
 				
 				
 				if (lsTest() === !0)
@@ -826,7 +827,7 @@ else
 		disable_select_text('.posttop');
 		disable_select_text('.selecth1FontFamily');
 		disable_select_text('.footer');
-		disable_select_text('#pagenumbers');
+		disable_select_text('.pagenumbers');
 		
 		jQueryD_1_4_2("a").live("click", function (event)
 		{
@@ -956,7 +957,7 @@ else
 							if(hash){
 							if (window.location.hash != hash)
 							{   
-						alert();
+		
 								jQueryD_1_4_2('#loading').show()
 							}
 							}
@@ -1113,13 +1114,17 @@ function keydown(e) {
 				if (printin_prosses == !1)
 				{
 					printin_prosses = !0;
-					var c = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().children('.posttext');
+				   var c = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent();
+				   
+				  // jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().css('color','red');
+
 					var postID = jQueryD_1_4_2(event.currentTarget).parent().parent().attr("id");
 					tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
 					setTimeout(function ()
 					{
 						if (typeof process !== "undefined" && typeof require !== "undefined")
 						{
+							console.log(c);
 							printPage(c)
 						}
 						else
@@ -1531,8 +1536,9 @@ function keydown(e) {
 				}
 				jQueryD_1_4_2(event.currentTarget).selectText()
 			});
-			jQueryD_1_4_2("a.select_txt").click(function (event)
+			jQueryD_1_4_2(".select_txt").click(function (event)
 			{
+				
 				event.preventDefault();
 				event.stopPropagation();
 				if (typeof disable_model !== 'undefined')
@@ -1568,10 +1574,13 @@ function keydown(e) {
 				jQueryD_1_4_2('.tooltiptext3').hide();
 				jQueryD_1_4_2('.tooltiptext4').hide();
 				jQueryD_1_4_2('.tooltiptext5').hide();
-				var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
+				var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
+			
 				var i;
 				for (i = 0; i < c.length; i++)
 				{
+					//alert(c[i].className);
+					
 					if (c[i].className != null)
 					{
 						if (c[i].className.indexOf("posttext") != -1)
@@ -1713,7 +1722,7 @@ function keydown(e) {
 				jQueryD_1_4_2('.hide_external_link').hide();
 				jQueryD_1_4_2(event.currentTarget).parent().children('.tooltiptext2').show().selectText()
 			});
-			jQueryD_1_4_2(".txt_resize").removeAttr("unselectable");
+			jQueryD_1_4_2(".txt_resize").removeAttr("style");
 			jQueryD_1_4_2(".txt_resize").click(function (event)
 			{
 				event.preventDefault();
@@ -1800,7 +1809,7 @@ function keydown(e) {
 				}
 				
 				
-				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').removeAttr("style")
+				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').removeAttr("style")
 				
 				
 			});
@@ -1835,7 +1844,10 @@ function keydown(e) {
 					}
 				}
 				if (posttopid == jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id'))
-				{}
+				{
+					
+					
+				}
 				else
 				{
 					fontSize = null;
@@ -1843,19 +1855,23 @@ function keydown(e) {
 				}
 				if (posttopid == null)
 				{
+					
 					posttopid = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
 				}
 				
 					
 					
-					var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+					var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+										
+
+					//console.log(jQueryD_1_4_2(event.currentTarget).parent().parent().parent());
 					if (gg.indexOf("px") !== -1)
 					{
-						fontSize = ((parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryD_1_4_2('.post').css('font-size'))) * 100)
+						fontSize = ((parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryD_1_4_2('.post').css('font-size'))) * 100)
 					}
 					else
 					{
-						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
+						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
 					}
 				
 				if (fontSize2 == null)
@@ -1871,7 +1887,7 @@ function keydown(e) {
 					}
 				}
 				fontSize = fontSize + 6;
-				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%");
+				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%");
 				return !1
 			});
 			jQueryD_1_4_2(".decrease").click(function (event)
@@ -1904,7 +1920,7 @@ function keydown(e) {
 						}
 					}
 				}
-				var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+				var currentSize = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
 				var currentSize = parseFloat(currentSize) - 3;
 				if (posttopid == jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id'))
 				{}
@@ -1919,14 +1935,14 @@ function keydown(e) {
 				}
 				if (fontSize == null)
 				{
-					var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+					var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
 					if (gg.indexOf("px") !== -1)
 					{
-						fontSize = ((parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryD_1_4_2('.post').css('font-size'))) * 100)
+						fontSize = ((parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryD_1_4_2('.post').css('font-size'))) * 100)
 					}
 					else
 					{
-						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
+						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
 					}
 				}
 				if (fontSize2 == null)
@@ -1944,10 +1960,14 @@ function keydown(e) {
 				fontSize = fontSize - 6;
 				if (currentSize != -1)
 				{
-					jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%")
+					jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%")
 				}
 				return !1
 			});
+			
+			
+			
+			
 			jQueryD_1_4_2(".tooltiptext").click(function (event)
 			{
 				event.stopPropagation()
@@ -1978,6 +1998,11 @@ function keydown(e) {
 			{
 				//event.preventDefault();
 				//event.stopPropagation();
+				if(jQueryD_1_4_2( ".sectionH")){
+					
+	                jQueryD_1_4_2('.sectionH').removeClass( "sectionH" );
+					//jQueryD_1_4_2('.padd').removeClass( "sectionH" );
+				}
 				
 				
 				if (window.location == window.parent.location)
@@ -1989,9 +2014,15 @@ function keydown(e) {
 				else{
 					
 					window.parent.postMessage(["loading", "start"], "*");
+					
+					
+					setTimeout(function () {
+                           location.reload();
+				 }, 150);
+					
 				}
 				
-				location.reload();
+				
 				
 			});
 		

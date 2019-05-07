@@ -1,39 +1,19 @@
 
 
+
 function createScript(url){
 
-//var s = location.href;
-//var patpth = "index.php/";
-//s = s.substring(0, s.indexOf(patpth));
-//alert(url.substring(0, url.indexOf(v)));
-//url= s;
 var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
 url = url.substring(0, url.indexOf(v));
 
 
- 
 if(disable_resoures == false){
 
 
 //document.write('<script>if (typeof process !== "undefined" && typeof require !== "undefined") {global.window = window;}</script>');
 
 
-if (typeof encryptedMsg != 'undefined')
-{
-document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/kryptojs-3.1.9-1-lib.js\'><\/script>');  
-	                      
-}
 
-
-
-
-
-if(window.location == window.parent.location) {
-	                      
-}
-else{
-document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/xregexp-all.js\'><\/script>');  
-}
 
 
 
@@ -74,9 +54,47 @@ document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/arc
 	
 }
 
+	
+}
+}
 
 
 
+function header(url){
+
+document.write('<meta name="theme-color" content="red">');
+document.write('<meta name="msapplication-navbutton-color" content="red">');
+document.write('<meta name="apple-mobile-web-app-status-bar-style" content="red">');
+}
+
+function footer(url){
+	
+var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
+url = url.substring(0, url.indexOf(v));
+	
+if(disable_resoures == false){	
+	
+	
+if(window.location == window.parent.location) {
+	                      
+}
+else{
+document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/xregexp-all.js\'><\/script>');  
+}
+
+
+	
+
+if (typeof encryptedMsg != 'undefined')
+{
+document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/kryptojs-3.1.9-1-lib.js\'><\/script>');  
+	                      
+}
+
+
+
+	
+	
 document.write('<script type=\"text/javascript\" src=\''+url+'js/index.js\'><\/script>'); 
 
 
@@ -125,7 +143,10 @@ document.write('<script type=\"text/javascript\" src=\''+url+'template/exjs/full
 
 
 	
+}	
 	
-}
+	
+	
+	
 }
 

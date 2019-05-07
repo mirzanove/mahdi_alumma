@@ -25,9 +25,21 @@ function printPage(id)
 
    //var newWindow = window.open(""+url+"print.html",'_blank','toolbar=0,scrollbars=0,status=0');
 var gui = require('nw.gui');
+//var newWindow =  gui.Window.open(""+url+"print.html",{toolbar:false,frame:true,"icon":'http://localhost:9090/87px.png'}, {}, function(newWin) {
+//});
 
-var newWindow = gui.Window.open(""+url+"print.html",{toolbar:true,frame:true}, {}, function(newWin) {
-});
+
+var newWindow  = gui.Window.open(""+url+"print.html", {
+    title : 'MyApp',
+    show : true,
+    toolbar : false,
+    frame : true,
+	icon:"noon.png"
+  });
+
+
+/*var newWindow = gui.Window.open(""+url+"print.html",{toolbar:true,frame:true,icon:""+url+"87px.png"}, {}, function(newWin) {
+});*/
 
  
  var movies = [id.html(),$('.posttext > div,.posttext > span ,font').css("line-height"),$('.posttext').css('font-size'),$('#wrapper').css("font-family")];

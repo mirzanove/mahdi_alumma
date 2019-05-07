@@ -142,7 +142,7 @@ document.getElementById("myDropdown").style.height = "auto";
 else{
 
 document.getElementById("myDropdown").style.overflowY = "scroll";
-document.getElementById("myDropdown").style.height = "235px";
+document.getElementById("myDropdown").style.height = "200px";
 
 }
 
@@ -160,7 +160,7 @@ if (typeof window.orientation !== 'undefined') {
 if (window.matchMedia("(orientation: landscape)").matches) {
 
 document.getElementById("myDropdown").style.overflowY = "scroll";
-document.getElementById("myDropdown").style.height = "235px";
+document.getElementById("myDropdown").style.height = "200px";
 
 
 }

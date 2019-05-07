@@ -122,7 +122,8 @@ tfoot,
 thead,
 tr,
 th,
-td {
+td ,
+table{
 	margin: 0;
 	padding: 0;
 	font: inherit;
@@ -171,12 +172,8 @@ background-color:white;
 
 
 
-/*<!-- Chrome, Firefox OS and Opera -->
-<meta name="theme-color" content="#cccccc">
-<!-- Windows Phone (microsoft) -->
-<meta name="msapplication-navbutton-color" content="#cccccc">
-<!-- iOS Safari (apple) -->
-<meta name="apple-mobile-web-app-status-bar-style" content="#cccccc">*/
+
+
 
 
 
@@ -981,41 +978,7 @@ hyphens: auto;
 	
 }
 
-.up2  {
 
-  background-color: #20B2AA;
-  display: inline-block;
-  top:-3px;
-  position:relative;
-  font-weight: bold;
-
-  color: #fff;
-  vertical-align: middle;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
-  padding:5px;
-
-
-}
-
-.up2 img {
-
- display: inline-block;
-  top:-3px;
-  position:relative;
-  font-weight: bold;
-
-  color: #fff;
-  vertical-align: middle;
-  outline: none;
-  cursor: pointer;
-  text-align: center;
- 
-  width:35px;
-
-
-}
 
 
 
@@ -1192,34 +1155,60 @@ padding:5px;
 padding-top:10px;
 border: 1px solid #c0c0c0;	
 }
-div.post {
+
+
+table.post {
 	border: 1px solid #c0c0c0;
-	padding: 0px;
 	/*font: 12px verdana arial sans-serif;*/
 	/*font-family: 'Droid Arabic Kufi', serif;*/
 }
-div.posttop {
+
+.posttop {
 	background: #EEEEEE;
-		font: 20px verdana arial sans-serif;
-	padding-top: 6px;
-	padding-left: 6px;
-	padding-right: 6px;
-	padding-bottom: 2px;
+	font: 20px verdana arial sans-serif;
+    color:white!important;
+	padding: 3px;
+	height: 20px!important;
 }
-div.username {
-	width: auto;
-	float: left;
-	position:relative;
-	display: block;
-    margin-left: auto;
-    margin-right: auto;
+.postlink{
+background-color: #20B2AA;
+width: 100%;
+text-align: center;
+
 }
-div.date {
-	width: auto;
-	text-align: right;
+.post_hash{
+   text-align: center;
+    display:inline-block;
+    text-decoration: none !important;
+    margin:0 auto;
+	color:white!important;
 }
 
-div.highlight {
+.zoom{	
+background-color: #20B2AA;
+padding-left:10px;	
+padding-right:10px;	
+}
+
+.copy{
+background-color: #20B2AA;
+padding-left:10px;	
+padding-right:10px;	
+}
+
+.print{
+background-color: #20B2AA;
+padding-left:10px;	
+padding-right:10px;		
+}
+
+
+.center_stuff{
+display: block;margin: 0 auto;	
+}
+
+
+.highlight {
 	padding: 4px;
 	background: #FFFFCC;
 }

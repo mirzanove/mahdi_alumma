@@ -11,7 +11,8 @@ if (typeof window.orientation !== 'undefined') {
 
 if (window.matchMedia("(orientation: landscape)").matches) {
 $('#popupMenu2').css('overflow-y', 'scroll');
-$('#popupMenu2').css('height', '235px');
+$('#popupMenu2').css('height', '200px');
+$('#popupMenu2').css('z-index', '10');
 }
 else{
 $('#popupMenu2').css('overflow-y', 'hidden');
@@ -97,7 +98,9 @@ if (typeof window.orientation !== 'undefined') {
 
 if (window.matchMedia("(orientation: landscape)").matches) {
 $('#popupMenu2').css('overflow-y', 'scroll');
-$('#popupMenu2').css('height', '235px');
+$('#popupMenu2').css('height', '200px');
+$('#popupMenu2').css('z-index', '10');
+
 }
 else{
 $('#popupMenu2').css('overflow-y', 'hidden');
