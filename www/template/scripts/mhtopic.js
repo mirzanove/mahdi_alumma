@@ -2560,6 +2560,8 @@ var data2 = e.data[2];
         var puer_url = document.location.protocol +"//"+ document.location.hostname+(location.port ? ':'+location.port: '') + document.location.pathname;
         var paramters="";
 	   if(getParameterByName("rhsearch", str)){	
+		
+		
 		paramters +="&rhsearch="+getParameterByName("rhsearch", str);	
 	   }
        

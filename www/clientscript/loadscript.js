@@ -62,9 +62,9 @@ document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/arc
 
 function header(url){
 
-document.write('<meta name="theme-color" content="red">');
-document.write('<meta name="msapplication-navbutton-color" content="red">');
-document.write('<meta name="apple-mobile-web-app-status-bar-style" content="red">');
+document.write('<meta name="theme-color" content="black">');
+document.write('<meta name="msapplication-navbutton-color" content="black">');
+document.write('<meta name="apple-mobile-web-app-status-bar-style" content="black">');
 }
 
 function footer(url){
