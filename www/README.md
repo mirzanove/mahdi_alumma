@@ -1,1 +1,0 @@
-This is the directory you should put your PHP application.
