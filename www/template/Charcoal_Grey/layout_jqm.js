@@ -94,6 +94,7 @@ location.reload();
 $(document).ready(function(){
 
 
+
 if (typeof window.orientation !== 'undefined') { 
 
 if (window.matchMedia("(orientation: landscape)").matches) {

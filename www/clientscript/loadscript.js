@@ -13,7 +13,7 @@ if(disable_resoures == false){
 //document.write('<script>if (typeof process !== "undefined" && typeof require !== "undefined") {global.window = window;}</script>');
 
 
-
+//document.write('<script type=\"text/javascript\" src=\''+url+'js/smooth-scrollbar/smooth-scrollbar.js\'><\/script>');  
 
 
 
@@ -126,6 +126,8 @@ document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/copy2
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/config.js\'><\/script>');  
 
 document.write('<script type=\"text/javascript\" src=\''+url+'clientscript/printThis.js\'><\/script>');  
+
+
 
 
 

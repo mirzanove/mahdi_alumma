@@ -158,14 +158,14 @@ background-color:white;
 
 }
 
-::selection {
+/*::selection {
   background: blue;
   color:white;
 }
 ::-moz-selection {
    background: blue;
    color:white;
-}
+}*/
 
 
 
@@ -271,7 +271,7 @@ em {
     width:100%;
     text-align:center;
 	background:#83a892;
-	font-size: 100%;
+	font-size: 25px;
 	
 }
 
