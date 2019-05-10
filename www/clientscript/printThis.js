@@ -417,5 +417,5 @@ function printt(mode){
 });
 	}
     
-	 	tooltip("remove", null);	
+	 tooltip("remove", null);	
 }

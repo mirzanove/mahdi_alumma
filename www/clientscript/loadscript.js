@@ -56,7 +56,7 @@ document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/arc
 
 
 
-document.write('<link type=\"text/css\" media="print" rel=stylesheet href=\''+url+'bookcss/print.css\'/>');
+
 	
 }
 }
@@ -64,6 +64,12 @@ document.write('<link type=\"text/css\" media="print" rel=stylesheet href=\''+ur
 
 
 function header(url){
+
+var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
+url = url.substring(0, url.indexOf(v));
+
+document.write('<link type=\"text/css\" media="print" rel=stylesheet href=\''+url+'bookcss/print.css\'/>');
+
 
 document.write('<meta name="theme-color" content="black">');
 document.write('<meta name="msapplication-navbutton-color" content="black">');
