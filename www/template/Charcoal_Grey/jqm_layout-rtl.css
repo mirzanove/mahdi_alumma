@@ -1,13 +1,22 @@
 
-body,html,.ui-page,#content_t{
-
-overflow: hidden!important;
+*{
+overflow: inherit!important;
 
 }
 
 
 
+body{
 
+overflow: hidden!important;	
+
+	
+}
+
+
+#three2,#two{
+	overflow: auto!important;	
+}
 
 
 .hide {
