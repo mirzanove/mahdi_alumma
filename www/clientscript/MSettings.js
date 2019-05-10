@@ -10,6 +10,15 @@ for(var i=0; i<x.length; i++) {
 }
 }
 
+function disable_select_text(xx)
+{
+	var x = jQueryM_v1_4_5(xx);
+	for (var i = 0; i < x.length; i++)
+	{
+		makeunselectable(x[i])
+	}
+}
+
 
 function get_current_url(url){
 	
@@ -110,13 +119,7 @@ function insertParam(key, value)
     document.location.search = kvp.join('&'); 
 }
 
-//Get querystring value
-function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-    results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-}
+
 
 function changeUrl(key,value) {
 	var str = document.location.href;
@@ -193,96 +196,168 @@ function getCookie(cname) {
     return "";
 }
 
-function updateh1family(savefont) {
-        
-var selector, family, h1, fonttype;
 
-	    if(savefont== true){
+function font_options(index,selector,strUser){
+		
+		    var h1 = document.getElementById('wrapper')
+			h1.style.fontFamily = strUser;
+		
 
-		 
-		selector = document.getElementById('selecth1FontFamily');
-		family = selector.options[selector.selectedIndex].value;
-         h1 = document.getElementById('wrapper')
-        h1.style.fontFamily = family; 
-		
-		}
-		else{
-		
-		if(lsTest() === true){
-		fonttype = localStorage.getItem('fonttype'); 
-		if(fonttype || fonttype == null){	
-		selector = document.getElementById('selecth1FontFamily');
-		selector.selectedIndex = fonttype;
-		strUser = selector.options[selector.selectedIndex].value;
-		h1 = document.getElementById('wrapper')
-        h1.style.fontFamily = strUser; 
-		jQueryM_v1_4_5('.posttext').removeAttr("style");	
-		}
-		}
-		else{
-		
-		fonttype = getCookie("fonttype");
-        if(fonttype || fonttype == null){		
-		selector = document.getElementById('selecth1FontFamily');
-		selector.selectedIndex = fonttype;
-		strUser = selector.options[selector.selectedIndex].value;
-		h1 = document.getElementById('wrapper')
-        h1.style.fontFamily = strUser; 
-		jQueryM_v1_4_5('.posttext').removeAttr("style");	
-		}
-		}
-			
-		}
-		
-		
-		
-		
-		if(selector.selectedIndex == 0){
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","100%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","100%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","77%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","85%");
-						 ///jQueryM_v1_4_5('.dropdown-content').css("font-size","0%");*/
-						 
-						  /*jQueryM_v1_4_5('#wrapper').css("font-size",lateefsize+"%");
-						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", normal_hight+"%");*/
-						  jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "normal");
-						  jQueryM_v1_4_5('#wrapper').css("font-size","170%");
-						  jQueryM_v1_4_5('.posttext').css("font-size","120%");
-						 
-						 
-		             }
-					 else{
-						 
-						 /*jQueryM_v1_4_5('.posttext').css("font-size","85%");
-						 jQueryM_v1_4_5('#content ul  > li').css("font-size","90%");
-						 jQueryM_v1_4_5('#navbar').css("font-size","65%");
-						 jQueryM_v1_4_5('.thread_title').css("font-size","70%");*/
-						 //jQueryM_v1_4_5('.dropdown-content').css("font-size","60%");
+					if(index == 0){
+					h1 = document.getElementById('wrapper');
+					
+					if(localStorage.getItem("currsize")){
 						
-						 /*jQueryM_v1_4_5('#wrapper').css("font-size",othersize+"%");
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", safarilinehight+"%");*/
-						 jQueryM_v1_4_5('.posttext > div,.posttext > span').css("line-height", "140%");
-						 jQueryM_v1_4_5('#wrapper').css("font-size","125%");
-						 jQueryM_v1_4_5('.posttext').css("font-size","120%");
-		 }
-		 
-		 
-		 if(savefont== true){
-		 if(lsTest() === true){
-				 
-				 localStorage.setItem('fonttype',selector.selectedIndex); 
-		 }
-		 else{
-				
-				 setCookie("fonttype", selector.selectedIndex, 1000);
- 
-		 }
-		 }
-		
+						h1.style.fontSize = (180+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "180%";	
+					}
+					
+					localStorage.setItem("defaltsize", "180"); 
 
+					}
+					
+					if(index == 1){
+				
+					h1 = document.getElementById('wrapper');
+				
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (140+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "140%";	
+					}
+					
+					localStorage.setItem("defaltsize", "140");
+					
+					}
+					
+					if(index == 2){
+					h1 = document.getElementById('wrapper');
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (115+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "115%";	
+					}
+					localStorage.setItem("defaltsize", "100");
+				
+					}
+					
+					if(index == 3){
+					h1 = document.getElementById('wrapper');
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (190+parseFloat(localStorage.getItem("currsize")))+"%";
+					}
+					else{
+					  h1.style.fontSize = "190%";	
+					}
+					localStorage.setItem("defaltsize", "190");
+				
+					}
+					
+					if(index == 4){
+					h1 = document.getElementById('wrapper');
+					if(localStorage.getItem("currsize")){
+						
+						h1.style.fontSize = (140+parseFloat(localStorage.getItem("currsize")))+"%";
+						
+					}
+					else{
+					  h1.style.fontSize = "140%";	
+					}
+					localStorage.setItem("defaltsize", "140");
+				
+					}
+		
 		
 }
+
+
+
+
+function updateh1family(savefont)
+	{
+
+		var selector, fonttype,index,strUser;
+		
+			
+			
+		if (savefont == !0)
+		{
+
+	        selector = document.getElementById('selecth1FontFamily');
+			strUser = selector.options[selector.selectedIndex].value;
+			index = selector.selectedIndex;
+			selector.selectedIndex = index;
+	
+	
+			if (lsTest() === !0)
+			{
+				
+				localStorage.setItem('fonttype', selector.selectedIndex)
+			}
+			else
+			{
+				setCookie("fonttype", selector.selectedIndex, 1000)
+			}
+			
+			font_options(index,selector,strUser);
+			
+		}
+		else
+		{
+			if (lsTest() === !0)
+			{
+				
+				
+				index = localStorage.getItem('fonttype');
+				if (index)
+				{
+					
+					selector = document.getElementById('selecth1FontFamily');
+			        selector.selectedIndex = index;
+					strUser = selector.options[index].value;
+					font_options(index,selector,strUser);
+				
+					
+				}
+				else{
+					
+					
+			        selector = document.getElementById('selecth1FontFamily');
+				    index = selector.selectedIndex;
+					strUser = selector.options[index].value;
+					font_options(index,selector,strUser);
+					
+			
+				}
+				
+				
+				jQueryM_v1_4_5('.posttext').removeAttr("style")
+			}
+			else
+			{
+				fonttype = getCookie("fonttype");
+				if (fonttype || fonttype == null)
+				{
+					selector = document.getElementById('selecth1FontFamily');
+					selector.selectedIndex = fonttype;
+					strUser = selector.options[selector.selectedIndex].value;
+					h1 = document.getElementById('wrapper')
+					h1.style.fontFamily = strUser;
+					jQueryM_v1_4_5('.posttext').removeAttr("style")
+				}
+			}
+		}
+		
+
+	}
+
 
 
 function autolog(event,hh,pass){
@@ -427,17 +502,21 @@ if (typeof encryptedMsg != 'undefined')
 	
 		if (fontstylelist == true) { 
          
-		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML+"<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>");
+		jQueryM_v1_4_5( "#content" )
+                        .html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>" + plainHTML + "<div class=\"selecth1FontFamily\" >تغيير نوع الخط<br><select  id=\"selecth1FontFamily\" name=\"selectFontFamily\" onchange=\"updateh1family(true);\"><option>Lateef</option><option>Amiri</option><option>Droid Arabic Naskh</option><option>Scheherazade</option><option>Arial</option></select><div>");
         }
 		else{
 		jQueryM_v1_4_5( "#content" ).html("<div style =\"background-color:#b54b3d;color:white;font-Weight:bold;font-size:100%;text-align:center;padding:4px;\">صـــــفــحــة مشـــــفـــــرة<br><input type=\"checkbox\" id=\"pass3\"> الدخول التلقائي للبيانات المشفرة.. </input></div>"+plainHTML);
 	
 		}
-		
-enable_select_text('.posttext');
-enable_select_text('.thread_title');
-enable_select_text('span.padd');
-enable_select_text('#content>ul');
+
+
+disable_select_text('#navbar');
+				disable_select_text('.tooltip4');
+				disable_select_text('.posttop');
+				disable_select_text('.selecth1FontFamily');
+				disable_select_text('.footer');
+				disable_select_text('.pagenumbers');
 		
 		if(lsTest() === true){
 		var checked2 = localStorage.getItem('autolog');
@@ -615,7 +694,8 @@ jQueryM_v1_4_5("#staticrypt-password").keypress(function(event) {
 
 if (fontstylelist == true) {
 
-jQueryM_v1_4_5("#content").append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option> Lateef </option><option> Serif </option><option> Arial </option></select><div>');
+jQueryM_v1_4_5("#content")
+                    .append('<div class="selecth1FontFamily" >تغيير نوع الخط<br><select  id="selecth1FontFamily" name="selectFontFamily" onchange="updateh1family(true);"><option>Lateef</option><option>Amiri</option><option>Droid Arabic Naskh</option><option>Scheherazade</option><option>Arial</option></select><div>');
 }
 //jQueryM_v1_4_5("#wrapper").append('<center><a target ="_blank" href="https://info.flagcounter.com/4Yvv"><img src="https://s11.flagcounter.com/count/4Yvv/bg_FFFFFF/txt_000000/border_CCCCCC/columns_3/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/" alt="Free counters!" border="0"></a></td></center>');
 
@@ -656,10 +736,12 @@ else{
 
 
 
-enable_select_text('.posttext');
-enable_select_text('.thread_title');
-enable_select_text('span.padd');
-enable_select_text('#content>ul');
+disable_select_text('#navbar');
+				disable_select_text('.tooltip4');
+				disable_select_text('.posttop');
+				disable_select_text('.selecth1FontFamily');
+				disable_select_text('.footer');
+				disable_select_text('.pagenumbers');
 
 
 jQueryM_v1_4_5(document).click(function() {
@@ -671,6 +753,12 @@ jQueryM_v1_4_5(document).on('click', 'a', function(event) {
 
             var classname = jQueryM_v1_4_5(this).attr('class');
             var link = this.href;
+			
+			  var pur_link = link.split('?')[0];
+					   pur_link = pur_link.split('#')[0];
+					   var hash =  this.href.split("#")[1];
+					   var puer_url = document.location.protocol +"//"+ document.location.hostname + document.location.pathname;
+                       var paramters="";
 
 			//alert(classname);
 			
@@ -751,235 +839,72 @@ jQueryM_v1_4_5(document).on('click', 'a', function(event) {
                 }
 				else if(checkURL(x) == false) {
 
-				if(c.indexOf("&checkbox=") !== -1) {
-						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
-                    }
-					if(x.indexOf("#post") !== -1) {
-                        x = x.substring(0, x.indexOf("#post") - 0);
-                    }
-                    if(c.indexOf("#post") !== -1) {
-                        c = c.substring(0, c.indexOf("#post") - 0);
-                    }
-                    if(c.indexOf("?random=") !== -1) {
-						c = c.substring(0, c.indexOf("?random=") - 0); 
-				   }
-				   if(c.indexOf("?rhsyns=") !== -1) {
-                        c = c.substring(0, c.indexOf("?rhsyns=") - 0);
-                   }
-				   if(c.indexOf("?rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("?rhhlterm=") - 0);
-                   }
-				   if(c.indexOf("&rhsearch=") !== -1) {
-                        c = c.substring(0, c.indexOf("&rhsearch=") - 0);
-                   }
-				   if(c.indexOf("&rhhlterm=") !== -1) {
-                        c = c.substring(0, c.indexOf("&rhhlterm=") - 0);
-                   }
-                   if (c.match(/[^"]*(\#|\?)&pass\=(.*?)(&([^"]*)|$)/mg)) {
-			         c = c.replace(/(.*?)(\#|\?)&pass\=(.*?)(#([^"]*)|$)/mg, "$1");
-		           }
-				   c = c.replace("?", "");
-                   
-        
-		
-		var loc ="";
-		strr =  document.location.href;	   
-		
-		if (strr.match(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc+= strr.replace(/[^"]*\&rhsearch\=(.*?)(&([^"]*)|$)/mg, "&rhsearch=$1");
-		}
-		if (strr.match(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc+= strr.replace(/[^"]*\&rhhlterm\=(.*?)(&([^"]*)|$)/mg, "&rhhlterm=$1");
-		}
-		if (strr.match(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg) ) {
-			loc+= strr.replace(/[^"]*\&checkbox\=(.*?)(&([^"]*)|$)/mg, "&checkbox=$1");
-		}
-		
-		if (strr.match(/[^"]*(\#|\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg)) {
-			//loc = loc.replace("#", "");
-			loc+= strr.replace(/[^"]*(\?|\&|\#\&)pass\=(.*?)((&|#)([^"]*)|$)/mg, "&pass=$2");
-			//alert(loc);
-		}
-		
-		if (loc.match(/(#post(.*?))/mg) ) {
-			loc= loc.replace(/(.*?)#post(.*?)(&([^"]*)|$)/mg, "$1$3");
-					 
-		}
-        if (loc.match(/(#td_threadtitle_(.*?))/mg) ) {
-			loc= loc.replace(/(#td_threadtitle_[^"]*)/mg, "");			 
-		}
-		if(loc != ''){
-		   loc = '?'+loc;
-		}
-	   			                    	
-
-				   
-				  // h = location.hash.substring(0, location.hash.indexOf("#post") - 0);
-				   if (link.match(/(#post(.*?))/mg) ) {
-					   h= link.replace(/[^"]*(#post(.*?))/mg, "$1");
-					   link= link.replace(/(#post[^"]*)/mg, "");
-					 
-				   }
-				   else if(link.match(/(#td_threadtitle(.*?))/mg) ) {
-				       h= link.replace(/[^"]*(#td_threadtitle(.*?))/mg, "$1");
-					   link= link.replace(/(#td_threadtitle[^"]*)/mg, "");
-					 
-				   }else{
-					     h='';  
-				   }
-
-
-				   if(c != x) {
-					   
 				
-                        if(classname != "btn_print up") {
-						if(x.indexOf("heexternal://") == -1) {
- 
-						    if(window.location == window.parent.location) {
-	                            jQueryM_v1_4_5('#loading').show();
-								if( classname !='whtbtnshow'){
-								//location.reload(); 
-								}
-								
-                            }
-                            else{
-						        window.parent.postMessage(["loading","run"], "*");
-		                    }
-                        
-						if( classname !='whtbtnshow'){
-						
-						if(window.location == window.parent.location) { 
-			            var gg =get_current_url(link).replace(/(.*?)#post(.*?)([^"]*|$)/mg, "$1");
-									
-							
-						
-						if(h.indexOf("#td_threadtitle_") !=-1){
-					
-								location.href = link+loc+h;
-						
-						   
-							
-						}else if(h.indexOf("#post") !=-1){
-					        
-							location.href = link+loc+h;
-							
-						}
-						else{
-							
-							location.href = link+h+loc;
-							
-						}
-						
-								
-									
-						
-							return false;
-						}
-						
-						}
-
-						}
-						}
-						
-                    }else{
-					   
 				
-					   
-						 if (!this.href.match(/(#post(.*?))/mg) ) {
-							 
-							if(window.location == window.parent.location) {
-	                            jQueryM_v1_4_5('#loading').show();
-								if( classname !='whtbtnshow'){
-								
-								
-								//location.reload(); 
-								setTimeout(function(){ location.reload();  }, 100);
-								}
-								
-                            }
-                            else{
-						        /*window.parent.postMessage(["loading","run"], "*");
-								location.href = link;
-								setTimeout(function(){ location.reload();  }, 300);*/
-		                    }
-							 
-						 }
-						 
-						 if( classname !='whtbtnshow'){
-						
-						 	
-					
-							 if(this.href.indexOf("#post") == -1) {
-								if(window.location == window.parent.location) { 
-                                
-								var pass ="";
-                                
-			                      if(pass.match(/\#&pass\=([^.]+)/i)){
-									  
-									    
-									 var locc = pass.match(/\#&pass\=([^.]+)/i);
-                                     if(window.location == window.parent.location) {
-									 location.href = loc;	
-									 }
-	
-									 return false;
-								  }
-								  else{
-									location.href = link+loc+h;
-									var gg =get_current_url().replace(/(.*?)#post(.*?)([^"]*|$)/mg, "$1");
-									
-									
-									return false;
-									  
-								  }
-								}
-                      
-							 }
-							 else{
-                             
-							   
-							     
-								var xx = this.href;
-                                var cc = window.location.href;
-								
-								var hh;
-								var match;
-								  if (xx.match(/(#post(.*?))/mg) ) {
-					               hh= xx.replace(/[^"]*(#post(.*?))/mg, "$1");
+				if(getParameterByName("rhsearch", window.location)){	
+		paramters +="&rhsearch="+getParameterByName("rhsearch", window.location);	
+	   }
+	   
+	   if(getParameterByName("rhhlterm", window.location)){	
+		paramters +="&rhhlterm="+getParameterByName("rhhlterm", window.location);	
+	   }
+	   	
+	   if(getParameterByName("rhsyns", window.location)){
+		paramters +="&rhsyns="+getParameterByName("rhsyns", window.location);	
+	   }
+	   
+	   if(getParameterByName("checkbox", window.location)){
+		paramters +="&checkbox="+getParameterByName("checkbox", window.location);	
+	   }
+	   
+	   if(getParameterByName("pass", window.location)){
+		paramters +="&pass="+getParameterByName("pass", window.location);	
+	   }
+	   
+	   
+	   
+       if(paramters != ''){
+		  paramters = '?'+paramters;
+	   }
+	   
+	   if(hash){
+		  hash = '#'+hash;
+	   }else{
+		  hash = ''; 
+	   }
 
-				                  }
-								  
-								  if (cc.match(/(#post(.*?))(\\#|)/mg) ) {
-					               //match =  cc.match(/(#post(.*?))[^"]*/i);
-								   match =cc.replace(/(.*?)#post(.*?)(\\#[^"]*|$)/mg, "#post$2");
-								   //alert(match);
-				                  }
-
-                                if(loc){
-									loc = "\\"+loc;
-								}
-                             
-								setTimeout(function(){ location.hash = h }, 0);
-								/*if (typeof simplePostMessage !== 'undefined') {
-				                 
-								  simplePostMessage(["send_pass_hash",get_current_url()+h],"*",parent.parent);
-				                }*/
+                  if (window.location == window.parent.location) {
+		  
+		 if(jQueryM_v1_4_5(this).attr('class') == "up post_hash"){
+								     if(window.location.hash!=hash){
+								               jQueryM_v1_4_5('#loading').show(); 
+								     }
+								 
+							     }
+								 else{
 							
-								jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(hh).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
-					            jQueryM_v1_4_5(hh).css("background-color", "#d5dc91");	
-                          
-							   
-														
-							   return false;
-							 }
-							  
-							  
-							  
-		                    
-
-						 }
-			            
-					}
+							if(hash){
+							if (window.location.hash != hash)
+							{ 
+								jQueryM_v1_4_5('#loading').show()
+							}
+							}
+							else{
+								
+                             jQueryM_v1_4_5('#loading').show()
+							}
+								 
+} 
+		  
+		  
+		  
+		  
+		  
+						location.href = pur_link+paramters+hash;
+	                  
+                       	return false;
+	  }		  
+			
                 }
 				
 				
@@ -1110,7 +1035,31 @@ function loaddsett(){
 
 jQueryM_v1_4_5(document).ready(function() {
 
-        
+   
+ document.onkeydown = keydown;
+
+function keydown(e) {
+  var evtobj = window.event ? event : e
+  if (evtobj.keyCode == 122){
+	  
+  evtobj.keyCode = 0;
+  evtobj.returnValue = false;
+    //alert("[JS] Ctrl + F11 pressed");
+	
+	
+	if (window.location == window.parent.location)
+	{
+		toggfullScreen.call();
+	}
+	else{
+		window.parent.postMessage(["gofull", null], "*");
+	}
+	
+  }
+}    
+   
+   
+
 jQueryM_v1_4_5("#staticrypt-password").focus(function() {
 jQueryM_v1_4_5("#header_topic").css({ top: '0px' });
 });
@@ -1213,19 +1162,28 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
          event.stopPropagation();
 		if(printin_prosses == false){
 			printin_prosses = true;
-		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttext');
+		    var c = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent();
+
             var postID = jQueryM_v1_4_5(event.currentTarget).parent().parent().attr("id");
 			//var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
 		  tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
 		  
 		  setTimeout(function () {
-			 //jQueryM_v1_4_5.print(c);
-			 //printDiv2(c);
-			 print(c);
+			
+			
+			if (typeof process !== "undefined" && typeof require !== "undefined") {
+				printPage(c); 
+			}
+			else{
+									 
+			    print(c); 
+			
+			}
+			
+			
+			
 			 setTimeout(function () {
-                //jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().children('.posttop').selectText();
-				 //location.reload(); 
-				 
+          
 				 printin_prosses = false;
 				 }, 300);
 			  }, 3000);
@@ -1265,7 +1223,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			   if(c[i].className.indexOf("selected")!=-1) {
 
                  select_all_and_copy(c[i]);
-			//jQueryD_1_4_2(c[i]).selectText();
+			//jQueryM_v1_4_5(c[i]).selectText();
 
                 }
 				
@@ -1363,7 +1321,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			   if(c[i].className.indexOf("selected moveoff")!=-1) {
 
                  select_all_and_copy(c[i]);
-			//jQueryD_1_4_2(c[i]).selectText();
+			//jQueryM_v1_4_5(c[i]).selectText();
 
                 }
 				
@@ -1610,7 +1568,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
 			}
 			
-            var c = event.currentTarget.parentNode.parentNode.parentNode.childNodes;
+            var c = event.currentTarget.parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
             var i;
             for(i = 0; i < c.length; i++) {
 		 if(c[i].className!=null){
@@ -1619,7 +1577,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 			   if(c[i].className.indexOf("posttext")!=-1) {
 
                  select_all_and_copy(c[i]);
-			//jQueryD_1_4_2(c[i]).selectText();
+			//jQueryM_v1_4_5(c[i]).selectText();
 
                 }
 				
@@ -1696,7 +1654,9 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
             jQueryM_v1_4_5(event.currentTarget).parent().children('.tooltiptext2').show().selectText();
         });
 
-        jQueryM_v1_4_5(".txt_resize").on('click', function(event) {
+        jQueryM_v1_4_5(".txt_resize").removeAttr("style");
+		
+		jQueryM_v1_4_5(".txt_resize").on('click', function(event) {
             event.preventDefault();
             event.stopPropagation();
             
@@ -1729,206 +1689,209 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
         });
 		
 
-        // reset 
-        // reset 
-        jQueryM_v1_4_5(".resetMe").click(function(event) {
-           
-		   if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			}
-			//var size = 25;
-			fontSize = null;
-            
-			if(fontSize2 == null){
-						var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
-						
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize2 = ((parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size')))*100);
-
+       jQueryM_v1_4_5(".resetMe").click(function (event)
+			{
+				if (typeof disable_model !== 'undefined')
+				{
+					link_disable = !1;
+					link_disable = !1
+				}
+				else
+				{
+					if (window.location != window.parent.location)
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						else{
-						fontSize2 = parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'));
-						
-						}	
-			
-                   }
-			
-			
-			
-			
-			
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize2+"%");
-            /*document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';*/
-        });
-
-        // Increase Font Size 
-        jQueryM_v1_4_5(".increase").click(function(event) {
-          
-		 if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			} 
-		  
-		  
-		 if(posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
-				
-		}
-		else{
-			    
+					}
+					else
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
+						}
+					}
+				}
 				fontSize = null;
-				posttopid = null;
+				if (fontSize2 == null)
+				{
+					var gg = jQueryM_v1_4_5('#wrapper').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5('#wrapper').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize2 = parseFloat(jQueryM_v1_4_5('#wrapper').css('font-size'))
+					}
+				}
 				
-		}
-		 
-		 if(posttopid == null){
-		    posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
-		    //alert("lol");
-		 }
-     
-		if(fontSize == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
-						}
-						else{
-						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
-						}
-						
-						//alert(posttopid);
-						
-		}
-		
-		if(fontSize2 == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize2 = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
-						}
-						else{
-						fontSize2 = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
-						}
-						
-						//alert(posttopid);
-						
-		}
-		 
-			
-			//var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            //var currentSize = parseFloat(currentSize) + 10;
-           
-			
-			
-			fontSize = fontSize+6;
-
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
-            /*document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';*/
-            return false;
-        });
-
-        // Decrease Font Size 
-        jQueryM_v1_4_5(".decrease").click(function(event) {
-            if (typeof disable_model !== 'undefined'){link_disable = false;link_disable = false;}
-			else{
-			   if(window.location != window.parent.location) {
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}
-			   }else{
-			   if (typeof link_disable !== 'undefined') {if(link_disable == true){return false;}}}	
-			}
-			//var currentFontSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-            var currentSize = parseFloat(currentSize) - 3;
-            
-		if(posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')){
 				
-		}
-		else{
-			    
-				fontSize = null;
-				posttopid = null;
+				jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').removeAttr("style")
 				
-		}
-		
-		 if(posttopid == null){
-		    posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id');
-		    //alert("lol");
-		 }
-     
-		if(fontSize == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
+				
+			});
+			jQueryM_v1_4_5(".increase").click(function (event)
+			{
+				if (typeof disable_model !== 'undefined')
+				{
+					link_disable = !1;
+					link_disable = !1
+				}
+				else
+				{
+					if (window.location != window.parent.location)
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
+						}
+					}
+					else
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
+						}
+					}
+				}
+				if (posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id'))
+				{
+					
+					
+				}
+				else
+				{
+					fontSize = null;
+					posttopid = null
+				}
+				if (posttopid == null)
+				{
+					
+					posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
+				}
+				
+					
+					
+					var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+										
 
+					//console.log(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent());
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
+					}
+				
+				if (fontSize2 == null)
+				{
+					var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize2 = parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'))
+					}
+				}
+				fontSize = fontSize + 6;
+				jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%");
+				return !1
+			});
+			jQueryM_v1_4_5(".decrease").click(function (event)
+			{
+				if (typeof disable_model !== 'undefined')
+				{
+					link_disable = !1;
+					link_disable = !1
+				}
+				else
+				{
+					if (window.location != window.parent.location)
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						else{
-						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
+					}
+					else
+					{
+						if (typeof link_disable !== 'undefined')
+						{
+							if (link_disable == !0)
+							{
+								return !1
+							}
 						}
-						
-						//alert(posttopid);
-						
-		}
-		
-		
-		if(fontSize2 == null){
-					    //fontSize = null;
-						//alert("getnewzise");
-						var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size');
-						//alert(gg);
-						if(gg.indexOf("px") !== -1){
-							
-						fontSize2 = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'))/parseFloat(jQueryM_v1_4_5('.post').css('font-size')))*100);
-
-						}
-						else{
-						fontSize2 = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size'));
-						
-						}
-						
-						//alert(posttopid);
-						
-		}
-			
-			
-			fontSize = fontSize-6;
-			
-			if(currentSize != -1){
-			jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize+"%");
-			}
-            
-			/*document.documentElement.style.display = 'none';
-            document.documentElement.offsetHeight; // no need to store this anywhere, the reference is enough
-            document.documentElement.style.display = '';*/
-			
-			return false;
-            
-        });
+					}
+				}
+				var currentSize = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+				var currentSize = parseFloat(currentSize) - 3;
+				if (posttopid == jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id'))
+				{}
+				else
+				{
+					fontSize = null;
+					posttopid = null
+				}
+				if (posttopid == null)
+				{
+					posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
+				}
+				
+					var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize = ((parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
+					}
+				
+				if (fontSize2 == null)
+				{
+					var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
+					if (gg.indexOf("px") !== -1)
+					{
+						fontSize2 = ((parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size')) / parseFloat(jQueryM_v1_4_5('.post,.pagebody').css('font-size'))) * 100)
+					}
+					else
+					{
+						fontSize2 = parseFloat(jQueryM_v1_4_5('.posttext,li').css('font-size'))
+					}
+				}
+				fontSize = fontSize - 6;
+				if (currentSize != -1)
+				{
+					jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%")
+				}
+				return !1
+			});
+	   
+	   
+	   
+	   
 
         jQueryM_v1_4_5(".tooltiptext").on('click', function(event) {
             //event.stopPropagation();
@@ -1958,7 +1921,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
                   
 				
 				
-				jQueryM_v1_4_5('.posttop').removeAttr('style');
+				jQueryM_v1_4_5('.posttop').removeClass( "sectionH" );
                 if(section.indexOf("post") !== -1) {
                    
                    if(jQueryM_v1_4_5(section).length){
@@ -1973,11 +1936,14 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 
                     } else {
 					jQueryM_v1_4_5("#wrapper").animate({ scrollTop: jQueryM_v1_4_5(section).position().top + jQueryM_v1_4_5("#wrapper").scrollTop() }, 0);
-
+                          setTimeout(function(){  window.parent.postMessage(["loading","stop"], "*"); }, 100);
                     }
 
 
-					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
+					jQueryM_v1_4_5(section).addClass( "sectionH" );
+					
+					jQueryM_v1_4_5('#loading').hide();
+					
 					}
 				   }
                 }
@@ -2001,18 +1967,60 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 					
 					
 					
-					jQueryM_v1_4_5(section).css("background-color", "#d5dc91");
+					jQueryM_v1_4_5(section).addClass( "sectionH" );
 					}
 				   }
                 }
             }
         });
-        jQueryM_v1_4_5(window).hashchange();
+        
+		
+		
+	
+		jQueryM_v1_4_5(window).hashchange();
  
 
  
-   //alert(jQueryM_v1_4_5('.posttext').css('font-size'));
+        jQueryM_v1_4_5(".thread_title a").click(function (event)
+			{
+				//event.preventDefault();
+				//event.stopPropagation();
+				if(jQueryM_v1_4_5( ".sectionH")){
+					
+	                jQueryM_v1_4_5('.sectionH').removeClass( "sectionH" );
+					//jQueryM_v1_4_5('.padd').removeClass( "sectionH" );
+				}
+				
+				
+				if (window.location == window.parent.location)
+				{
+					
+								jQueryM_v1_4_5('#loading').show()
+						
+				}
+				else{
+					
+					window.parent.postMessage(["loading", "start"], "*");
+					window.parent.postMessage(["gotohash", null], "*");
+					
+					
+					
+						//setTimeout(function () {
+                           location.reload();
+						   return false;
+				       // }, 150);
+				}
+				
+				
+				
+				
+				
+			});
  
+ 
+ 
+   
+   
    }); //end
     	
 

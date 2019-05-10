@@ -263,9 +263,82 @@ function printDiv2(divID) {
 }
 
 
+	
+
+
+function someRandomFunction(){
+    // This will be executed after myFirstFunction
+	
+if (_isMobile() == mobiletrue) {
+}
+else{
+
+	setTimeout(function(){ 
+
+	            var section = location.hash ? location.hash : null;
+				if (section != null)
+				{
+					
+			  jQueryD_1_4_2(section).css("background-color", "#d5dc91");
+		
+			  jQueryD_1_4_2(section)[0].scrollIntoView();
+				}
+
+	}, 0);
+               
+
+
+}
+	
+}
+
+
+
+function run() {
+
+//someRandomFunction();
+	}
+	
+	// in case the document is already rendered
+	if (document.readyState!='loading') run();
+	// modern browsers
+	else if (document.addEventListener) document.addEventListener('DOMContentLoaded', run);
+	// IE <= 8
+	else document.attachEvent('onreadystatechange', function(){
+	    if (document.readyState=='complete') run();
+	});
+
+	
+	
+	
+	
+	
+function getParameterByName(name, url)
+{
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, '\\$&');
+	var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	
+
+	
+	return (results[2].replace(/\+/g, ' '))
+}
+	
+	
+	
+	
+	
+	
+
 
 window.onload = function(){
-	
+
+
+
+		
 if(IE=="6"&&IE=="7"){	
 
 resize(window);
@@ -274,6 +347,8 @@ resize(window);
 setTimeout(function() {
 
 	//document.getElementById("loading").style.display = 'none';
+	
+	
 	}, 0);
 
 };

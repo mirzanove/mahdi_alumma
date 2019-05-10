@@ -10,6 +10,8 @@ var fontstylelist =true;
 var othersizelist;
 var lateefsizelist;
 
+
+
  
 var detect_userAgent  = /(iPod|iPhone|iPad)/i; 
 //var detect_userAgent  = /Firefox|chrome/i;
@@ -135,6 +137,23 @@ function makeselectable(node) {
     var child = node.firstChild;
     while (child) {
         makeselectable(child);
+        child = child.nextSibling;
+    }
+}
+
+
+function makeunselectable(node) {
+   // alert(node.nodeType);
+	if (node.nodeType == 1) {
+        node.setAttribute("unselectable", "off");
+		//jQueryD_1_4_2(node).addClass("enableselect");
+		node.classList.add("disableselect");
+		/*node.setAttribute("unselectable", "yes");
+		node.setAttribute("onselectstart", "return false;");*/
+    }
+    var child = node.firstChild;
+    while (child) {
+        makeunselectable(child);
         child = child.nextSibling;
     }
 }

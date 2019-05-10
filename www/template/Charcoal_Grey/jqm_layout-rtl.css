@@ -1,72 +1,29 @@
 
-/*
-html, body { height: 100%; width: 100%; margin: 0; position:absolute}
-#three { height: 300px; background-color:red;overflow-y: auto;
-overflow-x: hidden;}
+*{
+/*overflow: inherit!important;	*/
 
-
-.ui-footer {
-    border-width: 1px 0;
-    border-style: solid;
-    position: relative;
 }
 
 
-.ui-mobile [data-role=page],
-.ui-mobile [data-role=dialog],
-.ui-page {
-	top: 0;
-	right: 0;
-	width: 100%;
-	min-height: 100%;
-	position: absolute;
-	display: none;
-	border: 0;
+
+div[data-role="page"]{
+
+overflow: hidden!important;	
+
+	
 }
 
-.ui-mobile .ui-page-active {
-	display: block;
-	overflow: visible;
-	overflow-x: hidden;
+
+#three2,#two{
+	overflow: auto!important;	
 }
 
- 
+/*.ui-popup-active div a{
+	position:relative!important;
+	z-index:1000!important;
+}*/
 
-.ui-btn {
 
-	margin: .5em 0;
-	padding: .7em 1em;
-	display: block;
-	position: relative;
-	text-align: center;
-
-	overflow: hidden;
-	white-space: nowrap;
-	cursor: pointer;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-.ui-btn-icon-notext {
-	padding: 0;
-	width: 1.75em;
-	height: 1.75em;
-	text-indent: -9999px;
-	white-space: nowrap !important;
-}
-.ui-listview > .ui-li-static,
-.ui-listview > .ui-li-divider,
-.ui-listview > li > a.ui-btn {
-	margin: 0;
-	display: block;
-	position: relative;
-	text-align: right;
-	text-overflow: ellipsis;
-	overflow: hidden;
-	white-space: nowrap;
-}
-*/
 .hide {
 display:none;
   
@@ -109,15 +66,6 @@ max-height: 10000em !important;
 }
 
 
-
-html, body{
- overflow: hidden;
-}
-
- body.media-mobile.ios div.topic, body.media-landscape.ios div.topic {
-	-webkit-overflow-scrolling: touch;
-	overflow-y: scroll !important
-}
 
 div.toc-holder ul {
     list-style: none;

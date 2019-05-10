@@ -13,6 +13,21 @@
 <script type="text/javascript" language="javascript">
 </script>
 <style type="text/css">
+
+html, body {
+	
+/*height:100%;*/
+	
+overflow:auto;
+-webkit-overflow-scrolling: touch;
+
+ 
+}
+
+
+
+
+
 <!--
 div { margin:0;
 padding:0;
@@ -686,9 +701,28 @@ var data = e.data[1];
 
 
 
+if (typeof process !== "undefined" && typeof require !== "undefined")
+	{
+		
+	
+    if (window.location != window.parent.location)
+	{
+		
+       window.parent.postMessage(["saveCurrrURL", null], "*");
+		
+	}
+	else
+	{
 
+	   localStorage.setItem("currURL", window.location);
+	
+	}
+}
 
 
 //]]>
 </script> 
+
+
+<script src="js/gui_node.js"></script>
 </html>

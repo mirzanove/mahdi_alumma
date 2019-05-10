@@ -116,12 +116,16 @@ function redirectToTopic(bCSH)
 		}
 		else
 		{
+		
 			var target = document.querySelector("[name=" + gTopicFrameName + "]");
 
 			if (target) {
 				var fullUrl = rh._.makeFullUrl(gTopicURL);
 				try {
-					document.getElementsByClassName("loading2")[0].style.display = 'block';	
+						 if(hidload == false){
+						 document.getElementsByClassName("loading2")[0].style.display = 'block';	
+						 }	
+						 	//alert(fullUrl);
 					target.contentWindow.location.replace(fullUrl);	
 				} catch(e) {
 					target.contentWindow.document.location.replace(fullUrl);	

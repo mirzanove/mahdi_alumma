@@ -1,168 +1,72 @@
 ﻿
 
-if (typeof process !== "undefined" && typeof require !== "undefined") {
-                function copyToClipboard(text) {
-                    var dummy = document.createElement("input");
-                    document.body.appendChild(dummy);
-                    dummy.setAttribute('value', text);
-                    dummy.select();
-                    document.execCommand("copy");
-                    document.body.removeChild(dummy);
-                }
-
-                var el;
-
-                function isEditable() {
-                    el = document.activeElement; // focused element
-                    if (el && ~['input', 'textarea'].indexOf(el.tagName.toLowerCase())) {
-                        return !el.readOnly && !el.disabled;
-                    }
-                    el = getSelection()
-                        .anchorNode; // selected node
-                    if (!el) return undefined; // no selected node
-                    el = el.parentNode; // selected element
-                    return el.isContentEditable;
-                }
-
-
-
-                document.addEventListener("contextmenu", function (e) {
-                    var gui = require('nw.gui');
-                    var win = gui.Window.get();
-                    var menu = new gui.Menu();
-                    e.preventDefault();
-                    e.stopPropagation();
-                    var link = this.href;
-                    var clipboard = gui.Clipboard.get();
-                    var text = clipboard.get('text');
-
-
-                    var ff = false;
-                    var showcntx = false;
-                    var link = this.href;
-                    for (var target = e.target; target && target != this; target = target.parentNode) {
-                        // loop parent nodes from the target to the delegation node
-                       
-					   if (target.matches("A")) {
-
-                            if (target.href != "") {
-
-                                menu.append(new gui.MenuItem({
-                                    label: 'Open in browser'
-                                    , click: function (e) {
-                                        gui.Shell.openExternal(target.href);
-                                    }
-                                }));
-                                menu.append(new gui.MenuItem({
-                                    label: 'Copy link address'
-                                    , click: function (e) {
-                                        copyToClipboard(target.href)
-                                    }
-                                }));
-                                showcntx = true;
-
-                            }
-
-                            if (window.getSelection() != "") {
-
-                                menu.append(new gui.MenuItem({
-                                    label: "Copy"
-                                    , click: function () {
-                                        document.execCommand("copy");
-                                    }
-                                }));
-
-                                showcntx = true;
-                            }
-
-
-
-                            ff = true;
-                            break;
-
-                        }
-                    }
-                    if (ff == false) {
-                        for (var target = e.target; target && target != this; target = target.parentNode) {
-                            if (target.matches("Div")) {
-
-                                console.log(target.getAttribute("href"));
-
-                                if ((target.getAttribute("href") != "") && (target.getAttribute("href") != null)) {
-
-                                    menu.append(new gui.MenuItem({
-                                        label: 'Open in browser'
-                                        , click: function (e) {
-                                            gui.Shell.openExternal(target.getAttribute("href"));
-                                        }
-                                    }));
-                                    menu.append(new gui.MenuItem({
-                                        label: 'Copy link address'
-                                        , click: function (e) {
-                                            copyToClipboard(target.getAttribute("href"))
-                                        }
-                                    }));
-                                    showcntx = true;
-
-                                }
 
 
 
 
-                                if (window.getSelection() != "") {
-                                    menu.append(new gui.MenuItem({
-                                        label: "Copy"
-                                        , click: function () {
-                                            document.execCommand("copy");
-                                        }
-                                    }));
-
-                                    if (isEditable() == true) {
-                                        menu.append(new gui.MenuItem({
-                                            label: "Cut"
-                                            , click: function () {
-                                                document.execCommand("cut");
-                                            }
-                                        }));
-                                    }
-
-                                    showcntx = true;
-                                }
-
-                                if (isEditable() == true) {
-
-                                    if (text != "") {
-
-                                        menu.append(new gui.MenuItem({
-                                            label: "Paste"
-                                            , click: function () {
-                                                document.execCommand("paste");
-                                            }
-
-                                        }));
-                                        showcntx = true;
-                                    }
 
 
-                                }
+function toggleNDmode(e){
+
+ var dropdowns = document.getElementsByClassName("dropdown-content");
+       var i;
+       for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+         if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+         }
+       }
+
+if(localStorage.getItem("NDmode")){
+	
+if(localStorage.getItem("NDmode")=="night"){
+	
+localStorage.setItem("NDmode", "daylight");
+	
+}
+else{
+	
+localStorage.setItem("NDmode", "night");
+	
+}
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+location.reload();	
+}
+else{
+document.getElementsByClassName("loading2")[0].style.display = 'block';
+localStorage.setItem("NDmode", "night");
+location.reload();	
+	
+}
+	
+}
 
 
-
-                                break;
-                            }
-                        }
-                    }
+window.addEventListener("orientationchange", function() {
 
 
+if (typeof window.orientation !== 'undefined') { 
 
-                    if (showcntx == true) {
-						//consol
-                        menu.popup(e.clientX, e.clientY);
-                    }
+if (window.matchMedia("(orientation: landscape)").matches) {
 
-                }, false);
+document.getElementById("myDropdown").style.overflowY = "hidden";
+document.getElementById("myDropdown").style.height = "auto";
 
 }
+else{
+
+document.getElementById("myDropdown").style.overflowY = "scroll";
+document.getElementById("myDropdown").style.height = "200px";
+
+}
+
+
+}
+
+
+}, false);
+
+
 
 
 
@@ -529,6 +433,64 @@ function px(input) {
 $(document).ready( function (){
 
 
+
+
+if (typeof window.orientation !== 'undefined') { 
+
+if (window.matchMedia("(orientation: landscape)").matches) {
+
+document.getElementById("myDropdown").style.overflowY = "scroll";
+document.getElementById("myDropdown").style.height = "200px";
+
+
+}
+else{
+
+document.getElementById("myDropdown").style.overflowY = "hidden";
+document.getElementById("myDropdown").style.height = "auto";
+
+}
+}
+
+
+
+
+
+if(localStorage.getItem("NDmode")){	
+if(localStorage.getItem("NDmode")=="night"){
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+	
+}
+else{
+
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+	
+}
+}
+else{
+
+document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+
+	
+}
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 $(window).on('hashchange', function() {
@@ -572,83 +534,6 @@ else{
 	$(".buttonbar").css("width", "").css("height", "");
 }	
 	
-
-/*	
-$(document).on('contextmenu','.nolink',function(){
-
-
-if (typeof process !== "undefined" && typeof require !== "undefined") {              
-var inputs = document.querySelectorAll("a");                               
-    
-var gui = require('nw.gui');
-var win = gui.Window.get();
-var menu = new gui.Menu();	
-event.preventDefault();
-event.stopPropagation();
-var link =this.href;
-var clipboard = gui.Clipboard.get();
-var text = clipboard.get('text');
-
-console.log(link);
-if(this.href !=""){
- 
-menu.append(new gui.MenuItem({ 
-            label: 'Open in browser',
-            click: function(e) {
-gui.Shell.openExternal(link);
-
-         }
-}));
-menu.append(new gui.MenuItem({ 
-            label: 'Copy link address',
-            click: function(e) {
-copyToClipboard(link)
-
-            }
-}));
- 	
-
-
-if(window.getSelection()!=""){
-	
-	menu.append(new gui.MenuItem({
-    label: "Copy",
-    click: function() {
-      document.execCommand("copy");
-    }
-    })); 
-}
-
-if(isEditable()== true){
-    menu.append(new gui.MenuItem({
-    label: "Cut",
-    click: function() {
-      document.execCommand("cut");
-    }
-  }));
-  
-  if(text != ""){
-	
-    menu.append(new gui.MenuItem({
-    label: "Paste",
-    click: function() {
-      document.execCommand("paste");
-    }
-	
-  }));
-	
-}
-  
-}
-
-menu.popup(event.pageX, event.pageY);
-
-}	  
-
-}
-	 
-})
-*/
 
 })
 
@@ -1011,7 +896,7 @@ removeClass(document.getElementById("searchresults"),"rh-hide");
     document.getElementById("searchresults").removeAttribute("hidden");
 	document.getElementById("searchresults").classList.remove("rh-hide");
 	if(document.location.href.indexOf("&ux=search")== -1){
-//	history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(bookmark)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=search");
+history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(bookmark)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=search");
 	}	
 		
 
@@ -2074,7 +1959,52 @@ eventer(messageEvent,function(e) {
 	}
 	return false;
 	break;
+		case 'gotohash':
+
+
+var pur_link = window.location.href.split('&')[0];
+pur_link = pur_link.split('%23')[0];
+var paramters="";
+
+       if(getParameterByName("rhsearch", window.location)){	
+		paramters +="&rhsearch="+getParameterByName("rhsearch", window.location);	
+	   }
+	   
+	   if(getParameterByName("rhhlterm", window.location)){	
+		paramters +="&rhhlterm="+getParameterByName("rhhlterm", window.location);	
+	   }
+	   	
+	   if(getParameterByName("rhsyns", window.location)){
+		paramters +="&rhsyns="+getParameterByName("rhsyns", window.location);	
+	   }
+	   
+	   if(getParameterByName("checkbox", window.location)){
+		paramters +="&checkbox="+getParameterByName("checkbox", window.location);	
+	   }
+	   
+	   if(getParameterByName("pass", window.location)){
+		paramters +="&pass="+getParameterByName("pass", window.location);	
+	   }
+
+     if(data){
+		
+		window.location.href = pur_link+"%23"+data+paramters;
 	
+	}else{
+	
+	  window.location.href = pur_link+paramters;
+	  //location.reload();
+	  return false;
+	}
+     break;
+	 case 'saveCurrrURL':
+
+	 localStorage.setItem("currURL", window.location.href);
+	 break;
+	 case 'gofull':
+     toggfullScreen.call();  //ouput global:undefined
+	//toggleFull();
+	break;
 	
 }
 },false);

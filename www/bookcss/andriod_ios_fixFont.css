@@ -1,14 +1,4 @@
 
-/* lateef-regular - arabic */
-@font-face {
-  font-family: 'Lateef';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lateef'),
-  url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-  url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
-}
-
 body { 
 /*overflow:hidden; */
 -webkit-overflow-scrolling: touch; 
@@ -23,15 +13,15 @@ body {
      overflow-y: auto;
 	-webkit-overflow-scrolling: touch;
 	position: relative;
-	font-size: 140%;
+	/*font-size: 140%;*/
 	cursor: pointer;
-	font-family:'Lateef', serif;
-	-webkit-text-size-adjust:80%;
+	/*font-family:'Lateef', serif;*/
+	/*-webkit-text-size-adjust:80%;*/
 }
 
 
 
 div.posttext {
 padding:15px;
-font-size: 120%;
+
 }
