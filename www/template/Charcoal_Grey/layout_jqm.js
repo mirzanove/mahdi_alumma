@@ -574,8 +574,23 @@ var paramters="";
 		paramters +="&pass="+getParameterByName("pass", window.location);	
 	   }
 
-      window.location.href = pur_link+"%23"+data+paramters;
-     break;
+      
+   
+
+    if(data){
+		
+		window.location.href = pur_link+"%23"+data+paramters;
+	
+	}else{
+	
+	  window.location.href = pur_link+paramters;
+	  //location.reload();
+	  return false;
+	}
+
+
+
+    break;
 	case 'saveCurrrURL':
 
 	 localStorage.setItem("currURL", window.location.href);

@@ -180,18 +180,18 @@ div.pagebody {
 
 
 
-.posttext font[color="#0000CD"]{/*line-height: 150%;*/ color:#8293ff;}/*blue*/
-.posttext font[color="blue"]{/*line-height: 150%;*/ color:#8293ff;}/*blue*/
+.posttext font[color="#0000CD"]{/*line-height: 150%;*/ color:#b3bdff;}/*blue*/
+.posttext font[color="blue"]{/*line-height: 150%;*/ color:#b3bdff;}/*blue*/
 
 
 
-.posttext font[color="#800080"]{/*line-height: 150%;*/ color:#d561dc;}/*tile*/
+.posttext font[color="#800080"]{/*line-height: 150%;*/ color:#f774ff;}/*tile*/
 
 
 .posttext font[color="#000000"]{/*line-height: 150%;*/ color:#bababa;}
 
 
-.posttext font[color="#CC0000"]{color:#d23030;}
+.posttext font[color="#CC0000"]{color:#ff3939;}
 /*red*/
 
 .posttext font[color="#800000"]{/*line-height: 150%;*/ color:#db6060;}/*redd*/
@@ -980,7 +980,7 @@ hyphens: auto;
 	
 	background-color: black;
 	padding: 5px;
-	border: solid 3px #efd332;
+	border: solid 3px #8a7d2c;
 }
 
 .qts_link {
@@ -988,7 +988,7 @@ hyphens: auto;
 	text-align: center;
 	background-color: black;
 	padding: 5px;
-	border: solid 3px #efd332;
+	border: solid 3px #8a7d2c;
 }
 
 .video-container {

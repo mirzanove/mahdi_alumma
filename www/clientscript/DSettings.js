@@ -311,7 +311,7 @@ else
 				
 					}
 		
-		
+		fontSize =null;
 		
 		setTimeout(function ()
 								{
@@ -1871,7 +1871,12 @@ function keydown(e) {
 						fontSize2 = parseFloat(jQueryD_1_4_2('.posttext,li').css('font-size'))
 					}
 				}
+				
+
+				
 				fontSize = fontSize + 6;
+				
+				
 				jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size', fontSize + "%");
 				return !1
 			});
@@ -1918,8 +1923,7 @@ function keydown(e) {
 				{
 					posttopid = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
 				}
-				if (fontSize == null)
-				{
+				
 					var gg = jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
 					if (gg.indexOf("px") !== -1)
 					{
@@ -1929,7 +1933,7 @@ function keydown(e) {
 					{
 						fontSize = parseFloat(jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
 					}
-				}
+				
 				if (fontSize2 == null)
 				{
 					var gg = jQueryD_1_4_2('.posttext,li').css('font-size');

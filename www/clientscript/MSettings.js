@@ -1858,8 +1858,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				{
 					posttopid = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().children('.posttop').attr('id')
 				}
-				if (fontSize == null)
-				{
+				
 					var gg = jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size');
 					if (gg.indexOf("px") !== -1)
 					{
@@ -1869,7 +1868,7 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 					{
 						fontSize = parseFloat(jQueryM_v1_4_5(event.currentTarget).parent().parent().parent().parent().parent().parent().parent().children('.posttext').css('font-size'))
 					}
-				}
+				
 				if (fontSize2 == null)
 				{
 					var gg = jQueryM_v1_4_5('.posttext,li').css('font-size');
@@ -2002,10 +2001,14 @@ jQueryM_v1_4_5('#wrapper').css("-webkit-text-size-adjust","80%");
 				else{
 					
 					window.parent.postMessage(["loading", "start"], "*");
+					window.parent.postMessage(["gotohash", null], "*");
 					
-						setTimeout(function () {
+					
+					
+						//setTimeout(function () {
                            location.reload();
-				        }, 150);
+						   return false;
+				       // }, 150);
 				}
 				
 				
