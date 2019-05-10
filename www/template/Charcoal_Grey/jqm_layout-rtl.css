@@ -1,12 +1,12 @@
 
 *{
-overflow: inherit!important;
+/*overflow: inherit!important;	*/
 
 }
 
 
 
-body{
+div[data-role="page"]{
 
 overflow: hidden!important;	
 
@@ -17,6 +17,11 @@ overflow: hidden!important;
 #three2,#two{
 	overflow: auto!important;	
 }
+
+/*.ui-popup-active div a{
+	position:relative!important;
+	z-index:1000!important;
+}*/
 
 
 .hide {
