@@ -389,7 +389,9 @@ function printt(mode){
 
       jQueryD_1_4_2("html,body").removeAttr('style');
 	 
-	 print();
+	  print();
+	  
+	  jQueryD_1_4_2("html,body").css("height", "100%");
 		
 		
 

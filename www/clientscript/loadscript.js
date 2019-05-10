@@ -56,7 +56,7 @@ document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/arc
 
 
 
-document.write('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/archive_print.css\'/>');
+document.write('<link type=\"text/css\" media="print" rel=stylesheet href=\''+url+'bookcss/print.css\'/>');
 	
 }
 }
