@@ -225,23 +225,9 @@ function print(mode){
 
             // import additional stylesheet(s)
             if (opt.loadCSS) {
-                if ($.isArray(opt.loadCSS)) {
-                    jQuery.each(opt.loadCSS, function(index, value) {
-                        $head.append("<link type='text/css' rel='stylesheet' href='" + this + "'>");
-                    });
-                } else {
-                    $head.append("<link type='text/css' rel='stylesheet' href='" + opt.loadCSS + "'>");
+         
 					
-					if(_isMobile() == mobiletrue) {
-		
-   		$head.append("<style>.posttext > div,.posttext >span ,font{line-height:"+$('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+$('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+$('#wrapper').css("font-family")+"'}</style>" );
-		   }
-	       else{
-	       
-		    $head.append("<style>.posttext > div,.posttext >span ,font{line-height:"+$('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+$('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+$('#wrapper').css("font-family")+"'}</style>" );
-	       }
-					
-                }
+                
             }
 
             var pageHtml = $('html')[0];
@@ -387,7 +373,7 @@ function print(mode){
 
 	if(mode == "whol"){
 	
-	$("#content").printThis({
+	$("#wrapper").printThis({
   debug: false,               // show the iframe for debugging
   importCSS: false,            // import page CSS
   importStyle: false,         // import style tags
