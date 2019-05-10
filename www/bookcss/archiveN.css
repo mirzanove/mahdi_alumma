@@ -136,6 +136,68 @@ td {
 }
 
 
+
+
+
+#wrapper {
+  scrollbar-color: #a6a0a0 black;
+}
+
+#wrapper::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+#wrapper::-webkit-scrollbar-track-piece  {
+    background-color: black;
+	border-style: solid;
+    border-color: grey;
+	border-width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+height:25px;
+
+border-radius: 50px;
+background-color: #a6a0a0;
+
+  
+}
+
+
+
+body,html {
+  scrollbar-color: #a6a0a0 black;
+}
+
+body::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+body::-webkit-scrollbar-track-piece  {
+    background-color: black;
+	border-style: solid;
+    border-color: grey;
+	border-width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+height:25px;
+
+border-radius: 50px;
+background-color: #a6a0a0;
+
+  
+}
+
+
+
+
+
+
+
+
 /*::selection {
   background: #acf1ff;
   color:black;
