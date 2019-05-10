@@ -155,14 +155,9 @@ background-color: #cfd0d3;
 width:20px;
 }
 .btn {
-    text-shadow:0 0 0!important;
-    display: inline-block;
+
     padding: 3px!important;
-	margin:0!important;
-    border: 1px solid transparent!important;
-    border-radius: 4px!important;
-	color: black!important;
-	cursor: pointer!important;
+	
 }
 .btn-danger {
 text-decoration: none;
@@ -177,7 +172,7 @@ text-decoration: none;
     border-color: #46b8da;
 }
 #bookit{
-	
+font-size: 12px!important;		
 width:100px!important;
 }	
 }
