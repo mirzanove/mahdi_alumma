@@ -8,7 +8,7 @@ var model_visible = false;
 var stop = false;
 
 
-
+function printPage() { print(); }
 
 
 function getPageHeight(D) {

@@ -1,5 +1,8 @@
 var posttopid;
 
+
+
+
 function enable_select_text(xx)
 {
 	var x = jQueryD_1_4_2(xx);

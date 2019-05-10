@@ -249,7 +249,7 @@ $(document).on("mobileinit", function(){
 
 
 <div style = "padding:0;" data-role="popup" id="popupMenu2" data-theme="a" style= "webkit-overflow-scrolling: touch;z-index:10">
-<a style = "margin:0;padding:1px;" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
+<a style = "margin:0;padding:1px;" onclick = "printIframe('iframe')" data-trigger="EVT_PRINT_TOPIC" data-role="button" data-ajax="false">طباعة الكل</a>
 <a id = "NDmode" style = "margin:0;padding:1px;" onClick= "toggleNDmode(this);"  data-role="button" data-ajax="false">تعيين التصفح الليلي</a>
 <a id = "FullS" style = "margin:0;padding:1px;" data-role="button" data-ajax="false">تحجيم كلي للشاشة F11</a>
 <a style = "margin:0;padding:1px;" data-trigger="EVT_REMOVE_HIT" data-role="button" data-ajax="false">ازالة تسليط الضوء</a>
@@ -539,6 +539,17 @@ $(document).on("mobileinit", function(){
 </script> 
 
 <script>
+
+function printIframe(id)
+{
+    var iframe = document.frames ? document.frames[id] : document.getElementById(id);
+    var ifWin = iframe.contentWindow || iframe;
+    ifWin.focus();
+    ifWin.printPage();
+    return false;
+}
+
+
 </script>
 <!-- Scripts -->
 <script src="template/Charcoal_Grey/usersettings.js" type="text/javascript"></script>
