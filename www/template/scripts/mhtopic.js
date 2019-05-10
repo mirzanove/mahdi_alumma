@@ -640,16 +640,7 @@ function StartHighLightSearch(hitid)
 			findSearchTerms(trim(arrSyns[i]), false);
  
 if(strTerms){
- 
-if (typeof process !== "undefined" && typeof require !== "undefined")
-{ 
-setTimeout(function(){ hit(strTerms);}, 2300);
-}
-else{
-setTimeout(function(){ hit(strTerms);}, 100);	
-}
-  
- 
+ hit(strTerms);	
 }
 else{
 
@@ -2397,7 +2388,7 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					
 					var el = document.createElement('em');
 					el.classList.add("enableselect");
-                    el.classList.add("mark");
+
 					if(portion.text.replace(/\s/g,"") != ""){
 					el.setAttribute('id','hit_'+i);
 					i++;
@@ -2410,9 +2401,6 @@ var hh =xx.replace(/\s+/g,' ').replace(/^\s+|\s+$/g, '');
 					return el;
 				}
         });
-		
-
-
 	
 		window.parent.postMessage(["loading","stop"], "*");
 		//document.getElementById("loading").style.display = 'none'; 
@@ -2506,7 +2494,7 @@ var data2 = e.data[2];
 	  break;
 	  case 'get_ifram_location_href':
       
-		var str = data
+		str = data
 		if (str.match(/(index.html)/mg) ) {
 			window.parent.postMessage(["get_ifram_location_href",str], "*");
 		}
@@ -2556,37 +2544,9 @@ var data2 = e.data[2];
 		loc_target = '?'+loc_target;
 		}
 		
-		
-        var puer_url = document.location.protocol +"//"+ document.location.hostname+(location.port ? ':'+location.port: '') + document.location.pathname;
-        var paramters="";
-	   if(getParameterByName("rhsearch", str)){	
-		
-		
-		paramters +="&rhsearch="+getParameterByName("rhsearch", str);	
-	   }
-       
-	   if(getParameterByName("rhhlterm", str)){	
-		paramters +="&rhhlterm="+getParameterByName("rhhlterm", str);	
-	   }
-	   if(getParameterByName("rhsyns", str)){	
-		paramters +="&rhsyns="+getParameterByName("rhsyns", str);	
-	   }
-	   
-	   if(getParameterByName("checkbox", str)){
-		paramters +="&checkbox="+getParameterByName("checkbox", str);	
-	   }
-	   
-	   if(getParameterByName("pass", str)){
-		paramters +="&pass="+getParameterByName("pass", str);	
-	   }
-	   
-	   
-	   if(paramters != ''){
-		  paramters = '?'+paramters;
-	   }
-	   
-	    window.parent.postMessage(["get_ifram_location_href",puer_url+paramters+location.hash], "*");
-		
+		window.parent.postMessage(["get_ifram_location_href",rhsyns+loc_target], "*");
+		//alert(rhsyns);
+			
 			
 		}
      	break;
@@ -2618,12 +2578,10 @@ else{
 hitid = null; 
 }
 		  
-		  //alert(hitid);
-		  setTimeout(function(){ applyHighlight(hitid);}, 0);
+		  
+		  setTimeout(function(){ applyHighlight(hitid);}, 50);
 	
 		  loaddsett();
-		  
-		
 		  
 		  }
 		  else{
@@ -2647,7 +2605,7 @@ hitid = null;
 	 }
 	  case 'get_ifram_location_href2':
         
-		var c = document.location.pathname;
+		var c = window.location.href;
 		          if(c.indexOf("&checkbox=") !== -1) {
 						c = c.replace(/([^"]*)(\&checkbox\=(.*?))(&([^"]*)|$)/mg, "$1");
                     }
@@ -2678,7 +2636,6 @@ hitid = null;
 		c= c.replace('html?', "html");
         c= c.replace('htm?', "htm");		 
 
-	
 		window.parent.postMessage(["send_page_info",document.title, c], "*");
 		 
 		 

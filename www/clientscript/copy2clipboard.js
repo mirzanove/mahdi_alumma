@@ -2,17 +2,13 @@
 
 function tooltip(el, message)
 {
-	var element =  document.getElementById('copy_tooltip');
-    var tooltip;
-	
-	if(el ==null){
-		
 	var scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
 	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
 	//var x = parseInt(el.getBoundingClientRect().left) + scrollLeft + 400;
 	//var y = parseInt(el.getBoundingClientRect().top) + scrollTop + 100;
 	
-	
+	var element =  document.getElementById('copy_tooltip');
+    var tooltip;
 	
 	//alert(element);
 	if (typeof(element) == 'undefined' || element == null)
@@ -57,14 +53,15 @@ function tooltip(el, message)
 	tooltip.style.marginLeft = "-50px";
 		
 	}*/
+	
+	
 	tooltip.innerHTML = message;
+	setTimeout(function() { 
+	if (tooltip != null){
+	//alert(tooltip);
+	tooltip.outerHTML = ""; delete tooltip;printin_prosses = false;
 	}
-	else{
-	
-	document.getElementById('copy_tooltip').outerHTML = ""; delete document.getElementById('copy_tooltip'); printin_prosses = false;
-	
-	}
-		
+	}, 3000);
 }
 
 
@@ -152,29 +149,10 @@ function select_all_and_copy(el)
         textRange.execCommand("Copy");   
 		
 		if(el.className == "selected moveoff"||el.className == "selected") {
-		 tooltip(null, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
-		 
-	setTimeout(function() { 
-	tooltip("cool", null);
-	}, 3000);
+		 tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
 		}
         else{
-			
-			
-			
-         if(el.id=="wrapper"){
-					
-					 tooltip(null, "تم نسخ نص الصفحة في الذاكرة يمكنك الان لصقها");
-					  
-					}else{
-					
-					tooltip(null, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
-
-					}
-		 
-		 setTimeout(function() { 
-	tooltip("cool", null);
-	}, 3000);
+         tooltip(el, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
 		}		
     }
 	else if (window.getSelection && document.createRange) {
@@ -201,29 +179,10 @@ function select_all_and_copy(el)
 				
             
 				if(el.className == "selected enableselect" || el.className == "selected moveoff enableselect"||el.className == "selected") {
-		          tooltip(null, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
-				  setTimeout(function() { 
-	tooltip("cool", null);
-	}, 3000);
+		          tooltip(el, "تم نسخ الرابط في الذاكرة  يمكنك الان لصقها");
 		        }
                 else{
-					
-					
-					
-					if(el.id=="wrapper"){
-					
-					
-					 tooltip(null, "تم نسخ نص الصفحة في الذاكرة يمكنك الان لصقها");
-					  
-					}else{
-					
-					tooltip(null, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
-
-					}
-				  
-				  setTimeout(function() { 
-	              tooltip("cool", null);
-	}, 3000);
+                tooltip(el, "تم نسخ المشاركة في الذاكرة  يمكنك الان لصقها");
 		        }
 			}
 		    else tooltip(el, "Press CTRL+C to copy");

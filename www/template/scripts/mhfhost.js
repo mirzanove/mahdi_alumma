@@ -94,7 +94,8 @@ strParamss=null;
 	
 	var textInput = document.getElementById('wSearch'),
 		clearBtn = document.getElementById('clear');
-if(clearBtn){	
+if(clearBtn){
+	
 if (textInput.value.length > 1) {
        //clearBtn.style.visibility =  "visible" ;
      }
@@ -3609,10 +3610,6 @@ function displayTopics( a_QueryResult )
 
 			lunch_vlist(a_QueryResult.aTopics,strParams,"mycontainer","three2");
 			removeClass(document.getElementById("end"),"rh-hide");
-			if(getbooleanindexopage()==1) {
-			$("#end").show();
-			
-			}
 			
 		}
 	
@@ -3626,8 +3623,6 @@ function displayTopics( a_QueryResult )
 		}
 	
 	}	
-hidload = false;
-	
 }
 
 
@@ -3732,8 +3727,6 @@ function displayErrorMsg(msg)
 }
 function updateResultView()
 {
-	
-	
 	if ( g_CurState == ECS_SEARCHING )
 		displaySearchProgressBar( goOdinHunter.nProgress );
 	else if ( g_CurState == ECS_FOUND ) {

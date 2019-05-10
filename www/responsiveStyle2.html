@@ -5,10 +5,7 @@
       <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
       <meta name="viewport" content="width=100%, initial-scale=1" />
       <meta name="generator" content="Adobe RoboHelp 11" />
-       <meta name="theme-color" content="black">
-	  <meta name="msapplication-navbutton-color" content="black">
-	  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-	  <title>تطبيق موسوعة نون</title>
+      <title>تطبيق موسوعة نون</title>
       <script>history.scrollRestoration = "manual"</script>
       <script type="text/javascript"> 
          var frame_loaded;
@@ -105,28 +102,7 @@
       </script>
       <style>
 	  
-.header:-webkit-full-screen {
- 
-    background-color: red!important;
-}
-
-.header:-webkit-full-screen {
-  background-color: red!important;
-}
-
-.header:-moz-full-screen {
-  background-color: red!important;
-}
-
-.header:-ms-fullscreen {
-  background-color: red!important;
-}
-
-.header:fullscreen {
-  background-color: red!important;
-}
-   
-
+	  
 	  .img_wrapper{
 	   display:none;
 	  }
@@ -339,13 +315,10 @@
          z-index: 9999999999999;
          font-size: 15px;
          }
-        .drop{
-padding:0px;
-display:block;
-border-style: solid;
-border-color: black;
-border-width: 1px;
-}
+         .drop{
+         padding:5px;
+         display:block;
+         }
          .show{
          display:block;
          } 
@@ -489,10 +462,6 @@ border-width: 1px;
          padding:0;
          margin:0;
          } 
-		 
-
-		 
-		 
       </style>
       <link rel="SHORTCUT ICON" href="87px.png" />
       <div class = "loading2 topic-state"></div>
@@ -501,7 +470,7 @@ border-width: 1px;
          <img class="modal-content" id="img01">
       </div>
    </head>
-   <body data-rhwidget="Basic" class="deck bespoke-parent">
+   <body data-rhwidget="Basic">
       <script type="text/javascript" src="./ehlpdhtm.js"></script>
       <div id ="floatholder" class="floatholder">
 
@@ -521,19 +490,16 @@ border-width: 1px;
                   <div onclick="scrollTo_down();return false;" style = "vertical-align:middle; float:left; cursor: pointer;" data-trigger="EVT_SCROLL_TO_DOWN">
                      <img src= "template/resources/toc_book_open_mobile.png">
                   </div>
-                  <div class="dropdown" id = "dropdown" style = "webkit-overflow-scrolling: touch;vertical-align:middle; float:left; cursor: pointer;">
+                  <div class="dropdown" id = "dropdown" style = "vertical-align:middle; float:left; cursor: pointer;">
                      <img onclick="showdropdown()" class="dropbtn" src= "template/resources/plus.png">
                      <div id="myDropdown" class="dropdown-content" style = "z-index:99999;" >
                         <a class = "drop"  data-trigger="EVT_PRINT_TOPIC">طباعة الكل</a>
-						<a class = "drop" id = "NDmode" onClick= "toggleNDmode(this);">تعيين التصفح الليلي</a>
-						<a class = "drop" id = "FullS" >تحجيم كلي للشاشة F11</a>
                         <a class = "drop"  data-trigger="EVT_REMOVE_HIT">ازالة تسليط الضوء</a>
                         <a class = "drop"  data-trigger="EVT_ADD_HIT">اعادة تسليط الضوء</a>
                         <a class = "drop"  data-trigger="EVT_REMOVE_FORMAT">ازالة التنسيق</a>
                         <a class = "drop"  data-trigger="EVT_REMOVE_SRC">ازالة رابط مصدر البيان</a>
                         <a class = "drop"  data-trigger="EVT_REMOVE_TRANZ">ازالة روابط عبارات الترجمة</a>
-                        <a class = "drop"  data-trigger="EVT_SELECT_ALL">تعيين ونسخ النص<br>في الصفحة كلها</a>
-						<a class = "drop"  data-trigger="EVT_ZOOMIN">تكبير النص لكل الصفحة</a>
+                        <a class = "drop"  data-trigger="EVT_ZOOMIN">تكبير النص لكل الصفحة</a>
                         <a class = "drop"  data-trigger="EVT_ZOOMOUT">تصغير النص لكل الصفحة</a>
                         <a class = "drop"  data-trigger="EVT_RESET">الحجم الإفتراضي للصفحة</a>
                      </div>
@@ -850,7 +816,6 @@ border-width: 1px;
       <script type="text/javascript" src="template/Theme3_Black/dragscroll.js"></script>
       <script type="text/javascript" src="template/Theme3_Black/layout.js"></script>
       <script src="template/Theme3_Black/jquery.slimscroll.js"></script>
-	  <script src="template/exjs/fullscreen.js"></script>
       <!--
          <link rel="stylesheet" href="template/Theme3_Black/fakescroll.css">
          <script src="template/Theme3_Black/fakescroll.js"></script>
@@ -865,7 +830,6 @@ border-width: 1px;
       </script>
       <script type="text/javascript" src="whxdata/whtagdata.js"></script>
       <script src="js/main.js"></script>
-	  <script src="js/gui_node.js"></script>
    </body>
 </html>
 
