@@ -389,13 +389,32 @@ function printt(mode){
 
       jQueryD_1_4_2("html,body").removeAttr('style');
 	  document.getElementsByTagName('link')[1].disabled = true; 
-	  print();
-	  jQueryD_1_4_2("html,body").css("height", "100%");
-	  document.getElementsByTagName('link')[1].disabled = false; 
+	
+	
+	setTimeout(function () { window.print(); }, 0);
+    
+	
+   setTimeout(function () {
+
+
+	 tooltip("remove", null);
+	
+	jQueryD_1_4_2("html,body").css("height", "100%");
+	 document.getElementsByTagName('link')[1].disabled = false; 
 	 
 	 jQueryD_1_4_2("html,body").css("height", "100%");
 	 
 	 resize(jQueryD_1_4_2("html"));
+	
+	
+	
+	}, 500); 
+	
+	
+
+	
+	
+
 		
 
 	}
@@ -420,5 +439,5 @@ function printt(mode){
 });
 	}
     
-	 tooltip("remove", null);	
+		
 }
