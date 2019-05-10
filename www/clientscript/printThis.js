@@ -391,7 +391,7 @@ function printt(mode){
 	  document.getElementsByTagName('link')[1].disabled = true; 
 	
 	
-	setTimeout(function () { window.print(); }, 0);
+	setTimeout(function () {window.focus(); window.print(); }, 0);
     
 	
    setTimeout(function () {
