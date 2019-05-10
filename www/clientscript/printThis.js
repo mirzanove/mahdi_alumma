@@ -387,7 +387,14 @@ function printt(mode){
 
 	if(mode == "whol"){
 
-      jQueryD_1_4_2("html,body").removeAttr('style');
+     
+	  
+	   if (_isMobile() == mobiletrue) {
+                jQueryM_v1_4_5("html,body").removeAttr('style');
+                } else {
+                    jQueryD_1_4_2("html,body").removeAttr('style');;
+                }
+	  
 	  document.getElementsByTagName('link')[1].disabled = true; 
 	
 	
@@ -399,12 +406,22 @@ function printt(mode){
 
 	 tooltip("remove", null);
 	
-	jQueryD_1_4_2("html,body").css("height", "100%");
+
 	 document.getElementsByTagName('link')[1].disabled = false; 
 	 
-	 jQueryD_1_4_2("html,body").css("height", "100%");
+
 	 
-	 resize(jQueryD_1_4_2("html"));
+	 
+	   if (_isMobile() == mobiletrue) {
+                jQueryM_v1_4_5("html,body").css("height", "100%");
+				 resize(jQueryM_v1_4_5("html"));
+                } else {
+                    jQueryD_1_4_2("html,body").css("height", "100%");
+					 resize(jQueryD_1_4_2("html"));
+                }
+	 
+	 
+	
 	
 	
 	
