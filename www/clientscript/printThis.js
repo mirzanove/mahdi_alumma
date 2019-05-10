@@ -72,6 +72,12 @@ tooltip("remove", null);
 
 function print(mode){
 	
+	var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
+         var url = vburl;
+		 url = url.substring(0, url.indexOf(v)); 
+	
+	
+	
      var $;
    if (_isMobile() == mobiletrue) {
                     $ = jQueryM_v1_4_5.noConflict(true);
@@ -80,8 +86,7 @@ function print(mode){
                 }
    
    
-   
-    function appendContent($el, content) {
+     function appendContent($el, content) {
         if (!content) return;
 
         // Simple test for a jQuery element
@@ -187,52 +192,62 @@ function print(mode){
                 $base = $('base'),
                 baseURL;
 
-			
-	    var v = '87px.png'/*tpa=http://localhost/vb_423/archive/clientscript/87px.png*/;
-         var url = vburl;
-		 url = url.substring(0, url.indexOf(v)); 
-	
-	    
-		   $head.append("<title>" + $('title').text() + "</title>");
+            // add base tag to ensure elements use the parent domain
+            if (opt.base === true && $base.length > 0) {
+                // take the base tag from the original page
+                baseURL = $base.attr('href');
+            } else if (typeof opt.base === 'string') {
+                // An exact base string is provided
+                baseURL = opt.base;
+            } else {
+                // Use the page URL as the base
+                baseURL = document.location.protocol + '//' + document.location.host;
+            }
 
+            $head.append('<base href="' + baseURL + '">');
+
+            // import page stylesheets
+            if (opt.importCSS) $("link[rel=stylesheet]").each(function() {
+                var href = $(this).attr("href");
+                if (href) {
+                    var media = $(this).attr("media") || "all";
+                    $head.append("<link type='text/css' rel='stylesheet' href='" + href + "' media='" + media + "'>");
+                }
+            });
+
+            // import style tags
+            if (opt.importStyle) $("style").each(function() {
+                $head.append(this.outerHTML);
+            });
+
+            // add title of the page
+            if (opt.pageTitle) $head.append("<title>" + opt.pageTitle + "</title>");
+
+            // import additional stylesheet(s)
+            if (opt.loadCSS) {
+                if ($.isArray(opt.loadCSS)) {
+                    jQuery.each(opt.loadCSS, function(index, value) {
+                        $head.append("<link type='text/css' rel='stylesheet' href='" + this + "'>");
+                    });
+                } else {
+                    $head.append("<link type='text/css' rel='stylesheet' href='" + opt.loadCSS + "'>");
+					
+					if(_isMobile() == mobiletrue) {
 		
-		   if(_isMobile() == mobiletrue) {
-		    $head.append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/archive_print.css\'/>');
-		    $head.append("<style>.posttext > div,.posttext >span ,font{line-height:"+$('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+$('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+$('#wrapper').css("font-family")+"'}</style>" );
+   		$head.append("<style>.posttext > div,.posttext >span ,font{line-height:"+$('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+$('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+$('#wrapper').css("font-family")+"'}</style>" );
 		   }
 	       else{
-	        $head.append('<link rel=\'stylesheet\' media=\'print\' type=\'text/css\' ] href=\''+url+'bookcss/archive_print.css\'/>');
+	       
 		    $head.append("<style>.posttext > div,.posttext >span ,font{line-height:"+$('.posttext > div,.posttext > span ,font').css("line-height")+"} .posttext > div,.posttext > span ,font{font-size:"+$('.posttext > div,.posttext >span').css('font-size')+"} div.posttext{font-family:'"+$('#wrapper').css("font-family")+"'}</style>" );
 	       }
-        
-		 if(_isMobile() == mobiletrue) {
-          $head.append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/andriod_ios_fixFont.css\'/>');
+					
+                }
+            }
 
-          }
-	      else{
-		  $head.append('<link type=\"text/css\" rel=stylesheet href=\''+url+'bookcss/ff_ch_ie9_edg_fixFont.css\'/>');
-
-	      }
-	
-		
-		
-		
-		
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
             var pageHtml = $('html')[0];
 
             // CSS VAR in html tag when dynamic apply e.g.  document.documentElement.style.setProperty("--foo", bar);
-            //$doc.find('html').prop('style', pageHtml.style.cssText);
+           // $doc.find('html').prop('style', pageHtml.style.cssText);
 
             // copy 'root' tag classes
             var tag = opt.copyTagClasses;
@@ -330,8 +345,7 @@ function print(mode){
                 // remove iframe after print
                 if (!opt.debug) {
                     setTimeout(function() {
-                       $iframe.remove();
-						
+                      $iframe.remove();
 
                     }, 1000);
                 }
@@ -339,10 +353,7 @@ function print(mode){
                 // after print callback
                 if (typeof opt.afterPrint === "function") {
                     opt.afterPrint();
-					
                 }
-				
-				tooltip("remove", null);
 
             }, opt.printDelay);
 
@@ -375,11 +386,49 @@ function print(mode){
 };
 
 	if(mode == "whol"){
-		$("#content").printThis();
+	
+	$("#content").printThis({
+  debug: false,               // show the iframe for debugging
+  importCSS: false,            // import page CSS
+  importStyle: false,         // import style tags
+  printContainer: false,       // grab outer container as well as the contents of the selector
+  loadCSS: url+"bookcss/archive_print.css",  // path to additional css file - use an array [] for multiple
+  pageTitle: "",              // add title to print page
+  removeInline: false,        // remove all inline styles from print elements
+  printDelay: 333,            // variable print delay
+  header: null,               // prefix to html
+  footer: null,               // postfix to html
+  base: false ,               // preserve the BASE tag, or accept a string for the URL
+  formValues: true,           // preserve input/form values
+  canvas: false,              // copy canvas elements (experimental)
+  doctypeString: "...",       // enter a different doctype for older markup
+  removeScripts: true,       // remove script tags from print content
+  copyTagClasses: false       // copy classes from the html & body tag
+});
+		
+		
+
 	}
 	else{
-		$(mode).printThis();
+		$(mode).printThis({
+  debug: false,               // show the iframe for debugging
+  importCSS: false,            // import page CSS
+  importStyle: false,         // import style tags
+  printContainer: false,       // grab outer container as well as the contents of the selector
+  loadCSS: url+"bookcss/archive_print.css",  // path to additional css file - use an array [] for multiple
+  pageTitle: "",              // add title to print page
+  removeInline: false,        // remove all inline styles from print elements
+  printDelay: 333,            // variable print delay
+  header: null,               // prefix to html
+  footer: null,               // postfix to html
+  base: false ,               // preserve the BASE tag, or accept a string for the URL
+  formValues: true,           // preserve input/form values
+  canvas: false,              // copy canvas elements (experimental)
+  doctypeString: "...",       // enter a different doctype for older markup
+  removeScripts: true,       // remove script tags from print content
+  copyTagClasses: false       // copy classes from the html & body tag
+});
 	}
     
-	 //location.reload();
+	 	tooltip("remove", null);	
 }

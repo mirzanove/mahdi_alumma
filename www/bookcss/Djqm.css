@@ -160,16 +160,16 @@ width:20px;
 	
 }
 .btn-danger {
-text-decoration: none;
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
+text-decoration: none!important;
+    color: black!important;
+    background-color: #d9534f!important;
+    border-color: #d43f3a!important;
 }
 .btn-info {
-text-decoration: none;
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
+text-decoration: none!important;
+    color: black!important;
+    background-color: #5bc0de!important;
+    border-color: #46b8da!important;
 }
 #bookit{
 font-size: 12px!important;		
