@@ -276,25 +276,7 @@ border: 2px solid yellow!important;
 
 
 
-.btn-group button {
-background:green;
-vertical-align: middle;
-font-size:13px;
-height:24px;
-}
 
-#ndmode,#fullscreenidcon{
-	width:50px;
-}
-.btn-group button img {
-
- display:block;
-    margin:auto;
-	vertical-align: middle;
-	padding:2px;
-	
-	
-}
 
 /* Clear floats (clearfix hack) */
 .btn-group:after {
@@ -697,7 +679,7 @@ body #copy_tooltip {
 text-align: left;
 border: 3px solid #f69c55;
 color: #ffffff;
-background-color: #025172;
+background-color: black;
 padding: 5px 5px;
 transform: translate3d(0,0,0);
 vertical-align: middle;
@@ -721,6 +703,28 @@ font-size:85%;
 
       
 }
+
+
+.btn-group button {
+background:black;
+vertical-align: middle;
+font-size:13px;
+height:24px;
+}
+
+#ndmode,#fullscreenidcon{
+	width:50px;
+}
+.btn-group button img {
+
+ display:block;
+    margin:auto;
+	vertical-align: middle;
+	padding:2px;
+	
+	
+}
+
 
 
 
@@ -796,7 +800,7 @@ border-color: white;
 
 
 .dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    background-color: grey;
 }
 .show {display:block;}
 
