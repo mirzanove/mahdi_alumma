@@ -13,7 +13,11 @@ function selectText(containerid) {
     }
 }
 	
-	
+	function disp() {
+  var text = document.getElementById("text");
+  var t = text.value.substr(text.selectionStart, text.selectionEnd - text.selectionStart);
+  alert(t);
+}
 	
                 function copyToClipboard(text) {
                     var dummy = document.createElement("input");
@@ -69,8 +73,10 @@ function selectText(containerid) {
                                 menu.append(new gui.MenuItem({
                                     label: 'فتح الرابط في المتصفح'
                                     , click: function (e) {
-                                        //gui.Shell.openExternal(target.href);
-									    gui.Shell.openItem(decodeURIComponent(target.href));
+                                        
+										//alert(target.href);
+										gui.Shell.openExternal(target.href);
+										//gui.Shell.openItem(target.href);
                                         
                                     }
                                 }));
@@ -156,7 +162,7 @@ function selectText(containerid) {
                         for (var target = e.target; target && target != this; target = target.parentNode) {
                             if (target.matches("Div")) {
 
-                                console.log(target.getAttribute("href"));
+                               // console.log(target.getAttribute("href"));
 
                                 if ((target.getAttribute("href") != "") && (target.getAttribute("href") != null)) {
 
@@ -221,9 +227,22 @@ function selectText(containerid) {
 								
 								
 								
+var input_target;
+if(target.className.includes("search-bar")){
+	
+	 input_target = target.childNodes[3].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].value;
+}
+else if(target.className.includes("ui-input-search")){
 
+input_target = target.childNodes[0].value
 
-                                if (window.getSelection() != "") {
+	
+}
+else{
+	input_target = window.getSelection();
+}
+
+							/*if (document.selection != "") {
                                     menu.append(new gui.MenuItem({
                                         label: "نسخ النص"
                                         , click: function () {
@@ -244,6 +263,32 @@ function selectText(containerid) {
 
                                     showcntx = true;
                                 }
+								*/
+								if(input_target){
+								if(input_target!= ""){
+									
+									
+									menu.append(new gui.MenuItem({
+                                        label: "نسخ النص"
+                                        , click: function () {
+                                            document.execCommand("copy");
+                                        }
+                                    }));
+
+                                    if (isEditable() == true) {
+                                        menu.append(new gui.MenuItem({
+                                            label: "قص النص"
+                                            , click: function () {
+                                                document.execCommand("cut");
+                                            }
+                                        }));
+                                    }
+									
+									
+
+                                    showcntx = true;
+								}
+								}
 
                                 if (isEditable() == true) {
 

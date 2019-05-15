@@ -10,9 +10,13 @@
 	  <meta name="apple-mobile-web-app-status-bar-style" content="black">
 	  <title>تطبيق موسوعة نون</title>
       <script>history.scrollRestoration = "manual"</script>
-	  
-<link rel="StyleSheet" href="template/Charcoal_Grey/layout-rtl.css" type="text/css" />
-	  
+	  	
+<script type="text/javascript" src="template/exjs/checkNDmode.js"></script>	  
+<script type="text/javascript"> 
+checkDNmode2();
+</script>	
+
+	
 <script type="text/javascript"> 
 function getbooleanindexopage(){
 
@@ -179,352 +183,9 @@ setTimeout(function() {
          gTocUrlIconStyle = "";
       </script>
 
-	   <style type="text/css">
+<style type="text/css">
 
- 
- .img_wrapper{
-	   display:none;
-	  }
- 
- 
-.itemcon{ 
-  height: 100%!important;
-  line-height: 1.5em;
- }
-
-.wSearchResultItem {
-    font-weight: bold;
-/*min-height:119px;*/
-}
-		
-#three {
- overflow-y:hidden;
- overflow-x:hidden;
- /*background:white;*/
-}
-
-#three2 {
-
-}
-
-
-
-.absolute {
- position:absolute;
- top:0px;
- right:0px;
- left:0px;
- bottom:0px;
- overflow-y:auto;
- overflow-x:hidden;
- margin:0px;
- padding:1em;
- z-index:0;
-}
-
-.relative{
-
-wdith:100%;
-height:100%;
-position:relative;
- 
- overflow-y:auto;
- overflow-x:hidden;
- margin:0px;
- padding:1em;
- z-index:0;
- 
-}
-
-
- .exthtml{
-display:none;
-}
- #text_div{
-display : none;
-}
-
-/* One radio button per line */
-label {
-  display: block;
-  cursor: pointer;
-  line-height: 1.5;
-  font-size: 18px;
-}
-
-.loading2 {
-	display: none;
-	background-image: url("template/resources/loading.gif")	 ! important ;
-    min-height: 1.25in !important;
-    background-repeat: no-repeat !important;
-    background-position: center .25in !important;
-    background-size: 1in 1in !important;
-	position: absolute;
-	top: 25%;
-	width: 100%;
-	z-index :159;
-	
-}
-
-
-/* The Modal (background) */
-.modal {
-    /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 999999; /* Sit on top */
-    display : none;
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    /*background-color: rgb(0,0,0); /* Fallback color */
-    background-color: grey; /* Black w/ opacity */
-}
-
-/* Modal Content (image) */
-.modal-content {
-    margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-
-}
-
-/* The Close Button */
-.close {
-    padding-left: 8px;
-    padding-right: 8px;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    color: #f1f1f1;
-    font-size: 20px;
-    font-weight: bold;
-    background-color: black;
-	border-style: solid;
-    border-color: white;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}  
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
-}
-
-.dropbtn:hover, .dropbtn:focus {
-    background-color: #3e8e41;
-}
-
-
-
-.dropdown-content {
-  
-	display :none;
-}
-
-.dropdown-content a {
-   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none;
-}
-
-.dropdown a:hover {background-color: #f1f1f1}
-
-body #myDropdown{
-   _position: absolute; /*ie6 and above*/
-   border: 1px solid black; 
-   opacity: 1; 
-   color :black;
-   height: auto; 
-   text-align: center; 
-   padding: 0px; 
-   position: absolute;
-    background-color: #f9f9f9;
-    min-width: 100px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 99;
-    font-size: 15px;
-  
-}
-.drop{
-padding:0px;
-display:block;
-border-style: solid;
-border-color: black;
-border-width: 1px;
-
-}
-.show{
-display:block;
-}
-
-.btn {
-    
-background-color: #4CAF50; /* Green */
-    border: none;
-    color: black!important;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-	cursor: pointer;
-}
-
-
-
-
-.btn-danger {
-text-decoration: none;
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
-}
-
-.btn-info {
-text-decoration: none;
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #46b8da;
-}
-
-.well{
-padding:5px;
-color:black;
-font-size: 120%;
-font-weight:bold;
-
-}
-
-
-.form-control {
-    display: block;
-    width: 100%;
-    height: 34px;
-    padding: 6px 12px;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-}
-
-
-.form-group {
-    margin-bottom: 15px;
-	text-align: center;
-}
-
-
-.star_yellow
-{
-
-background-image: url("jqmlib/themes/default/images/icons-png/star-yellow.png")!important;
-background-position: center 40% !important;
-background-repeat: no-repeat !important;
- 
-}
-
- 
- 
- 
-.search-bar{
-padding:2px;
-margin:0;
-background:grey!important;
-}
-
-
-.searchform{
-padding:2px;
-margin:0;
-background:grey;
-}
-
-
-.clear
- {
-	
-    /*position: relative;
-    float: left;
-    height: 20px;
-    width: 20px;
-    border-radius: 20px;
-    background: grey;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-	visibility:hidden;*/
-
-}
-
-.clear img
-{
-
- display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-
-}
-
-.searchico{
- display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-}
-
-
-.searchinput{
-position: relative;
-width:99%!important;
-border:none;
-float:left;
-  outline:none;
-  padding:0 0;
-  margin:0 0;
-  font-size: 100%;
-  height: 2em;
-}
-
-.searchinput::-ms-clear {
-  color: red;
-  display:none;
-}
-
-table {
-  border-collapse: collapse;
-  overflow: hidden;
-}
-
-
-
-th, td {
-padding:0;
-margin:0;
-} 
-
-
-
+	   
 </style>
 
 
@@ -542,26 +203,24 @@ margin:0;
 
 <div class="header">
 <div style = "height: 100%; float : left; cursor: pointer;" data-trigger="EVT_SCROLL_TO_PREPOST">
-
-<img src= "template/resources/toc_book_closed_mobile_rtl.png">
-
+<span class = "toc_book_closed_mobile_rtl">&nbsp;</span>
 </div>
 
 <div style = "height: 100%; float : left; cursor: pointer;"  data-trigger="EVT_SCROLL_TO_NEXTPOST">
-<img src= "template/resources/toc_book_closed_mobile_ltr.png">
+<span class = "toc_book_closed_mobile_ltr">&nbsp;</span>
 </div>
 
 <div  style = "height: 100%; float : left; cursor: pointer;"  data-trigger="EVT_SCROLL_TO_TOP">
-<img src= "template/resources/toc_book_open_drildown.png">
-
+<span class = "toc_book_open_drildown">&nbsp;</span>
 </div>	
 
 <div style = "height: 100%; float : left; cursor: pointer;" data-trigger="EVT_SCROLL_TO_DOWN">
-<img src= "template/resources/toc_book_open_mobile.png">
+<span class = "toc_book_open_mobile">&nbsp;</span>
 </div>
 
 <div class="dropdown" id = "dropdown" style = "webkit-overflow-scrolling: touch;display:block; height: 100%; float : left; cursor: pointer;">
-<img onclick="showdropdown()" class="dropbtn" src= "template/resources/plus.png">
+<a onclick="showdropdown()"  class="plus"></a>
+
   <div id="myDropdown" class="dropdown-content">
 <a class = "drop"  data-trigger="EVT_PRINT_TOPIC">طباعة الكل</a>
 <a class = "drop" id = "NDmode" onClick= "toggleNDmode(this);">تعيين التصفح الليلي</a>
@@ -588,14 +247,14 @@ margin:0;
 <div class="functionbar" data-css="width: sidebar_width | screen: 'desktop'" data-class="sidebar-opened: $mc.isSidebarTab(@KEY_ACTIVE_TAB); desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; ">
 	<div class="nav" data-class="no-filter: !@KEY_FEATURE.filter">
 		<a onclick = "chkbookmark(this)" class="toc" data-if="KEY_FEATURE.toc" data-class="active: @KEY_ACTIVE_TAB == 'toc'" data-click="$mc.toggleActiveTab('toc')" data-attr="title:@KEY_LNG.TableOfContents; href: '#'">&#160;</a>
-		<a class="idx" data-if="KEY_FEATURE.idx" data-class="active: @KEY_ACTIVE_TAB == 'idx'" data-click="$mc.toggleActiveTab('idx')" data-attr="title:@KEY_LNG.Index; href: '#'">&#160;</a>
-		<a class="glo" data-if="KEY_FEATURE.glo" data-class="active: @KEY_ACTIVE_TAB == 'glo'" data-click="$mc.toggleActiveTab('glo')" data-attr="title:@KEY_LNG.Glossary; href: '#'">&#160;</a>
-		<a class="filter" data-if="KEY_FEATURE.filter" data-class="active: @KEY_ACTIVE_TAB == 'filter'; filter-applied: @.l.tag_expression.length"  data-click="$mc.toggleActiveTab('filter')" data-attr="title:@KEY_LNG.Filter; href: '#'">&#160;</a>
+		<a style = "display:none;" class="idx" data-if="KEY_FEATURE.idx" data-class="active: @KEY_ACTIVE_TAB == 'idx'" data-click="$mc.toggleActiveTab('idx')" data-attr="title:@KEY_LNG.Index; href: '#'">&#160;</a>
+		<a style = "display:none;" class="glo" data-if="KEY_FEATURE.glo" data-class="active: @KEY_ACTIVE_TAB == 'glo'" data-click="$mc.toggleActiveTab('glo')" data-attr="title:@KEY_LNG.Glossary; href: '#'">&#160;</a>
+		<a style = "display:none;" class="filter" data-if="KEY_FEATURE.filter" data-class="active: @KEY_ACTIVE_TAB == 'filter'; filter-applied: @.l.tag_expression.length"  data-click="$mc.toggleActiveTab('filter')" data-attr="title:@KEY_LNG.Filter; href: '#'">&#160;</a>
 		<a onclick = "chkvisiblty(this)" class="fts" data-if="!@KEY_SCREEN_DESKTOP || @KEY_SEARCH_LOCATION == 'tabbar'" data-class="active: @KEY_ACTIVE_TAB == 'fts'; search-sidebar: @KEY_SEARCH_LOCATION == 'tabbar'" data-click="$mc.toggleActiveTab('fts')" data-attr="title:@KEY_LNG.SearchTitle; href: '#'">&#160;</a>
 	    
-	  <a onclick="MyFunction();return false;" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a>
+	  <a class ="style2" onclick="MyFunction();return false;" style = "">&#160;</a>
 	 
-	  <a onclick="get_link_url();" class="cool" style = "background-image:url('template/resources/close.png');background-repeat:no-repeat;background-position:center;">&#160;</a>
+	  <a class ="closee" onclick="get_link_url();" class="cool" style = "">&#160;</a>
 	
 	
 	</div>
@@ -613,17 +272,17 @@ margin:0;
  <form id="bookmarksForm"  onsubmit="return false">
 			 <center>
 			 <label class = "bookmarktitle" style ="font-weight:bold;">عنوان الموضوع:</label>
-			 <div style = "padding:4px;" class="search-bar">
+			 <div style = "padding:4px;" class="fav-bar">
                     <table style="width:100%" border="0" width="100%">
 	                <tbody>
-					<td style="width:2em;display:none;" >
+					<td  style="width:2em;display:none;" >
 		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
      </td>
-					<td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+					<td class ="fav_input" style="">
 					<input style ="border-radius: 10px;" oninput="showclear2(this)" type="text" autocomplete="off" class="searchinput" id="websiteName" placeholder="عنوان الموضوع"/>
                    </td>
-				   <td style="background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;width:2em;">
-		            <span id="clear2" class="clear" title="Clear"><img src="template/Theme3_Black/clear.png" /</span>
+				   <td class ="clear2" style="">
+		            <span id="clear2" class="clear clear_content" title="Clear"></span>
                    </a>
                  </td>
                </tbody>
@@ -657,7 +316,7 @@ margin:0;
 	</div>
 </div>
 <!-- Glossary -->
-<div class="glo-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; layout-visible: @KEY_ACTIVE_TAB == 'glo'; ">
+<div style="display:none;"class="glo-holder left-pane" data-css="width: sidebar_width | screen: 'desktop'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false || @.l.desktop_sidebar_available === false; layout-visible: @KEY_ACTIVE_TAB == 'glo'; ">
 	<div class="mobileheader"><span data-text="@KEY_LNG.Glossary"></span><div class="totopic" data-click="$mc.toggleActiveTab('')" data-attr="title:@KEY_LNG.Back"></div></div>
 	<div id="glo" class="wGlossary">
 		<input class="wGloFilter" id="gloFilterBox" type="text" data-placeholder="تصفية المصطلحات" onkeyup="filterGlo()" />
@@ -686,7 +345,7 @@ margin:0;
 	 </ul>
 </div>
 <!-- Sidebar sizer -->
-<div class="sidebarsizer left-pane boundry column-resize" data-if="@.l.desktop_sidebar_available === true" data-resize="@.l.desktop_sidebar_visible(@sidebar_width == null || @sidebar_width != '0px') | x: 'sidebar_width', maxx: 0.7, screen: 'desktop'" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false;">
+<div id = "sidebarsizer" class="sidebarsizer left-pane boundry column-resize" data-if="@.l.desktop_sidebar_available === true" data-resize="@.l.desktop_sidebar_visible(@sidebar_width == null || @sidebar_width != '0px') | x: 'sidebar_width', maxx: 0.7, screen: 'desktop'" data-css="left: sidebar_width | screen: 'desktop', dir: 'ltr'; right: sidebar_width | screen: 'desktop', dir: 'rtl'" data-class="desktop-sidebar-hidden: @.l.desktop_sidebar_visible == false;">
 	<a class="sidebartoggle" data-click="@sidebar_width(null) | screen: 'desktop'" data-toggle=".l.desktop_sidebar_visible" data-attr="title: @KEY_LNG.SidebarToggleTip">&nbsp;</a>
 </div>
 <!-- Search field -->
@@ -708,18 +367,17 @@ margin:0;
 
 		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
      </td>
-	 <td style="background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+	 <td class ="tdsearch" style="">
 
 	<input style ="outline: none !important;" id="wSearch" autocomplete="on" class="wSearchField searchinput" name="user" type="text" data-type="search" data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search" data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)" placeholder="بحث">
   
 	 </td>
 	  
-	 <td style="width:1.9em;background:white; border-top-left-radius:10px;border-bottom-left-radius:10px;" >
-	<span id="clear" class="clear" title="Clear"><img src="template/Theme3_Black/clear.png" /</span>
+	 <td class = "tdclear" style="" >
+	<span id="clear" class="clear clear_content" title="Clear"></span>
      </td>  
      <td style="width:2em;">
-		<a style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'"><img class = "searchico" src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0">
-     </a>
+		<a class ="searchico" style = "float:left;"data-click="@EVT_SEARCH_TERM(true)" data-attr="href: '#'"></a>
      </td>
 	 </tr>
    </tbody>

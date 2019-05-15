@@ -1,3 +1,71 @@
+
+
+#two {
+  scrollbar-color: #a6a0a0 black;
+}
+
+#two::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+#two::-webkit-scrollbar-track-piece  {
+   background-color:white;
+	border-style: solid;
+   /* border-color: white;*/
+	border-width: 0px;
+}
+
+
+#three2 {
+  scrollbar-color: #a6a0a0 black;
+}
+
+#three2::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+#three2::-webkit-scrollbar-track-piece  {
+   background-color:white;
+	border-style: solid;
+   /* border-color: white;*/
+	border-width: 0px;
+}
+
+
+::-webkit-scrollbar-thumb {
+height:25px;
+
+border-radius: 50px;
+background-color: #a6a0a0;
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 a[data-icon="mapa"].ui-icon-mapa {
     background-image: url("../template/resources/style2.png")!important;
     height: 100%;
@@ -149,6 +217,7 @@ body #men {
 background-color: #cfd0d3;
 }
 .curr2{
+padding:4px;
 background-color: #cfd0d3;
 }
 .curr2 img{

@@ -332,24 +332,26 @@ setTimeout(function() {
 
 }
 
-$('#clear').click(function () {
+$('#clear_fav2').click(function () {
     $('#searchBoxSearchPage').val('');
 	//$("#clear").prop("hidden", true);
 	
       // this.style.visibility =  "hidden" ;
 	   
-	   $("#clear").addClass('hideclear');
+	   $("#clear_fav_sub2").addClass('hideclear');
 
 	
 	
 });
 
-$('#clear2').click(function () {
+$('#clear_fav').click(function () {
     $('#websiteName').val('');
 	//$("#clear").prop("hidden", true);
 	
       // this.style.visibility =  "hidden" ;
-	   $("#clear2").addClass('hideclear');
+	   $("#clear_fav_sub").addClass('hideclear');
+	   
+	
 	
 	
 });
@@ -360,14 +362,14 @@ $('#clear2').click(function () {
 function showclear2(input) {
 
 var textInput = document.getElementById('websiteName'),
-		clearBtn2 = document.getElementById('clear2');
+		clearBtn2 = document.getElementById('clear_fav_sub');
 		
 if (document.getElementById("websiteName").value.length >= 1) {
 
 		if(clearBtn2){
 			
 				//clearBtn2.style.visibility = (textInput.value.length) ? "visible" : "hidden";
-				$("#clear2").removeClass('hideclear');
+				$("#clear_fav_sub").removeClass('hideclear');
 		}     
 }
 
@@ -376,7 +378,7 @@ if (document.getElementById("websiteName").value.length < 1) {
 		if(clearBtn2){
 			
 				//clearBtn2.style.visibility =  "hidden";
-				$("#clear2").addClass('hideclear');
+				$("#clear_fav_sub").addClass('hideclear');
 		} 
 	 
 }
@@ -390,22 +392,22 @@ function showclear(input) {
 if (document.getElementById("searchBoxSearchPage").value.length >= 1) {
        				var searchForm = document.getElementById('searhcform'),
 		textInput = document.getElementById('searchBoxSearchPage'),
-		clearBtn = document.getElementById('clear');
+		clearBtn = document.getElementById('clear_fav_sub2');
 		if(clearBtn){
 			
 				//clearBtn.style.visibility = (textInput.value.length) ? "visible" : "hidden";
-				$("#clear").removeClass('hideclear');
+				$("#clear_fav_sub2").removeClass('hideclear');
 		}     
 }
 
 if (document.getElementById("searchBoxSearchPage").value.length < 1) {
       //	$("#clear").prop("hidden", true);
 	  
-	  var clearBtn = document.getElementById('clear');
+	  var clearBtn = document.getElementById('clear_fav_sub2');
 		if(clearBtn){
 			
 				//clearBtn.style.visibility =  "hidden";
-				$("#clear").addClass('hideclear');
+				$("#clear_fav_sub2").addClass('hideclear');
 		} 
 	  
 	  
@@ -967,6 +969,9 @@ if(toc){
 document.getElementsByClassName("loading2")[0].style.display = 'block';	
 setTimeout(function() {
 toc.scrollTop = toc.scrollHeight;
+
+setTimeout(function() {toc.scrollTop = toc.scrollHeight+100}, 50);
+
  document.getElementsByClassName("loading2")[0].style.display = 'none'
  
 }, 200);
@@ -1063,48 +1068,6 @@ document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location
 function showdropdown() {
 	    document.getElementById("myDropdown").classList.toggle("show");
 }
-window.onclick = function(event) {
-
-  /*var target = event ? event.target : window.event.srcElement;
-  //alert(target.className);
-  if (target.className !='dropbtn'&& target.className!='drop') {
-    
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }*/
-        var  matches;
-		var  matches2;
-        matches = $(event.target).is( ".dropbtn" );
-		matches2 = $(event.target).is( "drop" );
-		//var target = event ? event.target : window.event.srcElement;
-		 /*if (target.id != 'dropbtn') {
-               
-               jQueryM_v1_4_5('#myDropdown').removeClass("show");
-         }*/
-		 
-		if (matches && matches2) {
-                 
-                 
-				 
-				 var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        $('#myDropdown').removeClass("show");
-      }
-    }
-				 
-         }
-  
-  
-}
 
 
 window.onclick = function(event) {
@@ -1112,7 +1075,7 @@ window.onclick = function(event) {
   var target = event ? event.target : window.event.srcElement;
   //alert(target.className);
   
-  if (target.className !='dropbtn'&& target.className!='drop') {
+  if (target.className !='plus'&& target.className!='drop') {
 
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;

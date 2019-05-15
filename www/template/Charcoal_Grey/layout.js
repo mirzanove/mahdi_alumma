@@ -178,11 +178,12 @@ document.getElementById("myDropdown").style.height = "auto";
 function showdropdown() {
 	    document.getElementById("myDropdown").classList.toggle("show");
 }
+
 window.onclick = function(event) {
 
   var target = event ? event.target : window.event.srcElement;
   //alert(target.className);
-  if (target.className !='dropbtn'&& target.className!='drop') {
+  if (target.className !='plus'&& target.className!='drop') {
     
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -322,11 +323,12 @@ setTimeout(function() {
 
 textInput.addEventListener("input",function () {
   if (textInput.value.length == 0) {
+	  
        clearBtn.style.visibility =  "hidden" ;
   }
   else{
 	
-	 clearBtn.style.visibility =  "visible" ; 
+	 clearBtn.style.visibility =  "" ; 
   }
 })
 

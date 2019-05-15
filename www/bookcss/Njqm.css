@@ -1,3 +1,66 @@
+
+
+
+#three2 {
+  scrollbar-color: #a6a0a0 black;
+}
+
+#three2::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+#three2::-webkit-scrollbar-track-piece  {
+    background-color: black;
+	border-style: solid;
+   /* border-color: grey;*/
+	border-width: 0px;
+}
+
+
+
+#two {
+  scrollbar-color: #a6a0a0 black;
+}
+
+#two::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+#two::-webkit-scrollbar-track-piece  {
+    background-color: black;
+	border-style: solid;
+   /* border-color: grey;*/
+	border-width: 0px;
+}
+
+
+
+
+
+
+::-webkit-scrollbar-thumb {
+height:25px;
+
+border-radius: 50px;
+background-color: #a6a0a0;
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 #one,#three,#three2,#two{
 	
 	background:black!important;
@@ -137,7 +200,8 @@ body #men {
    margin-right: 50px;
 }
 .curr{
-background-color: #cfd0d3;
+border: 2px solid white;
+padding:3px;
 }
 .curr2{
 background-color: black;
@@ -180,6 +244,16 @@ color:black;
 font-size: 120%;
 font-weight:bold;
 }
+
+
+#bookmarksResults hr{
+  height: 1px;
+  color: red;
+  background-color: grey;
+  border: none;
+}
+
+
 .form-control {
     display: block;
     width: 100%;

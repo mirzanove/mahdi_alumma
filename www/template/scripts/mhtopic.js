@@ -643,7 +643,7 @@ if(strTerms){
  
 if (typeof process !== "undefined" && typeof require !== "undefined")
 { 
-setTimeout(function(){ hit(strTerms);}, 2300);
+setTimeout(function(){ hit(strTerms);}, 300);
 }
 else{
 setTimeout(function(){ hit(strTerms);}, 100);	

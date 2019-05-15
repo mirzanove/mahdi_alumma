@@ -61,7 +61,10 @@ function tooltip(el, message)
 	}
 	else{
 	
-	document.getElementById('copy_tooltip').outerHTML = ""; delete document.getElementById('copy_tooltip'); printin_prosses = false;
+	if(document.getElementById('copy_tooltip')){
+			document.getElementById('copy_tooltip').outerHTML = ""; delete document.getElementById('copy_tooltip'); printin_prosses = false;
+
+	}
 	
 	}
 		

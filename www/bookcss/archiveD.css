@@ -1,82 +1,4 @@
-/* amiri-regular - arabic */
-@font-face {
-  font-family: 'Amiri';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.eot'); /* IE9 Compat Modes */
-  src: local('Amiri Regular'), local('Amiri-Regular'),
-       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/amiri-v12-arabic/amiri-v12-arabic-regular.svg#Amiri') format('svg'); /* Legacy iOS */
-}
-
-
-/* lateef-regular - arabic */
-@font-face {
-  font-family: 'Lateef';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.eot'); /* IE9 Compat Modes */
-  src: local('Lateef'),
-       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/lateef-v12-arabic/lateef-v12-arabic-regular.svg#Lateef') format('svg'); /* Legacy iOS */
-}
-
-
-@font-face {
-    font-family: 'DroidArabicNaskhBold';
-        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhBold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-      }
-
-@font-face {
-    font-family: 'DroidArabicNaskhRegular';
-        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhRegular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-      }
-
-
- /* The following rules are deprecated. */ 
-
-@font-face {
-    font-family: 'Droid Arabic Naskh';
-        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhBold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-      }
-
-
-
-@font-face {
-    font-family: 'Droid Arabic Naskh';
-        src: url('../fonts/droid-arabic-naskh/DroidArabicNaskhRegular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-      }
-	  
-	  
-/* scheherazade-regular - arabic */
-@font-face {
-  font-family: 'Scheherazade';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.eot'); /* IE9 Compat Modes */
-  src: local('Scheherazade'), local('Scheherazade-Regular'),
-       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.woff2') format('woff2'), /* Super Modern Browsers */
-       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.woff') format('woff'), /* Modern Browsers */
-       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('../fonts/scheherazade-v16-arabic/scheherazade-v16-arabic-regular.svg#Scheherazade') format('svg'); /* Legacy iOS */
-}
-	  
-	  
+  
 	  
 	  
 pdf,
@@ -172,7 +94,70 @@ background-color:white;
 
 
 
+#wrapper {
+  scrollbar-color: #a6a0a0 black;
+}
 
+#wrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+#wrapper::-webkit-scrollbar-track-piece  {
+   background-color:white;
+	border-style: solid;
+   /* border-color: white;*/
+	border-width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+height:25px;
+
+border-radius: 50px;
+background-color: #a6a0a0;
+
+  
+}
+
+
+
+body,html {
+  scrollbar-color: #a6a0a0 black;
+}
+
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+html::-webkit-scrollbar-track-piece  {
+      background-color:white;
+	border-style: solid;
+   /* border-color: grey;*/
+	border-width: 0px;
+}
+
+
+body::-webkit-scrollbar {
+    width: 10px;
+    height: 15px;
+}
+
+body::-webkit-scrollbar-track-piece  {
+      background-color:white;
+	border-style: solid;
+   /* border-color: grey;*/
+	border-width: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+height:25px;
+
+border-radius: 50px;
+background-color: #a6a0a0;
+
+  
+}
 
 
 
@@ -587,7 +572,7 @@ body #copy_tooltip {
    text-align: center; 
    padding: 4px; 
    z-index: 9; 
-    left: 50%;
+   left: 50%;
    top: 35%;
 
    margin-left: -50px;

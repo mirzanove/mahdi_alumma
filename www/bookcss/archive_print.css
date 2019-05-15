@@ -81,6 +81,13 @@ html, body {
 }
 
 
+#overlay_print,#text {
+
+ display:none;
+}
+
+
+
 u{text-decoration: none;border-bottom: 1px solid;line-height: 180%}
 
 .posttext {/*line-height: 10000%;*/}

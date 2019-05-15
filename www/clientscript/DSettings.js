@@ -1,8 +1,5 @@
 var posttopid;
 
-
-
-
 function enable_select_text(xx)
 {
 	var x = jQueryD_1_4_2(xx);
@@ -1107,23 +1104,51 @@ function keydown(e) {
 				  // jQueryD_1_4_2(event.currentTarget).parent().parent().parent().parent().parent().parent().css('color','red');
 
 					var postID = jQueryD_1_4_2(event.currentTarget).parent().parent().attr("id");
-					tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
+					//tooltip(null, "الرجاء الانتظار يتم عرض الطباعة")
+					
+					
+					
+					
+					if(!jQueryD_1_4_2("#overlay_print").length){
+						
+                    jQueryD_1_4_2("#wrapper").append('<div dir ="rtl"id="overlay_print" onclick="off()"><div id="text">يتم الطباعة الرجاء الانتظار</div></div>');
+
+					disableScroll();
+			
 					setTimeout(function ()
 					{
 						if (typeof process !== "undefined" && typeof require !== "undefined")
 						{
-							console.log(c);
-							printPage(c)
+							//currpost = c.children().attr('id');
+							
+							printPage(c);
+							
 						}
 						else
 						{
-							print(c)
+							
+	                        jQueryD_1_4_2(".post").hide();
+							jQueryD_1_4_2(".header_topic").hide();
+							jQueryD_1_4_2(".page-break").hide();
+                            c.show();	
+							
+							printt('null');
+							currpost = c.children().attr('id');
 						}
 						setTimeout(function ()
 						{
-							printin_prosses = !1
+							//printin_prosses = !1
 						}, 300)
 					}, 3000)
+						
+						
+						
+						
+						
+						
+					}
+					
+					
 				}
 			});
 			var link_img_show = !0;

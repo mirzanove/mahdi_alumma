@@ -24,9 +24,15 @@
          return "3";
          }
       </script>
-	  <script type="text/javascript" src="clientscript/xregexp-all.js"></script>
-      <link href="template/Theme3_Black/main.css" type="text/css" rel="stylesheet" />
-      <link href="template/Theme3_Black/jqueryui-custom.css" type="text/css" rel="stylesheet" />
+ <script type="text/javascript" src="template/exjs/checkNDmode.js"></script>	  
+     
+<script type="text/javascript"> 
+checkDNmode3();
+</script>	
+     
+	 <script type="text/javascript" src="clientscript/xregexp-all.js"></script>
+	 <link href="template/Theme3_Black/jqueryui-custom.css" type="text/css" rel="stylesheet" />
+
       <script type="text/javascript" src="template/scripts/rh.min.js"></script>
       <script type="text/javascript" src="template/scripts/common.min.js"></script>
       <script type="text/javascript" src="template/scripts/layout.min.js"></script>
@@ -104,394 +110,7 @@
          gTocUrlIconStyle = "";
       </script>
       <style>
-	  
-.header:-webkit-full-screen {
- 
-    background-color: red!important;
-}
 
-.header:-webkit-full-screen {
-  background-color: red!important;
-}
-
-.header:-moz-full-screen {
-  background-color: red!important;
-}
-
-.header:-ms-fullscreen {
-  background-color: red!important;
-}
-
-.header:fullscreen {
-  background-color: red!important;
-}
-   
-
-	  .img_wrapper{
-	   display:none;
-	  }
-         .itemcon{ 
-         height: 100%!important;
-         line-height: 1.3em;
-         padding:.3em;
-         }
-         .wSearchResultItem {
-        /* border:solid black;*/
-		
-		    font-size: 1.25em !important;
-			
-			border-top-width: 0.1em;
-    border-top-style: solid;
-    border-top-color: #e6e6e6;
-         }
-         .exthtml{
-         display:none;
-         }
-         html,
-         body,
-         div {
-         margin: 0;
-         padding: 0;
-         cursor: pointer; 
-         }
-         .reversed {
-         padding: 0px;
-         margin:0px;
-         }
-         .container {
-         height:26px;
-         /*cursor:pointer;*/
-         border: 4px solid #7192a8;
-         padding: 0px;
-         margin:0px;
-         -moz-user-select: none; /* Firefox */
-         -ms-user-select: none; /* Internet Explorer */
-         -khtml-user-select: none; /* KHTML browsers (e.g. Konqueror) */
-         -webkit-user-select: none; /* Chrome, Safari, and Opera */
-         -webkit-touch-callout: none; /* Disable Android and iOS callouts*/
-         background-color:#7192a8;
-         }
-         .right {
-         position:relative;
-         cursor:pointer;	
-         padding-bottom: 1.9px; 
-         float: right;
-         width: 15px;
-         border: 2px solid white;
-         background-color:#7192a8;
-         text-decoration: none;
-         padding-left :0.5em;
-         padding-right :0.3em;
-         color: white !important;
-         }
-         .left {
-         position:relative;
-         cursor:pointer;	
-         padding-bottom: 1.9px; 
-         float: left;
-         width: 15px;
-         border: 2px solid white;
-         background-color:#7192a8;
-         text-decoration: none;
-         padding-left :0.5em;
-         padding-right :0.3em;
-         color: white !important;
-         }
-         .m_con{
-         overflow:hidden;
-         background-color:#7192a8;
-         }
-         .m_con span {
-         overflow:auto;
-         background-color:#7192a8;
-         }
-         .m {
-         -ms-overflow-style: none;  // IE 10+
-         overflow: -moz-scrollbars-none !important;
-         }
-         .m::-webkit-scrollbar { 
-         display: none;  // Safari and Chrome
-         }
-         .m{
-         background-color:#7192a8;
-         display:block;
-         text-decoration: none;
-         text-align : center;
-         -webkit-overflow-scrolling:touch;
-         }
-         .m > a > ul {
-         display: inline-block;
-         zoom: 1;
-         *display: inline;
-         white-space:nowrap;
-         background: #7192a8;
-         }
-         .m > a > ul > li {
-         letter-spacing: normal;
-         display: inline-block;
-         zoom: 1;
-         *display: inline;
-         white-space:nowrap;	
-         cursor:pointer;	
-         padding: 2px;
-         padding-left :10px;
-         padding-right :10px;
-         border: 1px solid white!important;
-         color: white;
-         }
-         .wSearchPageNumberSelected
-         {
-         padding: 2px!important;
-         padding-left :10px!important;
-         padding-right :10px!important;
-         background: grey !important;
-         }
-         .loading2 {
-         display: none;
-         background-image: url("template/resources/loading.gif")	 ! important ;
-         min-height: 1.25in !important;
-         background-repeat: no-repeat !important;
-         background-position: center .25in !important;
-         background-size: 1in 1in !important;
-         position: absolute;
-         top: 35%;
-         width: 100%;
-         z-index :159;
-         }
-         /* The Modal (background) */
-         .modal {
-         /* Hidden by default */
-         position: fixed; /* Stay in place */
-         z-index: 999999; /* Sit on top */
-         display : none;
-         left: 0;
-         top: 0;
-         width: 100%; /* Full width */
-         height: 100%; /* Full height */
-         overflow: auto; /* Enable scroll if needed */
-         /*background-color: rgb(0,0,0); /* Fallback color */
-         background-color: grey; /* Black w/ opacity */
-         }
-         /* Modal Content (image) */
-         .modal-content {
-         margin: auto;
-         display: block;
-         width: 80%;
-         max-width: 700px;
-         }
-         /* The Close Button */
-         .close {
-         padding-left: 8px;
-         padding-right: 8px;
-         position: absolute;
-         top: 0px;
-         right: 0px;
-         color: #f1f1f1;
-         font-size: 20px;
-         font-weight: bold;
-         background-color: black;
-         border-style: solid;
-         border-color: white;
-         }
-         .close:hover,
-         .close:focus {
-         color: #bbb;
-         text-decoration: none;
-         cursor: pointer;
-         }  
-         @media only screen and (max-width: 700px){
-         .modal-content {
-         width: 100%;
-         }
-         }
-         .dropbtn:hover, .dropbtn:focus {
-         background-color: #3e8e41;
-         }
-         .dropdown-content {
-         display :none;
-         }
-         .dropdown-content a {
-         -webkit-touch-callout: none; /* iOS Safari */
-         -webkit-user-select: none; /* Safari */
-         -khtml-user-select: none; /* Konqueror HTML */
-         -moz-user-select: none; /* Firefox */
-         -ms-user-select: none; /* Internet Explorer/Edge */
-         user-select: none;
-         }
-         .dropdown a:hover {background-color: #f1f1f1}
-         .dropdown
-         {
-         z-index: 99;
-         }
-         body #myDropdown{
-         position: fixed;
-         left: auto;
-         top: auto;
-         border: 1px solid black; 
-         opacity: 1; 
-         color :black;
-         height: auto; 
-         text-align: center; 
-         padding: 0px; 
-         background-color: #f9f9f9;
-         min-width: 100px;
-         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-         z-index: 9999999999999;
-         font-size: 15px;
-         }
-        .drop{
-padding:0px;
-display:block;
-border-style: solid;
-border-color: black;
-border-width: 1px;
-}
-         .show{
-         display:block;
-         } 
-         a.nolink {
-         color: #0074D9 ;
-         text-decoration:none;
-         font-weight: bold;
-         }
-         .curr{
-         background-color: #cfd0d3;
-         }
-         .curr2{
-         background-color: #cfd0d3;
-         padding:2px;
-         }
-         .curr2 img{
-         width:20px;
-         }
-         .btn {
-         background-color: #4CAF50; /* Green */
-         border: none;
-         color: black!important;
-         padding: 6px;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 16px;
-         cursor: pointer;
-         }
-         .btn-danger {
-         text-decoration: none;
-         color: #fff;
-         background-color: #d9534f;
-         border-color: #d43f3a;
-         }
-         .btn-info {
-         text-decoration: none;
-         color: #fff;
-         background-color: #5bc0de;
-         border-color: #46b8da;
-         }
-         .well{
-         padding:5px;
-         color:black;
-         font-size: 120%;
-         font-weight:bold;
-         }
-         .form-control {
-         display: block;
-         width: 100%;
-         height: 34px;
-         padding: 6px 12px;
-         font-size: 14px;
-         line-height: 1.42857143;
-         color: #555;
-         background-color: #fff;
-         background-image: none;
-         border: 1px solid #ccc;
-         border-radius: 4px;
-         -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-         box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-         -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
-         -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-         transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
-         }
-         .form-group {
-         margin-bottom: 15px;
-         text-align: center;
-         }
-         .star_yellow
-         {
-         background-image: url("jqmlib/themes/default/images/icons-png/star-yellow.png")!important;
-         background-position: center 40% !important;
-         background-repeat: no-repeat !important;
-         }
-         .search-bar{
-         padding:2px;
-         margin:0;
-         background:grey!important;
-         border-radius: 10px;
-         }
-         .searchform{
-         padding:2px;
-         margin:0;
-         background:grey;
-         }
-         .clearcon{
-         background:white;
-         padding-top:1.7px;
-         padding-bottom:1.7px;
-         }
-         
-		 .hideclear{
-		 
-		 visibility:hidden;
-		 
-		 }
-		 
-		 .clear
-         {
-         position: relative;
-         float: left;
-         background: grey;
-         color: white;
-         font-weight: bold;
-         text-align: center;
-         cursor: pointer;
-         /*visibility:hidden;*/
-         background:white;
-         }
-         .clear img
-         {
-         display: block;
-         margin-left: auto;
-         margin-right: auto;
-         width: 100%;
-         background:white;
-         }
-         .searchinput{
-         width:100%;
-         border:none;
-         outline:none;
-         font-size: 110%;
-         /*height: 30px;*/
-         }
-         .searchinput::-ms-clear {
-         color: red;
-         display:none;
-         }
-         .searchico{
-         display: block;
-         margin-left: auto;
-         margin-right: auto;
-         width: 100%;
-         }
-         table {
-         border-collapse: collapse;
-         overflow: hidden;
-         }
-         th, td {
-         padding:0;
-         margin:0;
-         } 
-		 
-
-		 
 		 
       </style>
       <link rel="SHORTCUT ICON" href="87px.png" />
@@ -505,39 +124,41 @@ border-width: 1px;
       <script type="text/javascript" src="./ehlpdhtm.js"></script>
       <div id ="floatholder" class="floatholder">
 
-	  <div class="header" dir = 'rtl'>
+	  <div class="header">
          <table class="headertable">
             <tr>
                <td class="logo"><a href="index.php.htm" onclick='go_topic(event);' class="homelink"><img src="template/Theme3_Black/logo.png" alt="Logo" id="wLogoImage" style="border: none;" border="0" /></a> </td>
                <td>
-                  <div style = "vertical-align:middle; float:left;cursor: pointer;" data-trigger="EVT_SCROLL_TO_PREPOST"><img src= "template/resources/toc_book_closed_mobile_rtl.png">
+                  <div style = "vertical-align:middle;float:left;cursor: pointer;" data-trigger="EVT_SCROLL_TO_PREPOST">
+				  <span class = "toc_book_closed_mobile_rtl">&nbsp;</span>
                   </div>
                   <div style = "vertical-align:middle; float:left;cursor: pointer;"  data-trigger="EVT_SCROLL_TO_NEXTPOST">
-                     <img src= "template/resources/toc_book_closed_mobile_ltr.png">
+                   <span class = "toc_book_closed_mobile_ltr">&nbsp;</span>
                   </div>
                   <div onclick="scrollTo_up();return false;" style = "vertical-align:middle; float:left;cursor: pointer;"   data-trigger="EVT_SCROLL_TO_TOP">
-                     <img src= "template/resources/toc_book_open_drildown.png">
+                     <span class = "toc_book_open_drildown">&nbsp;</span>
                   </div>
                   <div onclick="scrollTo_down();return false;" style = "vertical-align:middle; float:left; cursor: pointer;" data-trigger="EVT_SCROLL_TO_DOWN">
-                     <img src= "template/resources/toc_book_open_mobile.png">
+                     <span class = "toc_book_open_mobile">&nbsp;</span>
                   </div>
-                  <div class="dropdown" id = "dropdown" style = "webkit-overflow-scrolling: touch;vertical-align:middle; float:left; cursor: pointer;">
-                     <img onclick="showdropdown()" class="dropbtn" src= "template/resources/plus.png">
-                     <div id="myDropdown" class="dropdown-content" style = "z-index:99999;" >
-                        <a class = "drop"  data-trigger="EVT_PRINT_TOPIC">طباعة الكل</a>
-						<a class = "drop" id = "NDmode" onClick= "toggleNDmode(this);">تعيين التصفح الليلي</a>
-						<a class = "drop" id = "FullS" >تحجيم كلي للشاشة F11</a>
-                        <a class = "drop"  data-trigger="EVT_REMOVE_HIT">ازالة تسليط الضوء</a>
-                        <a class = "drop"  data-trigger="EVT_ADD_HIT">اعادة تسليط الضوء</a>
-                        <a class = "drop"  data-trigger="EVT_REMOVE_FORMAT">ازالة التنسيق</a>
-                        <a class = "drop"  data-trigger="EVT_REMOVE_SRC">ازالة رابط مصدر البيان</a>
-                        <a class = "drop"  data-trigger="EVT_REMOVE_TRANZ">ازالة روابط عبارات الترجمة</a>
-                        <a class = "drop"  data-trigger="EVT_SELECT_ALL">تعيين ونسخ النص<br>في الصفحة كلها</a>
-						<a class = "drop"  data-trigger="EVT_ZOOMIN">تكبير النص لكل الصفحة</a>
-                        <a class = "drop"  data-trigger="EVT_ZOOMOUT">تصغير النص لكل الصفحة</a>
-                        <a class = "drop"  data-trigger="EVT_RESET">الحجم الإفتراضي للصفحة</a>
-                     </div>
-                  </div>
+                <div class="dropdown" id = "dropdown" style = "webkit-overflow-scrolling: touch;display:block;float : left; cursor: pointer;">
+<a onclick="showdropdown()"  class="plus"></a>
+
+  <div id="myDropdown" class="dropdown-content">
+<a class = "drop"  data-trigger="EVT_PRINT_TOPIC">طباعة الكل</a>
+<a class = "drop" id = "NDmode" onClick= "toggleNDmode(this);">تعيين التصفح الليلي</a>
+<a class = "drop" id = "FullS" >تحجيم كلي للشاشة F11</a>
+<a class = "drop"  data-trigger="EVT_REMOVE_HIT">ازالة تسليط الضوء</a>
+<a class = "drop"  data-trigger="EVT_ADD_HIT">اعادة تسليط الضوء</a>
+<a class = "drop"  data-trigger="EVT_REMOVE_FORMAT">ازالة التنسيق</a>
+<a class = "drop"  data-trigger="EVT_REMOVE_SRC">ازالة رابط مصدر البيان</a>
+<a class = "drop"  data-trigger="EVT_REMOVE_TRANZ">ازالة روابط عبارات الترجمة</a>
+<a class = "drop"  data-trigger="EVT_SELECT_ALL">تعيين ونسخ النص<br>في الصفحة كلها</a>
+<a class = "drop"  data-trigger="EVT_ZOOMIN">تكبير النص لكل الصفحة</a>
+<a class = "drop"  data-trigger="EVT_ZOOMOUT">تصغير النص لكل الصفحة</a>
+<a class = "drop"  data-trigger="EVT_RESET">الحجم الإفتراضي للصفحة</a>
+  </div>
+</div>
                </td>
             </tr>
          </table>
@@ -575,10 +196,10 @@ border-width: 1px;
 	  
 	  
 	
-<div id="rh_scrollable_content" class="content" style ="background:white;display: flex; flex-direction: column;">
+<div id="rh_scrollable_content" class="content" style ="">
 <div id ="desktop_functionholder" class="desktop_functionholder">
 				<div class="searchholder">
-					<div class="wSearchField" dir ="rtl">
+					<div class="wSearchField">
 						<input autocomplete="on" id="searchBox" class="wSearchField" type="search" data-placeholder="بحث" onkeydown="searchHelp(event, 'searchBox')" data-search="true" /><a class="wSearchLink" onclick="searchHelp(null, 'searchBox')" href="#"><img src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink" class="wSearchLink" border="0" /></a> 
 						 
 					</div>
@@ -608,22 +229,22 @@ border-width: 1px;
 
 				
 				<div class="home">
-			    <a onclick="get_link_url();" style = "background-image:url('template/resources/close.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
+			    <a class ="closeN" onclick="get_link_url();" style = ""></a> 
 		        </div>
 		        
 				<div class="home">
-			    <a onclick="MyFunction();return false;" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
+			    <a class ="styleN" onclick="MyFunction();return false;" style = ""></a> 
 		        </div>
 				
 				
-				<div class="print" data-if="!@.l.uimode">
+				<div class="print">
 					<a href="javascript:window.print()" class="wPrintButton"><img src="template/Theme3_Black/Print.png" alt="" class="wPrintButton normal" id="xmlEditorPrintButton" border="0" /><img src="template/Theme3_Black/Print_hover.png" alt="" class="wPrintButton hover" id="xmlEditorPrintButtonHover" border="0" /></a> 
 				</div>
-				<div class="brsBack" data-if="!@.l.uimode">
+				<div style ="display: none;"class="brsBack" data-if="!@.l.uimode">
 					<a id="browseSeqBack" class="wBSBackButton" data-rhwidget="Basic" data-attr="href:.l.brsBack" data-css="visibility: @.l.brsBack?'visible':'hidden'"><img alt="" src="template/Theme3_Black/BSBack.png" class="wBSBackButton normal" id="xmlEditorBSBackButton" border="0" /><img alt="" src="template/Theme3_Black/BSBack_hover.png" class="wBSBackButton hover" id="xmlEditorBSBackButtonHover" border="0" /></a> 
 					 
 				</div>
-				<div class="brsNext" data-if="!@.l.uimode">
+				<div style ="display: none;" class="brsNext" data-if="!@.l.uimode">
 					<a id="browseSeqNext" class="wBSNextButton" data-rhwidget="Basic" data-attr="href:.l.brsNext" data-css="visibility: @.l.brsNext?'visible':'hidden'"><img alt="" src="template/Theme3_Black/BSNext.png" class="wBSNextButton normal" id="xmlEditorBSNextButton" border="0" /><img alt="" src="template/Theme3_Black/BSNext_hover.png" class="wBSNextButton hover" id="xmlEditorBSNextButtonHover" border="0" /></a> 
 					 
 				</div>
@@ -631,28 +252,36 @@ border-width: 1px;
 
 <div id = "afterhead" style="position:relative;height:100%;width:100%;">
 <!-- Topic widget -->
-<iframe id ="iframe" onload='setFrameLoaded()' class="wTopic" data-if="!@.l.uimode" name="rh_default_topic_frame_name" style="overflow:hidden;overflow-x:hidden;overflow-y:hidden;margin:0em;padding:0em;height:100%;width:100%;position:absolute;top:0px;left:0px;right:0px;bottom:0px" ></iframe>
+<iframe id="iframe" onload="setFrameLoaded()" class="" data-if="!@.l.uimode" name="rh_default_topic_frame_name" style="
+    z-index: 0;
+    overflow:hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    border: 0px;
+"></iframe>
 
 
 
 
-<div id="tocold" data-if="@.l.uimode=='bookmark'" dir="rtl" class="rh-hide" style="overflow-x:hidden;overflow-y:auto;margin:0em;padding:.5em;position:absolute;top:0px;left:0px;right:0px;bottom:0px">
+<div id="tocold" data-if="@.l.uimode=='bookmark'" class="rh-hide" style="overflow-x:hidden;overflow-y:auto;margin:0em;padding:.5em;position:absolute;top:0px;left:0px;right:0px;bottom:0px">
    <form id="bookmarksForm" onsubmit="return false">
       <center>
          <div style="padding:10px;">
             <label style="font-weight:bold;color:black;">عنوان الموضوع:</label>
          </div>
-         <div style="padding:4px;" class="form-wrapper form-group">
-            <div style="padding:4px;" class="search-bar">
+         <div style="padding:4px;" class="enable_edit form-wrapper form-group">
+            <div style="padding:4px;" class="search-bar enable_edit">
                <table style="width:100%" border="0" width="100%">
                   <tbody>
                      <tr>
-                        <td style="padding-right:4px;background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
-                           <input oninput="showclear2(this)" type="text" autocomplete="off" class="searchinput" id="websiteName" placeholder="عنوان الموضوع">
+                        <td class ="enable_edit fav_input" >
+                           <input oninput="showclear2(this)" type="text" autocomplete="off" class="enable_edit searchinput" id="websiteName" placeholder="عنوان الموضوع">
                         </td>
                         <td style="width:1em;border-top-left-radius:10px;border-bottom-left-radius:10px;width:2em;">
-                           <div class="clearcon">
-                              <span id="clear2" class="clear hideclear" title="Clear" style=""><img src="template/Theme3_Black/clear.png"></span>
+                           <div id="clear_fav" class="clearcon">
+							  <span id="clear_fav_sub" class="clear_content" title="Clear"></span>
                            </div>
                         </td>
                      </tr>
@@ -676,11 +305,11 @@ border-width: 1px;
 
 
 <!-- Search results widget -->	
-<div id="searchresults" class="rh-hide" dir ="rtl" data-if="@.l.uimode=='search'" style="overflow-x:hidden;overflow-y:auto;margin:0em;padding:.5em;position:absolute;top:0px;left:0px;right:0px;bottom:0px">
+<div id="searchresults" class="rh-hide"  data-if="@.l.uimode=='search'" style="overflow-x:hidden;overflow-y:auto;margin:0em;padding:.5em;position:absolute;top:0px;left:0px;right:0px;bottom:0px">
 
-<div dir="rtl" class="search-bar">	
+<div class="search-bar enable_edit">	
 <iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
-<form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank" dir ="rtl">
+<form id ="searhcform" class = "enable_edit searchform" target="my_iframe" action="about:blank" >
 	<table style="width:100%" border="0" width="100%">
 	  <tbody>
 	  <tr>
@@ -688,16 +317,21 @@ border-width: 1px;
 
 		<a href="#popupMenu" data-rel="popup" data-role="button" style="padding-right:2px;padding-left:2px;padding-top:0px;padding-bottom:0px;" aria-haspopup="true" aria-owns="popupMenu" aria-expanded="false" class="ui-link ui-btn ui-shadow ui-corner-all" role="button"><span style="font-size: 12px;">خيارات<br>البحث</span></a>
      </td>
-	 <td style="padding-right:4px;background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;">
+	 <td class = "tdsearch enable_edit" style="">
 
-       <input  placeholder="بحث" id="searchBoxSearchPage" class="wSearchField searchinput" style ="outline: none !important;" name="user" type="text" id="searchBoxSearchPage" oninput="showclear(this)" autocomplete="on" data-search="true">
+       <input  placeholder="بحث" id="searchBoxSearchPage" class="enable_edit wSearchField searchinput" style ="outline: none !important;" name="user" type="text" id="searchBoxSearchPage" oninput="showclear(this)" autocomplete="on" data-search="true">
 	 </td>
 	  
 	 <td style="width:1.8em;border-top-left-radius:10px;border-bottom-left-radius:10px;" >
-      <div class ="clearcon"><span id="clear" class="clear hideclear" title="Clear"><img src="template/Theme3_Black/clear.png" /></span></div>
+      <div id="clear_fav2" class ="clearcon">
+	  
+         <span id="clear_fav_sub2" class="clear_content hideclear" title="Clear"></span>
+
+	  
+	  </div>
      </td>  
-     <td style="width:2em;">
-	 <a style="float:left" onclick="searchHelp(null, 'searchBoxSearchPage')" href="#"><img class ="searchico" src="template/Theme3_Black/Search.png" alt="" id="xmlEditwSearchLink_Secondary" class="wSearchLink" border="0" /></a> 
+     <td style="width:1em;border-top-left-radius:10px;border-bottom-left-radius:10px;">
+	 <a class ="searchico" style="float:left" onclick="searchHelp(null, 'searchBoxSearchPage')" href="#"></a> 
      </a>
      </td>
 	 </tr>
@@ -786,7 +420,7 @@ border-width: 1px;
 </div>
 										
 <div id="searchResList"></div>
-<div dir ="rtl"  id="mycontainer"></div>
+<div   id="mycontainer"></div>
 <div id="end" style="display:none;"><span>نهاية نتائج البحث</span></div>
 <div class="content_top_link" data-if="!@.l.uimode">
 <span class="desktop"><a>&#160;</a></span>
@@ -799,11 +433,11 @@ border-width: 1px;
 </div>
   
 <div id = "pages_bar_note" style = "display:none;">
-<div style= "font-weight:bold; font-size:.9em; text-align:center; padding:3px; background-color:grey;color:white;">قم بازاحة شريط الصفحات بشكل افقي</div>								
+<div class ="slidepage_title" style= "">قم بازاحة شريط الصفحات بشكل افقي</div>								
 <div  class="container"  style = "" id = "conpag">
 
-<a class="left" id="searchnext" href="#">&lt;&lt;</a>
-<a class="right" id="searchprev" href="#">&gt;&gt;</a>
+<a class="left" id="searchnext" href="#">&gt;&gt;</a>
+<a class="right" id="searchprev" href="#">&lt;&lt;</a>
 <div dir = "ltr" class="m_con" style = "">
 <span class="m dragscroll" style = "">
 <a id="pageList"></a>
@@ -819,10 +453,10 @@ border-width: 1px;
 	  	 <div class="buttonbar">
                <div  class="buttonbarholder" style="overflow-y:auto">
                   <div>
-                     <a onclick="get_link_url();" target="_top" style = "background-image:url('template/resources/close.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
+                     <a class ="closeN" onclick="get_link_url();" target="_top" style = "">&#160;</a> 
                   </div>
                   <div>
-                     <a onclick="MyFunction();return false;" target="_top" style = "background-image:url('template/resources/style2.png');background-repeat:no-repeat;background-position:center;">&#160;</a> 
+                     <a class ="styleN" onclick="MyFunction();return false;" target="_top" style = "">&#160;</a> 
                   </div>
                   <div class="bar_topic" id = "test" onclick='go_topic(event);'>
                   </div>
