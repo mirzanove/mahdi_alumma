@@ -207,7 +207,6 @@ function smoothScrollu(domElement,pixel,delay)
 
 
 function go_index(){
-
 if(window.myScroll){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
 window.myScroll.destroy();
@@ -227,7 +226,7 @@ setTimeout(function() {
   
    if(window.myScroll){ 
     
-      window.myScroll.scrollto(curr_index);
+     window.myScroll.scrollto(curr_index);
    
    }
    //git =true;
@@ -1499,13 +1498,8 @@ function tabButtonEvent(tabs) {
 
 ************/
 function setTopic() {
-	/*var url = document.location.toString(),
-		hashString = rh._.extractHashString(url);
-	if(!hashString || -1 === hashString.search('ux=search')) {
-		saveSetting(lastVisitedTopic, url, false);
-		changeTopicLink(url);
-	}*/
 	
+
 if(a_QueryResultt){	
 document.getElementsByClassName("loading2")[0].style.display = 'block';	
 	
@@ -1515,9 +1509,9 @@ stop = true;
 setTimeout(function() { 
 
    if(window.myScroll){ 
- 
+      if(document.getElementById("searchresults").className != "rh-hide")	{
       window.myScroll.scrollto(curr_index);
-   
+	  }
    }
    //git =true;
    stop = false; 

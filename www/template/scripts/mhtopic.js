@@ -2633,7 +2633,7 @@ hitid = null;
           //document.getElementById("loading").style.display = 'none';
           setTimeout(stopload, 50);
 		  function stopload() {
-             //window.parent.postMessage(["loading","stop"], "*");
+             window.parent.postMessage(["loading","stop"], "*");
           }		  
 		  enable_highlight = false;
 		  }

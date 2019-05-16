@@ -563,8 +563,8 @@ if(document.getElementById(current_select)){
 
 }
  //if(document.getElementById("searchresults").className != "rh-hide")
-    document.getElementsByClassName("loading2")[0].style.display = 'none';	
-
+ document.getElementsByClassName("loading2")[0].style.display = 'none';	
+//alert();
 
 }
 		
