@@ -98,13 +98,28 @@ function onMaxPageCountChange(maxVal)
 	
 	g_nMaxResult = maxVal;
 	
+	 $('.cSearchSettingsToggle a').removeClass('collapsed');
+	 $('.cSearchSettingsToggle a').addClass('opened');
+	 $('.wSearchResultSettings').css("display", "none");
+	
+	document.getElementsByClassName("loading2")[0].style.display = 'block';
+	
+	
+	setTimeout(function(){ 
+			
 	if(rh.model.get(rh.consts('KEY_SEARCHED_TERM')))
 		onClickPage(null, 1);
 	saveSetting(RHSEARCHCOUNT, maxVal, true);
+			
+			}, 100);
+	
+	
 }
 function onClickPrevNext( btn, a_nPageNumber )
 {
-	
+	 $('.cSearchSettingsToggle a').removeClass('collapsed');
+	 $('.cSearchSettingsToggle a').addClass('opened');
+	 $('.wSearchResultSettings').css("display", "none");
 	if(scrolling){
 		return false;
 	}

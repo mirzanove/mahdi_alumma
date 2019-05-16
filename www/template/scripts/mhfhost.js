@@ -3540,7 +3540,7 @@ function displayTopics( a_QueryResult )
 
             if(document.getElementById("searchresults").className != "rh-hide")
 		       document.getElementsByClassName("loading2")[0].style.display = 'block';
-			
+	
             setTimeout(function(){ 
 			
 			
@@ -3655,6 +3655,8 @@ var x = document.getElementById("searchBoxSearchPage");
 if (x === document.activeElement) {
 
 } else {
+	
+  if(document.getElementById("searchresults").className != "rh-hide")	
   go_index();
 }			 
 			 
@@ -3668,7 +3670,12 @@ var x = document.getElementById("wSearch");
 if (x === document.activeElement) {
 
 } else {
-  go_index();
+  if(document.getElementById("three").className != "clusterize-scroll searchresults left-pane search-content")	
+  {
+	
+	  go_index();
+
+  }
 }	
 }
 else{
@@ -3678,7 +3685,10 @@ var x = document.getElementById("wSearchField");
 if (x === document.activeElement) {
 
 } else {
-  go_index();
+
+  if(!document.getElementById("three").className.includes("visibility")){
+	 go_index();  
+  }
 }
 
 	
