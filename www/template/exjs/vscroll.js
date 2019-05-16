@@ -559,11 +559,14 @@ that.scrollParent.scrollTop = (jj);
 if(document.getElementById(current_select)){
 
 	document.getElementById(current_select).className = "wSearchResultTitle curr";
+
+
 }
+ if(document.getElementById("searchresults").className != "rh-hide")
+    document.getElementsByClassName("loading2")[0].style.display = 'none';	
 
 
-
-        }
+}
 		
 		
 

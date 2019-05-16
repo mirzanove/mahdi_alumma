@@ -528,7 +528,7 @@ eventer(messageEvent,function(e) {
 	   //$("#img01").attr("src",data);
        document.getElementById('img01').src = data;	   
 	break;
-	break;case 'loading': 
+	case 'loading': 
     if(data == "stop"){
 	
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';

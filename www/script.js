@@ -141,7 +141,8 @@ $("#content_t").css("overflow"," hidden");
 
 
 
-
+if(a_QueryResultt){	
+document.getElementsByClassName("loading2")[0].style.display = 'block';	
 
 git = false;
 stop = true; 
@@ -158,7 +159,7 @@ setTimeout(function() {
 			
 }, 300);
 
-
+}
 
 
 

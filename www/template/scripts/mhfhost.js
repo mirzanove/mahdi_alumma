@@ -3536,15 +3536,18 @@ function displayTopics( a_QueryResult )
 			g_nMaxResultt = g_nMaxResult;
 			g_CurPagee = g_CurPage;
 			bShowAlll= bShowAll;
-	        
-	
+	       
+
+            if(document.getElementById("searchresults").className != "rh-hide")
+		       document.getElementsByClassName("loading2")[0].style.display = 'block';
+			
             setTimeout(function(){ 
 			
 			
 			lunch_vlist2(a_QueryResult.aTopics,strParams,"mycontainer","searchresults",i,g_nMaxResult,g_CurPage,bShowAll);
 			
-			
-
+			if(document.getElementById("searchresults").className != "rh-hide")
+            document.getElementsByClassName("loading2")[0].style.display = 'none';
 			
 			}, 200);
 
@@ -3640,6 +3643,9 @@ window.addEventListener('resize', function() {
 });
 
 function doneResizing(){
+	
+//document.getElementsByClassName("loading2")[0].style.display = 'block';	
+	
 	if (typeof getbooleanindexopage !== "undefined") { 
 		if(getbooleanindexopage()==3) {
 	

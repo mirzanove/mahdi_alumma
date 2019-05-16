@@ -1077,6 +1077,8 @@ function keydown(e) {
 			{
 				updateh1family(!1)
 				
+				//window.parent.postMessage(["loading","stop"], "*");
+				
 				
 			}
 			jQueryD_1_4_2('.up2 >img').removeAttr("style");

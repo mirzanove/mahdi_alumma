@@ -426,7 +426,7 @@ eventer(messageEvent,function(e) {
 	case 'image_url':
 	   $("#img01").attr("src",data); 
 	break;
-	break;case 'loading': 
+	case 'loading': 
     if(data == "stop"){
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';
 	   show_loading = false;

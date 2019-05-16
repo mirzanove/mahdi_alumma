@@ -251,8 +251,8 @@ function DomTextNode( a_Node, a_nFrom )
     
 	this.doHighlight = function( a_aRanges, a_nStart )
 	{   //jomart
-	    document.getElementById("loading").style.display = 'none';
-		window.parent.postMessage(["loading","stop"], "*");
+	    //document.getElementById("loading").style.display = 'none';
+		//window.parent.postMessage(["loading","stop"], "*");
 	
 		s_strHlStart = "<em class='enableselect' id='hit_'"+ii+">";
 		s_strHlEnd = "</em>";
@@ -638,7 +638,7 @@ function StartHighLightSearch(hitid)
 	for (var i = 0; i < arrSyns.length; i++)
 		if (trim(arrSyns[i]) != "")
 			findSearchTerms(trim(arrSyns[i]), false);
- 
+
 if(strTerms){
  
 if (typeof process !== "undefined" && typeof require !== "undefined")
@@ -652,7 +652,7 @@ setTimeout(function(){ hit(strTerms);}, 100);
  
 }
 else{
-
+//alert();
 window.parent.postMessage(["loading","stop"], "*");	
 }
 
@@ -729,6 +729,7 @@ hitid = null;
 	
 
 if(strTerms){
+	
  hit(strTerms,hitid);	
 }
 else{
@@ -2632,7 +2633,7 @@ hitid = null;
           //document.getElementById("loading").style.display = 'none';
           setTimeout(stopload, 50);
 		  function stopload() {
-             window.parent.postMessage(["loading","stop"], "*");
+             //window.parent.postMessage(["loading","stop"], "*");
           }		  
 		  enable_highlight = false;
 		  }

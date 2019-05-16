@@ -106,6 +106,8 @@ logo = document.getElementById('fullscreenid');
 		FullS.innerHTML="تعطيل الحجم الكلي F11";
 		if(logo)
 		logo.src = ''+url+'clientscript/images/fullSoff.png';
+	
+
         	
 	}
 	else{
@@ -166,7 +168,7 @@ function toggfullScreen() {
 
     var docElm = document.documentElement;
     if (isInFullScreen) {
-        
+ window.scrollTo(0, 0);
 		 if (document.exitFullscreen) {
             document.exitFullscreen();
         } else if (document.webkitExitFullscreen) {

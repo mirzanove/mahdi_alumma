@@ -42,9 +42,9 @@ document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location
 
 
 function go_index(){
-//document.getElementsByClassName("loading2")[0].style.display = 'block';
-if(window.myScroll){
 
+if(window.myScroll){
+document.getElementsByClassName("loading2")[0].style.display = 'block';
 window.myScroll.destroy();
 
 

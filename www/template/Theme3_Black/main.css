@@ -1,5 +1,6 @@
 ﻿* {
-   -webkit-tap-highlight-color:black;
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+   -webkit-tap-highlight-color:transparent;
    outline-style:none;
  
  
@@ -161,7 +162,7 @@ html,body
 
 body {
       font-size:100%;
-      font-family:"Helvetica Medium"                                  , Arial, sans-serif;
+      font-family:"Helvetica Medium" , Arial, sans-serif;
       margin:0;
       padding:0;
       min-width:250px;
@@ -366,7 +367,7 @@ div.buttonbarholder > div {
                            margin:0;
                            padding:0;
                            float:left;
-                           cursor:pointer;
+                           
 }
 
 
@@ -565,7 +566,7 @@ label.switch-toggle2 {
                      font-size:15px;
                      display:block !important;
                      font-weight:bold;
-                     cursor:pointer;
+                     
                      float:right;
                      font-family:"Helvetica Medium"                                  , Arial, sans-serif;
                      text-transform:uppercase;
@@ -587,7 +588,7 @@ label.switch-toggle {
                      font-size:15px;
                      display:block !important;
                      font-weight:bold;
-                     cursor:pointer;
+                     
                      float:right;
                      font-family:"Helvetica Medium"                                  , Arial, sans-serif;
                      text-transform:uppercase;
@@ -606,7 +607,7 @@ label.switch-toggle.disabled {
                      font-size:15px;
                      display:block !important;
                      font-weight:bold;
-                     cursor:pointer;
+                     
                      float:right;
                      font-family:"Helvetica Medium"                                  , Arial, sans-serif;
                      text-transform:uppercase;
@@ -1420,7 +1421,7 @@ div.sidebar div.closebutton {
                              height:2em;
                              width:.8em;
                              margin:-2em -0.1em 2em;
-                             cursor:pointer;
+                             
                              z-index:250;
                              border:none;
                              -webkit-border-radius:.0em;
@@ -1529,25 +1530,25 @@ div.brsNext {
 @media screen and (min-width: 81em) {
 div.home a:hover {
                   background-color:#4b4a4a;
-                  cursor:pointer;
+                  
 }
 }
 @media screen and (min-width: 81em) {
 div.print a:hover {
                    background-color:#4b4a4a;
-                   cursor:pointer;
+                   
 }
 }
 @media screen and (min-width: 81em) {
 div.brsBack a:hover {
                      background-color:#4b4a4a;
-                     cursor:pointer;
+                     
 }
 }
 @media screen and (min-width: 81em) {
 div.brsNext a:hover {
                      background-color:#4b4a4a;
-                     cursor:pointer;
+                     
 }
 }
 @media screen and (min-width: 81em) {
@@ -1690,7 +1691,7 @@ div.wGloTermHover {
                    border-top-style:solid;
                    border-top-color:#e6e6e6;
                    padding:0.8em 1em;
-                   cursor:pointer;
+                   
                    background-color:#f6f6f6;
 }
 div.wGloTermSelected {
@@ -1699,7 +1700,7 @@ div.wGloTermSelected {
                       text-align:left;
                       font-size:1.2em;
                       padding:0.8em 1em;
-                      cursor:pointer;
+                      
                       border-top-width:.1em;
                       border-top-style:solid;
                       border-top-color:#e6e6e6;
@@ -1711,7 +1712,7 @@ div.wGloDefinition {
 }
 div.wGloDefinitionHover {
                          margin:0 2em 1em 2.5em;
-                         cursor:pointer;
+                         
 }
 span.wGloDefinitionText {
                          color:#575555;
@@ -1796,7 +1797,7 @@ div.wGloTermHover {
                    font-size:1em;
                    text-align:left;
                    font-weight:normal;
-                   cursor:pointer;
+                   
                    text-decoration:underline;
                    border:none;
                    padding:0;
@@ -1812,7 +1813,7 @@ div.wGloTermSelected {
                       font-size:1em;
                       text-align:left;
                       font-weight:normal;
-                      cursor:pointer;
+                      
                       border:none;
                       padding:0;
                       margin:.5em 0 .25em 0;
@@ -1909,7 +1910,7 @@ div.wIdxKeywordHover {
                       background-position:20px center;
 }
 span.wIdxKeywordText {
-                      cursor:pointer;
+                      
 }
 div.wIdxChildBlock {
                     width:95%;
@@ -2045,7 +2046,7 @@ div.wIdxKeywordHover {
                       font-size:1em;
                       text-align:left;
                       font-weight:normal;
-                      cursor:pointer;
+                      
                       text-decoration:underline;
                       border:none;
                       background:none;
@@ -2075,7 +2076,7 @@ div.wIdxLinkHover {
                    font-size:1em;
                    text-align:left;
                    font-weight:normal;
-                   cursor:pointer;
+                   
                    text-decoration:underline;
                    border:none;
                    background:none;
@@ -2124,7 +2125,7 @@ div.wTOCTreeCloseBookHover {
                             margin:0;
                             padding:7px 7px 7px 27px;
                             text-indent:-20px;
-                            cursor:pointer;
+                            
                             text-decoration:underline;
                             color:#e1e1e1;
                             font-size:1em;
@@ -2161,7 +2162,7 @@ div.wTOCTreeOpenBookHover {
                            margin:0;
                            padding:7px 7px 7px 27px;
                            text-indent:-20px;
-                           cursor:pointer;
+                           
                            text-decoration:underline;
                            color:#e1e1e1;
                            font-size:1em;
@@ -2195,7 +2196,7 @@ div.wTOCTreePageHover {
                        margin:0;
                        padding:7px 7px 7px 27px;
                        text-indent:-20px;
-                       cursor:pointer;
+                       
                        text-decoration:underline;
                        color:#e1e1e1;
                        font-size:1em;
@@ -2232,7 +2233,7 @@ div.wTOCTreeLinkHover {
                        margin:0;
                        padding:7px 7px 7px 27px;
                        text-indent:-20px;
-                       cursor:pointer;
+                       
                        text-decoration:underline;
                        color:#e1e1e1;
                        font-size:1em;
@@ -2288,7 +2289,7 @@ div.wTOCNodeCloseBookHover {
                             background-image:url("TOCNodeCloseBook.png");
                             background-repeat:no-repeat;
                             background-position:11px center;
-                            cursor:pointer;
+                            
 }
 div.wTOCNodeCloseBookSelected {
                                font-weight:normal;
@@ -2305,7 +2306,7 @@ div.wTOCNodeCloseBookSelected {
                                background-repeat:no-repeat;
                                background-position:10px center;
                                background-size:31px 37px;
-                               cursor:pointer;
+                               
 }
 span.wTOCNodeCloseBookText {
                             color:#575555;
@@ -2344,7 +2345,7 @@ div.wTOCNodeOpenBookHover {
                            background-repeat:no-repeat;
                            background-position:1.01em center;
                            background-size:31px 38px;
-                           cursor:pointer;
+                           
 }
 div.wTOCNodeOpenBookSelected {
                               font-weight:normal;
@@ -2361,7 +2362,7 @@ div.wTOCNodeOpenBookSelected {
                               background-repeat:no-repeat;
                               background-position:19px center;
                               background-size:31px 38px;
-                              cursor:pointer;
+                              
 }
 span.wTOCNodeOpenBookText {
                            color:#3f4344;
@@ -2396,7 +2397,7 @@ div.wTOCNodePageHover {
                        background-image:url("TOCNodePage.png");
                        background-repeat:no-repeat;
                        background-position:20px center;
-                       cursor:pointer;
+                       
                        color:#575555;
 }
 div.wTOCNodePageSelected {
@@ -2449,7 +2450,7 @@ div.wTOCNodeLinkHover {
                        background-repeat:no-repeat;
                        background-position:1.15em center;
                        background-size:22px 22px;
-                       cursor:pointer;
+                       
 }
 div.wTOCNodeLinkSelected {
                           text-align:left;
@@ -2499,7 +2500,7 @@ div.wTOCNodeUpHover {
                      background-image:url("TOCNodeUp.png");
                      background-repeat:no-repeat;
                      background-position:1.05em center;
-                     cursor:pointer;
+                     
 }
 span.wTOCNodeUpText {
                      text-decoration:none;
@@ -2711,7 +2712,7 @@ div.cSearchSettingsToggle {
                            margin:0 0 .5em 0;
 }
 div.cSearchSettingsToggle a {
-                             cursor:pointer;
+                             
                              font-size:.9em;
                              color:black;
                              padding:0 0 0 24px;
@@ -3262,7 +3263,7 @@ li.wTabHover {
               width:3em;
               float:left;
               text-align:center;
-              cursor:pointer;
+              
               background-color:#4b4a4a;
               color:#383D3E;
 }
@@ -3337,7 +3338,7 @@ li.wVTabHover {
                padding:.5em 0;
                background-color:#ffffff;
                color:#383D3E;
-               cursor:pointer;
+               
 }
 li.wVTabSelected {
                   display:block;
@@ -3373,7 +3374,7 @@ div.loadingtext {
               cursor:default;
 }
 .handcursor {
-             cursor:pointer;
+             
              cursor:hand;
 }
 .unselectable {
@@ -3552,7 +3553,7 @@ left:0px;
          }
          .container {
          height:26px;
-         /*cursor:pointer;*/
+         /**/
         border: 4px solid #7192a8;
 		
 		/*border: 4px solid black;*/
@@ -3568,7 +3569,7 @@ left:0px;
          }
          .right {
          position:relative;
-         cursor:pointer;	
+         	
          padding-bottom: 1.9px; 
          float: right;
          width: 15px;
@@ -3582,7 +3583,7 @@ left:0px;
          }
          .left {
          position:relative;
-         cursor:pointer;	
+         	
          padding-bottom: 1.9px; 
          float: left;
          width: 15px;
@@ -3632,7 +3633,7 @@ left:0px;
          zoom: 1;
          *display: inline;
          white-space:nowrap;	
-         cursor:pointer;	
+         	
          padding: 2px;
          padding-left :10px;
          padding-right :10px;

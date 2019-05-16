@@ -11,6 +11,15 @@
                                   supported by Chrome and Opera */
 }
 
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px black inset !important;
+	-webkit-text-fill-color: white !important;
+}
+
 .tdsearch{
 
 background:black;border-top-right-radius:10px;border-bottom-right-radius:10px;	

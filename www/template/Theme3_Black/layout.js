@@ -207,9 +207,9 @@ function smoothScrollu(domElement,pixel,delay)
 
 
 function go_index(){
-//document.getElementsByClassName("loading2")[0].style.display = 'block';
-if(window.myScroll){
 
+if(window.myScroll){
+document.getElementsByClassName("loading2")[0].style.display = 'block';
 window.myScroll.destroy();
 
 
@@ -1506,8 +1506,8 @@ function setTopic() {
 		changeTopicLink(url);
 	}*/
 	
-	
-	
+if(a_QueryResultt){	
+document.getElementsByClassName("loading2")[0].style.display = 'block';	
 	
 git = false;
 stop = true; 
@@ -1525,7 +1525,7 @@ setTimeout(function() {
 }, 300);
  
 	
-	
+}
 	
 	
 	
@@ -1793,9 +1793,11 @@ eventer(messageEvent,function(e) {
 	   //$("#img01").attr("src",data);
        document.getElementById('img01').src = data;	   
 	break;
-	break;case 'loading': 
+	case 'loading': 
     if(data == "stop"){
+		
 	   document.getElementsByClassName("loading2")[0].style.display = 'none';
+	   show_loading = false;
 	   
 	}else{
 	   document.getElementsByClassName("loading2")[0].style.display = 'block';
