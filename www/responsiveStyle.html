@@ -49,7 +49,12 @@ if (!cc.className.includes("active")){
 }
 else{
 if(a_QueryResultt){
+
+if(show_loading){
 document.getElementsByClassName("loading2")[0].style.display = 'block';
+show_loading =false;
+}
+
 //alert();
 setTimeout(function() { 
   
