@@ -398,10 +398,11 @@ aa =0;
             // When startIndex changed, update paddingTop
             if (changed) {
 
-			
+
 			  if(git == true){
 				
-					 curr_index = (startIndex);  
+					 curr_index = (startIndex);
+
 				  
 			  }
 	
@@ -540,7 +541,7 @@ aa =0;
 if(that.container){	
 if(current_select){
 	
-jj =  (((current_select*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);		
+jj =  ((((current_select)*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);		
 }else{
 	
 jj =  ((((hh)*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);	

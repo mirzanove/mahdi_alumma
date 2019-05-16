@@ -108,19 +108,19 @@ location.reload();
 if(localStorage.getItem("NDmode")){	
 if(localStorage.getItem("NDmode")=="night"){
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الصباحي";	
 	
 }
 else{
 
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الليلي";
 	
 }
 }
 else{
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الليلي";	
 
 	
 }
@@ -229,11 +229,8 @@ function gotoBottom(id){
 function scrollTo_down(){
 
 document.getElementsByClassName("loading2")[0].style.display = 'block';
-
-//gotoBottom("three2");
-
-//three.scrollTop = 400000000;
-
+git =true;
+gotoBottom("three2");
 setTimeout(function() {
  gotoBottom("three2");
  document.getElementsByClassName("loading2")[0].style.display = 'none'}, 200);

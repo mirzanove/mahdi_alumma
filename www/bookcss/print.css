@@ -177,6 +177,22 @@ table{
 	
 } 
  
+a:link {
+    color: #417394;
+    font-weight: bold;
+    text-decoration: none;
+} 
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid;
+    line-height: 180%;
+} 
+
+.bbcode_container{border-left: 1px solid silver;border-right: 2px solid silver;border-bottom: 2px solid silver;border-top: 1px solid silver;}
+.new_qts,.qts_link{color: #000000;text-align: center;background-color: #F5F5DC;padding: 5px;border: solid 1px #000000;}
+
+
  
  
 #overlay_print,#text,.header_topic{
@@ -194,7 +210,8 @@ table{
 ,hr
 ,.selecth1FontFamily
 ,.footer
-,.modal{
+,.modal
+,.bbcode_img2{
  display:none!important;
 }
 

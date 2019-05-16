@@ -114,13 +114,13 @@ $('#popupMenu2').css('height', 'auto');
 if(localStorage.getItem("NDmode")){	
 if(localStorage.getItem("NDmode")=="night"){
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الصباحي";	
 	
 }
 else{
 
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الليلي";
 	
 }
 }

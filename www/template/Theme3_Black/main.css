@@ -15,6 +15,10 @@
  overflow:hidden!; 
  
 }
+.number{
+	
+	float:right;
+}
 
 
 .enable_edit{
@@ -3741,7 +3745,7 @@ left:0px;
          font-size: 15px;
          }
         .drop{
-padding:0px;
+padding:2px;
 display:block;
 border-style: solid;
 border-color: black;

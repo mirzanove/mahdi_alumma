@@ -460,19 +460,19 @@ document.getElementById("myDropdown").style.height = "auto";
 if(localStorage.getItem("NDmode")){	
 if(localStorage.getItem("NDmode")=="night"){
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الصباحي";	
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الصباحي";	
 	
 }
 else{
 
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الليلي";
 	
 }
 }
 else{
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الليلي";	
 
 	
 }
@@ -948,10 +948,10 @@ setTimeout(function() { document.getElementsByClassName("loading2")[0].style.dis
 
 
 function scrollTo_down(e){
-	
+
 if(!($('#searchresults').hasClass("rh-hide"))) 
 {
-
+git =true;
 toc = document.getElementById('searchresults');	
 
 }

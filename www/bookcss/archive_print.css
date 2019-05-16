@@ -87,37 +87,9 @@ html, body {
 }
 
 
-
-u{text-decoration: none;border-bottom: 1px solid;line-height: 180%}
-
-.posttext {/*line-height: 10000%;*/}
-
-
-div.posttext {/*font-family:'Lateef', serif;padding:15px;*/}
-
-a:link{color: #417394;font-weight: bold;text-decoration: none;}
-
-a:visited {color: #417394;font-weight: bold;text-decoration: none;}
-
-.new_qts,.qts_link{color: #000000;text-align: center;background-color: #F5F5DC;padding: 5px;border: solid 1px #000000;}
-
-body{background-color :white;}
-
-.img_center{color :black;}
-
-.page-break{page-break-after: always;}
-
-.thread_title,hr,#copyright,.org, 
-
-.posttop,.tooltip2,.bbcode,.tooltip3,#pagenumbers,.pda,#navbar{display:none;}
-
-.bbcode_container{border-left: 1px solid silver;border-right: 2px solid silver;border-bottom: 2px solid silver;border-top: 1px solid silver;}
-.selecth1FontFamily{
-	
-display:none;	
-	
-}	  
-	  
+ 
+ 
+ 
 pdf,
 up,
 div,
@@ -161,7 +133,8 @@ tfoot,
 thead,
 tr,
 th,
-td {
+td ,
+table{
 	margin: 0;
 	padding: 0;
 	font: inherit;
@@ -170,63 +143,9 @@ td {
 	
 	/*transform: translate3d(0,0,0);*/
 	
-}
-
-
-html, body {
-direction: rtl;
-overflow:hidden;
-background:white;
-/*zoom:65%;*/
-}
-
-html {
-overflow:auto;
-
-}
-
-*{
--webkit-touch-callout:default; /* iOS Safari */
-    -webkit-user-select: text; /* Safari */
-     -khtml-user-select: text; /* Konqueror HTML */
-       -moz-user-select: text; /* Firefox */
-        -ms-user-select: text;/* Internet Explorer/Edge */
-		 -o-user-select: text;
-            user-select: text; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */	
-}
-
-.posttop,#navbar,.thread_title,.selecth1FontFamily,.tooltip4,#pagenumbers,hr,.footer{
-display: none;
-}
-
-
-.sheet .header{
-display: none;
-}
-
-.sheet .footer{ 
-display: none;
-}
-
-#page_template{
-display: none;
-}
-
-.page-break{page-break-after: always;}
-span.columnbreak { display:none;}
-@media print {
-html, body {
-zoom:100%;
-}
-
-.page-break{page-break-after: always;}
-#theDiv {
-    display: none;
-}
-
-}
-
+} 
+ 
+ 
 #theDiv {
     position: fixed;
     top: 40%;
@@ -240,4 +159,56 @@ zoom:100%;
 	text-align:center;
 	padding:10px;
 	zoom:150%;
+} 
+ 
+ 
+ 
+ 
+a:link {
+    color: #417394;
+    font-weight: bold;
+    text-decoration: none;
+} 
+
+u {
+    text-decoration: none;
+    border-bottom: 1px solid;
+    line-height: 180%;
+} 
+
+.bbcode_container{border-left: 1px solid silver;border-right: 2px solid silver;border-bottom: 2px solid silver;border-top: 1px solid silver;}
+.new_qts,.qts_link{text-align: center;background-color: white;padding: 5px;border: solid 1px #000000;}
+
+
+ 
+ 
+#overlay_print,#text,.header_topic{
+
+ display:none!important;
+}
+ 
+ 
+#navbar
+,#pagenumbers
+,.tooltip4
+,.thread_title
+,.posttop
+,#copy_tooltip
+,hr
+,.selecth1FontFamily
+,.footer
+,.modal
+,.bbcode_img2
+,.header
+,.footer{
+ display:none!important;
+}
+
+body,html{
+	background-color:white;
+	overflow:auto!important;
+}
+
+.page-break{page-break-after: always!important;}
+
 }

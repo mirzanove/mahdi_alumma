@@ -36,14 +36,14 @@ logo = document.getElementById('fullscreenid');
 }
 	if(gg == "full"){
 		 if(FullS)
-		FullS.innerHTML="تعطيل الحجم الكلي F11";
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تعطيل الحجم الكلي F11";
 	
 	    if(logo)
         logo.src = ''+url+'clientscript/images/fullSoff.png';	
 	}
 	else{
 		 if(FullS)
-		FullS.innerHTML="تحجيم كلي للشاشة F11";
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تحجيم كلي للشاشة F11";
 	
 	if(logo)
 	    logo.src = ''+url+'clientscript/images/fullSon.png';	
@@ -58,7 +58,7 @@ logo = document.getElementById('fullscreenid');
 }
 	if(gg == "full"){
 		 if(FullS)
-		FullS.innerHTML="تعطيل الحجم الكلي F11";	
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تعطيل الحجم الكلي F11";	
 	
 	if(logo)
 		logo.src = ''+url+'clientscript/images/fullSoff.png';
@@ -66,7 +66,7 @@ logo = document.getElementById('fullscreenid');
 	else{
 		
 		 if(FullS)
-		FullS.innerHTML="تحجيم كلي للشاشة F11";
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تحجيم كلي للشاشة F11";
       if(logo)  	
 	 logo.src = ''+url+'clientscript/images/fullSon.png';
 	}
@@ -81,7 +81,7 @@ logo = document.getElementById('fullscreenid');
 }
 	if(gg == "full"){
 	    if(FullS)
-		FullS.innerHTML="تعطيل الحجم الكلي F11";	
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تعطيل الحجم الكلي F11";	
 		if(logo)
 		logo.src = ''+url+'clientscript/images/fullSoff.png';
 
@@ -90,7 +90,7 @@ logo = document.getElementById('fullscreenid');
 	}
 	else{
 		if(FullS)
-		FullS.innerHTML="تحجيم كلي للشاشة F11";
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تحجيم كلي للشاشة F11";
 		if(logo)
        	 logo.src = ''+url+'clientscript/images/fullSon.png';	
 	}
@@ -103,7 +103,7 @@ logo = document.getElementById('fullscreenid');
 }
 	if(gg == "full"){
 		 if(FullS)
-		FullS.innerHTML="تعطيل الحجم الكلي F11";
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تعطيل الحجم الكلي F11";
 		if(logo)
 		logo.src = ''+url+'clientscript/images/fullSoff.png';
 	
@@ -112,7 +112,7 @@ logo = document.getElementById('fullscreenid');
 	}
 	else{
 		if(FullS)
-		FullS.innerHTML="تحجيم كلي للشاشة F11";
+		FullS.innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تحجيم كلي للشاشة F11";
        	if(logo)
 		 logo.src = ''+url+'clientscript/images/fullSon.png';
 	}
@@ -145,12 +145,12 @@ if(localStorage.getItem("fullsmode")== "true"){
         }
 
 if(document.getElementById('FullS'))
-document.getElementById('FullS').innerHTML="تعطيل الحجم الكلي F11";
+document.getElementById('FullS').innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تعطيل الحجم الكلي F11";
 
 }
 else{
 if(document.getElementById('FullS'))	
-document.getElementById('FullS').innerHTML="تحجيم كلي للشاشة F11";
+document.getElementById('FullS').innerHTML="<span class =\"number\">&nbsp;3-&nbsp;</span>تحجيم كلي للشاشة F11";
 }
 
 

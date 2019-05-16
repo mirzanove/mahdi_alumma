@@ -3670,7 +3670,7 @@ var x = document.getElementById("wSearch");
 if (x === document.activeElement) {
 
 } else {
-  if(document.getElementById("three").className != "clusterize-scroll searchresults left-pane search-content")	
+  if(document.getElementById("three").className.includes("layout-visible"))	
   {
 	
 	  go_index();

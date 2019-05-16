@@ -23,6 +23,12 @@ input:-webkit-autofill:active  {
 }
 
 
+.number{
+	
+	float:right;
+}
+
+
 .tdsearch{
 
 background:white;border-top-right-radius:10px;border-bottom-right-radius:10px;	
@@ -209,7 +215,7 @@ body #myDropdown{
   
 }
 .drop{
-padding:0px;
+padding:2px;
 display:block;
 border-style: solid;
 border-color: black;

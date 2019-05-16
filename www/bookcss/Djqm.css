@@ -8,6 +8,12 @@ input:-webkit-autofill:active  {
 	
 	
 }
+
+.number{
+	
+	float:right;
+}
+
 #two {
   scrollbar-color: #a6a0a0 black;
 }
