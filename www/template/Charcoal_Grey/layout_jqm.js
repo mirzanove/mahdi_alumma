@@ -89,9 +89,12 @@ location.reload();
 
 
 
-
-
 $(document).ready(function(){
+
+
+
+	
+
 
 
 
@@ -148,7 +151,7 @@ document.getElementById('three2').addEventListener('wheel',function (event){
   
    
 	
-	console.log( 'Scrolling' );
+	//console.log( 'Scrolling' );
 	// Clear our timeout throughout the scroll
 	window.clearTimeout( isScrolling );
 	

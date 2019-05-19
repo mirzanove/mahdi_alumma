@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>VScroll Responsive Grid Example</title>
+
+    <style>
+        
+        .item {
+            height: 50px;
+            width: 300px;
+            float: left;
+            line-height: 50px;
+            border: 1px solid #eee;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Container -->
+    <div id="mycontainer"></div>
+
+    <!-- VScroll file -->
+    <script src="../dist/vscroll.min.js"></script>
+
+    <!-- Initializer -->
+    <script>
+        
+        // For sake of example:
+        function createArrayOfNumbers(N) {
+            return Array.apply(null, {length: N}).map(Number.call, Number)
+        };
+        
+        // An array of records, could contain anything, not just numbers.
+        var myData = createArrayOfNumbers(1000) // [0, 1, 2, ... 100000];
+
+        // Template function must return HTML element
+        var createTemplateFunction = function(item, index, startIndex, endIndex) {
+
+            // Create your HTML template of each record, it could be anything, an img, li, div etc.
+            var div = document.createElement('div');
+            div.className = 'item';
+            div.textContent = item;
+
+            return div;
+
+        };
+
+        // Your options Object
+        var options = {
+            container: "#mycontainer",
+            data: myData,
+            itemHeight: 50, // which's the default
+            itemWidth: 300,
+            responsive: true,
+            createItem: createTemplateFunction
+        };
+
+        // Initialize VScroll
+        var myScroll = new VScroll(options);
+    </script>
+
+</body>
+
+</html>

@@ -8,7 +8,7 @@ var useFilter = true;
 var useFacebook = false;
 var useTwitter = false;
 var useSocial = true;
-var defaultPane = 'search';
+var defaultPane = 'fts';
 var mobileTocDrilldown = true;
 var useANDsearch = true;
 var maxResults = 15;	
@@ -31,7 +31,7 @@ var tablet_max_width = 1295;
 	features.delay_load_glo = delayLoadGlo;
 	features.filter = useFilter;
 	
-	rh.model.publish(rh.consts('KEY_DEFAULT_TAB'), defaultPane);
+	//rh.model.publish(rh.consts('KEY_DEFAULT_TAB'), defaultPane);
 
 	//If there are are no panes available
 	if (!useTOC && !useGLO && !useIDX) {

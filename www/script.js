@@ -146,7 +146,10 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 
 git = false;
 stop = true; 
-  
+if(resizeDone){
+    go_index();
+	
+}else{
 setTimeout(function() { 
   
    if(window.myScroll){ 
@@ -158,7 +161,7 @@ setTimeout(function() {
    stop = false; 
 			
 }, 300);
-
+}
 }
 
 

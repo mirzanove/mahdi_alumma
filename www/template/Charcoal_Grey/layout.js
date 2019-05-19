@@ -293,6 +293,13 @@ function  go_topic(){
 }
 
 function chkbookmark(thiss){
+setTimeout(function() { 
+if (!thiss.className.includes("active")){
+window.history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, ""));
+}	
+}, 100);	
+	
+	
 if(thiss.className == "toc active"){
 setTimeout(function() { 
 			 

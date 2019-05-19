@@ -22,6 +22,18 @@ input:-webkit-autofill:active  {
 	
 }
 
+.enable_edit{
+	
+ -webkit-touch-callout:default; /* iOS Safari */
+    -webkit-user-select: text; /* Safari */
+     -khtml-user-select: text; /* Konqueror HTML */
+       -moz-user-select: text; /* Firefox */
+        -ms-user-select: text;/* Internet Explorer/Edge */
+		 -o-user-select: text;
+            user-select: text; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */		
+}
+
 
 .number{
 	

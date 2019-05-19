@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>VScroll List Example</title>
+
+    <style>
+      #header{
+	   height: 88px;
+	   border: 1px solid black;
+	  
+	  }
+	  
+	  
+	  #footer{
+	   height:100px;
+	   border: 1px solid black;
+	  
+	  }
+	  *{
+	  overflow:hidden;
+	  }
+	  #scroll{
+	  position:absolute;
+	  top:0px;
+	  bottom:0px;
+	  right:0px;
+	  left:0px;
+	  overflow:auto;
+	 /* padding:20px;*/
+	  background:grey
+	  }
+        .item {
+            height: 78px;
+            border: 1px solid black;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+
+   <div id="scroll">
+    <div id="header">cccccc</div>
+    <div id="mycontainer"></div>
+    <div id="footer">cccccc</div>
+   </div>
+
+    <!-- VScroll file -->
+    <script src="vscroll.js"></script>
+
+    <!-- Initializer -->
+    <script>
+        
+        // For sake of example:
+        function createArrayOfNumbers(n) {
+            
+            var array = new Array(n);
+            
+            var i = 0;
+            for (; i < n; i++) array[i] = i + 1;
+            
+            return array;
+            
+        };
+        
+        // An array of records, could contain anything, not just numbers.
+        var myData = createArrayOfNumbers(50) // [1, 2, 3, ... 1000];
+
+        // Template function must return HTML element
+        var createTemplateFunction = function(item, index, startIndex, endIndex) {
+
+            // Create your HTML template of each record, it could be anything, an img, li, div etc.
+            var div = document.createElement('div');
+            div.className = 'item';
+            div.textContent = item;
+
+            return div;
+
+        };
+
+        // Your options Object
+        var options = {
+            container: "#mycontainer",
+			scrollParent:"#scroll",
+			scrollOffset:88,
+			offsetAfter:0,
+            data: myData,
+			buffer:1,
+            smartBuffer: false,
+			responsive:false,
+            itemHeight: 78, // which's the default
+            createItem: createTemplateFunction
+        };
+
+        // Initialize VScroll
+        window.myScroll = new VScroll(options);
+    </script>
+
+</body>
+
+</html>

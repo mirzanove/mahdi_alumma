@@ -177,6 +177,14 @@ table{
 	
 } 
  
+ 
+ em {
+
+    font-style: normal;
+}
+ 
+ 
+ 
 a:link {
     color: #417394;
     font-weight: bold;

@@ -63,10 +63,12 @@ setTimeout(function() {
       window.myScroll.scrollto(curr_index);
    
    }
-   //git =true;
+
    stop = false; 
-   //git =true;			
-}, 500);
+
+
+resizeDone =false;   
+}, 200);
 
 //document.getElementsByClassName("loading2")[0].style.display = 'none';
 }
@@ -105,7 +107,9 @@ $(document).on("mobileinit", function(){
     $(document).bind('mobileinit', function () {
         $.mobile.activeBtnClass = 'unused';
     });
-</script>
+
+	
+	</script>
   
   <script src="jqmlib/rtl.jquery.mobile-1.4.0.js"></script> 
   <script src="script.js"></script>
@@ -295,6 +299,8 @@ $(document).on("mobileinit", function(){
 
 
 <div id ="search_header"  data-role="header" >
+
+
 <iframe name="my_iframe" style="display:none" src="about:blank"></iframe>
 <form id ="searhcform" class = "searchform" target="my_iframe" action="about:blank">
 	<table style='width:100%'>
@@ -309,7 +315,7 @@ $(document).on("mobileinit", function(){
 	<form action="" method="post" autocomplete="on">
  
 	 <td>
-	<input id = "wSearchField" autocomplete="on" class="wSearchField" name="user" type="search"  data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
+	<input id = "wSearchField" autocomplete="on" class="enable_edit wSearchField" name="user" type="search"  data-class="no-filter: !@KEY_FEATURE.filter" data-attr="placeholder: @KEY_LNG.Search"
 	data-value="KEY_SEARCH_TERM" data-keyup="$mc.newSearch(node.value, event.keyCode, event)"/>   
 	 </td>
 	  
@@ -399,11 +405,11 @@ $(document).on("mobileinit", function(){
 <form id="bookmarksForm"  onsubmit="return false">
 			<div class="form-group">
 			    <label style ="font-weight:bold;">عنوان الموضوع:</label>
-			    <input style= "padding-right: 0.75em !important;" type="search" class="form-control" autocomplete="off" id="websiteName" placeholder="عنوان الموضوع">
+			    <input style= "padding-right: 0.75em !important;" type="search" class="enable_edit form-control" autocomplete="off" id="websiteName" placeholder="عنوان الموضوع">
 			 </div>
 			 <div class="form-group" style = "display:none;">
 			    <label>رابط الموضوع</label>
-			    <input  type="text" class="form-control" id="websiteUrl" placeholder="Website URL">
+			    <input  type="text" class="enable_edit form-control" id="websiteUrl" placeholder="Website URL">
 			 </div>
 			 <center><button id ="bookit" type="submit" class="btn btn-lg btn-primary">حفظ في المفضلة</button></center>
 			 <br>
@@ -454,10 +460,10 @@ $(document).on("mobileinit", function(){
 		</div>
 		
 <div id="mycontainer"></div>
-<div id="end" class ="rh-hide"><span>نهاية نتائج البحث</span></div>
+<div  id="end" class ="rh-hide">نهاية نتائج البحث</div>
 		
 		
-		<div data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" >
+		<div style ="display:none;" data-if="@.l.results_loaded && @.p.searchresults.length && !@EVT_SEARCH_IN_PROGRESS" >
 			<span>نهاية نتائج البحث</span>
 		</div>
 	</div>

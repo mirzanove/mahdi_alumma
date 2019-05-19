@@ -1,6 +1,3 @@
-var git =true;
-
-
 (function (window, document) {
 
     'use strict';
@@ -141,21 +138,15 @@ var git =true;
             
 			  if(that.onetime){
 				
-				   that.cutNodeN = _endIndex + (that.buffer * 2);
+				   
 				
 				that.onetime = false;
 			}
-			 
+			that.cutNodeN = _endIndex + (that.buffer * 2); 
 			
 			that.scrollOffset= (that.container.offsetTop);
 			
-	 if(that.itemsWrapper.childNodes[0]){
-	//console.log(git);
 	
-	if(git == true){
-    curr_index = Math.floor((that.scrollParent.scrollTop- that.offsetBefore - that.scrollOffset) / that.itemHeight) * that.columns;
-	}
-	}
 			
             // When it comes to endIndex, we append and remove what we calcaute
             if (endIndex > that.lastEndIndex) {
@@ -194,31 +185,39 @@ var git =true;
 				
 				}				
 
+
+//console.log((startIndex - that.lastStartIndex)+" "+that.itemsWrapper.childNodes.length -that.cutNodeN+" "+that.itemsWrapper.childNodes.length);	
+
+
+;	
 var gg= (that.itemsWrapper.childNodes.length -that.cutNodeN);
                 if ((startIndex - that.lastStartIndex) >= that.columns) {
 
-
-	
-			 if(gg>=0){
+		console.log(gg);	
+			
+	 if(gg>=0){
 			removeArrayOfElements(_slice.call(that.itemsWrapper.childNodes, 0, (that.itemsWrapper.childNodes.length -that.cutNodeN))); 
-	         }
+	 }
 			
              if(gg>0){
 			
 			
 				changed = true; 
-				//console.log(gg);
+				console.log(gg);
 			 }
-        
+			
+				
+            
 					
-            };
+					
+                };
+				
+				
 				
 				
 			if(document.getElementById(current_select)){
 	                 document.getElementById(current_select).className = "wSearchResultTitle curr";
 					 }	
-				
-				
 				
 				
 
@@ -233,12 +232,15 @@ var gg= (that.itemsWrapper.childNodes.length -that.cutNodeN);
                     that.itemsWrapper.insertBefore(getFrag(that.data, startIndex, that.lastStartIndex, that), that.itemsWrapper.firstChild);
                     changed = true;
 					that.paddingvalue =0;
+					
+					if(document.getElementById(current_select)){
+	                 document.getElementById(current_select).className = "wSearchResultTitle curr";
+					 }
+		
 					//that.onetime2= true;
 
                 };
-              if(document.getElementById(current_select)){
-	                 document.getElementById(current_select).className = "wSearchResultTitle curr";
-					 }
+
             };
 
             // When startIndex changed, update paddingTop
@@ -252,18 +254,13 @@ var gg= (that.itemsWrapper.childNodes.length -that.cutNodeN);
 			
 			
 			if (changed) {
-if(git == true){
-				
-					// curr_index = (startIndex);  
-				  
-			  }
-	
-				that.lastStartIndex = startIndex;
-				
-			    git =true;	
 
+			that.lastStartIndex = startIndex;
+		   //if(that.onetime2){
 			that.wrapper.style.paddingTop = ((((startIndex) * that.itemHeight / that.columns) + that.offsetBefore))+ 'px';
-		
+		    //that.paddingvalue = ((((startIndex-10) * that.itemHeight / that.columns) + that.offsetBefore));
+		     
+		   //}
 
 
             };
@@ -285,8 +282,8 @@ if(git == true){
                 _dataLength++;
 
             };
-           // that.extra =50;
-            that.container.style.minHeight = ((calcHeight / that.columns) + that.offsetBefore + that.offsetAfter)+ 'px';
+            that.extra =50;
+            that.container.style.minHeight = ((calcHeight / that.columns) + that.offsetBefore + that.offsetAfter)+that.extra+ 'px';
             
             return that;
 
@@ -360,8 +357,8 @@ if(git == true){
             that.scrollParent.removeEventListener('scroll', that._scrollEvent, false);
             window.removeEventListener('resize', that._resizeEvent, false);
 
-            that.container.style.minHeight = null;
-          
+            that.container.style.height = null;
+            
             // Clear
             // Note: We do this to perfect everything for checks and all.
             for (var key in that) delete that[key];
@@ -378,29 +375,17 @@ if(current_select){
 	
 jj =  (((current_select*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);		
 }else{
-		
-if(hh!=null){
-if(hh >=0){	
-
+	
 jj =  ((((hh)*(that.itemHeight*1))/that.columns)+that.offsetBefore +that.container.offsetTop);	
 
 }
 }
-}
-}
           
- git=false;
+ 
 if(that.scrollParent){
 	
 that.scrollParent.scrollTop = (jj);	
-
-setTimeout(function(){ 
-			
-that.scrollParent.scrollTop = (jj);	
-git = true;				
-			}, 50);
-
-
+	
 }
 
 
@@ -411,9 +396,7 @@ if(document.getElementById(current_select)){
 
 document.getElementsByClassName("loading2")[0].style.display = 'none';
 
-
-
-}
+        }
 
     };
 

@@ -3151,7 +3151,7 @@ longest="";
 				
 			array[i] = '<div  class = "itemcon">'+
 			'<a class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
-			   '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			   '<div onclick = "highlite(this);" id = "'+(i)+'" class="wSearchResultTitle">'+(i+1)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
 			  '</a>'+
 			  '<div class="">'+
 			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
@@ -3193,6 +3193,7 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
 			var maxtext= "";
 			var lgth = 0;
 			var count =0;
+			
             var array = new Array();	
 				//alert(i);
 			for( ; (i < a_QueryResultArray.length); i++ )
@@ -3216,7 +3217,7 @@ function generate_search_results(a_QueryResultArray,strParams,i,g_nMaxResult,g_C
                 
 		      array[count] = '<div  class = "itemcon">'+
 			   '<a onclick="go_topic(event);" class="nolink" href="'+a_QueryResultArray[i].strUrl+strParams+'&hit=null">'+
-			    '<div onclick = "highlite(this);" id = "'+(count)+'" class="wSearchResultTitle">'+(i)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
+			    '<div onclick = "highlite(this);" id = "'+(count)+'" class="wSearchResultTitle">'+(i+1)+"- "+a_QueryResultArray[i].strTitle+'</div>'+
 			  '</a>'+
 			  '<div class="">'+
 			     '<span class="">'+a_QueryResultArray[i].strSummary+'</span>'+
@@ -3291,11 +3292,11 @@ if(data ==true){
 
 test_item_hight(longest);
 		
-//alert(longest);
+
         // Template function must return HTML element
         
 		longestH= (longestH);
-		//alert(longestH);
+		//alert(conoffset);
 		var createTemplateFunction = function(item, index, startIndex, endIndex) {
 
             // Create your HTML template of each record, it could be anything, an img, li, div etc.
@@ -3315,6 +3316,7 @@ test_item_hight(longest);
 			container: "#"+_container,
             scrollParent: "#"+_scrollParent,
             data: myData,
+			buffer:2,
             smartBuffer: false,
             itemHeight: longestH, // which's the default
             createItem: createTemplateFunction,
@@ -3388,11 +3390,11 @@ test_item_hight(longest);
 		if(getbooleanindexopage()==3) {
 		 
 		   if($(window).innerWidth() >= em(81)){
-			
+			// alert(conoffset);
 		   }else{
 
-           conoffset= 230;
-		   //alert();
+           //conoffset= 230;
+		  
 		   }		   
          
 		 
@@ -3405,6 +3407,7 @@ test_item_hight(longest);
             container: "#"+_container,
             scrollParent: "#"+_scrollParent,
             data: myData,
+			buffer:2,
             smartBuffer: false,
             itemHeight: longestH, // which's the default
             createItem: createTemplateFunction,
@@ -3525,7 +3528,7 @@ function displayTopics( a_QueryResult )
 		    a_QueryResultt = a_QueryResult.aTopics;
             strParamss=strParams ;
 	        data =true;
-			curr_index =0;
+			curr_index =null;
 			current_select =null;	
 			end = false;
 		
@@ -3549,7 +3552,7 @@ function displayTopics( a_QueryResult )
 			if(document.getElementById("searchresults").className != "rh-hide")
             document.getElementsByClassName("loading2")[0].style.display = 'none';
 			
-			}, 200);
+			}, 100);
 
              
 			 
@@ -3607,7 +3610,9 @@ function displayTopics( a_QueryResult )
 		    a_QueryResultt = a_QueryResult.aTopics;
             strParamss=strParams ;
 	        data =true;
-			curr_index =0;
+			
+			curr_index =null;
+		
 			current_select =null;
 
 			lunch_vlist(a_QueryResult.aTopics,strParams,"mycontainer","three2");
@@ -3635,6 +3640,7 @@ hidload = false;
 
 
 var resizeId;
+var resizeDone= false;
 window.addEventListener('resize', function() {
     clearTimeout(resizeId);
     if(a_QueryResultt){
@@ -3647,7 +3653,9 @@ function doneResizing(){
 //document.getElementsByClassName("loading2")[0].style.display = 'block';	
 	
 	if (typeof getbooleanindexopage !== "undefined") { 
-		if(getbooleanindexopage()==3) {
+	
+	
+if(getbooleanindexopage()==3) {
 	
 			 
 			
@@ -3656,28 +3664,35 @@ if (x === document.activeElement) {
 
 } else {
 	
-  if(document.getElementById("searchresults").className != "rh-hide")	
+  if(document.getElementById("searchresults").className != "rh-hide"){	
   go_index();
+  }
+  else{
+	 resizeDone = true; 
+  }
 }			 
 			 
-		}
-		else{
-	
 
-if(getbooleanindexopage()==2){
+			 
+}
+else if(getbooleanindexopage()==2){
 	
 var x = document.getElementById("wSearch");
 if (x === document.activeElement) {
 
-} else {
+} 
+else {
   if(document.getElementById("three").className.includes("layout-visible"))	
   {
-	
+	//alert();
 	  go_index();
 
+  }else{
+	 resizeDone = true; 
   }
 }	
 }
+
 else{
 	
 
@@ -3689,16 +3704,18 @@ if (x === document.activeElement) {
   if(!document.getElementById("three").className.includes("visibility")){
 	 go_index();  
   }
+  else{
+	 resizeDone = true; 
+  }
+
 }
 
 	
 }
-	
- 
-	
+
 		}
+	
 	}	
-}
 
 
 

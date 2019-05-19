@@ -87,7 +87,7 @@ document.getElementById('searchresults').addEventListener('wheel',function (even
   
    
 	
-	console.log( 'Scrolling' );
+	//console.log( 'Scrolling' );
 	// Clear our timeout throughout the scroll
 	window.clearTimeout( isScrolling );
 	
@@ -231,7 +231,7 @@ setTimeout(function() {
    }
    //git =true;
    stop = false; 
-   //git =true;			
+   resizeDone =false;		
 }, 300);
 
 //document.getElementsByClassName("loading2")[0].style.display = 'none';
@@ -494,9 +494,9 @@ document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nb
 
 	
 	
-$(window).on('hashchange', function() {
+/*$(window).on('hashchange', function() {
   
- 
+
  if (window.location.hash.includes('&ux=search')) { 
        //alert(window.location.hash);
 		
@@ -522,7 +522,7 @@ $(window).on('hashchange', function() {
   }
  
  
-});	
+});	*/
 	
 if($(window).innerWidth() >= em(59.49) && $(window).innerWidth() <= em(80.99)){
 
@@ -614,10 +614,7 @@ removeClass(document.getElementById("tocold"),"rh-hide");
 	 document.getElementById("tocold").classList.remove("rh-hide");
 	
 	
-	if(document.location.href.indexOf("&ux=bookmark")== -1){
-	//history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(search)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=bookmark");
-	}		 
-			
+	history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, "")+"&ux=bookmark");	
 
 
 	
@@ -708,7 +705,7 @@ document.getElementById("searchresults").className = "rh-hide";
 document.getElementById("tocold").className = "rh-hide";
 removeClass(document.getElementById("iframe"),"rh-hide");
 
-
+	
 window.history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, ""));
 
 //document.getElementsByClassName("loading2")[0].style.display = 'none'; 
@@ -896,9 +893,9 @@ removeClass(document.getElementById("searchresults"),"rh-hide");
 
     document.getElementById("searchresults").removeAttribute("hidden");
 	document.getElementById("searchresults").classList.remove("rh-hide");
-	if(document.location.href.indexOf("&ux=search")== -1){
-history.replaceState(null, null, location.hash.replace(/(.*?)(\&|#)ux\=(bookmark)(.*?)(&([^"]*)|$)/mg, "$1")+"&ux=search");
-	}	
+	
+        history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, "")+"&ux=search");
+		
 		
 
 
@@ -1505,7 +1502,10 @@ document.getElementsByClassName("loading2")[0].style.display = 'block';
 	
 git = false;
 stop = true; 
-  
+if(resizeDone){
+	go_index();
+	
+} else{
 setTimeout(function() { 
 
    if(window.myScroll){ 
@@ -1517,7 +1517,7 @@ setTimeout(function() {
    stop = false; 
 			
 }, 300);
- 
+}
 	
 }
 	
