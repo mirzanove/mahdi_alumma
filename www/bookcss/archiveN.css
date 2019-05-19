@@ -67,7 +67,7 @@ td {
 
 #wrapper::-webkit-scrollbar {
     width: 10px;
-    height: 15px;
+    height: 10px;
 }
 
 #wrapper::-webkit-scrollbar-track-piece  {

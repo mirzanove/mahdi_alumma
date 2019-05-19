@@ -435,12 +435,15 @@ function printt(mode){
                 } else {
                    // jQueryD_1_4_2("html,body").css("height", "100%");
 					 resize(jQueryD_1_4_2("html"));
-                }
+     
+	 }
 
-
-    if (window.matchMedia) {
+   /* if (window.matchMedia) {
+	
         var mediaQueryList = window.matchMedia('print');
-        mediaQueryList.addListener(function(mql) {
+console.log(mediaQueryList);
+		
+		mediaQueryList.addListener(function(mql) {
             if (mql.matches) {
                 beforePrint();
             } else {
@@ -448,12 +451,19 @@ function printt(mode){
             }
         });
     }
+	else
+	{
+		
+    // basically a fallback for < IE11
+    window.addEventListener('beforeprint', beforePrint, false);
+    window.addEventListener('afterprint', afterPrint, false);
+  }*/
 
-    window.onbeforeprint = beforePrint;
+     beforePrint();
     //disable_resoures =true;
 	window.print();
 	
-	window.onafterprint = afterPrint;
+    afterPrint();
 
 
 	//location.reload();
@@ -492,7 +502,7 @@ function printt(mode){
                 }
 
     
-    if (window.matchMedia) {
+    /*if (window.matchMedia) {
         var mediaQueryList = window.matchMedia('print');
         mediaQueryList.addListener(function(mql) {
             if (mql.matches) {
@@ -501,17 +511,21 @@ function printt(mode){
                 afterPrint(mode);
             }
         });
-    }
+    }*/
 
-    window.onbeforeprint = beforePrint;
+   /* window.onbeforeprint = beforePrint;
 
 	window.print();
 	
-	window.onafterprint = afterPrint;
+	window.onafterprint = afterPrint;*/
 
 
 	
-
+    beforePrint();
+    //disable_resoures =true;
+	window.print();
+	
+    afterPrint();
 	
 	
 	

@@ -37,35 +37,9 @@ $(".ui-content").height(content);*/
 */
 
 
+ function go_topicc(){
+	 
 
- 
-
-
-$(document).on("pageshow", "[data-role='page']", function(){
-
-//alert("gggggg");
-
-
-
-	
-$("#home_header").removeClass("hide").trigger('resize');
-$("#toc_header").addClass("hide");
-$("#search_header").addClass("hide");
-
-$("#home_footer").removeClass("hide").trigger('resize');
-$("#toc_footer").addClass("hide");
-$("#search_footer").addClass("hide");	
-
-$(".tabView").addClass("visibility");
-$("#one").removeClass("visibility").trigger('resize');
-
-$(".tabButton").on("click", function(){
-
-$(".tabView").addClass("visibility");
-
-var href = $(this).prop("href");
-    
-if(href.substr(href.indexOf('#')) === "#one"){
 $(".tabView").addClass("visibility");	
 
 $("#home_header").removeClass("hide").trigger('resize');
@@ -80,48 +54,15 @@ $("#search_footer").addClass("hide");
 $("#one").removeClass("visibility").trigger('resize');
 $("#content_t").css("overflow"," hidden");
 document.getElementById('iframe').contentWindow.postMessage(["loaddsett",null], "*");
-
-}	 
-else if(href.substr(href.indexOf('#')) === "#two"){
-
-
-$(".tabView").removeClass("ui-content");	
-$("#two").addClass("ui-content");	
-
-$("#home_header").addClass("hide");
-$("#toc_header").removeClass("hide").trigger('resize');
-$("#search_header").addClass("hide");
-
-$("#home_footer").addClass("hide");
-$("#toc_footer").removeClass("hide").trigger('resize');
-$("#search_footer").addClass("hide");	
+window.history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, ""));
+	 
+ }
 
 
-$(".tabView").addClass("visibility").trigger('resize');
-$("#two").removeClass("visibility").trigger('resize');
-$("#content_t").css("overflow"," hidden");
-//var element = document.getElementsByClassName("selected");
 
 
-setTimeout(function() { 
-			  
-			   document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href2",null], "*");
-			
-			 }, 500);
-			 
-//$(".curr")[0].scrollIntoView();			 
-			 
 
-//alert();
-/*var target1 = $.mobile.activePage.find('.selected').get(0).offsetTop;
-var top = $('.selected').position().top+43;
-$("#two").scrollTop( top );*/
-
-	
-}      
-
-else if(href.substr(href.indexOf('#')) === "#three"){
-
+function go_search(){
 $(".tabView").removeClass("ui-content");	
 $("#three").addClass("ui-content");
 
@@ -139,7 +80,7 @@ $("#three").removeClass("visibility").trigger('resize');
 $("#content_t").css("overflow"," hidden");
 
 
-
+history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, "")+"&ux=search");
 
 if(a_QueryResultt){	
 document.getElementsByClassName("loading2")[0].style.display = 'block';	
@@ -164,8 +105,102 @@ setTimeout(function() {
 }
 }
 
+	
+	
+}
+ 
+ 
+ 
+ function go_bookmark(){
 
 
+
+$(".tabView").removeClass("ui-content");	
+$("#two").addClass("ui-content");	
+
+$("#home_header").addClass("hide");
+$("#toc_header").removeClass("hide").trigger('resize');
+$("#search_header").addClass("hide");
+
+$("#home_footer").addClass("hide");
+$("#toc_footer").removeClass("hide").trigger('resize');
+$("#search_footer").addClass("hide");	
+
+
+$(".tabView").addClass("visibility").trigger('resize');
+$("#two").removeClass("visibility").trigger('resize');
+$("#content_t").css("overflow"," hidden");
+//var element = document.getElementsByClassName("selected");
+
+history.replaceState(null, null, location.hash.replace(/\&ux\=(search|bookmark)/mg, "")+"&ux=bookmark");
+
+setTimeout(function() { 
+			  
+			   document.getElementById('iframe').contentWindow.postMessage(["get_ifram_location_href2",null], "*");
+			
+			 }, 500);
+ 
+	
+}
+ 
+
+
+
+
+
+ 
+
+
+$(document).on("pageshow", "[data-role='page']", function(){
+
+//alert("gggggg");
+
+
+
+	
+$("#home_header").removeClass("hide").trigger('resize');
+$("#toc_header").addClass("hide");
+$("#search_header").addClass("hide");
+
+$("#home_footer").removeClass("hide").trigger('resize');
+$("#toc_footer").addClass("hide");
+$("#search_footer").addClass("hide");	
+
+$(".tabView").addClass("visibility");
+
+
+
+if(document.location.href.indexOf("&ux=search")!= -1){
+					go_search();
+				}
+				else if(document.location.href.indexOf("&ux=bookmark")!= -1){
+					go_bookmark();
+				}
+				else{
+					go_topicc();
+				}
+
+
+
+$(".tabButton").on("click", function(){
+
+$(".tabView").addClass("visibility");
+
+var href = $(this).prop("href");
+    
+if(href.substr(href.indexOf('#')) === "#one"){
+
+go_topicc();
+
+}	 
+else if(href.substr(href.indexOf('#')) === "#two"){
+
+go_bookmark();
+}      
+
+else if(href.substr(href.indexOf('#')) === "#three"){
+
+go_search();
 	
 }
 
