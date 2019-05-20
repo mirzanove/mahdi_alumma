@@ -1,4 +1,39 @@
 if (typeof process !== "undefined" && typeof require !== "undefined") {
+
+
+function isTextSelected(textbox) {
+	
+	var selectedText = null;
+   var activeElement = document.activeElement;
+
+   // all browsers (including IE9 and up), except IE before version 9 
+   if(window.getSelection && activeElement && 
+      (activeElement.tagName.toLowerCase() == "textarea" || (activeElement.tagName.toLowerCase() == "input" && activeElement.type.toLowerCase() == "text")) &&
+      activeElement === textbox) 
+   {
+      var startIndex = textbox.selectionStart;
+      var endIndex = textbox.selectionEnd;
+
+      if(endIndex - startIndex > 0)
+      {
+          var text = textbox.value;
+          selectedText = text.substring(textbox.selectionStart, textbox.selectionEnd);
+      }
+   }
+   else if (document.selection && document.selection.type == "Text" &&  document.selection.createRange) // All Internet Explorer
+   {       
+       var range = document.selection.createRange();
+       selectedText = range.text;
+   }    
+
+    return selectedText;
+	
+	
+}
+
+
+
+
 	
 function selectText(containerid) {
     if (document.selection) { // IE
@@ -135,7 +170,7 @@ function selectText(containerid) {
                             if (window.getSelection() != "") {
 
                                 menu.append(new gui.MenuItem({
-                                    label: "نسخ النص"
+                                    label: "نسخ"
                                     , click: function () {
                                         document.execCommand("copy");
                                     }
@@ -228,18 +263,25 @@ function selectText(containerid) {
 								
 								
 var input_target;
+var input_target2;
+var input_target3;
 if(target.className.includes("search-bar")){
 	
 	 input_target = target.childNodes[3].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].value;
-}
-else if(target.className.includes("ui-input-search")){
-
-input_target = target.childNodes[0].value
+     input_target2 = target.childNodes[3].childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1];
 
 	
+	 }
+else if(target.className.includes("ui-input-search")){
+
+input_target = target.childNodes[0].value;
+input_target2 = target.childNodes[0];
+//alert(input_target);
 }
 else{
-	input_target = window.getSelection();
+	
+	input_target3 = window.getSelection();
+	//alert(input_target3);
 }
 
 							/*if (document.selection != "") {
@@ -264,38 +306,58 @@ else{
                                     showcntx = true;
                                 }
 								*/
-								if(input_target){
-								if(input_target!= ""){
+								if(input_target3){
 									
 									
-									menu.append(new gui.MenuItem({
-                                        label: "نسخ النص"
+                                    if(input_target3!=""){
+									
+									      menu.append(new gui.MenuItem({
+                                        label: "نسخ"
                                         , click: function () {
                                             document.execCommand("copy");
                                         }
-                                    }));
+                                       }));
+									
+								    }
+							
+                                    showcntx = true;
+								
+								}
 
+								
+								
                                     if (isEditable() == true) {
+										
+
+									 if(isTextSelected(input_target2)){
+								
+									    menu.append(new gui.MenuItem({
+                                        label: "نسخ"
+                                        , click: function () {
+                                            document.execCommand("copy");
+                                        }
+                                       }));
+									
                                         menu.append(new gui.MenuItem({
-                                            label: "قص النص"
+                                            label: "قص"
                                             , click: function () {
                                                 document.execCommand("cut");
                                             }
                                         }));
+									   
+									   //input_target  = null;
+									   
+									   }
                                     }
 									
-									
-
-                                    showcntx = true;
-								}
-								}
-
+								
+								
                                 if (isEditable() == true) {
 
                                     if (text != "") {
 
                                         menu.append(new gui.MenuItem({
-                                            label: "لصق النص"
+                                            label: "لصق"
                                             , click: function () {
                                                 document.execCommand("paste");
                                             }
