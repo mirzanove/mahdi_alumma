@@ -3,6 +3,7 @@ if (typeof process !== "undefined" && typeof require !== "undefined") {
 
 function isTextSelected(textbox) {
 	
+	
 	var selectedText = null;
    var activeElement = document.activeElement;
 

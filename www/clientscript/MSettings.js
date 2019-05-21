@@ -243,7 +243,7 @@ function font_options(index,selector,strUser){
 					else{
 					  h1.style.fontSize = "115%";	
 					}
-					localStorage.setItem("defaltsize", "100");
+					localStorage.setItem("defaltsize", "115");
 				
 					}
 					

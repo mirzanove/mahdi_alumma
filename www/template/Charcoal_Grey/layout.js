@@ -229,11 +229,17 @@ function gotoBottom(id){
 function scrollTo_down(){
 
 document.getElementsByClassName("loading2")[0].style.display = 'block';
-git =true;
-gotoBottom("three2");
+
 setTimeout(function() {
- gotoBottom("three2");
- document.getElementsByClassName("loading2")[0].style.display = 'none'}, 200);
+three.scrollTop = three.scrollHeight;
+setTimeout(function() {
+three.scrollTop = three.scrollHeight;
+ 
+ document.getElementsByClassName("loading2")[0].style.display = 'none'
+ 
+ }, 50);
+ 
+ }, 100);
 }
 
 document.getElementsByClassName("close")[0].addEventListener("click", close_modal);

@@ -2437,6 +2437,7 @@ jQueryD_1_4_2("em").get(0).scrollIntoView();
 		else{
            
 			highlightDocument();
+			window.parent.postMessage(["loading","stop"], "*");
 			
 		}
 

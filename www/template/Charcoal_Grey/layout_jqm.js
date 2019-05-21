@@ -129,7 +129,7 @@ document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nb
 }
 else{
 
-document.getElementById('NDmode').innerHTML="تعيين التصفح الليلي";	
+document.getElementById('NDmode').innerHTML="<span class =\"number\">&nbsp;2-&nbsp;</span>تعيين التصفح الليلي";	
 
 	
 }

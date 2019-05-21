@@ -970,7 +970,7 @@ setTimeout(function() {toc.scrollTop = toc.scrollHeight+100}, 50);
 
  document.getElementsByClassName("loading2")[0].style.display = 'none'
  
-}, 200);
+}, 100);
 
 }
 else{

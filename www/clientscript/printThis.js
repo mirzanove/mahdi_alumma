@@ -480,12 +480,14 @@ console.log(mediaQueryList);
 	
 	
 	
-		   if (_isMobile() == mobiletrue) {
+		    
+				
+				
+	  if (_isMobile() == mobiletrue) {
                 jQueryM_v1_4_5("html,body").removeAttr('style');
                 } else {
                     jQueryD_1_4_2("html,body").removeAttr('style');
                 }
-	  
 
 	  
 	  

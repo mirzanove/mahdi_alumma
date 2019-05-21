@@ -87,7 +87,7 @@
   right: 0;
   bottom: 0;
 background:black;
-  z-index: 10000; /* Specify a stack order in case you're using a different order for other elements */
+  z-index: 6; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
 }
 

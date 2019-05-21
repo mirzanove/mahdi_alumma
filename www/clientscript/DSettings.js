@@ -263,13 +263,14 @@ else
 					
 					}
 					else{
-					  h1.style.fontSize = "100%";	
+					  h1.style.fontSize = "115%";	
 					}
-					localStorage.setItem("defaltsize", "100");
+					localStorage.setItem("defaltsize", "115");
 				
 					}
 					
 					if(index == 3){
+						
 					h1 = document.getElementById('wrapper');
 					if(localStorage.getItem("currsize")){
 						
